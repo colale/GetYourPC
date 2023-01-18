@@ -1,6 +1,6 @@
 module it.getyourpc.getyourpc {
     requires javafx.controls;
     requires javafx.fxml;
-    opens main to javafx.fxml;
-    exports main;
+    opens home to javafx.fxml;
+    exports home;
 }

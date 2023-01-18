@@ -1,4 +1,4 @@
-package main;
+package home;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("GetYourPC");
         stage.setScene(scene);
