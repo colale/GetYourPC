@@ -1,8 +1,8 @@
-package findPC.appController;
+package find_pc.app_controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class a {
+public class A {
     @FXML
     private Label welcomeText;
 
