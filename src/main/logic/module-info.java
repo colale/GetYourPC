@@ -3,6 +3,6 @@ module it.getyourpc.getyourpc {
     requires javafx.fxml;
     opens home to javafx.fxml;
     exports home;
-    exports fIndPC.appController;
-    opens fIndPC.appController to javafx.fxml;
+    exports findPC.appController;
+    opens findPC.appController to javafx.fxml;
 }

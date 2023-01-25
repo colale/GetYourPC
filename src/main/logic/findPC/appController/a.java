@@ -1,4 +1,4 @@
-package fIndPC.appController;
+package findPC.appController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

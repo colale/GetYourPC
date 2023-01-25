@@ -28,7 +28,7 @@
          <children>
             <BorderPane prefWidth="97.0">
                <center>
-                  <ImageView fx:id="home_img" fitHeight="75.0" fitWidth="100.0" onMouseClicked="#homeClick" onMouseEntered="#img_MouseEntered" onMouseExited="#img_MouseExited" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgHome" fitHeight="75.0" fitWidth="100.0" onMouseClicked="#imgHomeClick" onMouseEntered="#imgMouseEntered" onMouseExited="#imgMouseExited" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/home.png" />
                      </image>
@@ -41,7 +41,7 @@
             <BorderPane />
             <BorderPane>
                <center>
-                  <Button fx:id="searchPC_btn" mnemonicParsing="false" onMouseClicked="#searchPC_click" onMouseEntered="#button_MouseEntered" onMouseExited="#button_MouseExited" prefWidth="283.0" style="-fx-background-color: transparent;" text="Search PC" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnSearchPC" mnemonicParsing="false" onMouseClicked="#btnSearchPCClick" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" prefWidth="283.0" style="-fx-background-color: transparent;" text="Search PC" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -53,7 +53,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="postSaleAd_btn" mnemonicParsing="false" onMouseClicked="#postSaleAd_click" onMouseEntered="#button_MouseEntered" onMouseExited="#button_MouseExited" prefWidth="278.0" style="-fx-background-color: transparent;" text="Post sale ad" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnPostSaleAd" mnemonicParsing="false" onMouseClicked="#btnPostSaleAdClick" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" prefWidth="278.0" style="-fx-background-color: transparent;" text="Post sale ad" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -65,7 +65,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="personalArea_btn" mnemonicParsing="false" onMouseClicked="#personalArea_click" onMouseEntered="#button_MouseEntered" onMouseExited="#button_MouseExited" prefHeight="76.0" prefWidth="321.0" style="-fx-background-color: transparent;" text="Personal area" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnPersonalArea" mnemonicParsing="false" onMouseClicked="#btnPersonalAreaClick" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" prefHeight="76.0" prefWidth="321.0" style="-fx-background-color: transparent;" text="Personal area" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -77,7 +77,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="reviewerArea_btn" mnemonicParsing="false" onMouseClicked="#reviewerArea_click" onMouseEntered="#button_MouseEntered" onMouseExited="#button_MouseExited" prefWidth="326.0" style="-fx-background-color: transparent;" text="Reviewer area" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnReviewerArea" mnemonicParsing="false" onMouseClicked="#btnReviewerAreaClick" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" prefWidth="326.0" style="-fx-background-color: transparent;" text="Reviewer area" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -90,7 +90,7 @@
             <BorderPane />
             <BorderPane prefWidth="94.0">
                <center>
-                  <ImageView fx:id="login_img" fitHeight="75.0" fitWidth="100.0" onMouseClicked="#login_click" onMouseEntered="#img_MouseEntered" onMouseExited="#img_MouseExited" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgLogin" fitHeight="75.0" fitWidth="100.0" onMouseClicked="#imgLoginClick" onMouseEntered="#imgMouseEntered" onMouseExited="#imgMouseExited" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/login2.png" />
                      </image>
@@ -107,7 +107,7 @@
             <Font name="Avenir Next Bold" size="96.0" />
          </font>
       </Label>
-      <Button fx:id="questionMark" alignment="TOP_LEFT" layoutX="24.0" layoutY="626.0" mnemonicParsing="false" onMouseClicked="#questionMark_click" onMouseEntered="#button_MouseEntered" onMouseExited="#button_MouseExited" prefHeight="74.0" prefWidth="59.0" style="-fx-background-color: transparent;" text="?" textFill="WHITE">
+      <Button fx:id="btnQuestionMark" alignment="TOP_LEFT" layoutX="24.0" layoutY="626.0" mnemonicParsing="false" onMouseClicked="#questionMark_click" prefHeight="74.0" prefWidth="59.0" style="-fx-background-color: transparent;" text="?" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>

@@ -10,81 +10,86 @@ import javafx.scene.input.MouseEvent;
 public class HomeController {
 
     @FXML
-    private ImageView home_img;
-    @FXML
     private Label advice;
+
     @FXML
-    private Button questionMark;
+    private Button btnPersonalArea;
+
     @FXML
-    private ImageView login_img;
+    private Button btnPostSaleAd;
+
     @FXML
-    void img_MouseEntered(MouseEvent event) {
-        ImageView i = (ImageView) event.getSource();
-        i.setCursor(Cursor.HAND);
+    private Button btnQuestionMark;
+
+    @FXML
+    private Button btnReviewerArea;
+
+    @FXML
+    private Button btnSearchPC;
+
+    @FXML
+    private ImageView imgHome;
+
+    @FXML
+    private ImageView imgLogin;
+
+    @FXML
+    void btnPersonalAreaClick(MouseEvent event) {
+        advice.setText("This option is not yet available");
+    }
+
+    @FXML
+    void btnPostSaleAdClick(MouseEvent event) {
 
     }
 
     @FXML
-    void img_MouseExited(MouseEvent event) {
-        ImageView i = (ImageView) event.getSource();
-        i.setCursor(Cursor.DEFAULT);
-
-    }
-    @FXML
-    void questionMark_click(MouseEvent event) {
-       advice.setText("For information, read the project documentation");
-    }
-    @FXML
-    private Button personalArea_btn;
-
-    @FXML
-    private Button postSaleAd_btn;
-
-    @FXML
-    private Button reviewerArea_btn;
-
-    @FXML
-    private Button searchPC_btn;
-
-    @FXML
-    void button_MouseEntered(MouseEvent event) {
-            Button button = (Button) event.getSource();
-            button.setOpacity(0.5);
+    void btnReviewerAreaClick(MouseEvent event) {
+        advice.setText("This option is not yet available");
     }
 
     @FXML
-    void button_MouseExited(MouseEvent event) {
+    void btnSearchPCClick(MouseEvent event) {
+
+    }
+
+    @FXML
+    void buttonMouseEntered(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setOpacity(0.5);
+    }
+
+    @FXML
+    void buttonMouseExited(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setOpacity(1);
     }
+
     @FXML
-    void homeClick(MouseEvent event) {
+    void imgHomeClick(MouseEvent event) {
         advice.setText("This is Home");
     }
 
     @FXML
-    void login_click(MouseEvent event) {
+    void imgLoginClick(MouseEvent event) {
 
     }
 
     @FXML
-    void personalArea_click(MouseEvent event) {
-        advice.setText("This option is not yet available");
+    void imgMouseEntered(MouseEvent event) {
+        ImageView i = (ImageView) event.getSource();
+        i.setCursor(Cursor.HAND);
     }
 
     @FXML
-    void postSaleAd_click(MouseEvent event) {
-
+    void imgMouseExited(MouseEvent event) {
+        ImageView i = (ImageView) event.getSource();
+        i.setCursor(Cursor.DEFAULT);
     }
 
     @FXML
-    void reviewerArea_click(MouseEvent event) {
-        advice.setText("This option is not yet available");
-    }
-
-    @FXML
-    void searchPC_click(MouseEvent event) {
-
+    void questionMark_click(MouseEvent event) {
+        advice.setText("For information, read the project documentation");
     }
 
 }
