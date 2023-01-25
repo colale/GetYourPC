@@ -40,7 +40,6 @@ public class HomeController {
 
     @FXML
     void btnPostSaleAdClick(MouseEvent event) {
-
     }
 
     @FXML
@@ -50,17 +49,16 @@ public class HomeController {
 
     @FXML
     void btnSearchPCClick(MouseEvent event) {
-
     }
 
     @FXML
-    void buttonMouseEntered(MouseEvent event) {
+    void btnMouseEntered(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setOpacity(0.5);
     }
 
     @FXML
-    void buttonMouseExited(MouseEvent event) {
+    void btnMouseExited(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setOpacity(1);
     }
@@ -88,7 +86,7 @@ public class HomeController {
     }
 
     @FXML
-    void questionMark_click(MouseEvent event) {
+    void btnQuestionMark_click(MouseEvent event) {
         advice.setText("For information, read the project documentation");
     }
 

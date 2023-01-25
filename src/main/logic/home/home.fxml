@@ -41,7 +41,7 @@
             <BorderPane />
             <BorderPane>
                <center>
-                  <Button fx:id="btnSearchPC" mnemonicParsing="false" onMouseClicked="#btnSearchPCClick" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" prefWidth="283.0" style="-fx-background-color: transparent;" text="Search PC" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnSearchPC" mnemonicParsing="false" onMouseClicked="#btnSearchPCClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="283.0" style="-fx-background-color: transparent;" text="Search PC" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -53,7 +53,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="btnPostSaleAd" mnemonicParsing="false" onMouseClicked="#btnPostSaleAdClick" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" prefWidth="278.0" style="-fx-background-color: transparent;" text="Post sale ad" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnPostSaleAd" mnemonicParsing="false" onMouseClicked="#btnPostSaleAdClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="278.0" style="-fx-background-color: transparent;" text="Post sale ad" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -65,7 +65,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="btnPersonalArea" mnemonicParsing="false" onMouseClicked="#btnPersonalAreaClick" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" prefHeight="76.0" prefWidth="321.0" style="-fx-background-color: transparent;" text="Personal area" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnPersonalArea" mnemonicParsing="false" onMouseClicked="#btnPersonalAreaClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefHeight="76.0" prefWidth="321.0" style="-fx-background-color: transparent;" text="Personal area" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -77,7 +77,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="btnReviewerArea" mnemonicParsing="false" onMouseClicked="#btnReviewerAreaClick" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" prefWidth="326.0" style="-fx-background-color: transparent;" text="Reviewer area" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnReviewerArea" mnemonicParsing="false" onMouseClicked="#btnReviewerAreaClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="326.0" style="-fx-background-color: transparent;" text="Reviewer area" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -107,7 +107,7 @@
             <Font name="Avenir Next Bold" size="96.0" />
          </font>
       </Label>
-      <Button fx:id="btnQuestionMark" alignment="TOP_LEFT" layoutX="24.0" layoutY="626.0" mnemonicParsing="false" onMouseClicked="#questionMark_click" prefHeight="74.0" prefWidth="59.0" style="-fx-background-color: transparent;" text="?" textFill="WHITE">
+      <Button fx:id="btnQuestionMark" alignment="TOP_LEFT" layoutX="24.0" layoutY="626.0" mnemonicParsing="false" onMouseClicked="#btnQuestionMark_click" prefHeight="74.0" prefWidth="59.0" style="-fx-background-color: transparent;" text="?" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
