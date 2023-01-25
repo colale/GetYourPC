@@ -107,7 +107,7 @@
             <Font name="Avenir Next Bold" size="96.0" />
          </font>
       </Label>
-      <Button fx:id="btnQuestionMark" alignment="TOP_LEFT" layoutX="24.0" layoutY="626.0" mnemonicParsing="false" onMouseClicked="#btnQuestionMark_click" prefHeight="74.0" prefWidth="59.0" style="-fx-background-color: transparent;" text="?" textFill="WHITE">
+      <Button fx:id="btnQuestionMark" alignment="TOP_LEFT" layoutX="24.0" layoutY="626.0" mnemonicParsing="false" onMouseClicked="#btnQuestionMarkClick" prefHeight="74.0" prefWidth="59.0" style="-fx-background-color: transparent;" text="?" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>

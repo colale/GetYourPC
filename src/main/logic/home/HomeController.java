@@ -86,7 +86,7 @@ public class HomeController {
     }
 
     @FXML
-    void btnQuestionMark_click(MouseEvent event) {
+    void btnQuestionMarkClick(MouseEvent event) {
         advice.setText("For information, read the project documentation");
     }
 
