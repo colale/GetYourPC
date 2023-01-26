@@ -11,6 +11,9 @@ import java.util.Random;
 
 public class Main extends Application {
     private Random random = new Random();
+    private static final String TRUE = "true";
+    private static final String FALSE = "false";
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
@@ -30,7 +33,7 @@ public class Main extends Application {
         prop.load(propsInput);
         this.RandomConfigGenerate(prop); //If you don't want random generation of configuration, comment this line and set it manually
         String cliUI = prop.getProperty("cliUI");
-        if (cliUI.equals("false")){
+        if (cliUI.equals(FALSE)){
             propsInput.close();
             launch();}
         else{
@@ -42,9 +45,9 @@ public class Main extends Application {
 public void RandomConfigGenerate(Properties prop) throws IOException {
         FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
         String value;
-        value=(random.nextInt(2)==1)?"true":"false";
+        value=(random.nextInt(2)==1)?TRUE:FALSE;
         prop.setProperty("cliUI",value);
-        value=(random.nextInt(2)==1)?"true":"false";
+        value=(random.nextInt(2)==1)?TRUE:FALSE;
         prop.setProperty("daoOnFileSystem",value);
         prop.store(propsOutput, null);
         propsOutput.close();
