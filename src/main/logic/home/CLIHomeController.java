@@ -2,7 +2,7 @@ package home;
 import java.util.Scanner;
 
 public class CLIHomeController {
-    public CLIHomeController(){
+    public void execute(){
         System.out.println("Welcome to Get Your PC!\n1)Search PC\n2)Post sale ad\n3)Personal area\n4)Reviewer area\n5)Login\n6)Help");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
@@ -44,6 +44,5 @@ public class CLIHomeController {
             }
         }
         scanner.close();
-        System.out.println("ok");
     }
 }

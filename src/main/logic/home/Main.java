@@ -21,13 +21,13 @@ public class Main extends Application {
     }
     public static void main(String[] args) throws IOException {
         Main program = new Main();
-        program.chooseConfiguration();
+        program.ChooseConfiguration();
     }
-        public void chooseConfiguration() throws IOException {
+        public void ChooseConfiguration() throws IOException {
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
-        this.RandomConfigGenerate(prop);
+        this.RandomConfigGenerate(prop); //If you don't want random generation of configuration, comment this line and set it manually
         String CLI_UI = prop.getProperty("CLI_UI");
         String USER_DAO_ON_FILESYSTEM=prop.getProperty("USER_DAO_ON_FILESYSTEM");
         if (CLI_UI.equals("false")){
@@ -35,7 +35,8 @@ public class Main extends Application {
             launch();}
         else{
             propsInput.close();
-            CLIHomeController c=new CLIHomeController();}
+            CLIHomeController c=new CLIHomeController();
+            c.execute();}
         }
 
 public void RandomConfigGenerate(Properties prop) throws IOException {
