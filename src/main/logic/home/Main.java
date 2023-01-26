@@ -10,6 +10,7 @@ import java.util.Properties;
 import java.util.Random;
 
 public class Main extends Application {
+    private Random random = new Random();
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
@@ -41,7 +42,6 @@ public class Main extends Application {
 
 public void RandomConfigGenerate(Properties prop) throws IOException {
         FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
-        Random random = new Random();
         String value;
         value=(random.nextInt(2)==1)?"true":"false";
         prop.setProperty("CLI_UI",value);
