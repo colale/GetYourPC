@@ -29,6 +29,6 @@ public class Main extends Application {
             launch();}
         else{
             propsInput.close();
-            CLI_HomeController c=new CLI_HomeController();}
+            CLIHomeController c=new CLIHomeController();}
         }
 }
