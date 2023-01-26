@@ -7,7 +7,7 @@ public class CLIHomeController {
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
         while(!validInput){
-            System.out.print("Insert number:");
+            System.out.println("Insert number:");
             if(!scanner.hasNextInt()){
                 System.out.println("It's a string. Retry");
                 scanner.nextLine();

@@ -23,15 +23,11 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public static void main(String[] args) throws IOException {
-        Main program = new Main();
-        program.ChooseConfiguration();
-    }
-        public void ChooseConfiguration() throws IOException {
+        public void chooseConfiguration() throws IOException {
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
-        this.RandomConfigGenerate(prop); //If you don't want random generation of configuration, comment this line and set it manually
+        this.randomConfigGenerate(prop); //If you don't want random generation of configuration, comment this line and set it manually
         String cliUI = prop.getProperty("cliUI");
         if (cliUI.equals(FALSE)){
             propsInput.close();
@@ -42,7 +38,7 @@ public class Main extends Application {
             c.execute();}
         }
 
-public void RandomConfigGenerate(Properties prop) throws IOException {
+public void randomConfigGenerate(Properties prop) throws IOException {
         FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
         String value;
         value=(random.nextInt(2)==1)?TRUE:FALSE;
@@ -52,4 +48,11 @@ public void RandomConfigGenerate(Properties prop) throws IOException {
         prop.store(propsOutput, null);
         propsOutput.close();
 }
+
+    public static void main(String[] args) throws IOException {
+        Main program = new Main();
+        Session session=Session.getInstance();
+
+        program.chooseConfiguration();
+    }
 }
