@@ -29,9 +29,8 @@ public class Main extends Application {
         Properties prop = new Properties();
         prop.load(propsInput);
         this.RandomConfigGenerate(prop); //If you don't want random generation of configuration, comment this line and set it manually
-        String CLI_UI = prop.getProperty("CLI_UI");
-        String USER_DAO_ON_FILESYSTEM=prop.getProperty("USER_DAO_ON_FILESYSTEM");
-        if (CLI_UI.equals("false")){
+        String cliUI = prop.getProperty("cliUI");
+        if (cliUI.equals("false")){
             propsInput.close();
             launch();}
         else{
@@ -44,9 +43,9 @@ public void RandomConfigGenerate(Properties prop) throws IOException {
         FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
         String value;
         value=(random.nextInt(2)==1)?"true":"false";
-        prop.setProperty("CLI_UI",value);
+        prop.setProperty("cliUI",value);
         value=(random.nextInt(2)==1)?"true":"false";
-        prop.setProperty("USER_DAO_ON_FILESYSTEM",value);
+        prop.setProperty("daoOnFileSystem",value);
         prop.store(propsOutput, null);
         propsOutput.close();
 }
