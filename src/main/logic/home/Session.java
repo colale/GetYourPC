@@ -51,7 +51,7 @@ public class Session {
         this.status = status;
     }
     public String getRole() {
-        return status;
+        return role;
     }
 
     public void setRole(String role) {
