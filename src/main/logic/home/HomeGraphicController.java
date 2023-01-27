@@ -11,8 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
-import login.graphic_controller.LoginGraphicController;
-import login.model.Session;
 
 import java.io.IOException;
 public class HomeGraphicController {

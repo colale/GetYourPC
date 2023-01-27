@@ -42,7 +42,7 @@ public class CLIHome {
                     break;
                 case 7:
                     validInput = false;
-                    Main.quit();
+                    HomeController.quit();
                     break;
                 default:
                     System.out.println("Invalid number.Retry");

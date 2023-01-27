@@ -129,7 +129,7 @@
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="361.0" layoutY="312.0" prefHeight="39.0" prefWidth="584.0" text="You are logged in" textFill="WHITE">
+      <Label fx:id="label" alignment="CENTER" layoutX="361.0" layoutY="312.0" prefHeight="39.0" prefWidth="584.0" text="You are logged in" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="27.0" />
          </font>

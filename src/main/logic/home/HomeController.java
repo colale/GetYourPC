@@ -3,7 +3,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import login.model.Session;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,7 +11,7 @@ import java.util.Random;
 
 import static java.lang.System.exit;
 
-public class Main extends Application {
+public class HomeController extends Application {
     private Random random = new Random();
     private static final String TRUE = "true";
     private static final String FALSE = "false";
@@ -51,9 +50,9 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         prop.store(propsOutput, null);
         propsOutput.close();
 }
-    public static void quit(){exit(0);}
+    public static void quit(){exit(0);}//da migliorare
     public static void main(String[] args) throws IOException {
-        Main program = new Main();
+        HomeController program = new HomeController();
         program.chooseConfiguration();
     }
 }

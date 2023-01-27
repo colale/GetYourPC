@@ -1,5 +1,5 @@
 package login.graphic_controller;
-
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -12,10 +12,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import login.app_controller.LoginController;
+import login.bean.UserDataBean;
 
 public class LoginGraphicController {
+    UserDataBean b = new UserDataBean();
+    LoginController c = new LoginController();
     @FXML
     private Label advice;
     @FXML
@@ -36,9 +38,15 @@ public class LoginGraphicController {
     @FXML
     private ImageView imgLogin;
     @FXML
-    void btnConfirmClick(MouseEvent event) {
-//implementa login
-    }
+    void btnConfirmClick(MouseEvent event){
+        b.setEmail(fieldEmail.getText());
+        b.setPassword(fieldPassword.getText());
+        if (c.authenticate(b)){;
+        btnConfirm.setVisible(false);
+        btnConfirm.setDisable(true);
+        advice.setText("You are logged in now, return to the Home");}
+        else{//cancella i field e riprova}
+    }}
 
     @FXML
     void btnLoginWithGmail(MouseEvent event) {

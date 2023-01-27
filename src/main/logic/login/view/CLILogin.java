@@ -1,8 +1,16 @@
 package login.view;
 import home.CLIHome;
+import login.app_controller.LoginController;
+import login.bean.UserDataBean;
 
+import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class CLILogin {
+    String password;
+    String email;
+    UserDataBean b = new UserDataBean();
+    LoginController c = new LoginController();
     public void execute(){
         System.out.println("Login:\n\n1)Login with email and password\n2)Login with Gmail\n3)Sign up\n4)Home");
         Scanner scanner = new Scanner(System.in);
@@ -17,8 +25,15 @@ public class CLILogin {
             switch (num) {
                 case 1:
                     validInput = true;
-                    System.out.println("insert email");//implementa login
-                    break;
+                    this.requireData();
+                    System.out.println(this.email);
+                    System.out.println(this.password);
+                    b.setEmail(this.email);
+                    b.setPassword(this.password);
+                    if (c.authenticate(b)){System.out.println("You are logged in now\n");
+                    (new CLIHome()).execute();}
+                    else {System.out.println("Retry");//SISTEMARE!!!!!!
+                    this.requireData();}
                 case 2:
                     validInput = true;
                     System.out.println("This option in not available now");
@@ -37,4 +52,13 @@ public class CLILogin {
         }
         scanner.close();
     }
+
+public void requireData(){
+    System.out.println("Insert Username");
+    Scanner scanner = new Scanner(System.in);
+    String input=scanner.nextLine();
+    this.email=input;
+    System.out.println("Insert Password");
+    input=scanner.nextLine();
+    this.password=input;}
 }

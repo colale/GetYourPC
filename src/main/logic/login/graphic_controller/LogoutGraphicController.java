@@ -10,12 +10,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import login.app_controller.LoginController;
 
 import java.io.IOException;
 
 public class LogoutGraphicController {//implementa dati input
+    private LoginController c = new LoginController();
     @FXML
     private Label advice;
+    @FXML
+    private Label label;
     @FXML
     private Button btnLogout;
     @FXML
@@ -59,8 +63,14 @@ public class LogoutGraphicController {//implementa dati input
     }
     @FXML
     void btnLogoutClick(MouseEvent event) {
-        //implementa logout
-    }
+        c.logout();
+        btnLogout.setVisible(false);
+        btnLogout.setDisable(true);
+        label.setText("Logout completed");
+        labelName.setText("");
+        labelSurname.setText("");
+        labelEmail.setText("");
+        advice.setText("Return to the Home");}
     @FXML
     void btnMouseExited(MouseEvent event) {
         Button button = (Button) event.getSource();
