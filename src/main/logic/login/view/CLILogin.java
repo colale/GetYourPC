@@ -2,7 +2,7 @@ package login.view;
 import home.CLIHome;
 import login.app_controller.LoginController;
 import login.bean.UserDataBean;
-import Exception.SyntaxBeanException;
+import exception.SyntaxBeanException;
 import java.util.Scanner;
 public class CLILogin {
     String password;
@@ -23,6 +23,7 @@ public class CLILogin {
             switch (num) {
                 case 1:
                     requireLogin();
+                    break;
                 case 2:
                     validInput = true;
                     System.out.println("This option in not available now");
@@ -34,6 +35,7 @@ public class CLILogin {
                 case 4:
                     validInput = true;
                     (new CLIHome()).execute();
+                    break;
                 default:
                     System.out.println("Invalid number.Retry");
                     scanner.nextLine();
@@ -49,7 +51,7 @@ public class CLILogin {
                     try {
         b.setEmail(this.email);
         b.setPassword(this.password);
-        passed = (c.authenticate(b)) ? true : false;
+        passed = c.authenticate(b);
     }
                     catch(SyntaxBeanException e) {passed=false;}
                     if (passed){

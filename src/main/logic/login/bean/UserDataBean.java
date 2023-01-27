@@ -1,5 +1,5 @@
 package login.bean;
-import Exception.SyntaxBeanException;
+import exception.SyntaxBeanException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.Serializable;
@@ -35,8 +35,7 @@ public class UserDataBean implements Serializable {
             syntaxCheckEmail(email);
             this.email = email;
         } catch (AddressException e) {
-            SyntaxBeanException exception = new SyntaxBeanException();
-            throw exception;
+            throw new SyntaxBeanException();
         }
     }
 
@@ -56,7 +55,6 @@ public class UserDataBean implements Serializable {
 
     private void syntaxCheckPassword(String s) throws SyntaxBeanException {
         if (s.length() < 8 || s.length() > 15) {
-            SyntaxBeanException e = new SyntaxBeanException();
-            throw e;}
+            throw new SyntaxBeanException();}
     }
 }

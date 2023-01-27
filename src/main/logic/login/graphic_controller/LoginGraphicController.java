@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
 import login.bean.UserDataBean;
-import Exception.SyntaxBeanException;
+import exception.SyntaxBeanException;
 public class LoginGraphicController {
     UserDataBean b = new UserDataBean();
     LoginController c = new LoginController();
@@ -43,7 +43,7 @@ public class LoginGraphicController {
         try {
             b.setEmail(fieldEmail.getText());
             b.setPassword(fieldPassword.getText());
-            passed = (c.authenticate(b)) ? true : false;
+            passed = c.authenticate(b);
         }
         catch(SyntaxBeanException e) {passed=false;}
         if (passed){

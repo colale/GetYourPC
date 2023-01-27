@@ -3,7 +3,7 @@ package login.view;
 import home.CLIHome;
 import login.app_controller.LoginController;
 import login.bean.UserDataBean;
-import Exception.SyntaxBeanException;
+import exception.SyntaxBeanException;
 import java.util.Scanner;
 
 public class CLILogout {
@@ -32,6 +32,7 @@ public class CLILogout {
                     c.logout();
                     System.out.println("Logout completed\n");
                     new CLIHome().execute();
+                    break;
                 case 2:
                     validInput = true;
                     break;

@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
 import login.bean.UserDataBean;
-import Exception.SyntaxBeanException;
+import exception.SyntaxBeanException;
 import java.io.IOException;
 
 public class LogoutGraphicController {//implementa dati input

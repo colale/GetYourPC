@@ -2,7 +2,7 @@ package home;
 import login.app_controller.LoginController;
 import login.view.CLILogin;
 import login.view.CLILogout;
-import Exception.SyntaxBeanException;
+import exception.SyntaxBeanException;
 import java.util.Scanner;
 
 public class CLIHome {
@@ -39,6 +39,7 @@ public class CLIHome {
                     } else {
                         (new CLILogin()).execute();
                     }
+                    break;
                 case 6:
                     System.out.println("For information, read the project documentation");
                     break;

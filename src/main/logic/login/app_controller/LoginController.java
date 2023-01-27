@@ -1,12 +1,12 @@
 package login.app_controller;
 import login.bean.UserDataBean;
 import login.model.Session;
-import Exception.SyntaxBeanException;
+import exception.SyntaxBeanException;
 
 public class LoginController {
     public boolean checkIsAuthenticated(){
-        if (Session.getInstance().getEmail().equals("")) {return false;}
-        else {return true;}}
+        return !Session.getInstance().getEmail().equals("");
+    }
     public boolean authenticate(UserDataBean b){return true;}//AUTENTICAZIONE DA FARE
 public void logout(){
     Session.getInstance().setStatus("");
