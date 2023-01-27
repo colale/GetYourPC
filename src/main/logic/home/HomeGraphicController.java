@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
+import login.graphic_controller.LogoutGraphicController;
+import Exception.SyntaxBeanException;
 
 import java.io.IOException;
 public class HomeGraphicController {
@@ -78,12 +80,21 @@ public class HomeGraphicController {
     void imgLoginClick(MouseEvent event) throws IOException {
         LoginController c = new LoginController();
         String path;
-        path = c.checkAuthentication() ?"/login/view/Logout.fxml":"/login/view/Login.fxml";
+        path = c.checkIsAuthenticated() ?"/logout/view/Logout.fxml":"/login/view/Login.fxml";
         FXMLLoader root = new FXMLLoader(getClass().getResource(path));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            if (c.checkIsAuthenticated()) {
+                try {
+                    LogoutGraphicController gController = root.getController();
+                    gController.init();
+                } catch (SyntaxBeanException e) {
+                    advice.setText("Unexpected system error");
+                }
+                HomeController.quit();
         stage.setScene(scene);
         stage.show();
+    }
     }
 
     @FXML

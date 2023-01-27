@@ -2,16 +2,14 @@ package login.view;
 import home.CLIHome;
 import login.app_controller.LoginController;
 import login.bean.UserDataBean;
-
-import java.io.FileInputStream;
-import java.util.ArrayList;
+import Exception.SyntaxBeanException;
 import java.util.Scanner;
 public class CLILogin {
     String password;
     String email;
     UserDataBean b = new UserDataBean();
     LoginController c = new LoginController();
-    public void execute(){
+    public void execute() {
         System.out.println("Login:\n\n1)Login with email and password\n2)Login with Gmail\n3)Sign up\n4)Home");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
@@ -24,16 +22,7 @@ public class CLILogin {
             int num = scanner.nextInt();
             switch (num) {
                 case 1:
-                    validInput = true;
-                    this.requireData();
-                    System.out.println(this.email);
-                    System.out.println(this.password);
-                    b.setEmail(this.email);
-                    b.setPassword(this.password);
-                    if (c.authenticate(b)){System.out.println("You are logged in now\n");
-                    (new CLIHome()).execute();}
-                    else {System.out.println("Retry");//SISTEMARE!!!!!!
-                    this.requireData();}
+                    requireLogin();
                 case 2:
                     validInput = true;
                     System.out.println("This option in not available now");
@@ -53,8 +42,26 @@ public class CLILogin {
         scanner.close();
     }
 
-public void requireData(){
-    System.out.println("Insert Username");
+    public void requireLogin(){
+        while(true){
+            this.requireData();
+        boolean passed;
+                    try {
+        b.setEmail(this.email);
+        b.setPassword(this.password);
+        passed = (c.authenticate(b)) ? true : false;
+    }
+                    catch(SyntaxBeanException e) {passed=false;}
+                    if (passed){
+        System.out.println("You are logged in now\n");
+        (new CLIHome()).execute();}
+                    else {
+        System.out.println("Login failed, try again");}}}
+
+
+
+    public void requireData(){
+    System.out.println("Insert Email");
     Scanner scanner = new Scanner(System.in);
     String input=scanner.nextLine();
     this.email=input;

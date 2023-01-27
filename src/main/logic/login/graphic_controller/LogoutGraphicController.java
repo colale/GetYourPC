@@ -11,7 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
-
+import login.bean.UserDataBean;
+import Exception.SyntaxBeanException;
 import java.io.IOException;
 
 public class LogoutGraphicController {//implementa dati input
@@ -32,6 +33,13 @@ public class LogoutGraphicController {//implementa dati input
     private ImageView imgHome;
     @FXML
     private ImageView imgLogin;
+    @FXML
+    public void init()throws SyntaxBeanException {
+        UserDataBean bean = c.getUser();
+        labelName.setText(bean.getName());
+        labelSurname.setText(bean.getSurname());
+        labelEmail.setText(bean.getEmail());}
+
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));

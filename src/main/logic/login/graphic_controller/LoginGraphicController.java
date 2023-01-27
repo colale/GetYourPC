@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
 import login.bean.UserDataBean;
-
+import Exception.SyntaxBeanException;
 public class LoginGraphicController {
     UserDataBean b = new UserDataBean();
     LoginController c = new LoginController();
@@ -38,13 +38,15 @@ public class LoginGraphicController {
     @FXML
     private ImageView imgLogin;
     @FXML
-    void btnConfirmClick(MouseEvent event){//TRY... CATCH
+    void btnConfirmClick(MouseEvent event){
         boolean passed;
-        b.setEmail(fieldEmail.getText());
-        b.setPassword(fieldPassword.getText());//fine del try
-        passed=(c.authenticate(b))?true:false;
-        //catch imposta su false il passed
-        if (!passed){
+        try {
+            b.setEmail(fieldEmail.getText());
+            b.setPassword(fieldPassword.getText());
+            passed = (c.authenticate(b)) ? true : false;
+        }
+        catch(SyntaxBeanException e) {passed=false;}
+        if (passed){
             btnConfirm.setVisible(false);
             btnConfirm.setDisable(true);
             btnSignUp.setVisible(false);

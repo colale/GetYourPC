@@ -2,21 +2,29 @@ package login.view;
 
 import home.CLIHome;
 import login.app_controller.LoginController;
-
+import login.bean.UserDataBean;
+import Exception.SyntaxBeanException;
 import java.util.Scanner;
 
 public class CLILogout {
+    private String name;
+    private String surname;
+    private String email;
+
     LoginController c = new LoginController();
-    public void execute(){
-        System.out.println("You are logged in as ... \n1)Logout\n2)Home");//implementa dati input
+
+    public void execute() throws SyntaxBeanException {
+        this.init();
+        System.out.println("Name:" + this.name + "Surname:" + this.surname + "Email:" + this.email + "\n\n1)Logout\n2)Home");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
-        while(!validInput){
+        while (!validInput) {
             System.out.println("Insert number:");
-            if(!scanner.hasNextInt()){
+            if (!scanner.hasNextInt()) {
                 System.out.println("It's a string. Retry");
                 scanner.nextLine();
-                continue;}
+                continue;
+            }
             int num = scanner.nextInt();
             switch (num) {
                 case 1:
@@ -34,4 +42,12 @@ public class CLILogout {
         }
         scanner.close();
     }
+
+    void init() throws SyntaxBeanException {
+        UserDataBean bean = c.getUser();
+        this.name=bean.getName();
+        this.surname=bean.getSurname();
+        this.email=bean.getEmail();
+    }
+
 }
