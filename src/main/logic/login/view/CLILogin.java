@@ -1,9 +1,8 @@
-package home;
+package login.view;
 import java.util.Scanner;
-
-public class CLIHomeController {
+public class CLILogin {
     public void execute(){
-        System.out.println("Welcome to Get Your PC!\n1)Search PC\n2)Post sale ad\n3)Personal area\n4)Reviewer area\n5)Login\n6)Help");
+        System.out.println("Login:\n\n1)Login with email and password\n2)Login with Gmail\n3)Sign up\n4)Home");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
         while(!validInput){
@@ -16,23 +15,19 @@ public class CLIHomeController {
             switch (num) {
                 case 1:
                     validInput = true;
-                    System.out.println("xxx");//implementa search pc
+                    System.out.println("xxx");//implementa login
                     break;
                 case 2:
                     validInput = true;
-                    System.out.println("xxx"); //implementa post sale ad
+                    System.out.println("This option in not available now");
                     break;
-                case 3, 4:
+                case 3:
                     validInput = false;
                     System.out.println("This option is not available now");
                     break;
-                case 5:
+                case 4:
                     validInput = true;
-                    System.out.println("Login");
-                    break;
-                case 6:
-                    validInput = false;
-                    System.out.println("For information, read the project documentation");
+                    System.out.println("xxx");//implementa ritorno alla home
                     break;
                 default:
                     System.out.println("Invalid number.Retry");

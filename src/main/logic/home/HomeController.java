@@ -35,7 +35,7 @@ public class HomeController {
 
     @FXML
     void btnPersonalAreaClick(MouseEvent event) {
-        advice.setText("This option is not yet available");
+        advice.setText("This option is not available now");
     }
 
     @FXML
@@ -44,7 +44,7 @@ public class HomeController {
 
     @FXML
     void btnReviewerAreaClick(MouseEvent event) {
-        advice.setText("This option is not yet available");
+        advice.setText("This option is not available now");
     }
 
     @FXML

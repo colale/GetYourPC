@@ -1,10 +1,10 @@
-package home;
+package login.model;
 public class Session {
     private String name;
     private String surname;
     private String email;
-    private String status;
-    private String role;
+    private String status; //indica se è a richio blocco o no
+    private String role; //indica se è reviewer
     private static volatile Session instance;
 
     private Session() {}
