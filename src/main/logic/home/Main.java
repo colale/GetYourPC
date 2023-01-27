@@ -19,7 +19,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {//"/login/view/Login.fxml" oppure "Home.fxml"
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/login/view/Logout.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280,720);
         stage.setTitle("GetYourPC");
         stage.setResizable(false);

@@ -1,12 +1,20 @@
 package home;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import login.app_controller.LoginController;
+import login.graphic_controller.LoginGraphicController;
+import login.model.Session;
 
+import java.io.IOException;
 public class HomeGraphicController {
 
     @FXML
@@ -69,8 +77,15 @@ public class HomeGraphicController {
     }
 
     @FXML
-    void imgLoginClick(MouseEvent event) {
-
+    void imgLoginClick(MouseEvent event) throws IOException {
+        LoginController c = new LoginController();
+        String path;
+        path = c.checkAuthentication() ?"/login/view/Logout.fxml":"/login/view/Login.fxml";
+        FXMLLoader root = new FXMLLoader(getClass().getResource(path));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

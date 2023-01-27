@@ -1,5 +1,7 @@
 package home;
+import login.app_controller.LoginController;
 import login.view.CLILogin;
+import login.view.CLILogout;
 
 import java.util.Scanner;
 
@@ -30,7 +32,10 @@ public class CLIHome {
                     break;
                 case 5:
                     validInput = true;
-                    (new CLILogin()).execute();
+                    LoginController c = new LoginController();
+                    if (c.checkAuthentication()) {
+                        (new CLILogout()).execute();}
+                    else {(new CLILogin()).execute();}
                 case 6:
                     validInput = false;
                     System.out.println("For information, read the project documentation");

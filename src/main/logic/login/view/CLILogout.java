@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CLILogout {
     public void execute(){
-        System.out.println("You are logged in as ... \n 1)Logout\n2)Home");//implementa dati input
+        System.out.println("You are logged in as ... \n1)Logout\n2)Home");//implementa dati input
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
         while(!validInput){
