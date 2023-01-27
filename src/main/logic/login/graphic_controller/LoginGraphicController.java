@@ -38,16 +38,25 @@ public class LoginGraphicController {
     @FXML
     private ImageView imgLogin;
     @FXML
-    void btnConfirmClick(MouseEvent event){
+    void btnConfirmClick(MouseEvent event){//TRY... CATCH
+        boolean passed;
         b.setEmail(fieldEmail.getText());
-        b.setPassword(fieldPassword.getText());
-        if (c.authenticate(b)){;
-        btnConfirm.setVisible(false);
-        btnConfirm.setDisable(true);
-        advice.setText("You are logged in now, return to the Home");}
-        else{//cancella i field e riprova}
-    }}
-
+        b.setPassword(fieldPassword.getText());//fine del try
+        passed=(c.authenticate(b))?true:false;
+        //catch imposta su false il passed
+        if (!passed){
+            btnConfirm.setVisible(false);
+            btnConfirm.setDisable(true);
+            btnSignUp.setVisible(false);
+            btnSignUp.setDisable(true);
+            btnLoginWithGMail.setVisible(false);
+            btnLoginWithGMail.setDisable(true);
+            advice.setText("You are logged in now, return to the Home");}
+        else {
+            fieldPassword.setText("");
+            fieldEmail.setText("");
+            advice.setText("Login failed, try again");}
+        }
     @FXML
     void btnLoginWithGmail(MouseEvent event) {
         advice.setText("This option is not available now");

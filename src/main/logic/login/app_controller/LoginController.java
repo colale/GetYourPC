@@ -8,7 +8,7 @@ public class LoginController {
         if (Session.getInstance().getRole().equals("")) {return false;}
         else {return true;}
     }
-    public boolean authenticate(UserDataBean b){return true;}//fai autenticazione
+    public boolean authenticate(UserDataBean b){return true;}//AUTENTICAZIONE DA FARE
 public void logout(){
     Session.getInstance().setStatus("");
     Session.getInstance().setEmail("");
