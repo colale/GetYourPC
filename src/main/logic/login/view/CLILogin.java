@@ -1,4 +1,6 @@
 package login.view;
+import home.CLIHome;
+
 import java.util.Scanner;
 public class CLILogin {
     public void execute(){
@@ -15,7 +17,7 @@ public class CLILogin {
             switch (num) {
                 case 1:
                     validInput = true;
-                    System.out.println("xxx");//implementa login
+                    System.out.println("insert email");//implementa login
                     break;
                 case 2:
                     validInput = true;
@@ -27,8 +29,7 @@ public class CLILogin {
                     break;
                 case 4:
                     validInput = true;
-                    System.out.println("xxx");//implementa ritorno alla home
-                    break;
+                    (new CLIHome()).execute();
                 default:
                     System.out.println("Invalid number.Retry");
                     scanner.nextLine();

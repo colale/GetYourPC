@@ -25,20 +25,18 @@ public class LoginGraphicController {
 
     @FXML
     private PasswordField fieldPassword;
-
     @FXML
     private ImageView imgHome;
-
     @FXML
     private ImageView imgLogin;
     @FXML
     void btnConfirmClick(MouseEvent event) {
-
+//implementa login
     }
 
     @FXML
-    void btnLoginWIthGmail(MouseEvent event) {
-
+    void btnLoginWithGmail(MouseEvent event) {
+        advice.setText("This option is not available now");
     }
     @FXML
     void btnSignUpClick(MouseEvent event) {
@@ -47,7 +45,7 @@ public class LoginGraphicController {
 
     @FXML
     void imgHomeClick(MouseEvent event) {
-
+//implementa ritorno alla home
     }
     @FXML
     void imgMouseEntered(MouseEvent event) {

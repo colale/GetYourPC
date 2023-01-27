@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
 
+import static java.lang.System.exit;
+
 public class Main extends Application {
     private Random random = new Random();
     private static final String TRUE = "true";
@@ -35,7 +37,7 @@ public class Main extends Application {
             launch();}
         else{
             propsInput.close();
-            CLIHomeController c=new CLIHomeController();
+            CLIHome c=new CLIHome();
             c.execute();}
         }
 
@@ -49,10 +51,9 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         prop.store(propsOutput, null);
         propsOutput.close();
 }
-
+    public static void quit(){exit(0);}
     public static void main(String[] args) throws IOException {
         Main program = new Main();
-        Session session=Session.getInstance();
         program.chooseConfiguration();
     }
 }

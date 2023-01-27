@@ -1,9 +1,11 @@
 package home;
+import login.view.CLILogin;
+
 import java.util.Scanner;
 
-public class CLIHomeController {
+public class CLIHome {
     public void execute(){
-        System.out.println("Welcome to Get Your PC!\n1)Search PC\n2)Post sale ad\n3)Personal area\n4)Reviewer area\n5)Login\n6)Help");
+        System.out.println("Welcome to Get Your PC!\n1)Search PC\n2)Post sale ad\n3)Personal area\n4)Reviewer area\n5)Login\n6)Help\n7)Quit");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
         while(!validInput){
@@ -28,11 +30,14 @@ public class CLIHomeController {
                     break;
                 case 5:
                     validInput = true;
-                    System.out.println("Login");
-                    break;
+                    (new CLILogin()).execute();
                 case 6:
                     validInput = false;
                     System.out.println("For information, read the project documentation");
+                    break;
+                case 7:
+                    validInput = false;
+                    Main.quit();
                     break;
                 default:
                     System.out.println("Invalid number.Retry");

@@ -21,7 +21,6 @@ public class CLILogout {
                     break;
                 case 2:
                     validInput = true;
-                    System.out.println("xxx"); //implementa ritorno alla home
                     break;
                 default:
                     System.out.println("Invalid number.Retry");

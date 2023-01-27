@@ -154,7 +154,7 @@
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
       </Button>
-      <Button fx:id="btnLoginWithGMail" layoutX="802.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#btnLoginWIthGmail" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefHeight="45.0" prefWidth="252.0" style="-fx-background-color: transparent;" text="Login with Gmail" textFill="WHITE">
+      <Button fx:id="btnLoginWithGMail" layoutX="802.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#btnLoginWithGmail" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefHeight="45.0" prefWidth="252.0" style="-fx-background-color: transparent;" text="Login with Gmail" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
