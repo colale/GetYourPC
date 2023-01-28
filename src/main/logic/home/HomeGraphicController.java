@@ -12,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
 import login.graphic_controller.LogoutGraphicController;
-import exception.SyntaxBeanException;
 
 import java.io.IOException;
 public class HomeGraphicController {
@@ -85,16 +84,10 @@ public class HomeGraphicController {
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             if (c.checkIsAuthenticated()) {
-                try {
-                    LogoutGraphicController gController = root.getController();
-                    gController.init();
-                } catch (SyntaxBeanException e) {
-                    advice.setText("Unexpected system error");
-                }
-                HomeController.quit();
-        stage.setScene(scene);
-        stage.show();
-    }
+                LogoutGraphicController gController = root.getController();
+                gController.init();}
+                stage.setScene(scene);
+                stage.show();
     }
 
     @FXML

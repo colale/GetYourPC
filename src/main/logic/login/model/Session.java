@@ -3,7 +3,6 @@ public class Session {
     private String name="";
     private String surname="";
     private String email="";
-    private String status=""; //indica se è a richio blocco o no
     private String role=""; //indica se è reviewer
     private static volatile Session instance;
 
@@ -43,13 +42,6 @@ public class Session {
         this.email = email;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
     public String getRole() {
         return role;
     }

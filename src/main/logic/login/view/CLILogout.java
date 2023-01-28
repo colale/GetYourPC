@@ -13,7 +13,7 @@ public class CLILogout {
 
     LoginController c = new LoginController();
 
-    public void execute() throws SyntaxBeanException {
+    public void execute(){
         this.init();
         System.out.println("Name:" + this.name + "Surname:" + this.surname + "Email:" + this.email + "\n\n1)Logout\n2)Home");
         Scanner scanner = new Scanner(System.in);
@@ -44,7 +44,7 @@ public class CLILogout {
         scanner.close();
     }
 
-    void init() throws SyntaxBeanException {
+    void init(){
         UserDataBean bean = c.getUser();
         this.name=bean.getName();
         this.surname=bean.getSurname();

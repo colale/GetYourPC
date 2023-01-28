@@ -1,13 +1,13 @@
 package login.view;
 import home.CLIHome;
 import login.app_controller.LoginController;
-import login.bean.UserDataBean;
+import login.bean.CredentialsInput;
 import exception.SyntaxBeanException;
 import java.util.Scanner;
 public class CLILogin {
     String password;
     String email;
-    UserDataBean b = new UserDataBean();
+    CredentialsInput credentialsInput = new CredentialsInput();
     LoginController c = new LoginController();
     public void execute() {
         System.out.println("Login:\n\n1)Login with email and password\n2)Login with Gmail\n3)Sign up\n4)Home");
@@ -49,9 +49,9 @@ public class CLILogin {
             this.requireData();
         boolean passed;
                     try {
-        b.setEmail(this.email);
-        b.setPassword(this.password);
-        passed = c.authenticate(b);
+        credentialsInput.setEmail(this.email);
+        credentialsInput.setPassword(this.password);
+        passed = c.authenticate(credentialsInput);
     }
                     catch(SyntaxBeanException e) {passed=false;}
                     if (passed){

@@ -34,7 +34,7 @@ public class LogoutGraphicController {//implementa dati input
     @FXML
     private ImageView imgLogin;
     @FXML
-    public void init()throws SyntaxBeanException {
+    public void init(){
         UserDataBean bean = c.getUser();
         labelName.setText(bean.getName());
         labelSurname.setText(bean.getSurname());
