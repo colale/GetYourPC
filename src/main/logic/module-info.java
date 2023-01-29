@@ -2,6 +2,7 @@ module it.getyourpc.getyourpc {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.mail;
+    requires java.sql;
     opens home to javafx.fxml;
     exports home;
     exports login.graphic_controller;
