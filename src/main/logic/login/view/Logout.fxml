@@ -30,7 +30,7 @@
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
       </Label>
-      <HBox prefHeight="133.0" prefWidth="1282.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0 0 1 0;">
+      <HBox prefHeight="133.0" prefWidth="1282.0" style="-fx-border-color: white; -fx-border-width: 0 0 1 0;">
          <children>
             <BorderPane prefWidth="97.0">
                <center>
@@ -47,7 +47,7 @@
             <BorderPane />
             <BorderPane>
                <center>
-                  <Button fx:id="btnSearchPC" mnemonicParsing="false" prefWidth="283.0" style="-fx-background-color: transparent;" text="Search PC" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnSearchPC" mnemonicParsing="false" opacity="0.5" prefWidth="283.0" style="-fx-background-color: transparent;" text="Search PC" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -59,7 +59,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="btnPostSaleAd" mnemonicParsing="false" prefWidth="278.0" style="-fx-background-color: transparent;" text="Post sale ad" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnPostSaleAd" mnemonicParsing="false" opacity="0.5" prefWidth="278.0" style="-fx-background-color: transparent;" text="Post sale ad" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -71,7 +71,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="btnPersonalArea" mnemonicParsing="false" prefHeight="76.0" prefWidth="321.0" style="-fx-background-color: transparent;" text="Personal area" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnPersonalArea" mnemonicParsing="false" opacity="0.5" prefHeight="76.0" prefWidth="321.0" style="-fx-background-color: transparent;" text="Personal area" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
@@ -83,7 +83,7 @@
             </BorderPane>
             <BorderPane>
                <center>
-                  <Button fx:id="btnReviewerArea" mnemonicParsing="false" prefWidth="326.0" style="-fx-background-color: transparent;" text="Reviewer area" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="btnReviewerArea" mnemonicParsing="false" opacity="0.5" prefWidth="326.0" style="-fx-background-color: transparent;" text="Reviewer area" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Avenir Next Bold" size="35.0" />
                      </font>
