@@ -5,23 +5,27 @@ import login.model.Session;
 import exception.SyntaxBeanException;
 import login.model.SessionDAOdb;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class LoginController {
     public boolean checkIsAuthenticated(){
-       System.out.println(!((Session.getInstance().getEmail()).equals("")));
         return !((Session.getInstance().getEmail()).equals(""));
+
     }
-    public boolean authenticate(CredentialsInput credentials){
+    public boolean authenticate(CredentialsInput credentials){//db oppure fs
         try{SessionDAOdb s = new SessionDAOdb();
         UserDataBean userData = new UserDataBean();
         userData=s.login(credentials);
+        try{
         Session.getInstance().setName(userData.getName());
         Session.getInstance().setSurname(userData.getSurname());
         Session.getInstance().setEmail(userData.getEmail());
-        Session.getInstance().setRole(userData.getRole());
+        Session.getInstance().setRole(userData.getRole());}
+        catch(Exception ex){return false;}
         return true;}
-        catch(SQLException e){return false;}
+        catch(SQLException exSQL){return false;}
+        //catch(IOException exIO){return false;}
     }
 public void logout(){
     Session.getInstance().setEmail("");

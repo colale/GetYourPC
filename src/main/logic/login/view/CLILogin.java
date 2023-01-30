@@ -71,3 +71,5 @@ public class CLILogin {
     input=scanner.nextLine();
     this.password=input;}
 }
+
+

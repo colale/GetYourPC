@@ -15,7 +15,7 @@ import login.bean.UserDataBean;
 import exception.SyntaxBeanException;
 import java.io.IOException;
 
-public class LogoutGraphicController {//implementa dati input
+public class LogoutGraphicController {
     private LoginController c = new LoginController();
     @FXML
     private Label advice;

@@ -8,7 +8,7 @@ import login.bean.UserDataBean;
 
 public class SessionDAOdb {
     private Connection connection;
-    public SessionDAOdb() throws SQLException {//gestire caso salta la connessione
+    public SessionDAOdb() throws SQLException {//gestire caso in cui salta la connessione
         DBConnection db = DBConnection.getInstance();
         this.connection = db.getConnection();
     }
@@ -30,9 +30,7 @@ public class SessionDAOdb {
             }
             rs.close();
             stmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException e) {return user;}
         return user;
     }
 }

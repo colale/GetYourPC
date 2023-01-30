@@ -31,42 +31,46 @@ public class LoginGraphicController {
 
     @FXML
     private TextField fieldEmail;
-
     @FXML
     private PasswordField fieldPassword;
     @FXML
     private ImageView imgHome;
     @FXML
     private ImageView imgLogin;
+
     @FXML
-    void btnConfirmClick(MouseEvent event){
+    void btnConfirmClick(MouseEvent event) {
         boolean passed;
         try {
             credentialsInput.setEmail(fieldEmail.getText());
             credentialsInput.setPassword(fieldPassword.getText());
             passed = c.authenticate(credentialsInput);
+        } catch (SyntaxBeanException e) {
+            passed = false;
         }
-        catch(SyntaxBeanException e) {passed=false;}
-        if (passed){
-            btnConfirm.setVisible(false);
+        if (passed) {
             btnConfirm.setDisable(true);
-            btnSignUp.setVisible(false);
+            btnConfirm.setOpacity(0.5);
+            btnSignUp.setOpacity(0.5);
             btnSignUp.setDisable(true);
-            btnLoginWithGMail.setVisible(false);
+            btnLoginWithGMail.setOpacity(0.5);
             btnLoginWithGMail.setDisable(true);
-            advice.setText("You are logged in now, return to the Home");}
-        else {
+            advice.setText("You are logged in now, return to the Home");
+        } else {
             fieldPassword.setText("");
             fieldEmail.setText("");
-            advice.setText("Login failed, try again");}
+            advice.setText("Login failed, try again");
         }
+    }
+
     @FXML
     void btnLoginWithGmail(MouseEvent event) {
         advice.setText("This option is not available now");
     }
+
     @FXML
     void btnSignUpClick(MouseEvent event) {
-            advice.setText("This option is not available now");
+        advice.setText("This option is not available now");
     }
 
     @FXML
@@ -75,7 +79,9 @@ public class LoginGraphicController {
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.show();}
+        stage.show();
+    }
+
     @FXML
     void imgMouseEntered(MouseEvent event) {
         ImageView i = (ImageView) event.getSource();
@@ -92,6 +98,7 @@ public class LoginGraphicController {
     void btnQuestionMarkClick(MouseEvent event) {
         advice.setText("For information, read the project documentation");
     }
+
     @FXML
     void btnMouseEntered(MouseEvent event) {
         Button button = (Button) event.getSource();
@@ -101,6 +108,8 @@ public class LoginGraphicController {
     @FXML
     void btnMouseExited(MouseEvent event) {
         Button button = (Button) event.getSource();
-        button.setOpacity(1);
+        if (!(button.isDisable())) {
+            button.setOpacity(1);
+        }
     }
 }

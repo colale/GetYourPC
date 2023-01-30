@@ -2,12 +2,12 @@ package home;
 import login.app_controller.LoginController;
 import login.view.CLILogin;
 import login.view.CLILogout;
-import exception.SyntaxBeanException;
+
 import java.util.Scanner;
 
 public class CLIHome {
     public void execute() {
-        System.out.println("Welcome to Get Your PC!\n1)Search PC\n2)Post sale ad\n3)Personal area\n4)Reviewer area\n5)Login\n6)Help\n7)Quit");
+        System.out.println("Welcome to Get Your PC!\n1)Search PC\n2)Post sale ad\n3)Personal area\n4)Reviewer area\n5)Login/Logout\n6)Help\n7)Quit");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -37,7 +37,7 @@ public class CLIHome {
                     System.out.println("For information, read the project documentation");
                     break;
                 case 7:
-                    HomeController.quit();
+                    Home.quit();
                     break;
                 default:
                     System.out.println("Invalid number.Retry");

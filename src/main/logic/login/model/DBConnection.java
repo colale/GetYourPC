@@ -8,15 +8,10 @@ public class DBConnection {
     private Connection connection;
     private String url = "jdbc:mysql://localhost:3306/Database";
     private String username = "root";
-    private String password = "ale1927-";
+    private String password = "colantonidb";
 
     private DBConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
             this.connection = DriverManager.getConnection(url, username, password);
-        } catch (ClassNotFoundException ex){;
-           System.out.println("Database Connection Creation Failed : " + ex.getMessage());
-        }
     }
 
     public Connection getConnection() {

@@ -1,9 +1,7 @@
 package login.view;
-
 import home.CLIHome;
 import login.app_controller.LoginController;
 import login.bean.UserDataBean;
-import exception.SyntaxBeanException;
 import java.util.Scanner;
 
 public class CLILogout {
@@ -15,7 +13,7 @@ public class CLILogout {
 
     public void execute(){
         this.init();
-        System.out.println("Name:" + this.name + "Surname:" + this.surname + "Email:" + this.email + "\n\n1)Logout\n2)Home");
+        System.out.println("Name: " + this.name + " Surname: " + this.surname + " Email: " + this.email + "\n\n1)Logout\n2)Home");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
         while (!validInput) {
@@ -35,6 +33,7 @@ public class CLILogout {
                     break;
                 case 2:
                     validInput = true;
+                    new CLIHome().execute();
                     break;
                 default:
                     System.out.println("Invalid number.Retry");

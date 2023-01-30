@@ -11,13 +11,13 @@ import java.util.Random;
 
 import static java.lang.System.exit;
 
-public class HomeController extends Application {
+public class Home extends Application {
     private Random random = new Random();
     private static final String TRUE = "true";
     private static final String FALSE = "false";
 
     @Override
-    public void start(Stage stage) throws IOException {//"/login/view/Login.fxml" oppure "Home.fxml"
+    public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280,720);
         stage.setTitle("GetYourPC");
@@ -52,7 +52,7 @@ public void randomConfigGenerate(Properties prop) throws IOException {
 }
     public static void quit(){exit(0);}//da migliorare
     public static void main(String[] args) throws IOException {
-        HomeController program = new HomeController();
+        Home program = new Home();
         program.chooseConfiguration();
     }
 }

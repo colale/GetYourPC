@@ -109,7 +109,7 @@
          </children>
       </HBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="427.0" layoutX="55.0" layoutY="200.0" stroke="WHITE" strokeType="INSIDE" width="1163.0" />
-      <Label fx:id="labelName" layoutX="83.0" layoutY="147.0" prefHeight="39.0" prefWidth="179.0" text="Name" textFill="WHITE">
+      <Label fx:id="labelName" alignment="TOP_LEFT" layoutX="83.0" layoutY="150.0" prefHeight="39.0" prefWidth="195.0" text="Name" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
@@ -119,12 +119,12 @@
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
       </Button>
-      <Label fx:id="labelSurname" layoutX="245.0" layoutY="150.0" prefHeight="39.0" prefWidth="157.0" text="Surname" textFill="WHITE">
+      <Label fx:id="labelSurname" alignment="TOP_LEFT" layoutX="380.0" layoutY="150.0" prefHeight="39.0" prefWidth="300.0" text="Surname" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="labelEmail" layoutX="428.0" layoutY="150.0" prefHeight="39.0" prefWidth="135.0" text="Email" textFill="WHITE">
+      <Label fx:id="labelEmail" alignment="TOP_LEFT" layoutX="637.0" layoutY="150.0" prefHeight="39.0" prefWidth="576.0" text="Email" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>

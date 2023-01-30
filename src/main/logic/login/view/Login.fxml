@@ -121,15 +121,15 @@
             <Image url="@../../resources/login.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="801.0" layoutY="231.0" stroke="WHITE" strokeType="INSIDE" width="257.0" />
+      <Rectangle fx:id="square" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="801.0" layoutY="231.0" stroke="WHITE" strokeType="INSIDE" width="257.0" />
       <Line endX="476.5" endY="173.0" layoutX="149.0" layoutY="452.0" startX="476.5" startY="-250.0" stroke="WHITE" />
-      <ImageView fitHeight="107.0" fitWidth="114.0" layoutX="876.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="googleImage" fitHeight="107.0" fitWidth="114.0" layoutX="876.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/Google.png" />
          </image>
       </ImageView>
       <Line endX="554.0" endY="-10.0" layoutX="164.0" layoutY="458.0" startX="969.0" startY="-10.0" stroke="WHITE" />
-      <Label layoutX="835.0" layoutY="462.0" prefHeight="39.0" prefWidth="207.0" text="Not registered yet?" textFill="WHITE">
+      <Label fx:id="signUpLabel" layoutX="835.0" layoutY="462.0" prefHeight="39.0" prefWidth="207.0" text="Not registered yet?" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
@@ -159,12 +159,12 @@
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Button>
-      <PasswordField fx:id="fieldPassword" layoutX="223.0" layoutY="501.0" prefHeight="28.0" prefWidth="228.0" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <PasswordField fx:id="fieldPassword" layoutX="223.0" layoutY="501.0" prefHeight="28.0" prefWidth="228.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;">
          <font>
             <Font size="17.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="fieldEmail" layoutX="228.0" layoutY="414.0" prefHeight="28.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-border-color: white;">
+      <TextField fx:id="fieldEmail" layoutX="228.0" layoutY="414.0" prefHeight="28.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;">
          <font>
             <Font size="17.0" />
          </font>
