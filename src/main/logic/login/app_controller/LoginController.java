@@ -2,10 +2,7 @@ package login.app_controller;
 import login.bean.CredentialsInput;
 import login.bean.UserDataBean;
 import login.model.Session;
-import exception.SyntaxBeanException;
 import login.model.SessionDAOdb;
-
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class LoginController {
@@ -24,8 +21,7 @@ public class LoginController {
         Session.getInstance().setRole(userData.getRole());}
         catch(Exception ex){return false;}
         return true;}
-        catch(SQLException exSQL){return false;}
-        //catch(IOException exIO){return false;}
+        catch(SQLException exSQL){return false;}//catch(IOException exIO){return false;}
     }
 public void logout(){
     Session.getInstance().setEmail("");

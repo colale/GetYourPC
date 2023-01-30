@@ -7,12 +7,12 @@ import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.Random;
+import java.security.SecureRandom;
 
 import static java.lang.System.exit;
 
 public class Home extends Application {
-    private Random random = new Random();
+    private SecureRandom random = new SecureRandom();
     private static final String TRUE = "true";
     private static final String FALSE = "false";
 
