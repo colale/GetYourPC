@@ -11,18 +11,20 @@ public class LoginController {
 
     }
     public boolean authenticate(CredentialsInput credentials){//db oppure fs
-        try{SessionDAOdb s = new SessionDAOdb();
-        UserDataBean userData = new UserDataBean();
-        userData=s.login(credentials);
+        UserDataBean userData;
+        try {
+            SessionDAOdb s = new SessionDAOdb(); //tenta la connessione al db
+            userData = s.login(credentials);
+        }
+        catch(SQLException exSQL){return false;}
+
         try{
         Session.getInstance().setName(userData.getName());
         Session.getInstance().setSurname(userData.getSurname());
         Session.getInstance().setEmail(userData.getEmail());
         Session.getInstance().setRole(userData.getRole());}
         catch(Exception ex){return false;}
-        return true;}
-        catch(SQLException exSQL){return false;}//catch(IOException exIO){return false;}
-    }
+        return true;} //aggiungere il catch del fs}
 public void logout(){
     Session.getInstance().setEmail("");
     Session.getInstance().setName("");

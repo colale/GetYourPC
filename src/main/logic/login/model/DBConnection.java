@@ -22,7 +22,8 @@ public class DBConnection {
         if (instance == null) {
             instance = new DBConnection();
 
-        } if (instance.getConnection().isClosed()) {
+        }
+        if (instance.getConnection().isClosed()) {
             instance = new DBConnection();
         }
 

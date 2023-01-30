@@ -13,9 +13,8 @@ public class SessionDAOdb {
         this.connection = db.getConnection();
     }
 
-    public UserDataBean login(CredentialsInput input) {
+    public UserDataBean login(CredentialsInput input) throws SQLException {
         UserDataBean user = null;
-        try {
             String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, input.getEmail());
@@ -30,7 +29,6 @@ public class SessionDAOdb {
             }
             rs.close();
             stmt.close();
-        } catch (SQLException e) {return user;}
         return user;
     }
 }
