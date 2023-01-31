@@ -61,11 +61,11 @@ public class LoginController {
 
             public boolean usingDB(CredentialsInput credentials){
             try {
-        SessionDAOdb s = new SessionDAOdb(); //tenta la connessione al db
-        userData = s.login(credentials); //prova a richiedere i dati
+        SessionDAOdb s = new SessionDAOdb(); //istanzia il dao
+        userData = s.fetchUser(credentials); //chiede al dao di dargli i dati, se ci sono problemi si lancia una eccezzione
                 return true;
     } catch (SQLException exSQL) {
         return false;
     }}
-    public boolean usingFS(CredentialsInput credentials){return false;}
+    public boolean usingFS(CredentialsInput credentials){return false;}//fa il catch delle eccezioni di IO
 }
