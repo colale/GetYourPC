@@ -98,7 +98,7 @@
                <center>
                   <ImageView fx:id="imgLogin" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/login2.png" />
+                        <Image url="@../../resources/loginDisabled.png" />
                      </image>
                      <BorderPane.margin>
                         <Insets right="10.0" top="10.0" />
