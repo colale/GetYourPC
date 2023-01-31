@@ -51,7 +51,7 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         propsOutput.close();
 }
     public static void quit(){exit(0);}//da migliorare
-    public static void main(String[] args) throws IOException, SQLException {
+    public static void main(String[] args) throws IOException{
         //*Insert code here if you want insert new user, for information read file README
         Home program = new Home();
         program.chooseConfiguration();

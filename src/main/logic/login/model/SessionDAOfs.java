@@ -14,7 +14,7 @@ public class SessionDAOfs {
             String property = prop.getProperty("idCounterOnFileSystem");
             int counterID = Integer.parseInt(property);
             counterID++;
-            account.setId_user(counterID);
+            account.setUserID(counterID);
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(account);

@@ -41,6 +41,8 @@ CASO 2:PERSISTENZA SU FS
 
 Modificando arbitrariamente i dati dell'utente che si vuole inserire
 
+3) Aggiungere l'eccezione SQLException al metodo main
+
 
 
 

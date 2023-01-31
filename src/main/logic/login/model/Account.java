@@ -3,19 +3,19 @@ package login.model;
 import java.io.Serializable;
 
 public class Account implements Serializable {
-    int id_user;
+    int userID;
     String name;
     String surname;
     String role;
     String email;
     String password;
     String status;
-    public int getId_user() {
-        return id_user;
+    public int getUserID() {
+        return userID;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setUserID(int id_user) {
+        this.userID = id_user;
     }
 
     public String getName() {
@@ -65,5 +65,4 @@ public class Account implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-
 }
