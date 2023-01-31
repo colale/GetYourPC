@@ -111,7 +111,7 @@
          </children>
       </HBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="427.0" layoutX="55.0" layoutY="200.0" stroke="WHITE" strokeType="INSIDE" width="1163.0" />
-      <Label layoutX="83.0" layoutY="147.0" prefHeight="31.0" prefWidth="76.0" text="Login" textFill="WHITE">
+      <Label layoutX="92.0" layoutY="147.0" prefHeight="31.0" prefWidth="76.0" text="Login" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>

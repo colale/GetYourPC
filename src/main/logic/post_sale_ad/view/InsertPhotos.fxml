@@ -109,33 +109,45 @@
          </children>
       </HBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="427.0" layoutX="55.0" layoutY="200.0" stroke="WHITE" strokeType="INSIDE" width="1163.0" />
-      <Label alignment="TOP_LEFT" layoutX="83.0" layoutY="147.0" prefHeight="39.0" prefWidth="443.0" text="Insert photos" textFill="WHITE">
+      <Label alignment="TOP_LEFT" layoutX="100.0" layoutY="147.0" prefHeight="39.0" prefWidth="443.0" text="Insert photos" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="btnConfirm" alignment="CENTER" layoutX="497.0" layoutY="533.0" mnemonicParsing="false" onMouseClicked="#btnConfirmClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="283.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE">
+      <Button fx:id="btnConfirm" alignment="CENTER" layoutX="497.0" layoutY="521.0" mnemonicParsing="false" onMouseClicked="#btnConfirmClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="283.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="113.0" layoutY="235.0" prefHeight="39.0" prefWidth="263.0" text="Drag first photo here" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="110.0" layoutY="235.0" prefHeight="39.0" prefWidth="263.0" text="Drag first photo here" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="489.0" layoutY="235.0" prefHeight="39.0" prefWidth="293.0" text="Drag second photo here" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="496.0" layoutY="235.0" prefHeight="39.0" prefWidth="293.0" text="Drag second photo here" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="896.0" layoutY="235.0" prefHeight="39.0" prefWidth="273.0" text="Drag third photo here" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="892.0" layoutY="235.0" prefHeight="39.0" prefWidth="273.0" text="Drag third photo here" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Label>
-      <ImageView fx:id="image1" fitHeight="209.0" fitWidth="255.0" layoutX="109.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="image2" fitHeight="209.0" fitWidth="255.0" layoutX="503.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="image3" fitHeight="209.0" fitWidth="255.0" layoutX="903.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image1" fitHeight="209.0" fitWidth="255.0" layoutX="109.0" layoutY="310.0" onDragOver="#imgDrop1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/White_full.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image2" fitHeight="209.0" fitWidth="255.0" layoutX="515.0" layoutY="310.0" onDragOver="#imgDrop2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/White_full.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image3" fitHeight="209.0" fitWidth="255.0" layoutX="903.0" layoutY="310.0" onDragOver="#imgDrop3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/White_full.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

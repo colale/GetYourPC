@@ -109,7 +109,7 @@
          </children>
       </HBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="427.0" layoutX="55.0" layoutY="200.0" stroke="WHITE" strokeType="INSIDE" width="1163.0" />
-      <Label fx:id="labelName" alignment="TOP_LEFT" layoutX="83.0" layoutY="150.0" prefHeight="39.0" prefWidth="195.0" text="Name" textFill="WHITE">
+      <Label fx:id="labelName" alignment="TOP_LEFT" layoutX="100.0" layoutY="150.0" prefHeight="39.0" prefWidth="195.0" text="Name" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
@@ -131,7 +131,7 @@
       </Label>
       <Label fx:id="label" alignment="CENTER" layoutX="361.0" layoutY="312.0" prefHeight="39.0" prefWidth="584.0" text="You are logged in" textFill="WHITE">
          <font>
-            <Font name="Avenir Next Bold" size="27.0" />
+            <Font name="Avenir Next Bold" size="26.0" />
          </font>
       </Label>
    </children>
