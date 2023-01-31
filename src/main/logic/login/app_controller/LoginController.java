@@ -1,15 +1,18 @@
 package login.app_controller;
 import login.bean.CredentialsInput;
 import login.bean.UserDataBean;
+import login.model.Account;
 import login.model.Session;
 import login.model.SessionDAOdb;
+import login.model.SessionDAOfs;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 
 public class LoginController {
-    UserDataBean userData;
+    Account userData;
+    Account account;
 
     public boolean checkIsAuthenticated() {
         return !((Session.getInstance().getEmail()).equals(""));
@@ -17,7 +20,6 @@ public class LoginController {
     }
 
     public boolean authenticate(CredentialsInput credentials) throws IOException {//db oppure fs
-
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
@@ -53,6 +55,7 @@ public class LoginController {
             Session.getInstance().setSurname(userData.getSurname());
             Session.getInstance().setEmail(userData.getEmail());
             Session.getInstance().setRole(userData.getRole());
+            Session.getInstance().setId(userData.getUserID());
         } catch (Exception ex) {
             return false;
         }
@@ -62,11 +65,17 @@ public class LoginController {
             public boolean usingDB(CredentialsInput credentials){
             try {
         SessionDAOdb s = new SessionDAOdb(); //istanzia il dao
-        userData = s.fetchUser(credentials); //chiede al dao di dargli i dati, se ci sono problemi si lancia una eccezzione
+        this.userData = s.fetchUser(credentials); //chiede al dao di dargli i dati, se ci sono problemi si lancia una eccezione
                 return true;
     } catch (SQLException exSQL) {
         return false;
     }}
-    public boolean usingFS(CredentialsInput credentials){return false;}//fa il catch delle eccezioni di IO
-}
+    public boolean usingFS(CredentialsInput credentials){
+        SessionDAOfs s = new SessionDAOfs();
+        try{
+            this.userData=s.fetchUser(credentials);
+            return true;}
+        catch(Exception ex){return false;}
+        }
+    }
 

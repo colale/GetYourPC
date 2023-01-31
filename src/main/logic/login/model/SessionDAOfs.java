@@ -1,29 +1,27 @@
 package login.model;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import login.bean.CredentialsInput;
+import java.io.*;
+import java.util.List;
 import java.util.Properties;
-
-//lancia una eccezione se qualcosa va storto, se l'utente non esiste oppure non va l'IO
 public class SessionDAOfs {
-        public void insertAccount(String fileName, Account account) throws IOException {
-            FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
-            Properties prop = new Properties();
-            prop.load(propsInput);
-            String property = prop.getProperty("idCounterOnFileSystem");
-            int counterID = Integer.parseInt(property);
-            counterID++;
-            account.setUserID(counterID);
-            FileOutputStream fileOut = new FileOutputStream(fileName);
-            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-            objectOut.writeObject(account);
-            objectOut.close();
-            fileOut.close();
-            property=Integer.toString(counterID);
-            prop.setProperty("idCounterOnFileSystem",property);
-            FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
-            prop.store(propsOutput, null);
-            propsOutput.close();
+
+    public Account fetchUser(CredentialsInput credentialsInput) throws IOException, ClassNotFoundException {
+        FileInputStream fileInput = new FileInputStream("src/main/logic/resources/accountOnFS.dat");
+        ObjectInputStream inputStream = new ObjectInputStream(fileInput);
+        List<Account>accounts = (List<Account>) inputStream.readObject(); //questo non lo esegue
+        inputStream.close();
+        fileInput.close();
+        for (Account account : accounts) {
+            if (account.getEmail().equals(credentialsInput.getEmail()) && account.getPassword().equals(credentialsInput.getPassword())) {
+                System.out.println("aaa");
+                return account;}}
+            throw new IOException();
+        }
+        public void insertAccount(List <Account> accounts) throws IOException, ClassNotFoundException {
+            FileOutputStream fos = new FileOutputStream("src/main/logic/resources/accountOnFS.dat");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(accounts);
+            oos.close();
+            fos.close();
         }
     }

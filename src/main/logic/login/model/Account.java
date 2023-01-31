@@ -3,19 +3,19 @@ package login.model;
 import java.io.Serializable;
 //Questa classe viene utilizzata solamente per inserire utenti, leggere file README per informazioni
 public class Account implements Serializable {
-    int userID;
-    String name;
-    String surname;
-    String role;
-    String email;
-    String password;
-    String status;
+    int userID=0;
+    String name="";
+    String surname="";
+    String role="";
+    String email="";
+    String password="";
+    String status="";
     public int getUserID() {
         return userID;
     }
 
-    public void setUserID(int id_user) {
-        this.userID = id_user;
+    public void setUserID(int id) {
+        this.userID = id;
     }
 
     public String getName() {

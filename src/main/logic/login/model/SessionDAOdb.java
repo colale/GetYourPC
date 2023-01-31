@@ -13,19 +13,21 @@ public class SessionDAOdb {
         this.connection = db.getConnection();
     }
 
-    public UserDataBean fetchUser(CredentialsInput input) throws SQLException {
-        UserDataBean user = null;
+    public Account fetchUser(CredentialsInput input) throws SQLException {
+        Account user = null;
             String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, input.getEmail());
             stmt.setString(2, input.getPassword());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                user = new UserDataBean();
+                user = new Account();
                 user.setEmail(rs.getString("email"));
                 user.setName(rs.getString("name"));
                 user.setSurname(rs.getString("surname"));
                 user.setRole(rs.getString("role"));
+                int id = Integer.parseInt(rs.getString("id_user"));
+                user.setUserID(id);
             }
             rs.close();
             stmt.close();

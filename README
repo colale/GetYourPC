@@ -21,6 +21,10 @@ CASO 1:PERSISTENZA SU DB
 
 Modificando arbitrariamente i dati dell'utente che si vuole inserire
 
+3) Aggiungere l'eccezione SQLException al metodo main
+
+
+
 CASO 2:PERSISTENZA SU FS
 
 1)Aggiungere
@@ -29,7 +33,7 @@ CASO 2:PERSISTENZA SU FS
 		import login.model.SessionDAOfs;
 
 2)Inserire nel metodo main dove presente l'asterisco il seguente codice: 
-		Account account=new Account();
+	    Account account=new Account();
         account.setName("Michele");
         account.setEmail("michele.bianchi@gmail.com");
         account.setPassword("password4");
@@ -37,11 +41,9 @@ CASO 2:PERSISTENZA SU FS
         account.setSurname("Bianchi");
         account.setStatus("active");
         SessionDAOfs session = new SessionDAOfs();
-        session.insertAccount("src/main/logic/resources/accountOnFS.dat",a);
+        session.insertAccount(account);
 
 Modificando arbitrariamente i dati dell'utente che si vuole inserire
-
-3) Aggiungere l'eccezione SQLException al metodo main
 
 
 
