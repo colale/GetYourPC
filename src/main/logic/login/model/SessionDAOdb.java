@@ -1,4 +1,5 @@
 package login.model;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +9,7 @@ import login.bean.UserDataBean;
 
 public class SessionDAOdb {
     private Connection connection;
-    public SessionDAOdb() throws SQLException {//gestire caso in cui salta la connessione
+    public SessionDAOdb() throws SQLException{//gestire caso in cui salta la connessione
         DBConnection db = DBConnection.getInstance();
         this.connection = db.getConnection();
     }

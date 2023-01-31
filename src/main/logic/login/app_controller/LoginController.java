@@ -58,6 +58,7 @@ public class LoginController {
         }
         return true;
     }
+
             public boolean usingDB(CredentialsInput credentials){
             try {
         SessionDAOdb s = new SessionDAOdb(); //tenta la connessione al db

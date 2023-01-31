@@ -56,7 +56,7 @@ public class CLILogin {
         passed = c.authenticate(credentialsInput);
     }
                     catch(SyntaxBeanException e) {passed=false;}
-                    catch(IOException IOexception){passed=false;}
+                    catch(IOException ex){passed=false;}
                     if (passed){
         System.out.println("You are logged in now\n");
         (new CLIHome()).execute();}
