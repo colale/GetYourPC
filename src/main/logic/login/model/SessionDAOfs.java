@@ -13,15 +13,20 @@ public class SessionDAOfs {
         fileInput.close();
         for (Account account : accounts) {
             if (account.getEmail().equals(credentialsInput.getEmail()) && account.getPassword().equals(credentialsInput.getPassword())) {
-                System.out.println("aaa");
                 return account;}}
             throw new IOException();
         }
-        public void insertAccount(List <Account> accounts) throws IOException, ClassNotFoundException {
-            FileOutputStream fos = new FileOutputStream("src/main/logic/resources/accountOnFS.dat");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(accounts);
-            oos.close();
-            fos.close();
-        }
-    }
+        public void insertAccount(Account account) throws IOException, ClassNotFoundException {
+                    FileInputStream fis = new FileInputStream("src/main/logic/resources/accountOnFS.dat");
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    List<Account> accounts = (List<Account>) ois.readObject();
+                    ois.close();
+                    fis.close();
+                    FileOutputStream fos = new FileOutputStream("src/main/logic/resources/accountOnFS.dat");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    accounts.add(account);
+                    oos.writeObject(accounts);
+                    oos.close();
+                    fos.close();
+                }
+            }

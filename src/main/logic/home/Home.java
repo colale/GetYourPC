@@ -80,9 +80,7 @@ public void randomConfigGenerate(Properties prop) throws IOException {
             prop.store(propsOutput, null);
             propsOutput.close();
             SessionDAOfs session = new SessionDAOfs();
-            List<Account> accounts = new ArrayList<>();
-            accounts.add(account);
-            session.insertAccount(accounts);
+            session.insertAccount(account);
             Home program = new Home();
             program.chooseConfiguration();
     }
