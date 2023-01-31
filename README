@@ -1,0 +1,47 @@
+Popolare lo strato di persistenza
+
+Per inserire account nel sistema è possibile modificare il codice sorgente aggiungendo delle linee di codice nel file src/main/logic/home/Home.java
+
+CASO 1:PERSISTENZA SU DB
+
+1)Aggiungere
+
+		import login.model.Account;
+		import login.model.SessionDAOdb;
+
+2)Inserire nel metodo main dove presente l'asterisco il seguente codice: 
+		Account account=new Account();
+        account.setName("Sara");
+        account.setEmail("sara.rossi@gmail.com");
+        account.setPassword("password5");
+        account.setRole("user");
+        account.setSurname("Rossi");
+        SessionDAOdb session = new SessionDAOdb();
+        session.insertAccount(account);
+
+Modificando arbitrariamente i dati dell'utente che si vuole inserire
+
+CASO 2:PERSISTENZA SU FS
+
+1)Aggiungere
+
+		import login.model.Account;
+		import login.model.SessionDAOfs;
+
+2)Inserire nel metodo main dove presente l'asterisco il seguente codice: 
+		Account account=new Account();
+        account.setName("Michele");
+        account.setEmail("michele.bianchi@gmail.com");
+        account.setPassword("password4");
+        account.setRole("user");
+        account.setSurname("Bianchi");
+        account.setStatus("active");
+        SessionDAOfs session = new SessionDAOfs();
+        session.insertAccount("src/main/logic/resources/accountOnFS.dat",a);
+
+Modificando arbitrariamente i dati dell'utente che si vuole inserire
+
+
+
+
+
