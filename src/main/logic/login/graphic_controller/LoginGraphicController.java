@@ -48,6 +48,7 @@ public class LoginGraphicController {
         } catch (SyntaxBeanException e) {
             passed = false;
         }
+        catch(IOException IOexception){passed=false;}
         if (passed) {
             btnConfirm.setDisable(true);
             btnConfirm.setOpacity(0.5);

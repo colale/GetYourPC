@@ -3,6 +3,8 @@ import home.CLIHome;
 import login.app_controller.LoginController;
 import login.bean.CredentialsInput;
 import exception.SyntaxBeanException;
+
+import java.io.IOException;
 import java.util.Scanner;
 public class CLILogin {
     String password;
@@ -54,6 +56,7 @@ public class CLILogin {
         passed = c.authenticate(credentialsInput);
     }
                     catch(SyntaxBeanException e) {passed=false;}
+                    catch(IOException IOexception){passed=false;}
                     if (passed){
         System.out.println("You are logged in now\n");
         (new CLIHome()).execute();}
