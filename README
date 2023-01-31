@@ -33,18 +33,19 @@ CASO 2:PERSISTENZA SU FS
 		import login.model.SessionDAOfs;
 
 2)Inserire nel metodo main dove presente l'asterisco il seguente codice: 
-	    Account account=new Account();
+		Account account=new Account();
         account.setName("Michele");
+        account.setSurname("Bianchi");
         account.setEmail("michele.bianchi@gmail.com");
         account.setPassword("password4");
         account.setRole("user");
-        account.setSurname("Bianchi");
         account.setStatus("active");
         SessionDAOfs session = new SessionDAOfs();
         session.insertAccount(account);
 
 Modificando arbitrariamente i dati dell'utente che si vuole inserire
 
+3) Aggiungere l'eccezione ClassNotFoundException al metodo main
 
 
 

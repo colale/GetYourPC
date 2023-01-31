@@ -3,16 +3,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import login.model.Account;
-import login.model.SessionDAOfs;
-
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 import java.security.SecureRandom;
 import static java.lang.System.exit;
@@ -57,30 +50,8 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         propsOutput.close();
 }
     public static void quit(){exit(0);}//da migliorare
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException {
         //*Insert code here if you want insert new user, for information read file README
-        Account account=new Account();
-        account.setName("Mario");
-        account.setEmail("mario.rossi@gmail.com");
-        account.setPassword("password1");
-        account.setRole("user");
-        account.setSurname("Rossi");
-        account.setStatus("active");
-
-            FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
-            Properties prop = new Properties();
-            prop.load(propsInput);
-            String property = prop.getProperty("idCounterOnFileSystem");
-            int counterID = Integer.parseInt(property);
-            counterID++;
-            account.setUserID(counterID);
-            property=Integer.toString(counterID);
-            prop.setProperty("idCounterOnFileSystem",property);
-            FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
-            prop.store(propsOutput, null);
-            propsOutput.close();
-            SessionDAOfs session = new SessionDAOfs();
-            session.insertAccount(account);
             Home program = new Home();
             program.chooseConfiguration();
     }

@@ -8,7 +8,7 @@ public class SessionDAOfs {
     public Account fetchUser(CredentialsInput credentialsInput) throws IOException, ClassNotFoundException {
         FileInputStream fileInput = new FileInputStream("src/main/logic/resources/accountOnFS.dat");
         ObjectInputStream inputStream = new ObjectInputStream(fileInput);
-        List<Account>accounts = (List<Account>) inputStream.readObject(); //questo non lo esegue
+        List<Account>accounts = (List<Account>) inputStream.readObject();
         inputStream.close();
         fileInput.close();
         for (Account account : accounts) {
@@ -22,6 +22,18 @@ public class SessionDAOfs {
                     List<Account> accounts = (List<Account>) ois.readObject();
                     ois.close();
                     fis.close();
+                    FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
+                    Properties prop = new Properties();
+                    prop.load(propsInput);
+                    String property = prop.getProperty("idCounterOnFileSystem");
+                    int counterID = Integer.parseInt(property);
+                    counterID++;
+                    account.setUserID(counterID);
+                    property=Integer.toString(counterID);
+                    prop.setProperty("idCounterOnFileSystem",property);
+                    FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
+                    prop.store(propsOutput, null);
+                    propsOutput.close();
                     FileOutputStream fos = new FileOutputStream("src/main/logic/resources/accountOnFS.dat");
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
                     accounts.add(account);
