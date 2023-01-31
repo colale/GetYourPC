@@ -4,10 +4,10 @@ import java.io.*;
 import java.util.List;
 import java.util.Properties;
 public class SessionDAOfs {
-    static final String sessionOnFSPath="src/main/logic/resources/accountOnFS.dat";
+    static final String sessionOnFsPath="src/main/logic/resources/accountOnFS.dat";
 
     public Account fetchUser(CredentialsInput credentialsInput) throws IOException, ClassNotFoundException {
-        FileInputStream fileInput = new FileInputStream(sessionOnFSPath);
+        FileInputStream fileInput = new FileInputStream(sessionOnFsPath);
         ObjectInputStream inputStream = new ObjectInputStream(fileInput);
         List<Account>accounts = (List<Account>) inputStream.readObject();
         inputStream.close();
@@ -18,7 +18,7 @@ public class SessionDAOfs {
             throw new IOException();
         }
         public void insertAccount(Account account) throws IOException, ClassNotFoundException {
-                    FileInputStream fis = new FileInputStream(sessionOnFSPath);
+                    FileInputStream fis = new FileInputStream(sessionOnFsPath);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     List<Account> accounts = (List<Account>) ois.readObject();
                     ois.close();
@@ -35,7 +35,7 @@ public class SessionDAOfs {
                     FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
                     prop.store(propsOutput, null);
                     propsOutput.close();
-                    FileOutputStream fos = new FileOutputStream(sessionOnFSPath);
+                    FileOutputStream fos = new FileOutputStream(sessionOnFsPath);
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
                     accounts.add(account);
                     oos.writeObject(accounts);
