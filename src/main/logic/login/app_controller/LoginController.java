@@ -69,3 +69,4 @@ public class LoginController {
     }}
     public boolean usingFS(CredentialsInput credentials){return false;}//fa il catch delle eccezioni di IO
 }
+

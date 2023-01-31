@@ -31,4 +31,15 @@ public class SessionDAOdb {
             stmt.close();
         return user;
     }
+    public void insertAccount(Account account) throws SQLException {
+        String sql = "INSERT INTO Users (name, surname, role, email, password)VALUES (?,?,?,?,?)";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, account.getName());
+        stmt.setString(2, account.getSurname());
+        stmt.setString(3, account.getRole());
+        stmt.setString(4, account.getEmail());
+        stmt.setString(5, account.getPassword());
+        stmt.executeUpdate();
+        stmt.close();
+    }
 }

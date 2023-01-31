@@ -6,10 +6,16 @@ import javafx.stage.Stage;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Properties;
 import java.security.SecureRandom;
-
 import static java.lang.System.exit;
+
+/*Se si vuole popolare lo strato di persistenza:
+import login.model.Account;
+import login.model.SessionDAOdb;
+import login.model.SessionDAOfs;
+*/
 
 public class Home extends Application {
     private SecureRandom random = new SecureRandom();
@@ -51,8 +57,33 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         propsOutput.close();
 }
     public static void quit(){exit(0);}//da migliorare
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
         Home program = new Home();
         program.chooseConfiguration();
     }
 }
+
+        /* Questo è il codice utilizzato per popolare il file.dat
+        Account a=new Account();
+        a.setName("Michele");
+        a.setEmail("michele.bianchi@gmail.com");
+        a.setPassword("password4");
+        a.setRole("user");
+        a.setSurname("Bianchi");
+        a.setStatus("active");
+        SessionDAOfs s = new SessionDAOfs();
+        s.insertAccount("src/main/logic/resources/accountOnFS.dat",a);
+        */
+
+        /* Questo è il codice utilizzato per popolare il db
+        Account a=new Account();
+        a.setName("Sara");
+        a.setEmail("sara.rossi@gmail.com");
+        a.setPassword("password5");
+        a.setRole("user");
+        a.setSurname("Rossi");
+        SessionDAOdb s = new SessionDAOdb();
+        s.insertAccount(a);
+        */
+
+
