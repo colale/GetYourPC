@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import login.bean.CredentialsInput;
-import login.bean.UserDataBean;
 
 public class SessionDAOdb {
     private Connection connection;
