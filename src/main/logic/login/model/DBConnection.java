@@ -9,9 +9,9 @@ import java.util.Properties;
 public class DBConnection {
     private static DBConnection instance;
     private Connection connection;
-    private String url = "url";//"jdbc:mysql://localhost:3306/Database";
-    private String username = "username";//"root";
-    private String password = "password";//"colantonidb";
+    private String url = "url";
+    private String username = "username";
+    private String password = "password";
 
     private DBConnection() throws SQLException {
             this.getDBcredentials();
