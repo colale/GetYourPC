@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -110,23 +111,29 @@
          </children>
       </HBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="427.0" layoutX="55.0" layoutY="200.0" stroke="WHITE" strokeType="INSIDE" width="1163.0" />
-      <Label alignment="TOP_LEFT" layoutX="100.0" layoutY="147.0" prefHeight="39.0" prefWidth="443.0" text="Insert address" textFill="WHITE">
+      <Label alignment="TOP_LEFT" layoutX="100.0" layoutY="147.0" prefHeight="39.0" prefWidth="443.0" text="Insert country, city and address" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="btnSearcg" alignment="CENTER" contentDisplay="CENTER" layoutX="736.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#btnDesktopClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="290.0" style="-fx-background-color: transparent;" text="Search position" textFill="WHITE">
+      <Button fx:id="btnCheckPosition" alignment="CENTER" contentDisplay="CENTER" layoutX="736.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#btnDesktopClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="290.0" style="-fx-background-color: transparent;" text="Check position" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
+         <effect>
+            <SepiaTone />
+         </effect>
       </Button>
       <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" layoutX="689.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#btnLaptopClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="375.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
+         <effect>
+            <SepiaTone />
+         </effect>
       </Button>
       <TextField fx:id="fieldSearch" layoutX="652.0" layoutY="354.0" prefHeight="41.0" prefWidth="464.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
-      <Label alignment="TOP_LEFT" layoutX="813.0" layoutY="443.0" prefHeight="39.0" prefWidth="143.0" text="Is it correct?" textFill="WHITE">
+      <Label fx:id="labelIsItCorrect" alignment="TOP_LEFT" layoutX="813.0" layoutY="443.0" prefHeight="39.0" prefWidth="143.0" text="Is it correct?" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
