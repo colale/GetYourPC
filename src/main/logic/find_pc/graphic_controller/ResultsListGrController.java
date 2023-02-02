@@ -13,15 +13,16 @@ package find_pc.graphic_controller;
 
 public class ResultsListGrController {
 
-    public void init() throws IOException {
+    public void init() throws IOException { //Attenzione, questa parte dell'implementazione presenta deficit prestazionali causati dal fatto che è necessario caricare sull'heap un'istanza di controller grafico per ogni risultato
+        //per ottenere una soluzione molto più efficiente sarebbe stato necessario implementare la view come codice Java puro senza file FXML oppure scrivere del codice che gestisca manualmente la copia completa di un nodo (hbox)
         for (int i = 0; i < 50; i++) {
             FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/Hbox.fxml"));
             Scene scene = new Scene(root.load(), 1280, 720);
             Stage stage=new Stage();
             stage.setScene(scene);
-            Hbox gController = root.getController();
-            HBox nuova=gController.copyHBox();
-            vbox.getChildren().add(nuova);
+            ResultView resultController = root.getController();
+            HBox newResult=resultController.copyHBox();
+            vbox.getChildren().add(newResult);
         }
     }
     @FXML
