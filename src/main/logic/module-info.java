@@ -9,4 +9,6 @@ module it.getyourpc.getyourpc {
     opens login.graphic_controller to javafx.fxml;
     exports login.model;
     opens login.model to javafx.fxml;
+    exports find_pc.graphic_controller;
+    opens find_pc.graphic_controller to javafx.fxml;
 }

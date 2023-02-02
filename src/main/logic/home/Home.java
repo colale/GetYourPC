@@ -1,4 +1,5 @@
 package home;
+import find_pc.graphic_controller.ResultsListGrController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,11 +18,13 @@ public class Home extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/find_pc/view/ResultsList.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280,720);
+        ResultsListGrController c = fxmlLoader.getController();
         stage.setTitle("GetYourPC");
         stage.setResizable(false);
         stage.setScene(scene);
+        c.init();
         stage.show();
     }
         public void chooseConfiguration() throws IOException {
