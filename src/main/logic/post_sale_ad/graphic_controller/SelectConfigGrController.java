@@ -10,6 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import post_sale_ad.app_controller.PostSaleAdController;
+import post_sale_ad.bean.ConfigChoiceBean;
+
 import java.io.IOException;
 
 public class SelectConfigGrController {
@@ -42,12 +45,30 @@ public class SelectConfigGrController {
     private ImageView imgHome;
 
     @FXML
-    void btnDesktopClick(MouseEvent event) {
+    void btnDesktopClick(MouseEvent event) throws IOException {
+        ConfigChoiceBean choice=new ConfigChoiceBean();
+        choice.setChoice("desktop");
+        PostSaleAdController controller = new PostSaleAdController();
+        controller.createPost();
+        FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/InsertInfoDesktop.fxml"));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
     @FXML
-    void btnLaptopClick(MouseEvent event) {
+    void btnLaptopClick(MouseEvent event) throws IOException {
+        ConfigChoiceBean choice=new ConfigChoiceBean();
+        choice.setChoice("laptop");
+        PostSaleAdController controller = new PostSaleAdController();
+        controller.createPost();
+        FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/InsertInfoLaptop.fxml"));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
     @FXML

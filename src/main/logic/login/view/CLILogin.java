@@ -6,6 +6,10 @@ import exception.SyntaxBeanException;
 
 import java.io.IOException;
 import java.util.Scanner;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class CLILogin {
     String password;
     String email;
@@ -14,8 +18,8 @@ public class CLILogin {
     public void execute() {
         System.out.println("Login:\n\n1)Login with email and password\n2)Login with Gmail\n3)Sign up\n4)Home");
         Scanner scanner = new Scanner(System.in);
-        boolean validInput = false;
-        while(!validInput){
+        boolean validInput=FALSE;
+        while (!validInput) {
             System.out.println("Insert number:");
             if(!scanner.hasNextInt()){
                 System.out.println("It's a string. Retry");
@@ -24,18 +28,19 @@ public class CLILogin {
             int num = scanner.nextInt();
             switch (num) {
                 case 1:
+                    validInput=TRUE;
                     requireLogin();
                     break;
                 case 2:
-                    validInput = true;
+                    validInput=TRUE;
                     System.out.println("This option in not available now");
                     break;
                 case 3:
-                    validInput = false;
+                    validInput=TRUE;
                     System.out.println("This option is not available now");
                     break;
                 case 4:
-                    validInput = true;
+                    validInput=TRUE;
                     (new CLIHome()).execute();
                     break;
                 default:

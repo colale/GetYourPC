@@ -4,6 +4,9 @@ import login.app_controller.LoginController;
 import login.bean.UserDataBean;
 import java.util.Scanner;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class CLILogout {
     private String name;
     private String surname;
@@ -15,7 +18,7 @@ public class CLILogout {
         this.init();
         System.out.println("Name: " + this.name + " Surname: " + this.surname + " Email: " + this.email + "\n\n1)Logout\n2)Home");
         Scanner scanner = new Scanner(System.in);
-        boolean validInput = false;
+        boolean validInput=FALSE;
         while (!validInput) {
             System.out.println("Insert number:");
             if (!scanner.hasNextInt()) {
@@ -26,12 +29,14 @@ public class CLILogout {
             int num = scanner.nextInt();
             switch (num) {
                 case 1:
+                    validInput=TRUE;
                     validInput = true;
                     c.logout();
                     System.out.println("Logout completed\n");
                     new CLIHome().execute();
                     break;
                 case 2:
+                    validInput=TRUE;
                     validInput = true;
                     new CLIHome().execute();
                     break;

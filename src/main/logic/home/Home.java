@@ -3,10 +3,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import login.model.DBConnection;
+import login.model.Session;
 
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Properties;
 import java.security.SecureRandom;
 import static java.lang.System.exit;
@@ -34,7 +37,7 @@ public class Home extends Application {
         prop.load(propsInput);
         this.randomConfigGenerate(prop); //If you don't want random generation of configuration, comment this line and set it manually
         String cliUI = prop.getProperty("cliUI");
-        if (cliUI.equals(FALSE)||!cliUI.equals(FALSE)){//!!!!!!!!!!!!!!!!
+        if (cliUI.equals(FALSE)||cliUI.equals(FALSE)){//!!!!!!!!!!!!!!!!
             propsInput.close();
             launch();}
         else{
@@ -54,9 +57,11 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         propsOutput.close();
 }
     public static void quit(){
-        System.out.println("aa");//chiudere le connessioni
-        exit(0);
-    }
+        try {
+            DBConnection.getInstance().getConnection().close();
+        }
+        catch (SQLException e){exit(0);}
+        exit(0);}
 
     public static void main(String[] args) throws IOException {
         //*Insert code here if you want insert new user, for information read file README

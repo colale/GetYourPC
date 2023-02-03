@@ -14,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
 import login.bean.CredentialsInput;
-import login.bean.UserDataBean;
 import exception.SyntaxBeanException;
 public class LoginGraphicController {
     CredentialsInput credentialsInput = new CredentialsInput();
