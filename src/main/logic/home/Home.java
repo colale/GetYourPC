@@ -1,9 +1,9 @@
 package home;
-import find_pc.graphic_controller.ResultsListGrController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,12 +20,14 @@ public class Home extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280,720);
-        HomeGraphicController c = fxmlLoader.getController(); //cambiare all'occorrenza
         stage.setTitle("GetYourPC");
         stage.setResizable(false);
         stage.setScene(scene);
-        stage.show();
-    }
+        stage.setOnCloseRequest(new GraphicCloseHandler());
+        stage.show();}
+
+
+
         public void chooseConfiguration() throws IOException {
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
@@ -51,7 +53,11 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         prop.store(propsOutput, null);
         propsOutput.close();
 }
-    public static void quit(){exit(0);}//da migliorare
+    public static void quit(){
+        System.out.println("aa");//chiudere le connessioni
+        exit(0);
+    }
+
     public static void main(String[] args) throws IOException {
         //*Insert code here if you want insert new user, for information read file README
             Home program = new Home();

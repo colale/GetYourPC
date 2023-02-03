@@ -95,4 +95,5 @@ public class HomeGraphicController {
         Button button = (Button) event.getSource();
         button.setOpacity(1);
     }
+
 }
