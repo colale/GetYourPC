@@ -12,7 +12,7 @@ import static java.lang.Boolean.TRUE;
 
 public class CLISelectConfig {
     public void execute() {
-        System.out.println("Select Configuration to post\n1)Desktop\nLaptop\n3)Home");
+        System.out.println("Select configuration to post\n1)Desktop\n2)Laptop\n3)Home");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = FALSE;
         while (!validInput) {

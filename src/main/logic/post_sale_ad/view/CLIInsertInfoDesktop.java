@@ -7,6 +7,8 @@ public class CLIInsertInfoDesktop {
     public void setAppController(PostSaleAdController controller){
         this.controller=controller;
     }
-    public void execute(){}
+    public void execute(){
+        System.out.println("Insert CPU");
+    }
 
 }
