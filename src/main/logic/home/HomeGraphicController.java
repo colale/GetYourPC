@@ -12,50 +12,78 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
 import login.graphic_controller.LogoutGraphicController;
-
 import java.io.IOException;
 public class HomeGraphicController {
-
     @FXML
     private Label advice;
 
     @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearchPC;
-
-    @FXML
-    private ImageView imgHome;
-
-    @FXML
-    private ImageView imgLogin;
-
-    @FXML
-    void btnPersonalAreaClick(MouseEvent event) {
+    void btnPersonalAreaClick() {
         advice.setText("This option is not available now");
     }
 
     @FXML
-    void btnPostSaleAdClick(MouseEvent event) {
+    void btnPostSaleAdClick(MouseEvent event) throws IOException {
+        String path;
+        LoginController loginController = new LoginController();
+        path = loginController.checkIsAuthenticated() ?"/post_sale_ad/view/SelectConfig.fxml":"/login/view/Login.fxml";
+        FXMLLoader root = new FXMLLoader(getClass().getResource(path));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void btnReviewerAreaClick(MouseEvent event) {
+    void btnReviewerAreaClick() {
         advice.setText("This option is not available now");
     }
 
     @FXML
-    void btnSearchPCClick(MouseEvent event) {
+    void btnSearchPCClick(MouseEvent event) throws IOException {
+        String path;
+        path = "/find_pc/view/RequireConfig.fxml";
+        FXMLLoader root = new FXMLLoader(getClass().getResource(path));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    @FXML
+    void imgHomeClick() {
+        advice.setText("This is Home");
+    }
+
+    @FXML
+    void imgLoginClick(MouseEvent event) throws IOException {
+        String path;
+        LoginController loginController=new LoginController();
+        path = loginController.checkIsAuthenticated() ?"/login/view/Logout.fxml":"/login/view/Login.fxml";
+        FXMLLoader root = new FXMLLoader(getClass().getResource(path));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            if (loginController.checkIsAuthenticated()) {
+                LogoutGraphicController gController = root.getController();
+                gController.init();}
+                stage.setScene(scene);
+                stage.show();
+    }
+
+    @FXML
+    void imgMouseEntered(MouseEvent event) {
+        ImageView i = (ImageView) event.getSource();
+        i.setCursor(Cursor.HAND);
+    }
+    @FXML
+    void btnQuestionMarkClick() {
+        advice.setText("For information, read the project documentation");
+    }
+    @FXML
+    void imgMouseExited(MouseEvent event) {
+        ImageView i = (ImageView) event.getSource();
+        i.setCursor(Cursor.DEFAULT);
     }
 
     @FXML
@@ -69,42 +97,4 @@ public class HomeGraphicController {
         Button button = (Button) event.getSource();
         button.setOpacity(1);
     }
-
-    @FXML
-    void imgHomeClick(MouseEvent event) {
-        advice.setText("This is Home");
-    }
-
-    @FXML
-    void imgLoginClick(MouseEvent event) throws IOException {
-        LoginController c = new LoginController();
-        String path;
-        path = c.checkIsAuthenticated() ?"/login/view/Logout.fxml":"/login/view/Login.fxml";
-        FXMLLoader root = new FXMLLoader(getClass().getResource(path));
-        Scene scene = new Scene(root.load(), 1280, 720);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            if (c.checkIsAuthenticated()) {
-                LogoutGraphicController gController = root.getController();
-                gController.init();}
-                stage.setScene(scene);
-                stage.show();
-    }
-
-    @FXML
-    void imgMouseEntered(MouseEvent event) {
-        ImageView i = (ImageView) event.getSource();
-        i.setCursor(Cursor.HAND);
-    }
-
-    @FXML
-    void imgMouseExited(MouseEvent event) {
-        ImageView i = (ImageView) event.getSource();
-        i.setCursor(Cursor.DEFAULT);
-    }
-
-    @FXML
-    void btnQuestionMarkClick(MouseEvent event) {
-        advice.setText("For information, read the project documentation");
-    }
-
 }

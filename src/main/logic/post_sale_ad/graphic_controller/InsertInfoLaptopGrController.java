@@ -65,4 +65,4 @@ public class InsertInfoLaptopGrController {
             button.setOpacity(1);
         }
     }
-}
+    }

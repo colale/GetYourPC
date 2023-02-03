@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -14,17 +15,61 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class InsertInfoDesktopGrController {
-    @FXML
-    private Button btnDesktop;
-    @FXML
-    private Button btnLaptop;
+
     @FXML
     private Label advice;
+
     @FXML
-    void btnDesktopClick(MouseEvent event) {
-    }
+    private Button btnConfirm;
+
     @FXML
-    void btnLaptopClick(MouseEvent event) {
+    private Button btnPersonalArea;
+
+    @FXML
+    private Button btnPostSaleAd;
+
+    @FXML
+    private Button btnQuestionMark;
+
+    @FXML
+    private Button btnReviewerArea;
+
+    @FXML
+    private Button btnSearchPC;
+
+    @FXML
+    private TextField fieldCase;
+
+    @FXML
+    private TextField fieldCpu;
+
+    @FXML
+    private TextField fieldGpu;
+
+    @FXML
+    private TextField fieldHeat;
+
+    @FXML
+    private TextField fieldMoba;
+
+    @FXML
+    private TextField fieldPower;
+
+    @FXML
+    private TextField fieldPrice;
+
+    @FXML
+    private TextField fieldRam;
+
+    @FXML
+    private TextField fieldStorage;
+
+    @FXML
+    private ImageView imgHome;
+
+    @FXML
+    void btnConfirmClick(MouseEvent event) {
+
     }
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {
@@ -65,4 +110,5 @@ public class InsertInfoDesktopGrController {
             button.setOpacity(1);
         }
     }
+
 }

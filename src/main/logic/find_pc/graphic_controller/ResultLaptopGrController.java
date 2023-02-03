@@ -7,23 +7,19 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class RequirePositionGrController {
-
-    @FXML
-    private Label LabelIsItCorrect;
+public class ResultLaptopGrController {
 
     @FXML
     private Label advice;
 
     @FXML
-    private Button btnConfirm;
+    private Button btnBack;
 
     @FXML
     private Button btnPersonalArea;
@@ -35,39 +31,65 @@ public class RequirePositionGrController {
     private Button btnQuestionMark;
 
     @FXML
-    private Button btnReviewerArea;
+    private Button btnReport;
 
     @FXML
-    private Button btnSearcg;
+    private Button btnReviewerArea;
 
     @FXML
     private Button btnSearchPC;
 
     @FXML
-    private TextField fieldAddress;
+    private ImageView img1;
 
     @FXML
-    private TextField fieldCity;
+    private ImageView img2;
 
     @FXML
-    private TextField fieldCountry;
-
-    @FXML
-    private TextField fieldSearch;
+    private ImageView img3;
 
     @FXML
     private ImageView imgHome;
 
     @FXML
-    void btnDesktopClick(MouseEvent event) {
+    private Label labelAddress;
+
+    @FXML
+    private Label labelBrand;
+
+    @FXML
+    private Label labelCpu;
+
+    @FXML
+    private Label labelEmail;
+
+    @FXML
+    private Label labelFullName;
+
+    @FXML
+    private Label labelGpu;
+
+    @FXML
+    private Label labelModel;
+
+    @FXML
+    private Label labelPrice;
+
+    @FXML
+    private Label labelRam;
+
+    @FXML
+    private Label labelScreenSize;
+
+    @FXML
+    void btnBackClick(MouseEvent event) {
 
     }
 
     @FXML
-    void btnLaptopClick(MouseEvent event) {
+    void btnReportClick(MouseEvent event) {
 
     }
-
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));
@@ -107,5 +129,4 @@ public class RequirePositionGrController {
             button.setOpacity(1);
         }
     }
-
 }

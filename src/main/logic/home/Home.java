@@ -18,13 +18,13 @@ public class Home extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/find_pc/view/ResultsList.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280,720);
-        ResultsListGrController c = fxmlLoader.getController();
+        HomeGraphicController c = fxmlLoader.getController(); //cambiare all'occorrenza
         stage.setTitle("GetYourPC");
         stage.setResizable(false);
         stage.setScene(scene);
-        c.init();
+        //c.init();
         stage.show();
     }
         public void chooseConfiguration() throws IOException {

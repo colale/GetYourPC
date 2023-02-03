@@ -14,8 +14,43 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SelectConfigGrController {
+
     @FXML
     private Label advice;
+
+    @FXML
+    private Button btnDesktop;
+
+    @FXML
+    private Button btnLaptop;
+
+    @FXML
+    private Button btnPersonalArea;
+
+    @FXML
+    private Button btnPostSaleAd;
+
+    @FXML
+    private Button btnQuestionMark;
+
+    @FXML
+    private Button btnReviewerArea;
+
+    @FXML
+    private Button btnSearchPC;
+
+    @FXML
+    private ImageView imgHome;
+
+    @FXML
+    void btnDesktopClick(MouseEvent event) {
+
+    }
+
+    @FXML
+    void btnLaptopClick(MouseEvent event) {
+
+    }
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));
@@ -55,4 +90,5 @@ public class SelectConfigGrController {
             button.setOpacity(1);
         }
     }
+
 }

@@ -12,10 +12,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ResultView {
+public class ResultGrController {
 
-    public HBox copyHBox() {
-        this.labelPrice.setText("123123");
+    public HBox copyHBox(int i) {
+        this.labelPrice.setText(""+i);
         return this.hbox;
     }
 
