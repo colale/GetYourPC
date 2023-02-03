@@ -32,9 +32,12 @@ public class CLISelectConfig {
                     PostSaleAdController appController = new PostSaleAdController();
                     appController.createPost(choiceBean);
                     if(num==1){
-                        (new CLIInsertInfoDesktop()).execute();}
-                    else{
-                        (new CLIInsertInfoLaptop()).execute();}
+                        CLIInsertInfoDesktop cli = new CLIInsertInfoDesktop();
+                        cli.setAppController(appController);
+                        cli.execute();}
+                    else{ CLIInsertInfoLaptop cli = new CLIInsertInfoLaptop();
+                        cli.setAppController(appController);
+                        cli.execute();}
                     break;
                 case 3:
                     validInput = TRUE;

@@ -32,13 +32,9 @@ public class LoginGraphicController {
     private TextField fieldEmail;
     @FXML
     private PasswordField fieldPassword;
-    @FXML
-    private ImageView imgHome;
-    @FXML
-    private ImageView imgLogin;
 
     @FXML
-    void btnConfirmClick(MouseEvent event) {
+    void btnConfirmClick() {
         boolean passed;
         try {
             credentialsInput.setEmail(fieldEmail.getText());
@@ -64,12 +60,12 @@ public class LoginGraphicController {
     }
 
     @FXML
-    void btnLoginWithGmail(MouseEvent event) {
+    void btnLoginWithGmail() {
         advice.setText("This option is not available now");
     }
 
     @FXML
-    void btnSignUpClick(MouseEvent event) {
+    void btnSignUpClick() {
         advice.setText("This option is not available now");
     }
 

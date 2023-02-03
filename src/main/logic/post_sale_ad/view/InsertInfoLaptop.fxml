@@ -179,14 +179,14 @@
                   <Font name="Avenir Next Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="fieldBrand" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" />
-            <TextField fx:id="fieldModel" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="fieldDisplay" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="fieldRam" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="fieldCpu" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="fieldGpu" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="fieldRam" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="fieldPrice" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="fieldBrand" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" />
+            <TextField fx:id="fieldModel" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="fieldDisplay" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="fieldRam" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="fieldCpu" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="fieldGpu" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="fieldRam" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="fieldPrice" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
    </children>

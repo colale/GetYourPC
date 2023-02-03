@@ -29,10 +29,6 @@ public class LogoutGraphicController {
     @FXML
     private Label labelSurname;
     @FXML
-    private ImageView imgHome;
-    @FXML
-    private ImageView imgLogin;
-    @FXML
     public void init(){
         UserDataBean bean = c.getUser();
         labelName.setText(bean.getName());

@@ -10,10 +10,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import post_sale_ad.app_controller.PostSaleAdController;
 
 import java.io.IOException;
 
 public class InsertInfoLaptopGrController {
+    PostSaleAdController controller;
+    public void setAppController(PostSaleAdController appController){
+        this.controller=appController;}
     @FXML
     private Button btnDesktop;
     @FXML

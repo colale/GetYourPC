@@ -11,11 +11,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import post_sale_ad.app_controller.PostSaleAdController;
 
 import java.io.IOException;
 
 public class InsertInfoDesktopGrController {
-
+    PostSaleAdController controller;
+    public void setAppController(PostSaleAdController appController){
+        this.controller=appController;}
     @FXML
     private Label advice;
 

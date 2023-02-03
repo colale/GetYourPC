@@ -4,8 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import login.model.DBConnection;
-import login.model.Session;
-
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
