@@ -49,7 +49,6 @@ public class ResultGrController {
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        RequireBudgetGrController r = root.getController();
         stage.show();
     }
 

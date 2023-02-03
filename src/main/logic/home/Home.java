@@ -24,7 +24,6 @@ public class Home extends Application {
         stage.setTitle("GetYourPC");
         stage.setResizable(false);
         stage.setScene(scene);
-        //c.init();
         stage.show();
     }
         public void chooseConfiguration() throws IOException {

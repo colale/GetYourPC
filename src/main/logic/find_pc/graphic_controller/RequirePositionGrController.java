@@ -17,7 +17,7 @@ import java.io.IOException;
 public class RequirePositionGrController {
 
     @FXML
-    private Label LabelIsItCorrect;
+    private Label labelIsItCorrect;
 
     @FXML
     private Label advice;

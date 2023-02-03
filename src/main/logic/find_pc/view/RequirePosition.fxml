@@ -133,7 +133,7 @@
          </effect>
       </Button>
       <TextField fx:id="fieldSearch" layoutX="652.0" layoutY="354.0" prefHeight="41.0" prefWidth="464.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
-      <Label fx:id="LabelIsItCorrect" alignment="TOP_LEFT" layoutX="813.0" layoutY="443.0" prefHeight="39.0" prefWidth="143.0" text="Is it correct?" textFill="WHITE">
+      <Label fx:id="labelIsItCorrect" alignment="TOP_LEFT" layoutX="813.0" layoutY="443.0" prefHeight="39.0" prefWidth="143.0" text="Is it correct?" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
