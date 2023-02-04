@@ -2,7 +2,7 @@ package post_sale_ad.bean;
 
 import java.io.Serializable;
 
-public class ConfigChoiceBean implements Serializable {
+public class PCInfoBean implements Serializable {
     private String choice;
     public String getChoice() {
         return choice;

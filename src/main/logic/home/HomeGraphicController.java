@@ -1,5 +1,7 @@
 package home;
 
+import find_pc.app_controller.FindPCController;
+import find_pc.graphic_controller.RequireConfigGrController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -12,7 +14,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
 import login.graphic_controller.LogoutGraphicController;
+import post_sale_ad.app_controller.PostSaleAdController;
+import post_sale_ad.graphic_controller.SelectConfigGrController;
 import java.io.IOException;
+
 public class HomeGraphicController {
     @FXML
     private Label advice;
@@ -25,12 +30,16 @@ public class HomeGraphicController {
     @FXML
     void btnPostSaleAdClick(MouseEvent event) throws IOException {
         String path;
-        LoginController loginController = new LoginController();
-        path = loginController.checkIsAuthenticated() ?"/post_sale_ad/view/SelectConfig.fxml":"/login/view/Login.fxml";
+        PostSaleAdController controller = new PostSaleAdController();
+        path = controller.checkAuthentication() ?"/post_sale_ad/view/SelectConfig.fxml":"/login/view/Login.fxml";
         FXMLLoader root = new FXMLLoader(getClass().getResource(path));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        if (root.getController() instanceof SelectConfigGrController){
+            SelectConfigGrController nextGraphicController=root.getController();
+            nextGraphicController.setController(controller);
+        }
         stage.show();
     }
 
@@ -41,10 +50,13 @@ public class HomeGraphicController {
 
     @FXML
     void btnSearchPCClick(MouseEvent event) throws IOException {
+        FindPCController controller = new FindPCController();
         FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/RequireConfig.fxml"));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        RequireConfigGrController nextGraphicController=root.getController();
+        nextGraphicController.setController(controller);
         stage.show();
     }
 

@@ -2,8 +2,9 @@ package post_sale_ad.app_controller;
 
 import exception.FactoryException;
 import home.Home;
-import javafx.geometry.Pos;
-import post_sale_ad.bean.ConfigChoiceBean;
+import login.app_controller.LoginController;
+import login.model.Session;
+import post_sale_ad.bean.PCInfoBean;
 import post_sale_ad.model.GeneralPostInfo;
 import post_sale_ad.model.factory_config_dao.PostInfoFactoryDAO;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
@@ -18,11 +19,13 @@ public class PostSaleAdController {
         this.postInfoFactory= new PostInfoFactory();
         this.postInfoFactoryDAO=new PostInfoFactoryDAO();
     }
-
-    public void createPost(ConfigChoiceBean configChoiceBean){
+    public boolean checkAuthentication() {
+        return (new LoginController()).checkIsAuthenticated();
+    }
+    public void createPost(PCInfoBean PCInfoBean){
         GeneralPostInfo generalPostInfo = new GeneralPostInfo();
         try{
-            configInfo=this.postInfoFactory.create(configChoiceBean);
+            configInfo=this.postInfoFactory.create(PCInfoBean);
         }
         catch(FactoryException ex){ex.getMessage();
             ex.printStackTrace();

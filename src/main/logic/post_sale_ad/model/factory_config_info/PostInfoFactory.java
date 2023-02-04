@@ -1,10 +1,10 @@
 package post_sale_ad.model.factory_config_info;
 
 import exception.FactoryException;
-import post_sale_ad.bean.ConfigChoiceBean;
+import post_sale_ad.bean.PCInfoBean;
 
 public class PostInfoFactory {
-    public ConfigInfo create (ConfigChoiceBean choice) throws FactoryException {
+    public ConfigInfo create (PCInfoBean choice) throws FactoryException {
         switch (choice.getChoice()){
             case "destkop": return new DesktopInfo();
             case "laptop": return new LaptopInfo();

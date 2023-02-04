@@ -1,5 +1,6 @@
 package find_pc.graphic_controller;
 
+import find_pc.app_controller.FindPCController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -10,10 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import post_sale_ad.app_controller.PostSaleAdController;
 
 import java.io.IOException;
 
 public class RequireConfigGrController {
+    public FindPCController controller;
 
     @FXML
     private Label advice;
@@ -90,4 +93,6 @@ public class RequireConfigGrController {
             button.setOpacity(1);
         }
     }
+    public void setController(FindPCController controller)
+    {this.controller=controller;}
 }

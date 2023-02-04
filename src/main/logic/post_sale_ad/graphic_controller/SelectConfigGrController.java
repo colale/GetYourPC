@@ -11,34 +11,36 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import post_sale_ad.app_controller.PostSaleAdController;
-import post_sale_ad.bean.ConfigChoiceBean;
+import post_sale_ad.bean.PCInfoBean;
 
 import java.io.IOException;
 
 public class SelectConfigGrController {
+    PostSaleAdController controller;
 
     @FXML
     private Label advice;
 
     @FXML
     void btnDesktopClick(MouseEvent event) throws IOException {
-        ConfigChoiceBean choice=new ConfigChoiceBean();
+        PCInfoBean choice=new PCInfoBean();
         choice.setChoice("desktop");
-        PostSaleAdController controller = new PostSaleAdController();
-        controller.createPost(choice);
+        this.controller.createPost(choice);
         FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/InsertInfoDesktop.fxml"));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         InsertInfoDesktopGrController nextController = root.getController();
-        nextController.setAppController(controller);
+        nextController.setAppController(this.controller);
         stage.show();
 
     }
+    public void setController(PostSaleAdController controller)
+    {this.controller=controller;}
 
     @FXML
     void btnLaptopClick(MouseEvent event) throws IOException {
-        ConfigChoiceBean choice=new ConfigChoiceBean();
+        PCInfoBean choice=new PCInfoBean();
         choice.setChoice("laptop");
         PostSaleAdController controller = new PostSaleAdController();
         controller.createPost(choice);

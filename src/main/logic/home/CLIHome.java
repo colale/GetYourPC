@@ -1,8 +1,10 @@
 package home;
+import find_pc.app_controller.FindPCController;
 import find_pc.view.CLIRequireConfig;
 import login.app_controller.LoginController;
 import login.view.CLILogin;
 import login.view.CLILogout;
+import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.view.CLISelectConfig;
 import java.util.Scanner;
 import static java.lang.Boolean.FALSE;
@@ -23,16 +25,26 @@ public class CLIHome {
             switch (num) {
                 case 1:
                     validInput=TRUE;
-                    (new CLIRequireConfig()).execute();
+                    FindPCController findPCController = new FindPCController();
+                    CLIRequireConfig requireConfigCLI=new CLIRequireConfig();
+                    requireConfigCLI.setController(findPCController);
+                    requireConfigCLI.execute();
                     break;
 
                 case 2:
                     validInput=TRUE;
-                    (new CLISelectConfig()).execute();
+                    PostSaleAdController postSaleAdController = new PostSaleAdController();
+                    if(!postSaleAdController.checkAuthentication()) {
+                        validInput=FALSE;
+                        (new CLILogin()).execute();
+                        break;}
+                    CLISelectConfig selectConfigCLI=new CLISelectConfig();
+                    selectConfigCLI.setController(postSaleAdController);
+                    selectConfigCLI.execute();
                     break;
 
                 case 3, 4:
-                    validInput=TRUE;
+                    validInput=FALSE;
                     System.out.println("This option is not available now");
                     break;
 
@@ -45,12 +57,12 @@ public class CLIHome {
                     break;
 
                 case 6:
-                    validInput=true;
+                    validInput=FALSE;
                     System.out.println("For information, read the project documentation");
                     break;
 
                 case 7:
-                    validInput=true;
+                    validInput=TRUE;
                     Home.quit();
                     break;
 
