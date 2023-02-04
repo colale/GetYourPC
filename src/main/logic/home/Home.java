@@ -1,4 +1,5 @@
 package home;
+import exception.ConnectionDBException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -58,7 +59,7 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         try {
             DBConnection.getInstance().getConnection().close();
         }
-        catch (SQLException e){exit(0);}
+        catch (SQLException | ConnectionDBException e){exit(0);}
         exit(0);}
 
     public static void main(String[] args) throws IOException {

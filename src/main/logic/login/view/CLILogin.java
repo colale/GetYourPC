@@ -1,5 +1,6 @@
 package login.view;
 import home.CLIHome;
+import home.Home;
 import login.app_controller.LoginController;
 import login.bean.CredentialsInput;
 import exception.SyntaxBeanException;
@@ -16,7 +17,7 @@ public class CLILogin {
     CredentialsInput credentialsInput = new CredentialsInput();
     LoginController c = new LoginController();
     public void execute() {
-        System.out.println("Login:\n\n1)Login with email and password\n2)Login with Gmail\n3)Sign up\n4)Home");
+        System.out.println("Login:\n\n1)Login with email and password\n2)Login with Gmail\n3)Sign up\n4)Home\n5)Help\n6)Quit)");
         Scanner scanner = new Scanner(System.in);
         boolean validInput=FALSE;
         while (!validInput) {
@@ -42,6 +43,15 @@ public class CLILogin {
                 case 4:
                     validInput=TRUE;
                     (new CLIHome()).execute();
+                    break;
+                case 5:
+                    validInput=FALSE;
+                    System.out.println("For information, read the project documentation");
+                    break;
+
+                case 6:
+                    validInput=TRUE;
+                    Home.quit();
                     break;
                 default:
                     System.out.println("Invalid number.Retry");

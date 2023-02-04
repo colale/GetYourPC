@@ -14,7 +14,7 @@ import static java.lang.Boolean.TRUE;
 public class CLISelectConfig {
     PostSaleAdController controller;
     public void execute() {
-        System.out.println("Select configuration to post\n1)Desktop\n2)Laptop\n3)Home\n4)Quit");
+        System.out.println("Select configuration to post\n1)Desktop\n2)Laptop\n3)Home\n4)Help\n5)Quit");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = FALSE;
         while (!validInput) {
@@ -45,6 +45,11 @@ public class CLISelectConfig {
                     (new CLIHome()).execute();
                     break;
                 case 4:
+                    validInput=FALSE;
+                    System.out.println("For information, read the project documentation");
+                    break;
+
+                case 5:
                     validInput=TRUE;
                     Home.quit();
                     break;

@@ -1,4 +1,5 @@
 package login.app_controller;
+import exception.ConnectionDBException;
 import login.bean.CredentialsInput;
 import login.bean.UserDataBean;
 import login.model.Account;
@@ -68,8 +69,11 @@ public class LoginController {
         this.userData = s.fetchUser(credentials); //chiede al dao di dargli i dati, se ci sono problemi si lancia una eccezione
                 return true;
     } catch (SQLException exSQL) {
-        return false;
-    }}
+        return false;}
+        catch (ConnectionDBException ex){
+                String error=ex.getMessage();
+                System.err.println(error);
+                return false;}}
     public boolean usingFS(CredentialsInput credentials){
         SessionDAOfs s = new SessionDAOfs();
         try{

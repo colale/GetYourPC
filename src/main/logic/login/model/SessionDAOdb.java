@@ -3,11 +3,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import exception.ConnectionDBException;
 import login.bean.CredentialsInput;
 
 public class SessionDAOdb {
     private Connection connection;
-    public SessionDAOdb() throws SQLException{//gestire caso in cui salta la connessione
+    public SessionDAOdb() throws SQLException, ConnectionDBException {//gestire caso in cui salta la connessione
         DBConnection db = DBConnection.getInstance();
         this.connection = db.getConnection();
     }

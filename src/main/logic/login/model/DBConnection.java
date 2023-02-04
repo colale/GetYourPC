@@ -1,4 +1,6 @@
 package login.model;
+import exception.ConnectionDBException;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,10 +15,12 @@ public class DBConnection {
     private String username = "username";
     private String password = "password";
 
-    private DBConnection() throws SQLException {
-            this.getDBcredentials();
-            this.connection = DriverManager.getConnection(url, username, password);
-    }
+    private DBConnection() throws ConnectionDBException {
+            try
+            {this.getDBcredentials();
+            this.connection = DriverManager.getConnection(url, username, password);}
+            catch(SQLException ex){throw new ConnectionDBException("DB Connection Error");}
+            }
 
     public Connection getConnection() {
         return connection;
@@ -34,7 +38,7 @@ public class DBConnection {
         catch(IOException ex) {
             throw new SQLException();}}
 
-    public static DBConnection getInstance() throws SQLException {
+    public static DBConnection getInstance() throws SQLException, ConnectionDBException {
         if (instance == null) {
             instance = new DBConnection();
 
