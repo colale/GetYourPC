@@ -58,8 +58,10 @@ public void randomConfigGenerate(Properties prop) throws IOException {
     public static void quit(){
         try {
             DBConnection.getInstance().getConnection().close();
+
         }
-        catch (SQLException | ConnectionDBException e){exit(0);}
+        catch (SQLException | ConnectionDBException e){exit(0);System.out.println("ciao");}
+        System.out.println("ciao");
         exit(0);}
 
     public static void main(String[] args) throws IOException {

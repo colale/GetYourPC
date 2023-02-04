@@ -4,10 +4,7 @@ import home.CLIHome;
 import home.Home;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.PCInfoBean;
-import post_sale_ad.bean.PositionBean;
-
 import java.util.Scanner;
-
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 

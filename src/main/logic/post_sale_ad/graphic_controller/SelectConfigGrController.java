@@ -42,14 +42,14 @@ public class SelectConfigGrController {
     void btnLaptopClick(MouseEvent event) throws IOException {
         PCInfoBean choice=new PCInfoBean();
         choice.setChoice("laptop");
-        PostSaleAdController controller = new PostSaleAdController();
-        controller.createPost(choice);
+        PostSaleAdController postSaleAdController = new PostSaleAdController();
+        postSaleAdController.createPost(choice);
         FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/InsertInfoLaptop.fxml"));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         InsertInfoLaptopGrController nextController = root.getController();
-        nextController.setAppController(controller);
+        nextController.setAppController(postSaleAdController);
         stage.show();
 
     }
