@@ -7,7 +7,6 @@ public class PCInfoBean implements Serializable {
     public String getChoice() {
         return choice;
     }
-
     public void setChoice(String choice) {
         this.choice = choice;
     }

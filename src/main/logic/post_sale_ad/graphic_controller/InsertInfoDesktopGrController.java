@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.DesktopInfoBean;
-import post_sale_ad.model.factory_config_info.DesktopInfo;
+import post_sale_ad.bean.PriceBean;
 
 import java.io.IOException;
 
@@ -24,7 +24,6 @@ public class InsertInfoDesktopGrController {
     public void setAppController(PostSaleAdController appController) {
         this.controller = appController;
     }
-
     @FXML
     private Label advice;
 
@@ -79,28 +78,41 @@ public class InsertInfoDesktopGrController {
     @FXML
     void btnConfirmClick(MouseEvent event) throws IOException {
         DesktopInfoBean bean = new DesktopInfoBean();
-     /*   try {
+        PriceBean priceBean = new PriceBean();
+        try {
             bean.setPcCase(fieldCase.getText());
-            bean.getGpu()(fieldGpu.getText());
-
-
-
-
-
-
-        }//Inserisci qui la copia dai field al bean}
+            bean.setGpu(fieldGpu.getText());
+            bean.setCpu(fieldCpu.getText());
+            bean.setMemory(fieldStorage.getText());
+            bean.setMotherboard(fieldMoba.getText());
+            bean.setHeatSink(fieldHeat.getText());
+            bean.setPower(fieldPower.getText());
+            bean.setRam(fieldRam.getText());
+            priceBean.setPrice(fieldPrice.getText());}
         catch (SyntaxBeanException ex) {
-        }*/
-        if (controller.checkPcValues(bean)) { //NEWPATH
-            FXMLLoader root = new FXMLLoader(getClass().getResource(""));
+            advice.setText("Error filling in the fields, please try again");
+            fieldCase.setText("");
+            fieldGpu.setText("");
+            fieldCpu.setText("");
+            fieldRam.setText("");
+            fieldStorage.setText("");
+            fieldMoba.setText("");
+            fieldHeat.setText("");
+            fieldPower.setText("");
+            fieldPrice.setText("");
+        }
+        if (controller.checkPrice(priceBean)) {
+            controller.setPrice(priceBean);
+            controller.setConfigInfo(bean);
+            FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/InsertPhotos.fxml"));
             Scene scene = new Scene(root.load(), 1280, 720);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-            SelectConfigGrController nextGraphicController = root.getController();
+            InsertPositionGrController nextGraphicController = root.getController();
             nextGraphicController.setController(controller);
             stage.show();
-        } else {
-        }//svuotare i field
+        } else {advice.setText("Error filling in the field 'price', please insert price again");
+            fieldPrice.setText("");}
     }
 
     @FXML

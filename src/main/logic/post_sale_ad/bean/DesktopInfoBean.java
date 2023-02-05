@@ -1,21 +1,23 @@
 package post_sale_ad.bean;
 
+import exception.SyntaxBeanException;
 import java.io.Serializable;
 
 public class DesktopInfoBean extends PCInfoBean implements Serializable {
-    String cpu;
-    String motherboard;
-    String gpu;
-    String ram;
-    String memory;
-    String power;
-    String heatSink;
-    String pcCase;
+    private String cpu;
+    private String motherboard;
+    private String gpu;
+    private String ram;
+    private String memory;
+   private String power;
+    private String heatSink;
+    private String pcCase;
     public String getCpu() {
         return cpu;
     }
 
-    public void setCpu(String cpu) {
+    public void setCpu(String cpu)throws SyntaxBeanException {
+        syntaxCheck(cpu);
         this.cpu = cpu;
     }
 
@@ -23,7 +25,8 @@ public class DesktopInfoBean extends PCInfoBean implements Serializable {
         return motherboard;
     }
 
-    public void setMotherboard(String motherboard) {
+    public void setMotherboard(String motherboard)throws SyntaxBeanException {
+        syntaxCheck(motherboard);
         this.motherboard = motherboard;
     }
 
@@ -31,7 +34,8 @@ public class DesktopInfoBean extends PCInfoBean implements Serializable {
         return gpu;
     }
 
-    public void setGpu(String gpu) {
+    public void setGpu(String gpu)throws SyntaxBeanException {
+        syntaxCheck(gpu);
         this.gpu = gpu;
     }
 
@@ -39,7 +43,8 @@ public class DesktopInfoBean extends PCInfoBean implements Serializable {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(String ram)throws SyntaxBeanException {
+        syntaxCheck(ram);
         this.ram = ram;
     }
 
@@ -47,7 +52,8 @@ public class DesktopInfoBean extends PCInfoBean implements Serializable {
         return memory;
     }
 
-    public void setMemory(String memory) {
+    public void setMemory(String memory)throws SyntaxBeanException {
+        syntaxCheck(memory);
         this.memory = memory;
     }
 
@@ -55,7 +61,8 @@ public class DesktopInfoBean extends PCInfoBean implements Serializable {
         return power;
     }
 
-    public void setPower(String power) {
+    public void setPower(String power)throws SyntaxBeanException {
+        syntaxCheck(power);
         this.power = power;
     }
 
@@ -63,7 +70,8 @@ public class DesktopInfoBean extends PCInfoBean implements Serializable {
         return heatSink;
     }
 
-    public void setHeatSink(String heatSink) {
+    public void setHeatSink(String heatSink) throws SyntaxBeanException{
+        syntaxCheck(heatSink);
         this.heatSink = heatSink;
     }
 
@@ -71,7 +79,14 @@ public class DesktopInfoBean extends PCInfoBean implements Serializable {
         return pcCase;
     }
 
-    public void setPcCase(String pcCase) {
+    public void setPcCase(String pcCase)throws SyntaxBeanException {
+        syntaxCheck(pcCase);
         this.pcCase = pcCase;
     }
-}
+
+    private void syntaxCheck(String s) throws SyntaxBeanException {
+        if(!(s.length()>0)&&(s.length()<50)){
+            SyntaxBeanException ex=new SyntaxBeanException();
+            throw ex;
+        }
+}}

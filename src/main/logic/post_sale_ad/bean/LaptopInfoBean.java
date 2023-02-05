@@ -1,5 +1,6 @@
 package post_sale_ad.bean;
 
+import exception.SyntaxBeanException;
 import java.io.Serializable;
 
 public class LaptopInfoBean extends PCInfoBean implements Serializable {
@@ -14,15 +15,16 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(String brand) throws SyntaxBeanException {
+        syntaxCheck(brand);
         this.brand = brand;
     }
-
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(String model) throws SyntaxBeanException{
+        syntaxCheck(model);
         this.model = model;
     }
 
@@ -38,7 +40,8 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
         return cpu;
     }
 
-    public void setCpu(String cpu) {
+    public void setCpu(String cpu)throws SyntaxBeanException {
+        syntaxCheck(cpu);
         this.cpu = cpu;
     }
 
@@ -46,7 +49,8 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
         return gpu;
     }
 
-    public void setGpu(String gpu) {
+    public void setGpu(String gpu)throws SyntaxBeanException {
+        syntaxCheck(gpu);
         this.gpu = gpu;
     }
 
@@ -54,7 +58,8 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(String ram)throws SyntaxBeanException {
+        syntaxCheck(ram);
         this.ram = ram;
     }
 
@@ -62,8 +67,14 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
         return memory;
     }
 
-    public void setMemory(String memory) {
+    public void setMemory(String memory) throws SyntaxBeanException{
+        syntaxCheck(memory);
         this.memory = memory;
     }
-
+private void syntaxCheck(String s) throws SyntaxBeanException {
+        if(!(s.length()>0)&&(s.length()<50)){
+            SyntaxBeanException ex=new SyntaxBeanException();
+            throw ex;
+        }
+}
 }

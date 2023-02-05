@@ -4,12 +4,13 @@ import exception.FactoryException;
 import home.Home;
 import login.app_controller.LoginController;
 import post_sale_ad.bean.PCInfoBean;
+import post_sale_ad.bean.PriceBean;
 import post_sale_ad.model.GeneralPostInfo;
 import post_sale_ad.model.factory_config_dao.PostInfoFactoryDAO;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
 import post_sale_ad.model.factory_config_info.PostInfoFactory;
-
 import static java.lang.Boolean.TRUE;
+
 
 public class PostSaleAdController {
     GeneralPostInfo generalPostInfo;//è una classe mode che contiene le informazioni generali del post
@@ -36,11 +37,9 @@ public class PostSaleAdController {
         }
     }
 
-    public boolean checkPcValues(PCInfoBean bean) {
-
-
-
+    public boolean checkPrice(PriceBean bean) {//da finire
         return TRUE;
     }
-
+public void setPrice(PriceBean bean){}//da finire
+    public void setConfigInfo(PCInfoBean bean){}//da finire
 }

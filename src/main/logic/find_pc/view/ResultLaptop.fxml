@@ -220,7 +220,7 @@
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" prefHeight="39.0" prefWidth="443.0" text="RAM:" textFill="WHITE" GridPane.rowIndex="7">
+            <Label alignment="TOP_LEFT" prefHeight="39.0" prefWidth="443.0" text="SSD/HDD:" textFill="WHITE" GridPane.rowIndex="7">
                <font>
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
@@ -255,7 +255,7 @@
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="labelRam" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="345.0" text="RAM" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Label fx:id="labelMemory" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="345.0" text="Memory" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <font>
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>

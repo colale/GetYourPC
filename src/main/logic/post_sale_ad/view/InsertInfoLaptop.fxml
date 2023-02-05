@@ -169,7 +169,7 @@
                   <Font name="Avenir Next Bold" size="21.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" prefHeight="39.0" prefWidth="443.0" text="RAM:" textFill="WHITE" GridPane.rowIndex="6">
+            <Label alignment="TOP_LEFT" prefHeight="39.0" prefWidth="443.0" text="SSD/HDD:" textFill="WHITE" GridPane.rowIndex="6">
                <font>
                   <Font name="Avenir Next Bold" size="21.0" />
                </font>
@@ -185,7 +185,7 @@
             <TextField fx:id="fieldRam" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="fieldCpu" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="fieldGpu" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="fieldRam" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="fieldMemory" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextField fx:id="fieldPrice" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>

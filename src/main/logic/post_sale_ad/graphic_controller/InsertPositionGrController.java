@@ -11,11 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import post_sale_ad.app_controller.PostSaleAdController;
 
 import java.io.IOException;
 
 public class InsertPositionGrController {
-
+PostSaleAdController controller;
     @FXML
     private Label advice;
 
@@ -105,5 +106,8 @@ public class InsertPositionGrController {
         if (!(button.isDisable())) {
             button.setOpacity(1);
         }
+    }
+    public void setController(PostSaleAdController controller){
+        this.controller=controller;
     }
 }

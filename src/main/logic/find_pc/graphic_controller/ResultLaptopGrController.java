@@ -65,7 +65,8 @@ public class ResultLaptopGrController {
 
     @FXML
     private Label labelFullName;
-
+    @FXML
+    private Label labelMemory;
     @FXML
     private Label labelGpu;
 
