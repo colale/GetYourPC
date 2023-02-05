@@ -9,8 +9,6 @@ import post_sale_ad.model.GeneralPostInfo;
 import post_sale_ad.model.factory_config_dao.PostInfoFactoryDAO;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
 import post_sale_ad.model.factory_config_info.PostInfoFactory;
-import static java.lang.Boolean.TRUE;
-
 
 public class PostSaleAdController {
     GeneralPostInfo generalPostInfo;//è una classe mode che contiene le informazioni generali del post
@@ -37,9 +35,21 @@ public class PostSaleAdController {
         }
     }
 
-    public boolean checkPrice(PriceBean bean) {//da finire
-        return TRUE;
+    public boolean checkPrice(PriceBean bean) {
+        try {
+            String price = bean.getPrice();
+            double parsedPrice = Double.parseDouble(price);
+            return parsedPrice > 0 && parsedPrice < 1000000;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
-public void setPrice(PriceBean bean){}//da finire
-    public void setConfigInfo(PCInfoBean bean){}//da finire
+public void setPrice(PriceBean bean){
+        int price = Integer.valueOf(bean.getPrice());
+        this.generalPostInfo.setPrice(price);
+
+}
+    public void setConfigInfo(PCInfoBean bean){
+        this.configInfo.setInfo(bean);
+    }
 }
