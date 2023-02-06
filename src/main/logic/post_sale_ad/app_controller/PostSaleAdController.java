@@ -62,21 +62,22 @@ public class PostSaleAdController {
     }
 
     public boolean checkPhotos(PhotoBean bean) {
-        ArrayList<String> imagesPath=new ArrayList<String>();
+        ArrayList<String> imagesPath = new ArrayList<String>();
         imagesPath.add(bean.getImgPath1());
         imagesPath.add(bean.getImgPath2());
         imagesPath.add(bean.getImgPath3());
-        for(String s:imagesPath){
+        for (String s : imagesPath) {
             try {
-            // Carica l'immagine dal percorso specificato
-            BufferedImage image = ImageIO.read(new File(s));
+                // Carica l'immagine dal percorso specificato
+                BufferedImage image = ImageIO.read(new File(s));
 
-            // Verifica che l'immagine esista e che la sua dimensione non superi la capacità del long blob
-            if (image == null || (long) (image.getHeight() * image.getWidth() * 3) > Integer.MAX_VALUE) {return false;
-            }
-        } catch (Exception e) {
+                // Verifica che l'immagine esista e che la sua dimensione non superi la capacità del long blob
+                if (image == null || (long) (image.getHeight() * image.getWidth() * 3) > Integer.MAX_VALUE) {
+                    return false;
+                }
+            } catch (Exception e) {
                 return false;
-        }
+            }
 
         }
         return true;
@@ -88,11 +89,15 @@ public class PostSaleAdController {
         generalPostInfo.setImg1(bean.getImgPath3());
     }
 
-public GeoResponseBean searchPosition(UserGeoData userGeoData) throws GeocodingException {
+    public UserGeoResponseBean searchPosition(UserGeoRequestBean userGeoData) throws GeocodingException {
         GeoRequestBean geoRequestBean = new GeoRequestBean();
-        String s=userGeoData.getAddress()+userGeoData.getCity()+userGeoData.getCountry();
-        geoRequestBean.setGeoRequest(s);
-        GeocodingAdapter geocodingAdapter=new GeocodingAdapter(new Geoapify());
-        return geocodingAdapter.findResult(geoRequestBean);
-        }
+        String input = userGeoData.getAddress() + userGeoData.getCity() + userGeoData.getCountry();
+        geoRequestBean.setGeoRequest(input);
+        GeocodingAdapter geocodingAdapter = new GeocodingAdapter(new Geoapify());
+        UserGeoResponseBean responseToUser = new UserGeoResponseBean();
+        GeoResponseBean responseBean = geocodingAdapter.findResult(geoRequestBean);
+        String output = responseBean.getStreet() + responseBean.getHouseNumber() + responseBean.getCap() + responseBean.getCity() + responseBean.getCountry();
+        responseToUser.setFullAddress(output);
+        return responseToUser;
+    }
 }

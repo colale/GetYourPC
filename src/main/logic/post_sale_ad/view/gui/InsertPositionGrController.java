@@ -1,5 +1,6 @@
 package post_sale_ad.view.gui;
 
+import exception.GeocodingException;
 import exception.SyntaxBeanException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,11 +14,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import post_sale_ad.app_controller.PostSaleAdController;
-import post_sale_ad.bean.UserGeoData;
+import post_sale_ad.bean.UserGeoRequestBean;
+import post_sale_ad.bean.UserGeoResponseBean;
 
 import java.io.IOException;
 
 public class InsertPositionGrController {
+    UserGeoResponseBean userGeoResponseBean;
 PostSaleAdController controller;
     @FXML
     private Label advice;
@@ -63,19 +66,29 @@ PostSaleAdController controller;
 
     @FXML
     void btnCheckClick(MouseEvent event) {
-        UserGeoData bean = new UserGeoData();
+        UserGeoRequestBean bean = new UserGeoRequestBean();
         try {
-            bean.setCountry(this.fieldCountry);
-            bean.setAddress(this.fieldAddress);
-            bean.setCity(this.fieldCity);
-            String fulladdress=controller.searchPosition(bean);
+            bean.setCountry(this.fieldCountry.getText());
+            bean.setAddress(this.fieldAddress.getText());
+            bean.setCity(this.fieldCity.getText());
+            UserGeoResponseBean response =controller.searchPosition(bean);
+            labelIsItCorrect.setVisible(true);
+            btnConfirm.setVisible(true);
+            this.userGeoResponseBean=response;
+            fieldSearch.setText(this.userGeoResponseBean.getFullAddress());
         }
-        catch(SyntaxBeanException){
-                advice.setText("Error, please retry");
+        catch(SyntaxBeanException SynEx){
+                advice.setText("Invalid data, please retry");
                 this.fieldCountry.setText("");
                 this.fieldAddress.setText("");
                 this.fieldCity.setText("");
             }
+        catch(GeocodingException geoEx){
+            advice.setText("Position not found, try again");
+            this.fieldCountry.setText("");
+            this.fieldAddress.setText("");
+            this.fieldCity.setText("");
+        }
         }
 
 
