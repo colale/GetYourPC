@@ -100,7 +100,7 @@ public class InsertInfoLaptopGrController {
             Scene scene = new Scene(root.load(), 1280, 720);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-            InsertPhotosGrController nextGraphicController = root.getController();
+            InsertPositionGrController nextGraphicController = root.getController();
             nextGraphicController.setController(controller);
             stage.show();
         } else {advice.setText("Error filling in the field 'price', please insert price again");

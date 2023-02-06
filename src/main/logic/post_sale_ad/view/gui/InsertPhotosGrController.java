@@ -59,22 +59,28 @@ public class InsertPhotosGrController {
     private ImageView imgHome;
 
     @FXML
-    void btnConfirmClick(MouseEvent event){
-        if(controller.checkPhotos(this.bean))
-        {
+    void btnConfirmClick(MouseEvent event) throws IOException {
+        try{
+        if(controller.checkPhotos(this.bean)){
         controller.setPhotos(bean);
-        }
+            FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/gui/InsertPosition.fxml"));
+            Scene scene = new Scene(root.load(), 1280, 720);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            InsertPhotosGrController nextGraphicController = root.getController();
+            nextGraphicController.setController(controller);
+            stage.show();}
             else{
-                try{
                 advice.setText("Error inserting photo, please try again");
                 Image i= new Image(new FileInputStream("src/main/logic/resources/White_full.png"));
+                bean.setImgPath1("");
                 image1.setImage(i);
+            bean.setImgPath2("");
                 image2.setImage(i);
+            bean.setImgPath3("");
                 image3.setImage(i);
-            }
-                catch(IOException ex){System.err.println(ex.getCause()); Home.quit();}
-        }
-    }
+            }}
+        catch(Exception ex){advice.setText("Error inserting photo, please try again");}}
     @FXML
     private void onDragOver1(DragEvent event) {
         if (event.getGestureSource() != image1 && event.getDragboard().hasFiles()) {

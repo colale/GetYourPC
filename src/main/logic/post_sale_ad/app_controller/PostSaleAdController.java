@@ -71,13 +71,12 @@ public class PostSaleAdController {
             BufferedImage image = ImageIO.read(new File(s));
 
             // Verifica che l'immagine esista e che la sua dimensione non superi la capacità del long blob
-            if (image != null && (long) (image.getHeight() * image.getWidth() * 3) <= Integer.MAX_VALUE) {
-                return true;
+            if (image == null || (long) (image.getHeight() * image.getWidth() * 3) > Integer.MAX_VALUE) {return false;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+                return false;
         }
-            return false;
+
         }
         return true;
     }
