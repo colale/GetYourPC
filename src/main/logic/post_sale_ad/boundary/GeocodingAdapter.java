@@ -1,11 +1,10 @@
 package post_sale_ad.boundary;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
 import exception.GeocodingException;
 import post_sale_ad.bean.GeoRequestBean;
 import post_sale_ad.bean.GeoResponseBean;
 import java.net.http.HttpResponse;
-import post_sale_ad.boundary.conversion_classes.Root;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GeocodingAdapter implements Geocoding {
     Geoapify api;
@@ -17,16 +16,19 @@ public class GeocodingAdapter implements Geocoding {
     public GeoResponseBean findResult(GeoRequestBean request) throws GeocodingException{
         try {
             HttpResponse<String> response = this.api.findResult(request);
-            ObjectMapper om = new ObjectMapper();
             String JSONstring=response.body();
-            Root root = om.readValue(JSONstring, Root.class);
-            double lat = (double) (root.features.get(0).geometry.coordinates.get(0));
-            double lon = (double) (root.features.get(0).geometry.coordinates.get(1));
-            String street = (String) (root.features.get(0).properties.street);
-            String houseNumber = (String) (root.features.get(0).properties.housenumber);
-            String cap = (String) (root.features.get(0).properties.postcode);
-            String city = (String) (root.features.get(0).properties.city);
-            String country = (String) (root.features.get(0).properties.country);
+            JSONObject json = new JSONObject(JSONstring);
+            JSONObject feature = json.getJSONArray("features").getJSONObject(0);
+            JSONObject properties = feature.getJSONObject("properties");
+            JSONObject geometry = feature.getJSONObject("geometry");
+            String street = properties.getString("street");
+            String houseNumber = properties.optString("housenumber");
+            String cap = properties.getString("postcode");
+            String city = properties.getString("city");
+            String country = properties.getString("country");
+            JSONArray coordinates = geometry.getJSONArray("coordinates");
+            double lat = coordinates.getDouble(0);
+            double lon = coordinates.getDouble(1);
             GeoResponseBean responseBean=new GeoResponseBean();
             responseBean.setCity(city);
             responseBean.setCountry(country);
