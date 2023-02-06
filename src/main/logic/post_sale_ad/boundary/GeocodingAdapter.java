@@ -4,6 +4,8 @@ import org.json.JSONObject;
 import exception.GeocodingException;
 import post_sale_ad.bean.GeoRequestBean;
 import post_sale_ad.bean.GeoResponseBean;
+
+import java.io.IOException;
 import java.net.http.HttpResponse;
 
 public class GeocodingAdapter implements Geocoding {
@@ -37,8 +39,8 @@ public class GeocodingAdapter implements Geocoding {
             responseBean.setStreet(street);
             responseBean.setCap(cap);
             return responseBean;}
-        catch (Exception ex) {
-            System.out.println(ex.getMessage());
+        catch (InterruptedException | IOException ex) {
+            System.err.println(ex.getMessage());
             throw new GeocodingException();
         }
     }
