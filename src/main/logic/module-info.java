@@ -4,6 +4,7 @@ module it.getyourpc.getyourpc {
     requires java.mail;
     requires java.sql;
     requires java.desktop;
+    requires java.net.http;
 
     opens home to javafx.fxml;
     exports home;

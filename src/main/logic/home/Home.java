@@ -36,7 +36,7 @@ public class Home extends Application {
         prop.load(propsInput);
         this.randomConfigGenerate(prop); //If you don't want random generation of configuration, comment this line and set it manually
         String cliUI = prop.getProperty("cliUI");
-        if (cliUI.equals(FALSE)||cliUI.equals(FALSE)){//!!!!!!!!!!!!!!!!
+        if (cliUI.equals(FALSE)){
             propsInput.close();
             launch();}
         else{
