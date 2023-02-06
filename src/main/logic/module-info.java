@@ -5,6 +5,7 @@ module it.getyourpc.getyourpc {
     requires java.sql;
     requires java.desktop;
     requires java.net.http;
+    requires com.fasterxml.jackson.databind;
 
     opens home to javafx.fxml;
     exports home;
