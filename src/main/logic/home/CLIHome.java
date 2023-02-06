@@ -38,9 +38,7 @@ public class CLIHome {
                         validInput=FALSE;
                         (new CLILogin()).execute();
                         break;}
-                    CLISelectConfig selectConfigCLI=new CLISelectConfig();
-                    selectConfigCLI.setController(postSaleAdController);
-                    selectConfigCLI.execute();
+                    (new CLISelectConfig(postSaleAdController)).execute();
                     break;
 
                 case 3, 4:

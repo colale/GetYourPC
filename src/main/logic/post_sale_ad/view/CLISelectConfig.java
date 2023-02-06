@@ -10,6 +10,11 @@ import static java.lang.Boolean.TRUE;
 
 public class CLISelectConfig {
     PostSaleAdController controller;
+
+    public CLISelectConfig(PostSaleAdController controller){
+        this.controller=controller;
+    }
+
     public void execute() {
         System.out.println("Select configuration to post\n1)Desktop\n2)Laptop\n3)Home\n4)Help\n5)Quit");
         Scanner scanner = new Scanner(System.in);
@@ -30,11 +35,9 @@ public class CLISelectConfig {
                     choiceBean.setChoice(tempChoice);
                     this.controller.createPost(choiceBean);
                     if(num==1){
-                        CLIInsertInfoDesktop cli = new CLIInsertInfoDesktop();
-                        cli.setAppController(this.controller);
+                        CLIInsertInfoDesktop cli = new CLIInsertInfoDesktop(controller);
                         cli.execute();}
-                    else{ CLIInsertInfoLaptop cli = new CLIInsertInfoLaptop();
-                        cli.setAppController(this.controller);
+                    else{ CLIInsertInfoLaptop cli = new CLIInsertInfoLaptop(controller);
                         cli.execute();}
                     break;
                 case 3:
@@ -56,6 +59,4 @@ public class CLISelectConfig {
             }
         }
     }
-    public void setController(PostSaleAdController controller)
-    {this.controller=controller;}
 }

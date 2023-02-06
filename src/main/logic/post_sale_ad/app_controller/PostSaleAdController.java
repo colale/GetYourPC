@@ -26,7 +26,7 @@ public class PostSaleAdController {
     }
 
     public void createPost(PCInfoBean PCInfoBean) {
-        GeneralPostInfo generalPostInfo = new GeneralPostInfo();
+        this.generalPostInfo = new GeneralPostInfo();
         try {
             configInfo = this.postInfoFactory.create(PCInfoBean);
         } catch (FactoryException ex) {
