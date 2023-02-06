@@ -30,10 +30,10 @@ public class PostSaleAdController {
         return (new LoginController()).checkIsAuthenticated();
     }
 
-    public void createPost(PCInfoBean PCInfoBean) {
+    public void createPost(PCInfoBean pcInfoBean) {
         this.generalPostInfo = new GeneralPostInfo();
         try {
-            configInfo = this.postInfoFactory.create(PCInfoBean);
+            configInfo = this.postInfoFactory.create(pcInfoBean);
         } catch (FactoryException ex) {
             System.err.println(ex.getMessage());
             Home.quit();
@@ -51,7 +51,7 @@ public class PostSaleAdController {
     }
 
     public void setPrice(PriceBean bean) {
-        int price = Integer.valueOf(bean.getPrice());
+        int price = Integer.parseInt(bean.getPrice());
         this.generalPostInfo.setPrice(price);
 
     }
@@ -68,7 +68,6 @@ public class PostSaleAdController {
         for(String s:imagesPath){
             try {
             // Carica l'immagine dal percorso specificato
-                System.out.println(s);
             BufferedImage image = ImageIO.read(new File(s));
 
             // Verifica che l'immagine esista e che la sua dimensione non superi la capacità del long blob

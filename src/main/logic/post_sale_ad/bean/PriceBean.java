@@ -17,9 +17,8 @@ public class PriceBean implements Serializable {
     private String price;
 
     private void syntaxCheck(String s) throws SyntaxBeanException {
-        if (!(s.length() > 0) && (s.length() < 10)) {
-            SyntaxBeanException ex = new SyntaxBeanException();
-            throw ex;
+        if (s.length() ==0 || s.length() > 10) {
+            throw new SyntaxBeanException();
         }
     }
 }

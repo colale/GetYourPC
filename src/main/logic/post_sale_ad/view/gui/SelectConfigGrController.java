@@ -16,7 +16,7 @@ import post_sale_ad.bean.PCInfoBean;
 import java.io.IOException;
 
 public class SelectConfigGrController {
-    PostSaleAdController controller;
+    private PostSaleAdController controller;
 
     @FXML
     private Label advice;

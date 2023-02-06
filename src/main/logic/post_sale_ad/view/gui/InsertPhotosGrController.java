@@ -99,7 +99,7 @@ public class InsertPhotosGrController {
             this.bean.setImgPath1(file.getAbsolutePath());
         }
         else{
-        advice.setText("Error, retry");    }}
+        advice.setText("Error inserting photo 1, please try again");    }}
     @FXML
     private void onDragOver2(DragEvent event) {
         if (event.getGestureSource() != image2 && event.getDragboard().hasFiles()) {
@@ -117,7 +117,7 @@ public class InsertPhotosGrController {
             image2.setImage(image);
             this.bean.setImgPath2(file.getAbsolutePath());
         }else{
-        advice.setText("Error, retry");    }}
+        advice.setText("Error inserting photo 2, please try again");    }}
     @FXML
     private void onDragOver3(DragEvent event) {
         if (event.getGestureSource() != image3 && event.getDragboard().hasFiles()) {
@@ -135,7 +135,7 @@ public class InsertPhotosGrController {
             image3.setImage(image);
             this.bean.setImgPath3(file.getAbsolutePath());
         }else{
-        advice.setText("Error, retry");
+        advice.setText("Error inserting photo 3, please try again");
     }}
 @FXML
     void imgHomeClick(MouseEvent event) throws IOException {

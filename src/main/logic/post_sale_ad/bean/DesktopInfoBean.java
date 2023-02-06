@@ -85,8 +85,7 @@ public class DesktopInfoBean extends PCInfoBean implements Serializable {
     }
 
     private void syntaxCheck(String s) throws SyntaxBeanException {
-        if(!(s.length()>0)&&(s.length()<50)){
-            SyntaxBeanException ex=new SyntaxBeanException();
-            throw ex;
+        if((s.length()==0)||(s.length()>50)){
+            throw new SyntaxBeanException();
         }
 }}
