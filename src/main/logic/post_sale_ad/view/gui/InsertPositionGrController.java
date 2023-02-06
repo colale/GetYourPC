@@ -122,7 +122,7 @@ PostSaleAdController controller;
                                     try {
                                         scene = new Scene(root.load(), 1280, 720);
                                     } catch (IOException e) {
-                                        throw new RuntimeException(e);
+                                        System.err.println(e.getMessage());
                                     }
                                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                     stage.setScene(scene);

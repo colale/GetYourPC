@@ -53,7 +53,6 @@ public class CLIInsertPosition {
     public boolean confirmRequest() {
         System.out.println("Is it correct? Enter 'y' for yes, or any other key for no:");
         Scanner scanner = new Scanner(System.in);
-        if(scanner.nextLine().equals("y")){return true;}
-        else{return false;}
+        return(scanner.nextLine().equals("y"));
     }
 }
