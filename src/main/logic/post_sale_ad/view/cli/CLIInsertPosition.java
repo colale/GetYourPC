@@ -46,10 +46,9 @@ public class CLIInsertPosition {
             System.out.println("Position not found, try again");
             this.execute();
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            Thread.currentThread().interrupt();
       }
     }
-
 
     public boolean confirmRequest() {
         System.out.println("Is it correct? Enter 'y' for yes, or any other key for no:");
