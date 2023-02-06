@@ -24,28 +24,6 @@ public class InsertInfoLaptopGrController {
     public void setAppController(PostSaleAdController appController) {
         this.controller = appController;
     }
-
-    @FXML
-    private Label advice;
-
-    @FXML
-    private Button btnConfirm;
-
-    @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearchPC;
-
     @FXML
     private TextField fieldBrand;
 
@@ -67,9 +45,9 @@ public class InsertInfoLaptopGrController {
     @FXML
     private TextField fieldRam;
     @FXML
-    private TextField fieldMemory;
+    private TextField advice;
     @FXML
-    private ImageView imgHome;
+    private TextField fieldMemory;
     @FXML
     void btnConfirmClick(MouseEvent event) throws IOException {
         LaptopInfoBean bean = new LaptopInfoBean();

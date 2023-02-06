@@ -1,6 +1,5 @@
 package post_sale_ad.view.gui;
 
-import home.Home;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -29,24 +28,6 @@ public class InsertPhotosGrController {
     private Label advice;
 
     @FXML
-    private Button btnConfirm;
-
-    @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearchPC;
-
-    @FXML
     private ImageView image1;
 
     @FXML
@@ -56,10 +37,7 @@ public class InsertPhotosGrController {
     private ImageView image3;
 
     @FXML
-    private ImageView imgHome;
-
-    @FXML
-    void btnConfirmClick(MouseEvent event) throws IOException {
+    void btnConfirmClick(MouseEvent event){
         try{
         if(controller.checkPhotos(this.bean)){
         controller.setPhotos(bean);

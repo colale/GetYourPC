@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.UserGeoRequestBean;
 import post_sale_ad.bean.UserGeoResponseBean;
-
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -33,23 +32,7 @@ PostSaleAdController controller;
 
     @FXML
     private Button btnConfirm;
-
-    @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearchPC;
-
-    @FXML
+  @FXML
     private TextField fieldAddress;
 
     @FXML
@@ -60,10 +43,6 @@ PostSaleAdController controller;
 
     @FXML
     private TextField fieldSearch;
-
-    @FXML
-    private ImageView imgHome;
-
     @FXML
     private Label labelIsItCorrect;
 

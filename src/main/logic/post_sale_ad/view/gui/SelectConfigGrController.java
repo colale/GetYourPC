@@ -12,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.PCInfoBean;
-
 import java.io.IOException;
 
 public class SelectConfigGrController {

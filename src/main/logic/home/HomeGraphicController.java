@@ -17,12 +17,14 @@ import post_sale_ad.view.gui.SelectConfigGrController;
 import java.io.IOException;
 
 public class HomeGraphicController {
+
+    public static final String MESSAGE = "This option is not available now";
     @FXML
     private Label advice;
 
     @FXML
     void btnPersonalAreaClick() {
-        advice.setText("This option is not available now");
+        advice.setText(MESSAGE);
     }
 
     @FXML
@@ -43,12 +45,12 @@ public class HomeGraphicController {
 
     @FXML
     void btnReviewerAreaClick() {
-        advice.setText("This option is not available now");
+        advice.setText(MESSAGE);
     }
 
     @FXML
-    void btnSearchPCClick(MouseEvent event) throws IOException {
-        advice.setText("This option is not available now");
+    void btnSearchPCClick(MouseEvent event){
+        advice.setText(MESSAGE);
     }
 
 

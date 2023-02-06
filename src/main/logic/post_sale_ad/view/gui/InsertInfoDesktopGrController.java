@@ -26,25 +26,6 @@ public class InsertInfoDesktopGrController {
     }
     @FXML
     private Label advice;
-
-    @FXML
-    private Button btnConfirm;
-
-    @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearchPC;
-
     @FXML
     private TextField fieldCase;
 
@@ -71,9 +52,6 @@ public class InsertInfoDesktopGrController {
 
     @FXML
     private TextField fieldStorage;
-
-    @FXML
-    private ImageView imgHome;
 
     @FXML
     void btnConfirmClick(MouseEvent event) throws IOException {
