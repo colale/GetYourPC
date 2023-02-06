@@ -41,6 +41,7 @@ public class GeocodingAdapter implements Geocoding {
             responseBean.setCap(cap);
             return responseBean;}
         catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
             System.err.println(ex.getMessage());
             throw new GeocodingException();}
         catch (IOException ioEx){
