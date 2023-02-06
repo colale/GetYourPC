@@ -20,8 +20,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PostSaleAdController {
-    GeneralPostInfo generalPostInfo;//è una classe mode che contiene le informazioni generali del post
-    ConfigInfo configInfo; //è una classe mode che contiene le informazioni specifiche del computer
+    GeneralPostInfo generalPostInfo;
+    ConfigInfo configInfo;
     ConfigInfoDAO configInfoDAO;
     GeneralPostInfoDAO generalPostInfoDAO;
     GeoResponseBean geoResponseBean;
@@ -109,10 +109,10 @@ public class PostSaleAdController {
         generalPostInfo.setFullAddress(fullAddress);
         generalPostInfo.setLatitude(this.geoResponseBean.getLatitude());
         generalPostInfo.setLongitude(this.geoResponseBean.getLongitude());
-        this.storePost(this.generalPostInfo, this.configInfo);
+        this.storePost();
     }
 
-    public void storePost(GeneralPostInfo postInfo, ConfigInfo configInfo) {
+    public void storePost() {
         generalPostInfoDAO.storeGeneralPostInfo(generalPostInfo);
         configInfoDAO.storeConfigInfo(configInfo);
     }
