@@ -61,7 +61,6 @@ public void randomConfigGenerate(Properties prop) throws IOException {
 
         }
         catch (SQLException | ConnectionDBException e){exit(0);System.out.println("ciao");}
-        System.out.println("ciao");
         exit(0);}
 
     public static void main(String[] args) throws IOException {
