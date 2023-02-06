@@ -10,6 +10,8 @@ import post_sale_ad.bean.*;
 import post_sale_ad.boundary.Geoapify;
 import post_sale_ad.boundary.GeocodingAdapter;
 import post_sale_ad.model.GeneralPostInfo;
+import post_sale_ad.model.GeneralPostInfoDAO;
+import post_sale_ad.model.factory_config_dao.ConfigInfoDAO;
 import post_sale_ad.model.factory_config_dao.PostInfoFactoryDAO;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
 import post_sale_ad.model.factory_config_info.PostInfoFactory;
@@ -20,23 +22,22 @@ import java.util.ArrayList;
 public class PostSaleAdController {
     GeneralPostInfo generalPostInfo;//è una classe mode che contiene le informazioni generali del post
     ConfigInfo configInfo; //è una classe mode che contiene le informazioni specifiche del computer
-    PostInfoFactory postInfoFactory;
-    PostInfoFactoryDAO postInfoFactoryDAO;
+    ConfigInfoDAO configInfoDAO;
+    GeneralPostInfoDAO generalPostInfoDAO;
     GeoResponseBean geoResponseBean;
-
-    public PostSaleAdController() {//il costruttore istanzia le factory e inizializza il suo stato
-        this.postInfoFactory = new PostInfoFactory();
-        this.postInfoFactoryDAO = new PostInfoFactoryDAO();
-    }
 
     public boolean checkAuthentication() {
         return (new LoginController()).checkIsAuthenticated();
     }
 
     public void createPost(PCInfoBean pcInfoBean) {
+        PostInfoFactoryDAO postInfoFactoryDAO = new PostInfoFactoryDAO();
+        PostInfoFactory postInfoFactory = new PostInfoFactory();
         this.generalPostInfo = new GeneralPostInfo();
+        this.generalPostInfoDAO=new GeneralPostInfoDAO();
         try {
-            configInfo = this.postInfoFactory.create(pcInfoBean);
+            this.configInfo = postInfoFactory.create(pcInfoBean);
+            this.configInfoDAO = postInfoFactoryDAO.createDAO(pcInfoBean);
         } catch (FactoryException ex) {
             System.err.println(ex.getMessage());
             Home.quit();
@@ -93,23 +94,26 @@ public class PostSaleAdController {
 
     public UserGeoResponseBean searchPosition(UserGeoRequestBean userGeoData) throws GeocodingException {
         GeoRequestBean geoRequestBean = new GeoRequestBean();
-        String input = userGeoData.getAddress() +" "+ userGeoData.getCity()+ " "+ userGeoData.getCountry();
+        String input = userGeoData.getAddress() + " " + userGeoData.getCity() + " " + userGeoData.getCountry();
         geoRequestBean.setGeoRequest(input);
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(new Geoapify());
         UserGeoResponseBean responseToUser = new UserGeoResponseBean();
         this.geoResponseBean = geocodingAdapter.findResult(geoRequestBean);
-        String output = this.geoResponseBean.getStreet() +" "+ this.geoResponseBean.getHouseNumber() +" "+ this.geoResponseBean.getCap() +" "+ this.geoResponseBean.getCity() + " "+ this.geoResponseBean.getCountry();
+        String output = this.geoResponseBean.getStreet() + " " + this.geoResponseBean.getHouseNumber() + " " + this.geoResponseBean.getCap() + " " + this.geoResponseBean.getCity() + " " + this.geoResponseBean.getCountry();
         responseToUser.setFullAddress(output);
         return responseToUser;
     }
 
-    public void publishPost(){
-        String fullAddress = this.geoResponseBean.getStreet() + " " + this.geoResponseBean.getHouseNumber() + " "+ this.geoResponseBean.getCap() +" " + this.geoResponseBean.getCity() + " "+ this.geoResponseBean.getCountry();
+    public void publishPost() {
+        String fullAddress = this.geoResponseBean.getStreet() + " " + this.geoResponseBean.getHouseNumber() + " " + this.geoResponseBean.getCap() + " " + this.geoResponseBean.getCity() + " " + this.geoResponseBean.getCountry();
         generalPostInfo.setFullAddress(fullAddress);
         generalPostInfo.setLatitude(this.geoResponseBean.getLatitude());
         generalPostInfo.setLongitude(this.geoResponseBean.getLongitude());
-        System.out.println("tutto ok");
-        //scrivere su db
+        this.storePost(this.generalPostInfo, this.configInfo);
     }
 
+    public void storePost(GeneralPostInfo postInfo, ConfigInfo configInfo) {
+        generalPostInfoDAO.storeGeneralPostInfo(generalPostInfo);
+        configInfoDAO.storeConfigInfo(configInfo);
+    }
 }
