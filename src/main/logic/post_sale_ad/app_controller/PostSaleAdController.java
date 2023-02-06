@@ -92,12 +92,12 @@ public class PostSaleAdController {
 
     public UserGeoResponseBean searchPosition(UserGeoRequestBean userGeoData) throws GeocodingException {
         GeoRequestBean geoRequestBean = new GeoRequestBean();
-        String input = userGeoData.getAddress() + userGeoData.getCity() + userGeoData.getCountry();
+        String input = userGeoData.getAddress() +" "+ userGeoData.getCity()+ " "+ userGeoData.getCountry();
         geoRequestBean.setGeoRequest(input);
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(new Geoapify());
         UserGeoResponseBean responseToUser = new UserGeoResponseBean();
         this.geoResponseBean = geocodingAdapter.findResult(geoRequestBean);
-        String output = this.geoResponseBean.getStreet() +" "+ this.geoResponseBean.getHouseNumber() +" "+ this.geoResponseBean.getCap() +" "+ this.geoResponseBean.getCity() +" "+ this.geoResponseBean.getCountry();
+        String output = this.geoResponseBean.getStreet() +" "+ this.geoResponseBean.getHouseNumber() +" "+ this.geoResponseBean.getCap() +" "+ this.geoResponseBean.getCity() + " "+ this.geoResponseBean.getCountry();
         responseToUser.setFullAddress(output);
         return responseToUser;
     }

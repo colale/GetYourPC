@@ -6,6 +6,7 @@ import post_sale_ad.bean.GeoResponseBean;
 import java.net.http.HttpResponse;
 import post_sale_ad.boundary.conversion_classes.Root;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class GeocodingAdapter implements Geocoding {
     Geoapify api;
     public GeocodingAdapter(Geoapify api) {
@@ -17,7 +18,8 @@ public class GeocodingAdapter implements Geocoding {
         try {
             HttpResponse<String> response = this.api.findResult(request);
             ObjectMapper om = new ObjectMapper();
-            Root root = om.readValue(response.body(), Root.class);
+            String JSONstring=response.body();
+            Root root = om.readValue(JSONstring, Root.class);
             double lat = (double) (root.features.get(0).geometry.coordinates.get(0));
             double lon = (double) (root.features.get(0).geometry.coordinates.get(1));
             String street = (String) (root.features.get(0).properties.street);
@@ -35,6 +37,7 @@ public class GeocodingAdapter implements Geocoding {
             responseBean.setCap(cap);
             return responseBean;}
         catch (Exception ex) {
+            System.out.println(ex.getMessage());
             throw new GeocodingException();
         }
     }

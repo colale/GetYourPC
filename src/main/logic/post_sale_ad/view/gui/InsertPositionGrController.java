@@ -75,7 +75,7 @@ PostSaleAdController controller;
             labelIsItCorrect.setVisible(true);
             btnConfirm.setVisible(true);
             labelIsItCorrect.setDisable(false);
-            btnConfirm.setVisible(false);
+            btnConfirm.setDisable(false);
             this.userGeoResponseBean=response;
             fieldSearch.setText(this.userGeoResponseBean.getFullAddress());
         }

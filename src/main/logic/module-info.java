@@ -18,4 +18,6 @@ module it.getyourpc.getyourpc {
     opens find_pc.view.gui.graphic_controller to javafx.fxml;
     opens post_sale_ad.view.gui to javafx.fxml;
     exports post_sale_ad.view.gui;
+    exports post_sale_ad.boundary.conversion_classes to com.fasterxml.jackson.databind;
+    opens post_sale_ad.boundary.conversion_classes to com.fasterxml.jackson.databind;
 }
