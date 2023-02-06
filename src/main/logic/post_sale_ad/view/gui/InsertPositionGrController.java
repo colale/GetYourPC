@@ -1,5 +1,6 @@
 package post_sale_ad.view.gui;
 
+import exception.SyntaxBeanException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -12,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import post_sale_ad.app_controller.PostSaleAdController;
+import post_sale_ad.bean.UserGeoData;
 
 import java.io.IOException;
 
@@ -60,14 +62,28 @@ PostSaleAdController controller;
     private Label labelIsItCorrect;
 
     @FXML
-    void btnDesktopClick(MouseEvent event) {
+    void btnCheckClick(MouseEvent event) {
+        UserGeoData bean = new UserGeoData();
+        try {
+            bean.setCountry(this.fieldCountry);
+            bean.setAddress(this.fieldAddress);
+            bean.setCity(this.fieldCity);
+            String fulladdress=controller.searchPosition(bean);
+        }
+        catch(SyntaxBeanException){
+                advice.setText("Error, please retry");
+                this.fieldCountry.setText("");
+                this.fieldAddress.setText("");
+                this.fieldCity.setText("");
+            }
+        }
+
+
+                @FXML
+    void btnConfirmClick(MouseEvent event) {
 
     }
 
-    @FXML
-    void btnLaptopClick(MouseEvent event) {
-
-    }
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));

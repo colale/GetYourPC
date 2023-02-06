@@ -1,6 +1,10 @@
 package post_sale_ad.bean;
 
 public class UserGeoData {
+
+    private String country;
+    private String city;
+    private String address;
     public String getCountry() {
         return country;
     }
@@ -24,8 +28,4 @@ public class UserGeoData {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    private String country;
-    private String city;
-    private String address;
 }

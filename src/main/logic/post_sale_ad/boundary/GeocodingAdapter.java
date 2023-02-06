@@ -13,7 +13,7 @@ public class GeocodingAdapter implements Geocoding {
     }
 
     @Override
-    public GeoResponseBean getResult(GeoRequestBean request) throws GeocodingException{
+    public GeoResponseBean findResult(GeoRequestBean request) throws GeocodingException{
         try {
             HttpResponse<String> response = this.api.findResult(request);
             ObjectMapper om = new ObjectMapper();

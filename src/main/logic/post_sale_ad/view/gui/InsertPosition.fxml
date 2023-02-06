@@ -116,7 +116,7 @@
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="btnCheckPosition" alignment="CENTER" contentDisplay="CENTER" layoutX="736.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#btnDesktopClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="290.0" style="-fx-background-color: transparent;" text="Check position" textFill="WHITE">
+      <Button fx:id="btnCheckPosition" alignment="CENTER" contentDisplay="CENTER" layoutX="736.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#btnCheckClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="290.0" style="-fx-background-color: transparent;" text="Check position" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
@@ -124,7 +124,7 @@
             <SepiaTone />
          </effect>
       </Button>
-      <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" layoutX="689.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#btnLaptopClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="375.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE">
+      <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" layoutX="689.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#btnConfirmClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="375.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>

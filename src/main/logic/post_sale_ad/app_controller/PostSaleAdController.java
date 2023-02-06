@@ -3,11 +3,12 @@ import java.io.File;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import exception.FactoryException;
+import exception.GeocodingException;
 import home.Home;
 import login.app_controller.LoginController;
-import post_sale_ad.bean.PCInfoBean;
-import post_sale_ad.bean.PhotoBean;
-import post_sale_ad.bean.PriceBean;
+import post_sale_ad.bean.*;
+import post_sale_ad.boundary.Geoapify;
+import post_sale_ad.boundary.GeocodingAdapter;
 import post_sale_ad.model.GeneralPostInfo;
 import post_sale_ad.model.factory_config_dao.PostInfoFactoryDAO;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
@@ -87,6 +88,11 @@ public class PostSaleAdController {
         generalPostInfo.setImg1(bean.getImgPath3());
     }
 
-
-
+public GeoResponseBean searchPosition(UserGeoData userGeoData) throws GeocodingException {
+        GeoRequestBean geoRequestBean = new GeoRequestBean();
+        String s=userGeoData.getAddress()+userGeoData.getCity()+userGeoData.getCountry();
+        geoRequestBean.setGeoRequest(s);
+        GeocodingAdapter geocodingAdapter=new GeocodingAdapter(new Geoapify());
+        return geocodingAdapter.findResult(geoRequestBean);
+        }
 }

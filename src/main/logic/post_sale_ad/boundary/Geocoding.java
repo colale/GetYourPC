@@ -4,5 +4,5 @@ import post_sale_ad.bean.GeoRequestBean;
 import post_sale_ad.bean.GeoResponseBean;
 
 public interface Geocoding {
-public GeoResponseBean getResult(GeoRequestBean request)throws GeocodingException;
+public GeoResponseBean findResult(GeoRequestBean request)throws GeocodingException;
 }
