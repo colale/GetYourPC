@@ -1,5 +1,6 @@
 package post_sale_ad.boundary;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import exception.GeocodingException;
 import post_sale_ad.bean.GeoRequestBean;
@@ -16,6 +17,7 @@ public class GeocodingAdapter implements Geocoding {
 
     @Override
     public GeoResponseBean findResult(GeoRequestBean request) throws GeocodingException{
+        GeoResponseBean responseBean=new GeoResponseBean();
         try {
             HttpResponse<String> response = this.api.findResult(request);
             JSONObject json = new JSONObject(response.body());
@@ -30,7 +32,6 @@ public class GeocodingAdapter implements Geocoding {
             JSONArray coordinates = geometry.getJSONArray("coordinates");
             double lat = coordinates.getDouble(0);
             double lon = coordinates.getDouble(1);
-            GeoResponseBean responseBean=new GeoResponseBean();
             responseBean.setCity(city);
             responseBean.setCountry(country);
             responseBean.setLatitude(lat);
@@ -39,10 +40,13 @@ public class GeocodingAdapter implements Geocoding {
             responseBean.setStreet(street);
             responseBean.setCap(cap);
             return responseBean;}
-        catch (InterruptedException | IOException ex) {
-            Thread.currentThread().interrupt();
+        catch (InterruptedException ex) {
             System.err.println(ex.getMessage());
-            throw new GeocodingException();
+            throw new GeocodingException();}
+        catch (IOException ioEx){
+            System.err.println(ioEx.getMessage());
+            throw new GeocodingException();}
+        catch(JSONException jEx){
+            throw new GeocodingException();}
         }
     }
-}

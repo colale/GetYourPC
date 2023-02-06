@@ -98,6 +98,7 @@ PostSaleAdController controller;
             this.fieldCountry.setText("");
             this.fieldAddress.setText("");
             this.fieldCity.setText("");
+            this.fieldSearch.setText("");
             labelIsItCorrect.setDisable(true);
             btnConfirm.setDisable(true);
             labelIsItCorrect.setVisible(false);
@@ -118,15 +119,15 @@ PostSaleAdController controller;
                                 @Override
                                 public void run() {
                                     FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));
-                                    Scene scene = null;
                                     try {
-                                        scene = new Scene(root.load(), 1280, 720);
+                                        Scene scene = new Scene(root.load(), 1280, 720);
+                                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                        stage.setScene(scene);
+                                        stage.show();
                                     } catch (IOException e) {
                                         System.err.println(e.getMessage());
                                     }
-                                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                                    stage.setScene(scene);
-                                    stage.show();
+
                                 }
                             });
                         }
