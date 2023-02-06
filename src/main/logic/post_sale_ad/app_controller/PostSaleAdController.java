@@ -14,6 +14,7 @@ import post_sale_ad.model.factory_config_dao.PostInfoFactoryDAO;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
 import post_sale_ad.model.factory_config_info.PostInfoFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class PostSaleAdController {
@@ -76,7 +77,7 @@ public class PostSaleAdController {
                 if (image == null || (long) (image.getHeight() * image.getWidth() * 3) > Integer.MAX_VALUE) {
                     return false;
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 return false;
             }
 

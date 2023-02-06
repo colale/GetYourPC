@@ -4,8 +4,9 @@ import java.io.Serializable;
 
 public class PhotoBean implements Serializable {
 
-    String imgPath1;
-    String imgPath2;
+    private String imgPath1;
+    private String imgPath2;
+    private String imgPath3;
 
     public String getImgPath3() {
         return imgPath3;
@@ -14,9 +15,6 @@ public class PhotoBean implements Serializable {
     public void setImgPath3(String imgPath3) {
         this.imgPath3 = imgPath3;
     }
-
-    String imgPath3;
-    String getImgPath3;
 
     public String getImgPath1() {
         return imgPath1;
@@ -32,14 +30,6 @@ public class PhotoBean implements Serializable {
 
     public void setImgPath2(String imgPath2) {
         this.imgPath2 = imgPath2;
-    }
-
-    public String getGetImgPath3() {
-        return getImgPath3;
-    }
-
-    public void setGetImgPath3(String getImgPath3) {
-        this.getImgPath3 = getImgPath3;
     }
 
 }

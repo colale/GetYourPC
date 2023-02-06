@@ -2,6 +2,7 @@ package post_sale_ad.view.gui;
 
 import exception.GeocodingException;
 import exception.SyntaxBeanException;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -18,6 +19,8 @@ import post_sale_ad.bean.UserGeoRequestBean;
 import post_sale_ad.bean.UserGeoResponseBean;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class InsertPositionGrController {
     UserGeoResponseBean userGeoResponseBean;
@@ -102,12 +105,32 @@ PostSaleAdController controller;
         }
         }
                 @FXML
-    void btnConfirmClick(MouseEvent event) {
+    void btnConfirmClick(MouseEvent event) throws InterruptedException, IOException{
+        advice.setText("Your post has been published! You will return to Home in 5 seconds...");
         controller.publishPost();
-        advice.setText("Your post has been published! Back to home");
-        btnConfirm.isDisable();
-        btnCheckPosition.isDisable();
-    }
+        btnConfirm.setDisable(true);
+        btnCheckPosition.setDisable(true);
+                    Timer timer = new Timer();
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));
+                                    Scene scene = null;
+                                    try {
+                                        scene = new Scene(root.load(), 1280, 720);
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    stage.setScene(scene);
+                                    stage.show();
+                                }
+                            });
+                        }
+                    }, 5000);}
 
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {

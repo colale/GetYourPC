@@ -2,6 +2,7 @@ package post_sale_ad.view.cli;
 
 import exception.GeocodingException;
 import exception.SyntaxBeanException;
+import home.CLIHome;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.UserGeoRequestBean;
 import post_sale_ad.bean.UserGeoResponseBean;
@@ -17,14 +18,11 @@ public class CLIInsertPosition {
         this.controller = controller;
     }
 
-    public void execute() {
+    public void execute(){
+        this.userGeoRequestBean = new UserGeoRequestBean();
+        Scanner scanner = new Scanner(System.in);
         try {
-            this.userGeoRequestBean = new UserGeoRequestBean();
-            userGeoRequestBean.setCountry("");
-            userGeoRequestBean.setCity("");
-            userGeoRequestBean.setAddress("");
             System.out.println("Insert Country:");
-            Scanner scanner = new Scanner(System.in);
             userGeoRequestBean.setCountry(scanner.nextLine());
             System.out.println("Insert City:");
             userGeoRequestBean.setCity(scanner.nextLine());
@@ -35,8 +33,10 @@ public class CLIInsertPosition {
             System.out.println("Position: " + response.getFullAddress());
             if (confirmRequest()) {
                 controller.publishPost();
-                System.out.println("Your post has been published! Back to home");
-            } else {
+                System.out.println("Your post has been published! You will return to Home in 5 seconds...");
+                Thread.sleep(5000);
+                (new CLIHome()).execute();}
+            else {
                 this.execute();
             }
         } catch (SyntaxBeanException syntaxException) {
@@ -45,7 +45,9 @@ public class CLIInsertPosition {
         } catch (GeocodingException geoEx) {
             System.out.println("Position not found, try again");
             this.execute();
-        }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+      }
     }
 
 

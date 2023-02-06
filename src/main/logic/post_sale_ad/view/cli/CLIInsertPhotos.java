@@ -1,5 +1,6 @@
 package post_sale_ad.view.cli;
 
+import exception.SyntaxBeanException;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.PhotoBean;
 
@@ -14,22 +15,19 @@ public class CLIInsertPhotos {
 
     public void execute() {
         this.bean = new PhotoBean();
-        System.out.println("Insert the full path of the first photo of the ad");
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Insert the full path of the first photo of the ad");
         bean.setImgPath1(scanner.nextLine());
         System.out.println("Insert the full path of the second photo of the ad");
         bean.setImgPath2(scanner.nextLine());
         System.out.println("Insert the full path of the third photo of the ad");
         bean.setImgPath3(scanner.nextLine());
-        try {
-            if (controller.checkPhotos(bean)) {
+        if (controller.checkPhotos(bean)) {
                 controller.setPhotos(bean);
                 (new CLIInsertPosition(controller)).execute();}
-            else System.out.println("Error, please try again");
-        this.again();}
-        catch(Exception ex){
-                this.again();
-            }}
+            else {System.out.println("Error, please try again");
+                this.again();}
+        }
 
             public void again() {
                 bean.setImgPath1("");
