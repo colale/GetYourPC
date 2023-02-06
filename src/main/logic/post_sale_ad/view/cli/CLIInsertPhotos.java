@@ -1,6 +1,5 @@
 package post_sale_ad.view.cli;
 
-import exception.SyntaxBeanException;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.PhotoBean;
 
