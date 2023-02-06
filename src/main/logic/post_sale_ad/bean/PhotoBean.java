@@ -4,9 +4,19 @@ import java.io.Serializable;
 
 public class PhotoBean implements Serializable {
 
-String imgPath1;
-String imgPath2;
-String getImgPath3;
+    String imgPath1;
+    String imgPath2;
+
+    public String getImgPath3() {
+        return imgPath3;
+    }
+
+    public void setImgPath3(String imgPath3) {
+        this.imgPath3 = imgPath3;
+    }
+
+    String imgPath3;
+    String getImgPath3;
 
     public String getImgPath1() {
         return imgPath1;
@@ -31,4 +41,5 @@ String getImgPath3;
     public void setGetImgPath3(String getImgPath3) {
         this.getImgPath3 = getImgPath3;
     }
+
 }

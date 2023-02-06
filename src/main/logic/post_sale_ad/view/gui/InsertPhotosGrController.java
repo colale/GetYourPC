@@ -17,9 +17,7 @@ import javafx.scene.input.TransferMode;
 import javafx.stage.Stage;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.PhotoBean;
-
 import java.io.*;
-import java.nio.channels.FileChannel;
 
 public class InsertPhotosGrController {
     PhotoBean bean;
@@ -62,13 +60,9 @@ public class InsertPhotosGrController {
 
     @FXML
     void btnConfirmClick(MouseEvent event){
-        PhotoBean bean=new PhotoBean();
-        bean.setImgPath1("img1");
-        bean.setImgPath1("img2");
-        bean.setImgPath1("img3");
-        PhotoBean bean = new PhotoBean();
-        if(controller.checkPhotos(bean){
-            controller.setPhotos(bean);
+        if(controller.checkPhotos(this.bean))
+        {
+        controller.setPhotos(bean);
         }
             else{
                 try{
@@ -79,7 +73,8 @@ public class InsertPhotosGrController {
                 image3.setImage(i);
             }
                 catch(IOException ex){System.err.println(ex.getCause()); Home.quit();}
-        }}
+        }
+    }
     @FXML
     private void onDragOver1(DragEvent event) {
         if (event.getGestureSource() != image1 && event.getDragboard().hasFiles()) {
@@ -88,31 +83,17 @@ public class InsertPhotosGrController {
         event.consume();
     }
     @FXML
-    private void onDragDropped1(DragEvent event) {
+    private void onDragDropped1(DragEvent event) throws FileNotFoundException {
+        if (bean==null) {this.bean=new PhotoBean();}
         Dragboard db = event.getDragboard();
-        boolean success = false;
         if (db.hasFiles()) {
-            success = true;
             File file = db.getFiles().get(0);
-            try {
-                Image image = new Image(new FileInputStream(file));
-                image1.setImage(image);
-                // Salva l'immagine trascinata
-                File savedFile = new File("img1.png");
-                try (FileOutputStream outputStream = new FileOutputStream(savedFile);
-                     FileChannel inChannel = new FileInputStream(file).getChannel();
-                     FileChannel outChannel = outputStream.getChannel()) {
-                    inChannel.transferTo(0, inChannel.size(), outChannel);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            Image image = new Image(new FileInputStream(file));
+            image1.setImage(image);
+            this.bean.setImgPath1(file.getAbsolutePath());
         }
-        event.setDropCompleted(success);
-        event.consume();
-    }
+        else{
+        advice.setText("Error, retry");    }}
     @FXML
     private void onDragOver2(DragEvent event) {
         if (event.getGestureSource() != image2 && event.getDragboard().hasFiles()) {
@@ -121,32 +102,17 @@ public class InsertPhotosGrController {
         event.consume();
     }
     @FXML
-    private void onDragDropped2(DragEvent event) {
+    private void onDragDropped2(DragEvent event) throws FileNotFoundException {
+        if (bean==null) {this.bean=new PhotoBean();}
         Dragboard db = event.getDragboard();
-        boolean success = false;
         if (db.hasFiles()) {
-            success = true;
             File file = db.getFiles().get(0);
-            try {
-                Image image = new Image(new FileInputStream(file));
-                image2.setImage(image);
-
-                // Salva l'immagine trascinata
-                File savedFile = new File("img2.png");
-                try (FileOutputStream outputStream = new FileOutputStream(savedFile);
-                     FileChannel inChannel = new FileInputStream(file).getChannel();
-                     FileChannel outChannel = outputStream.getChannel()) {
-                    inChannel.transferTo(0, inChannel.size(), outChannel);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        event.setDropCompleted(success);
-        event.consume();
-    }    @FXML
+            Image image = new Image(new FileInputStream(file));
+            image2.setImage(image);
+            this.bean.setImgPath2(file.getAbsolutePath());
+        }else{
+        advice.setText("Error, retry");    }}
+    @FXML
     private void onDragOver3(DragEvent event) {
         if (event.getGestureSource() != image3 && event.getDragboard().hasFiles()) {
             event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
@@ -154,33 +120,18 @@ public class InsertPhotosGrController {
         event.consume();
     }
     @FXML
-    private void onDragDropped3(DragEvent event) {
+    private void onDragDropped3(DragEvent event) throws FileNotFoundException {
+        if (bean==null) {this.bean=new PhotoBean();}
         Dragboard db = event.getDragboard();
-        boolean success = false;
         if (db.hasFiles()) {
-            success = true;
             File file = db.getFiles().get(0);
-            try {
-                Image image = new Image(new FileInputStream(file));
-                image3.setImage(image);
-
-                // Salva l'immagine trascinata
-                File savedFile = new File("img3.png");
-                try (FileOutputStream outputStream = new FileOutputStream(savedFile);
-                     FileChannel inChannel = new FileInputStream(file).getChannel();
-                     FileChannel outChannel = outputStream.getChannel()) {
-                    inChannel.transferTo(0, inChannel.size(), outChannel);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        event.setDropCompleted(success);
-        event.consume();
-    }
-    @FXML
+            Image image = new Image(new FileInputStream(file));
+            image3.setImage(image);
+            this.bean.setImgPath3(file.getAbsolutePath());
+        }else{
+        advice.setText("Error, retry");
+    }}
+@FXML
     void imgHomeClick(MouseEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));
         Scene scene = new Scene(root.load(), 1280, 720);
