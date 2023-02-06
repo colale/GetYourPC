@@ -78,23 +78,28 @@ PostSaleAdController controller;
             fieldSearch.setText(this.userGeoResponseBean.getFullAddress());
         }
         catch(SyntaxBeanException SynEx){
-                advice.setText("Invalid data, please retry");
+                advice.setText("Invalid data, try again");
                 this.fieldCountry.setText("");
                 this.fieldAddress.setText("");
                 this.fieldCity.setText("");
+            labelIsItCorrect.setVisible(false);
+            btnConfirm.setVisible(false);
             }
         catch(GeocodingException geoEx){
             advice.setText("Position not found, try again");
             this.fieldCountry.setText("");
             this.fieldAddress.setText("");
             this.fieldCity.setText("");
+            labelIsItCorrect.setVisible(false);
+            btnConfirm.setVisible(false);
         }
         }
-
-
                 @FXML
     void btnConfirmClick(MouseEvent event) {
-
+        controller.publishPost();
+        advice.setText("Your post has been published! Back to home");
+        btnConfirm.isDisable();
+        btnCheckPosition.isDisable();
     }
 
     @FXML

@@ -21,6 +21,7 @@ public class PostSaleAdController {
     ConfigInfo configInfo; //è una classe mode che contiene le informazioni specifiche del computer
     PostInfoFactory postInfoFactory;
     PostInfoFactoryDAO postInfoFactoryDAO;
+    GeoResponseBean geoResponseBean;
 
     public PostSaleAdController() {//il costruttore istanzia le factory e inizializza il suo stato
         this.postInfoFactory = new PostInfoFactory();
@@ -95,9 +96,19 @@ public class PostSaleAdController {
         geoRequestBean.setGeoRequest(input);
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(new Geoapify());
         UserGeoResponseBean responseToUser = new UserGeoResponseBean();
-        GeoResponseBean responseBean = geocodingAdapter.findResult(geoRequestBean);
-        String output = responseBean.getStreet() + responseBean.getHouseNumber() + responseBean.getCap() + responseBean.getCity() + responseBean.getCountry();
+        this.geoResponseBean = geocodingAdapter.findResult(geoRequestBean);
+        String output = this.geoResponseBean.getStreet() + this.geoResponseBean.getHouseNumber() + this.geoResponseBean.getCap() + this.geoResponseBean.getCity() + this.geoResponseBean.getCountry();
         responseToUser.setFullAddress(output);
         return responseToUser;
     }
+
+    public void publishPost(){
+        String fullAddress = this.geoResponseBean.getStreet() + this.geoResponseBean.getHouseNumber() + this.geoResponseBean.getCap() + this.geoResponseBean.getCity() + this.geoResponseBean.getCountry();
+        generalPostInfo.setFullAddress(fullAddress);
+        generalPostInfo.setLatitude(this.geoResponseBean.getLatitude());
+        generalPostInfo.setLongitude(this.geoResponseBean.getLongitude());
+        System.out.println("tutto ok");
+        //scrivere su db
+    }
+
 }
