@@ -1,7 +1,7 @@
 package home;
 
 import find_pc.app_controller.FindPCController;
-import find_pc.graphic_controller.RequireConfigGrController;
+import find_pc.view.gui.graphic_controller.RequireConfigGrController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -13,9 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
-import login.graphic_controller.LogoutGraphicController;
+import login.view.gui.graphic_controller.LogoutGraphicController;
 import post_sale_ad.app_controller.PostSaleAdController;
-import post_sale_ad.graphic_controller.SelectConfigGrController;
+import post_sale_ad.view.gui.SelectConfigGrController;
 import java.io.IOException;
 
 public class HomeGraphicController {
@@ -31,7 +31,7 @@ public class HomeGraphicController {
     void btnPostSaleAdClick(MouseEvent event) throws IOException {
         String path;
         PostSaleAdController controller = new PostSaleAdController();
-        path = controller.checkAuthentication() ?"/post_sale_ad/view/SelectConfig.fxml":"/login/view/Login.fxml";
+        path = controller.checkAuthentication() ? "/post_sale_ad/view/gui/SelectConfig.fxml" : "/login/view/gui/Login.fxml";
         FXMLLoader root = new FXMLLoader(getClass().getResource(path));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -51,7 +51,7 @@ public class HomeGraphicController {
     @FXML
     void btnSearchPCClick(MouseEvent event) throws IOException {
         FindPCController controller = new FindPCController();
-        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/RequireConfig.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequireConfig.fxml"));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -70,7 +70,7 @@ public class HomeGraphicController {
     void imgLoginClick(MouseEvent event) throws IOException {
         String path;
         LoginController loginController=new LoginController();
-        path = loginController.checkIsAuthenticated() ?"/login/view/Logout.fxml":"/login/view/Login.fxml";
+        path = loginController.checkIsAuthenticated() ? "/login/view/gui/Logout.fxml" : "/login/view/gui/Login.fxml";
         FXMLLoader root = new FXMLLoader(getClass().getResource(path));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

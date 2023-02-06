@@ -6,13 +6,13 @@ module it.getyourpc.getyourpc {
 
     opens home to javafx.fxml;
     exports home;
-    exports login.graphic_controller;
+    exports login.view.gui.graphic_controller;
 
-    opens login.graphic_controller to javafx.fxml;
+    opens login.view.gui.graphic_controller to javafx.fxml;
     exports login.model;
     opens login.model to javafx.fxml;
-    exports find_pc.graphic_controller;
-    opens find_pc.graphic_controller to javafx.fxml;
-    opens post_sale_ad.graphic_controller to javafx.fxml;
-    exports post_sale_ad.graphic_controller;
+    exports find_pc.view.gui.graphic_controller;
+    opens find_pc.view.gui.graphic_controller to javafx.fxml;
+    opens post_sale_ad.view.gui to javafx.fxml;
+    exports post_sale_ad.view.gui;
 }

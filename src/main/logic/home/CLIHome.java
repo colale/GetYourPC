@@ -1,11 +1,11 @@
 package home;
 import find_pc.app_controller.FindPCController;
-import find_pc.view.CLIRequireConfig;
+import find_pc.view.cli.CLIRequireConfig;
 import login.app_controller.LoginController;
-import login.view.CLILogin;
-import login.view.CLILogout;
+import login.view.cli.CLILogin;
+import login.view.cli.CLILogout;
 import post_sale_ad.app_controller.PostSaleAdController;
-import post_sale_ad.view.CLISelectConfig;
+import post_sale_ad.view.cli.CLISelectConfig;
 import java.util.Scanner;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
