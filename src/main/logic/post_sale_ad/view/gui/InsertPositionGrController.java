@@ -74,6 +74,8 @@ PostSaleAdController controller;
             UserGeoResponseBean response =controller.searchPosition(bean);
             labelIsItCorrect.setVisible(true);
             btnConfirm.setVisible(true);
+            labelIsItCorrect.setDisable(false);
+            btnConfirm.setVisible(false);
             this.userGeoResponseBean=response;
             fieldSearch.setText(this.userGeoResponseBean.getFullAddress());
         }
@@ -84,12 +86,17 @@ PostSaleAdController controller;
                 this.fieldCity.setText("");
             labelIsItCorrect.setVisible(false);
             btnConfirm.setVisible(false);
+            labelIsItCorrect.setDisable(true);
+            btnConfirm.setDisable(true);
+
             }
         catch(GeocodingException geoEx){
             advice.setText("Position not found, try again");
             this.fieldCountry.setText("");
             this.fieldAddress.setText("");
             this.fieldCity.setText("");
+            labelIsItCorrect.setDisable(true);
+            btnConfirm.setDisable(true);
             labelIsItCorrect.setVisible(false);
             btnConfirm.setVisible(false);
         }

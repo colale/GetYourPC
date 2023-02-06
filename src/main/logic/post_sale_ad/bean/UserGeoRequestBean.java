@@ -13,7 +13,7 @@ public class UserGeoRequestBean {
     }
 
     public void setCountry(String country) throws SyntaxBeanException {
-        syntaxCheckPassword(country);
+        syntaxCheck(country);
     this.country = country;
     }
 
@@ -22,7 +22,7 @@ public class UserGeoRequestBean {
     }
 
     public void setCity(String city) throws SyntaxBeanException {
-        syntaxCheckPassword(country);
+        syntaxCheck(country);
         this.city = city;
     }
 
@@ -31,12 +31,12 @@ public class UserGeoRequestBean {
     }
 
     public void setAddress(String address) throws SyntaxBeanException {
-        syntaxCheckPassword(country);
+        syntaxCheck(country);
         this.address = address;
     }
 
-    private void syntaxCheckPassword(String s) throws SyntaxBeanException {
-        if (s.length() < 8 || s.length() > 15) {
+    private void syntaxCheck(String s) throws SyntaxBeanException {
+        if (s.length() ==0 || s.length() > 50) {
             throw new SyntaxBeanException();
         }
     }
