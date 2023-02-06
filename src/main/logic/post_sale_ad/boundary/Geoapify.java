@@ -15,7 +15,6 @@ public class Geoapify {
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
-        String apiKey = prop.getProperty("apikey");
         String inputString = request.getGeoRequest();
         inputString=generateCompatibleString(inputString);
         HttpClient client = HttpClient.newHttpClient();
@@ -23,8 +22,7 @@ public class Geoapify {
                 .uri(URI.create("https://api.geoapify.com/v1/geocode/search?text=" + inputString + prop.getProperty("apikey")))
                 .header("Content-Type", "application/json")
                 .build();
-        HttpResponse<String> response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        return response;
+        return client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
     }
 
     String generateCompatibleString(String inputString){

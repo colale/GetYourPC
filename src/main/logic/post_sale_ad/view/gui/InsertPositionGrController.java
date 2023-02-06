@@ -79,7 +79,7 @@ PostSaleAdController controller;
             this.userGeoResponseBean=response;
             fieldSearch.setText(this.userGeoResponseBean.getFullAddress());
         }
-        catch(SyntaxBeanException SynEx){
+        catch(SyntaxBeanException syntaxException){
                 advice.setText("Invalid data, try again");
                 this.fieldCountry.setText("");
                 this.fieldAddress.setText("");

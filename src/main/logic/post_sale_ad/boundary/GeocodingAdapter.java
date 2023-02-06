@@ -16,8 +16,7 @@ public class GeocodingAdapter implements Geocoding {
     public GeoResponseBean findResult(GeoRequestBean request) throws GeocodingException{
         try {
             HttpResponse<String> response = this.api.findResult(request);
-            String JSONstring=response.body();
-            JSONObject json = new JSONObject(JSONstring);
+            JSONObject json = new JSONObject(response.body());
             JSONObject feature = json.getJSONArray("features").getJSONObject(0);
             JSONObject properties = feature.getJSONObject("properties");
             JSONObject geometry = feature.getJSONObject("geometry");
