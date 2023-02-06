@@ -16,7 +16,7 @@ import post_sale_ad.app_controller.PostSaleAdController;
 import java.io.IOException;
 
 public class RequireConfigGrController {
-    public FindPCController controller;
+    private FindPCController controller;
 
     @FXML
     private Label advice;

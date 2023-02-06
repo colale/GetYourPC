@@ -184,7 +184,7 @@
                   <Font name="Avenir Next Bold" size="21.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" prefHeight="39.0" prefWidth="443.0" text="Price:" textFill="WHITE" GridPane.rowIndex="8">
+            <Label alignment="TOP_LEFT" prefHeight="39.0" prefWidth="443.0" text="Price (in euros):" textFill="WHITE" GridPane.rowIndex="8">
                <font>
                   <Font name="Avenir Next Bold" size="21.0" />
                </font>
