@@ -97,13 +97,13 @@ public class PostSaleAdController {
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(new Geoapify());
         UserGeoResponseBean responseToUser = new UserGeoResponseBean();
         this.geoResponseBean = geocodingAdapter.findResult(geoRequestBean);
-        String output = this.geoResponseBean.getStreet() + this.geoResponseBean.getHouseNumber() + this.geoResponseBean.getCap() + this.geoResponseBean.getCity() + this.geoResponseBean.getCountry();
+        String output = this.geoResponseBean.getStreet() +" "+ this.geoResponseBean.getHouseNumber() +" "+ this.geoResponseBean.getCap() +" "+ this.geoResponseBean.getCity() +" "+ this.geoResponseBean.getCountry();
         responseToUser.setFullAddress(output);
         return responseToUser;
     }
 
     public void publishPost(){
-        String fullAddress = this.geoResponseBean.getStreet() + this.geoResponseBean.getHouseNumber() + this.geoResponseBean.getCap() + this.geoResponseBean.getCity() + this.geoResponseBean.getCountry();
+        String fullAddress = this.geoResponseBean.getStreet() + " " + this.geoResponseBean.getHouseNumber() + " "+ this.geoResponseBean.getCap() +" " + this.geoResponseBean.getCity() + " "+ this.geoResponseBean.getCountry();
         generalPostInfo.setFullAddress(fullAddress);
         generalPostInfo.setLatitude(this.geoResponseBean.getLatitude());
         generalPostInfo.setLongitude(this.geoResponseBean.getLongitude());
