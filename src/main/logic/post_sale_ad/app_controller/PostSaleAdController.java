@@ -68,6 +68,7 @@ public class PostSaleAdController {
         for(String s:imagesPath){
             try {
             // Carica l'immagine dal percorso specificato
+                System.out.println(s);
             BufferedImage image = ImageIO.read(new File(s));
 
             // Verifica che l'immagine esista e che la sua dimensione non superi la capacità del long blob

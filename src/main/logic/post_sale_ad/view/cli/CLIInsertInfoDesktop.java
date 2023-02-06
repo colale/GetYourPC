@@ -38,7 +38,6 @@ public CLIInsertInfoDesktop(PostSaleAdController controller){
             priceInsertion(scanner, priceBean);
         } catch (SyntaxBeanException ex) {
             System.out.println("Error filling in the fields, please try again");
-            scanner.nextLine();
             this.execute();
         }
         controller.setConfigInfo(bean);
