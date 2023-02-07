@@ -26,7 +26,7 @@ public class ResultLaptopDAO {
         double input_distance = Double.parseDouble(distance);
         ArrayList<Result> list = new ArrayList<Result>();
         getConnection();
-        String query = "SELECT LaptopPost.*, Users.email, Users.name, Users.surname"
+        String query = "SELECT LaptopPost.*, Users.email, Users.name, Users.surname "
                 + "FROM LaptopPost "
                 + "JOIN Users ON LaptopPost.id_user = Users.id_user "
                 + "WHERE LaptopPost.status = 'active' "
