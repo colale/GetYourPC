@@ -26,7 +26,7 @@ public class ResultDesktopDAO {
         double input_distance = Double.parseDouble(distance);
         ArrayList<Result> list = new ArrayList<Result>();
         getConnection();
-        String query = "SELECT DesktopPost.*, Users.email, Users.name, Users.surname"
+        String query = "SELECT DesktopPost.*, Users.email, Users.name, Users.surname "
                 + "FROM DesktopPost "
                 + "JOIN Users ON DesktopPost.id_user = Users.id_user "
                 + "WHERE DesktopPost.status = 'active' "
@@ -69,7 +69,7 @@ public class ResultDesktopDAO {
     public ArrayList<Result> setResults(ResultSet rs) throws SQLException {
         ArrayList<Result> desktopPostList = new ArrayList<>();
         while (rs.next()) {
-            Result post = new ResultLaptop();
+            Result post = new ResultDesktop();
             ((ResultDesktop)post).setPostId(rs.getInt("id_post"));
             ((ResultDesktop)post).setSellerId(rs.getInt("id_user"));
             ((ResultDesktop)post).setPrice(rs.getInt("price"));

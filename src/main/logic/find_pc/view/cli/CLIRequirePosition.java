@@ -47,9 +47,9 @@ public class CLIRequirePosition {
         } catch (GeocodingException geoEx) {
             System.out.println("Position not found, try again");
             this.execute();
-        } catch (ConnectionDBException dbEx){System.out.println("System error,try again later");
+        } catch (ConnectionDBException dbEx){System.err.println(dbEx.getMessage());
             this.execute();}
-        catch(SQLException sqlEx){System.out.println("System error,try again later");
+        catch(SQLException sqlEx){System.err.println(sqlEx.getMessage());
             this.execute();}
     }
 
