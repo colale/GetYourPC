@@ -1,6 +1,8 @@
 package post_sale_ad.bean;
 
-public class UserGeoResponseBean {
+import java.io.Serializable;
+
+public class UserGeoResponseBean implements Serializable {
     public String getFullAddress() {
         return fullAddress;
     }

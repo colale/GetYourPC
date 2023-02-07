@@ -2,7 +2,9 @@ package post_sale_ad.bean;
 
 import exception.SyntaxBeanException;
 
-public class UserGeoRequestBean {
+import java.io.Serializable;
+
+public class UserGeoRequestBean implements Serializable {
 
     private String country;
     private String city;

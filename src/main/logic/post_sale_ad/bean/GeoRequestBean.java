@@ -1,6 +1,8 @@
 package post_sale_ad.bean;
 
-public class GeoRequestBean {
+import java.io.Serializable;
+
+public class GeoRequestBean implements Serializable {
     private String  geoRequest;
     public String getGeoRequest() {
         return geoRequest;

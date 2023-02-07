@@ -22,7 +22,7 @@ public class CLIInsertInfoLaptop {
             System.out.println("Insert model");
             bean.setModel(scanner.nextLine());
             System.out.println("Insert screen size");
-            bean.setScreenSize(scanner.nextLine());
+            bean.setScreenSize(Double.parseDouble(scanner.nextLine()));
             System.out.println("Insert CPU");
             bean.setCpu(scanner.nextLine());
             System.out.println("Insert GPU");

@@ -7,6 +7,8 @@ import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.UserGeoRequestBean;
 import post_sale_ad.bean.UserGeoResponseBean;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class CLIInsertPosition {
@@ -47,7 +49,9 @@ public class CLIInsertPosition {
             this.execute();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-      }
+      }catch(IOException ioEx){}
+        catch (SQLException sqlEx){System.err.println(sqlEx.getMessage());
+        this.execute();}
     }
 
     public boolean confirmRequest() {

@@ -1,6 +1,8 @@
 package post_sale_ad.bean;
 
-public class GeoResponseBean {
+import java.io.Serializable;
+
+public class GeoResponseBean implements Serializable {
     private double latitude;
     private double longitude;
     private String cap;

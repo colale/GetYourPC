@@ -15,7 +15,9 @@ import post_sale_ad.model.factory_config_dao.PostInfoDAOFactory;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
 import post_sale_ad.model.factory_config_info.PostInfoFactory;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PostSaleAdController {
@@ -35,17 +37,15 @@ public class PostSaleAdController {
         try {
             this.configInfo = postInfoFactory.create(pcInfoBean);
             this.configInfoDAO = postInfoFactoryDAO.createDAO(pcInfoBean);
-            this.setUserPost();
+            this.setSellerId();
         } catch (FactoryException ex) {
             System.err.println(ex.getMessage());
             Home.quit();
         }
     }
-public void setUserPost(){
+public void setSellerId(){
         UserDataBean userData=this.loginController.getUser();
-        configInfo.getGeneralPostInfo().setSellerName(userData.getName());
-        configInfo.getGeneralPostInfo().setSellerSurname(userData.getSurname());
-        configInfo.getGeneralPostInfo().setSellerEmail(userData.getEmail());
+        configInfo.getGeneralPostInfo().setSellerId(userData.getId());
 }
 
     public boolean checkPrice(PriceBean bean) {
@@ -108,7 +108,7 @@ public void setUserPost(){
         return responseToUser;
     }
 
-    public void publishPost() {
+    public void publishPost() throws SQLException, FileNotFoundException {
         String fullAddress = this.geoResponseBean.getStreet() + " " + this.geoResponseBean.getHouseNumber() + " " + this.geoResponseBean.getCap() + " " + this.geoResponseBean.getCity() + " " + this.geoResponseBean.getCountry();
         configInfo.getGeneralPostInfo().setFullAddress(fullAddress);
         configInfo.getGeneralPostInfo().setLatitude(this.geoResponseBean.getLatitude());
@@ -116,7 +116,7 @@ public void setUserPost(){
         this.storePost();
     }
 
-    public void storePost() {
+    public void storePost() throws SQLException, FileNotFoundException {
         configInfoDAO.storePost(configInfo);
     }
 }

@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class LaptopInfoBean extends PCInfoBean implements Serializable {
     private String brand;
     private String model;
-    private String screenSize;
+    private double screenSize;
     private String cpu;
     private String gpu;
     private String ram;
@@ -28,11 +28,11 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
         this.model = model;
     }
 
-    public String getScreenSize() {
+    public double getScreenSize() {
         return screenSize;
     }
 
-    public void setScreenSize(String screenSize) {
+    public void setScreenSize(double screenSize) {
         this.screenSize = screenSize;
     }
 

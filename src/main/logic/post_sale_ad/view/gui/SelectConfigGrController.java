@@ -41,16 +41,14 @@ public class SelectConfigGrController {
     void btnLaptopClick(MouseEvent event) throws IOException {
         PCInfoBean choice=new PCInfoBean();
         choice.setChoice("laptop");
-        PostSaleAdController postSaleAdController = new PostSaleAdController();
-        postSaleAdController.createPost(choice);
+        this.controller.createPost(choice);
         FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/gui/InsertInfoLaptop.fxml"));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         InsertInfoLaptopGrController nextController = root.getController();
-        nextController.setAppController(postSaleAdController);
+        nextController.setAppController(this.controller);
         stage.show();
-
     }
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {

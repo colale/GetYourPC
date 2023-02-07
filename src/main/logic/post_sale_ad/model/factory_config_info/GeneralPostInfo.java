@@ -5,10 +5,7 @@ public class GeneralPostInfo {
     private double latitude;
     private double longitude;
     private String fullAddress;
-
-    private String sellerName;
-    private String sellerSurname;
-    private String sellerEmail;
+    private int sellerId;
     private String img1;
     private String img2;
     private String img3;
@@ -35,30 +32,6 @@ public class GeneralPostInfo {
 
     public void setFullAddress(String fullAddress) {
         this.fullAddress = fullAddress;
-    }
-
-    public String getSellerName() {
-        return sellerName;
-    }
-
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
-    }
-
-    public String getSellerSurname() {
-        return sellerSurname;
-    }
-
-    public void setSellerSurname(String sellerSurname) {
-        this.sellerSurname = sellerSurname;
-    }
-
-    public String getSellerEmail() {
-        return sellerEmail;
-    }
-
-    public void setSellerEmail(String sellerEmail) {
-        this.sellerEmail = sellerEmail;
     }
 
     public String getImg1() {
@@ -92,5 +65,11 @@ public class GeneralPostInfo {
     public void setPrice(int price) {
         this.price = price;
     }
+    public int getSellerId() {
+        return sellerId;
+    }
 
+    public void setSellerId(int sellerId) {
+        this.sellerId = sellerId;
+    }
 }

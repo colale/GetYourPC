@@ -45,7 +45,7 @@ public class InsertInfoLaptopGrController {
     @FXML
     private TextField fieldRam;
     @FXML
-    private TextField advice;
+    private Label advice;
     @FXML
     private TextField fieldMemory;
     @FXML
@@ -58,7 +58,7 @@ public class InsertInfoLaptopGrController {
             bean.setMemory(fieldMemory.getText());
             bean.setBrand(fieldBrand.getText());
             bean.setModel(fieldModel.getText());
-            bean.setScreenSize(fieldDisplay.getText());
+            bean.setScreenSize(Double.parseDouble(fieldDisplay.getText()));
             bean.setRam(fieldRam.getText());
             priceBean.setPrice(fieldPrice.getText());}
         catch (SyntaxBeanException ex) {
