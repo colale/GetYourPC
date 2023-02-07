@@ -24,7 +24,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class InsertPositionGrController {
-    public final static String MESSAGE = "System error, please try again later";
+    public static final String MESSAGE = "System error, please try again later";
     UserGeoResponseBean userGeoResponseBean;
     PostSaleAdController controller;
     @FXML
