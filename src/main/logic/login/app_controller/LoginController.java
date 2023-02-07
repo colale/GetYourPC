@@ -16,6 +16,7 @@ public class LoginController {
     Account account;
 
     public boolean checkIsAuthenticated() {
+        System.out.println(Session.getInstance().getId());
         return !((Session.getInstance().getEmail()).equals(""));
 
     }
