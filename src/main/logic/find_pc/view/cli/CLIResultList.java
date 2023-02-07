@@ -6,14 +6,18 @@ import find_pc.model.ResultDesktop;
 import find_pc.model.ResultLaptop;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class CLIResultList {
     public CLIResultList(FindPCController controller, ArrayList<Result> results) {
         this.controller = controller;
-        this.results=results;
+        this.results = results;
     }
+
     FindPCController controller;
     ArrayList<Result> results;
+
     public void execute() {
         ArrayList<Integer> postNumber = new ArrayList<>();
         int i = 0;
@@ -38,7 +42,6 @@ public class CLIResultList {
                     price = Double.toString(tempPrice);
                     System.out.println("\n" + i + "\n" + sellerName + " " + sellerSurname + " " + cpu + " " + gpu + " " + ram + " " + price);
                     postNumber.add(i);
-                    System.out.println();
                 }
             } else {
                 String sellerName;
@@ -59,13 +62,18 @@ public class CLIResultList {
                     double tempPrice = ((ResultLaptop) result).getPrice();
                     price = Double.toString(tempPrice);
                     System.out.println("\n" + i + "\n" + sellerName + " " + sellerSurname + " " + brand + " " + model + " " + cpu + " " + price);
-                    }
                 }
+            }
             System.out.println("Insert number");
-        (new CLIPostView(this.controller,this.results,i)).execute();
+            Scanner scanner = new Scanner(System.in);
+            i = scanner.nextInt();
+            (new CLIPostView(this.controller, this.results, i)).execute();
 
         } catch (IndexOutOfBoundsException ex) {
             System.out.println("There are no results");
-            (new CLIRequireConfig(this.controller)).execute();}
+            (new CLIRequireConfig(this.controller)).execute();
+        } catch (InputMismatchException inputEx) {System.out.println("Invalid input");
+            this.execute();
+        }
     }
 }
