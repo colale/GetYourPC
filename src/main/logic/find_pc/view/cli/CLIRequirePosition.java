@@ -1,11 +1,14 @@
 package find_pc.view.cli;
 
+import exception.ConnectionDBException;
 import exception.GeocodingException;
 import exception.SyntaxBeanException;
 import find_pc.app_controller.FindPCController;
 import find_pc.bean.UserDistanceBean;
 import find_pc.bean.UserGeoRequestBean;
 import find_pc.bean.UserGeoResponseBean;
+
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class CLIRequirePosition {
@@ -37,13 +40,17 @@ public class CLIRequirePosition {
             else {
                 this.execute();
             }
-        } catch (SyntaxBeanException syntaxException) {
+        }
+           catch (SyntaxBeanException syntaxException) {
             System.out.println("Invalid data, try again");
             this.execute();
         } catch (GeocodingException geoEx) {
             System.out.println("Position not found, try again");
             this.execute();
-        }
+        } catch (ConnectionDBException dbEx){System.out.println("System error,try again later");
+            this.execute();}
+        catch(SQLException sqlEx){System.out.println("System error,try again later");
+            this.execute();}
     }
 
     public boolean confirmRequest() {
