@@ -1,10 +1,8 @@
-package post_sale_ad.boundary;
+package boundary;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import exception.GeocodingException;
-import post_sale_ad.bean.GeoRequestBean;
-import post_sale_ad.bean.GeoResponseBean;
 
 import java.io.IOException;
 import java.net.http.HttpResponse;

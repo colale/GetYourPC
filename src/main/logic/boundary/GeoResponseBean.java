@@ -1,4 +1,4 @@
-package post_sale_ad.bean;
+package boundary;
 
 import java.io.Serializable;
 

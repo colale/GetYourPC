@@ -1,4 +1,4 @@
-package post_sale_ad.boundary;
+package boundary;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,7 +7,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Properties;
-import post_sale_ad.bean.GeoRequestBean;
 
 
 public class Geoapify {

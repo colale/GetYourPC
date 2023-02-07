@@ -3,14 +3,16 @@ import java.io.File;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
+import boundary.GeoRequestBean;
+import boundary.GeoResponseBean;
 import exception.ConnectionDBException;
 import exception.FactoryException;
 import exception.GeocodingException;
 import home.Home;
 import login.app_controller.LoginController;
 import post_sale_ad.bean.*;
-import post_sale_ad.boundary.Geoapify;
-import post_sale_ad.boundary.GeocodingAdapter;
+import boundary.Geoapify;
+import boundary.GeocodingAdapter;
 import post_sale_ad.model.factory_config_dao.ConfigInfoDAO;
 import post_sale_ad.model.factory_config_dao.PostInfoDAOFactory;
 import post_sale_ad.model.factory_config_info.ConfigInfo;

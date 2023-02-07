@@ -1,5 +1,7 @@
 package home;
 
+import find_pc.app_controller.FindPCController;
+import find_pc.view.cli.CLIRequireConfig;
 import login.app_controller.LoginController;
 import login.view.cli.CLILogin;
 import login.view.cli.CLILogout;
@@ -22,6 +24,11 @@ public class CLIHome {
                 continue;}
             int num = scanner.nextInt();
             switch (num) {
+                case 1:
+                    validInput=TRUE;
+                    FindPCController findPCController = new FindPCController();
+                        (new CLIRequireConfig(findPCController)).execute();
+                    break;
                 case 2:
                     validInput=TRUE;
                     PostSaleAdController postSaleAdController = new PostSaleAdController();
@@ -32,7 +39,7 @@ public class CLIHome {
                     (new CLISelectConfig(postSaleAdController)).execute();
                     break;
 
-                case 1,3, 4:
+                case 3, 4:
                     validInput=FALSE;
                     System.out.println("This option is not available now");
                     break;
