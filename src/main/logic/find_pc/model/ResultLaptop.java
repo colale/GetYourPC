@@ -1,7 +1,5 @@
 package find_pc.model;
-public class ResultLaptop {
-
-    public class GeneralPostInfo {
+public class ResultLaptop extends Result{
         private post_sale_ad.model.factory_config_info.GeneralPostInfo generalPostInfo;
         private String brand;
         private String model;
@@ -146,6 +144,4 @@ public class ResultLaptop {
         public void setSellerId(int sellerId) {
             this.sellerId = sellerId;
         }
-    }
-
 }

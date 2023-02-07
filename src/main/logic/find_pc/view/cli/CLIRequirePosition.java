@@ -32,7 +32,7 @@ public class CLIRequirePosition {
             this.userGeoResponseBean = response;
             System.out.println("Position: " + response.getFullAddress());
             if (confirmRequest()) {
-                controller.setPosition(userDistanceBean);
+                controller.setGeoData(userDistanceBean);
                 (new CLIResultList(this.controller,controller.searchResults())).execute();}
             else {
                 this.execute();

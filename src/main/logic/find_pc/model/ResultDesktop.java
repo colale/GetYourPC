@@ -2,7 +2,7 @@ package find_pc.model;
 
 import post_sale_ad.model.factory_config_info.GeneralPostInfo;
 
-public class ResultDesktop {
+public class ResultDesktop extends Result{
     private String cpu;
     private String motherboard;
     private String gpu;
