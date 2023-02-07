@@ -13,10 +13,8 @@ import java.util.Properties;
 
 public class LoginController {
     Account userData;
-    Account account;
 
     public boolean checkIsAuthenticated() {
-        System.out.println(Session.getInstance().getId());
         return !((Session.getInstance().getEmail()).equals(""));
 
     }
@@ -42,7 +40,7 @@ public class LoginController {
         Session.getInstance().setSurname("");
     }
 
-    public UserDataBean getUser() {
+    public UserDataBean getUserDataBean() {
         UserDataBean b = new UserDataBean();
         b.setName(Session.getInstance().getName());
         b.setSurname(Session.getInstance().getSurname());
@@ -50,6 +48,9 @@ public class LoginController {
         return b;
     }
 
+public int getUserId(){
+        return Session.getInstance().getId();
+}
 
     public boolean updateSession() {
         try {

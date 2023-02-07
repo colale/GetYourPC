@@ -59,7 +59,7 @@ public class CLILogout {
     }
 
     void init(){
-        UserDataBean bean = c.getUser();
+        UserDataBean bean = c.getUserDataBean();
         this.name=bean.getName();
         this.surname=bean.getSurname();
         this.email=bean.getEmail();

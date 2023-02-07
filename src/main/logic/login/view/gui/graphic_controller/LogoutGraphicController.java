@@ -30,7 +30,7 @@ public class LogoutGraphicController {
     private Label labelSurname;
     @FXML
     public void init(){
-        UserDataBean bean = c.getUser();
+        UserDataBean bean = c.getUserDataBean();
         labelName.setText(bean.getName());
         labelSurname.setText(bean.getSurname());
         labelEmail.setText(bean.getEmail());}

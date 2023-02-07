@@ -8,7 +8,6 @@ import exception.FactoryException;
 import exception.GeocodingException;
 import home.Home;
 import login.app_controller.LoginController;
-import login.bean.UserDataBean;
 import post_sale_ad.bean.*;
 import post_sale_ad.boundary.Geoapify;
 import post_sale_ad.boundary.GeocodingAdapter;
@@ -46,8 +45,8 @@ public class PostSaleAdController {
         }
     }
 public void setSellerId(){
-        UserDataBean userData=this.loginController.getUser();
-        configInfo.getGeneralPostInfo().setSellerId(userData.getId());
+        int id =this.loginController.getUserId();
+        configInfo.getGeneralPostInfo().setSellerId(id);
 }
 
     public boolean checkPrice(PriceBean bean) {
