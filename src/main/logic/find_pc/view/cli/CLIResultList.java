@@ -4,7 +4,6 @@ import find_pc.app_controller.FindPCController;
 import find_pc.model.Result;
 import find_pc.model.ResultDesktop;
 import find_pc.model.ResultLaptop;
-import post_sale_ad.model.factory_config_info.DesktopInfo;
 
 import java.util.ArrayList;
 
@@ -60,10 +59,10 @@ public class CLIResultList {
                     double tempPrice = ((ResultLaptop) result).getPrice();
                     price = Double.toString(tempPrice);
                     System.out.println("\n" + i + "\n" + sellerName + " " + sellerSurname + " " + brand + " " + model + " " + cpu + " " + price);
+                    }
                 }
-            }
-
             System.out.println("Insert number");
+        (new CLIPostView(this.controller,this.results,i)).execute();
 
         } catch (IndexOutOfBoundsException ex) {
             System.out.println("There are no results");
