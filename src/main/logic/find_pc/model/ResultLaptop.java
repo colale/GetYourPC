@@ -1,18 +1,48 @@
 package find_pc.model;
+
 public class ResultLaptop extends Result{
-        private post_sale_ad.model.factory_config_info.GeneralPostInfo generalPostInfo;
         private String brand;
+        private int postId;
+        private String sellerName;
         private String model;
 
-        public post_sale_ad.model.factory_config_info.GeneralPostInfo getGeneralPostInfo() {
-            return generalPostInfo;
-        }
+        private String sellerSurname;
 
-        public void setGeneralPostInfo(post_sale_ad.model.factory_config_info.GeneralPostInfo generalPostInfo) {
-            this.generalPostInfo = generalPostInfo;
-        }
+        private String sellerEmail;
 
-        public String getBrand() {
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
+
+    public String getSellerSurname() {
+        return sellerSurname;
+    }
+
+    public void setSellerSurname(String sellerSurname) {
+        this.sellerSurname = sellerSurname;
+    }
+
+    public String getSellerEmail() {
+        return sellerEmail;
+    }
+
+    public void setSellerEmail(String sellerEmail) {
+        this.sellerEmail = sellerEmail;
+    }
+
+    public String getBrand() {
             return brand;
         }
 

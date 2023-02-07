@@ -1,9 +1,44 @@
 package find_pc.model;
 
-import post_sale_ad.model.factory_config_info.GeneralPostInfo;
-
 public class ResultDesktop extends Result{
     private String cpu;
+    private String sellerName;
+    private String sellerSurname;
+    private String sellerEmail;
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
+
+    public String getSellerSurname() {
+        return sellerSurname;
+    }
+
+    public void setSellerSurname(String sellerSurname) {
+        this.sellerSurname = sellerSurname;
+    }
+
+    public String getSellerEmail() {
+        return sellerEmail;
+    }
+
+    public void setSellerEmail(String sellerEmail) {
+        this.sellerEmail = sellerEmail;
+    }
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+
+    private int postId;
     private String motherboard;
     private String gpu;
     private String ram;
@@ -11,7 +46,6 @@ public class ResultDesktop extends Result{
     private String power;
     private String heatSink;
     private String pcCase;
-    private GeneralPostInfo generalPostInfo;
 
     private int price;
     private double latitude;
@@ -78,14 +112,6 @@ public class ResultDesktop extends Result{
 
     public void setPcCase(String pcCase) {
         this.pcCase = pcCase;
-    }
-
-    public GeneralPostInfo getGeneralPostInfo() {
-        return generalPostInfo;
-    }
-
-    public void setGeneralPostInfo(GeneralPostInfo generalPostInfo) {
-        this.generalPostInfo = generalPostInfo;
     }
 
     public int getPrice() {
