@@ -18,7 +18,8 @@ public class LaptopInfoDAO implements ConfigInfoDAO{
         DBConnection db = DBConnection.getInstance();
         this.connection = db.getConnection();
     }
-    public void storePost(ConfigInfo configInfo) throws SQLException, FileNotFoundException {
+    public void storePost(ConfigInfo configInfo) throws SQLException, FileNotFoundException, ConnectionDBException {
+        this.getConnection();
         String query= "INSERT INTO LaptopPost (id_user, photo1, photo2, photo3, price, complete_address, latitude, longitude, brand, model, screen_size, cpu, gpu, ram, memory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, configInfo.getGeneralPostInfo().getSellerId());

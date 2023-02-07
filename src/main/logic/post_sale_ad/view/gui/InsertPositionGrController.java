@@ -1,5 +1,6 @@
 package post_sale_ad.view.gui;
 
+import exception.ConnectionDBException;
 import exception.GeocodingException;
 import exception.SyntaxBeanException;
 import javafx.application.Platform;
@@ -96,6 +97,8 @@ public class InsertPositionGrController {
             System.err.println(ioEx.getMessage());}
         catch(SQLException sqlEx){System.err.println(sqlEx.getMessage());
         advice.setText("System error, please try again later");}
+        catch(ConnectionDBException connEx){{advice.setText("System error, please try again later");
+            System.err.println(connEx.getMessage());}}
     }
 
         @FXML

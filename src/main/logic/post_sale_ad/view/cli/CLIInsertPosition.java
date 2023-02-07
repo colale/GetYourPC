@@ -1,5 +1,6 @@
 package post_sale_ad.view.cli;
 
+import exception.ConnectionDBException;
 import exception.GeocodingException;
 import exception.SyntaxBeanException;
 import home.CLIHome;
@@ -52,6 +53,9 @@ public class CLIInsertPosition {
       }catch(IOException ioEx){}
         catch (SQLException sqlEx){System.err.println(sqlEx.getMessage());
         this.execute();}
+        catch(ConnectionDBException connEx)
+        {System.err.println("System error, please try again later");
+            this.execute();}
     }
 
     public boolean confirmRequest() {

@@ -2,6 +2,8 @@ package post_sale_ad.app_controller;
 import java.io.File;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+
+import exception.ConnectionDBException;
 import exception.FactoryException;
 import exception.GeocodingException;
 import home.Home;
@@ -107,7 +109,7 @@ public void setSellerId(){
         return responseToUser;
     }
 
-    public void publishPost() throws SQLException, FileNotFoundException {
+    public void publishPost() throws SQLException, FileNotFoundException, ConnectionDBException {
         String fullAddress = this.geoResponseBean.getStreet() + " " + this.geoResponseBean.getHouseNumber() + " " + this.geoResponseBean.getCap() + " " + this.geoResponseBean.getCity() + " " + this.geoResponseBean.getCountry();
         configInfo.getGeneralPostInfo().setFullAddress(fullAddress);
         configInfo.getGeneralPostInfo().setLatitude(this.geoResponseBean.getLatitude());
@@ -115,7 +117,7 @@ public void setSellerId(){
         this.storePost();
     }
 
-    public void storePost() throws SQLException, FileNotFoundException {
+    public void storePost() throws SQLException, FileNotFoundException, ConnectionDBException {
         configInfoDAO.storePost(configInfo);
     }
 }
