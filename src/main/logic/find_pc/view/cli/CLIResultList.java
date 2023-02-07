@@ -19,7 +19,6 @@ public class CLIResultList {
     ArrayList<Result> results;
 
     public void execute() {
-        ArrayList<Integer> postNumber = new ArrayList<>();
         int i = 0;
         try {
             if (this.results.get(0) instanceof ResultDesktop) {
@@ -31,8 +30,6 @@ public class CLIResultList {
                 String price;
                 System.out.println("Desktop results:");
                 for (Result result : this.results) {
-                    ++i;
-                    postNumber.add(i);
                     sellerName = ((ResultDesktop) result).getSellerName();
                     sellerSurname = ((ResultDesktop) result).getSellerSurname();
                     cpu = ((ResultDesktop) result).getCpu();
@@ -40,8 +37,8 @@ public class CLIResultList {
                     ram = ((ResultDesktop) result).getRam();
                     double tempPrice = ((ResultDesktop) result).getPrice();
                     price = Double.toString(tempPrice);
-                    System.out.println("\n" + i + "\n" + sellerName + " " + sellerSurname + " " + cpu + " " + gpu + " " + ram + " " + price);
-                    postNumber.add(i);
+                    System.out.println("Number: " + i + "\nName: " + sellerName + "\nSurname: " + sellerSurname + "\nCPU: " + cpu + "\nGPU " + gpu + "\nRAM " + ram + "\nPrice: " + price+"€"+"\n");
+                    i++;
                 }
             } else {
                 String sellerName;
@@ -53,7 +50,6 @@ public class CLIResultList {
                 System.out.println("Laptop results:");
                 for (Result result : this.results) {
                     ++i;
-                    postNumber.add(i);
                     sellerName = ((ResultLaptop) result).getSellerName();
                     sellerSurname = ((ResultLaptop) result).getSellerSurname();
                     cpu = ((ResultLaptop) result).getCpu();
@@ -61,7 +57,7 @@ public class CLIResultList {
                     model = ((ResultLaptop) result).getModel();
                     double tempPrice = ((ResultLaptop) result).getPrice();
                     price = Double.toString(tempPrice);
-                    System.out.println("\n" + i + "\n" + sellerName + " " + sellerSurname + " " + brand + " " + model + " " + cpu + " " + price);
+                    System.out.println("Number: " + i + "\nName: " + sellerName + "\nSurname: " + sellerSurname + "\nBrand: " + brand + "\nModel: " + model + "\nCPU: " + cpu + "\nPrice: " + price);
                 }
             }
             System.out.println("Insert number");

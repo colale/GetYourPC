@@ -6,12 +6,6 @@ import find_pc.model.ResultDesktop;
 import find_pc.model.ResultLaptop;
 import home.CLIHome;
 import home.Home;
-import login.app_controller.LoginController;
-import login.view.cli.CLILogin;
-import login.view.cli.CLILogout;
-import post_sale_ad.app_controller.PostSaleAdController;
-import post_sale_ad.view.cli.CLISelectConfig;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -56,7 +50,7 @@ public class CLIPostView {
                 motherboard = ((ResultDesktop) result).getMemory();
                 heatSink = ((ResultDesktop) result).getHeatSink();
                 power = ((ResultDesktop) result).getPower();
-                System.out.println(sellerName + " " + sellerSurname + " " + email + " " + cpu + " "+ motherboard + " " +gpu + " " + ram + " " +memory + " " +power + " " +heatSink + " " +pcCase + " " +price + "\n");}
+                System.out.println("Name: " + sellerName + "\nSurname: " + sellerSurname + "\nEmail: " + email + "\nCPU: " + cpu + "\nMotherboard: "+ motherboard + "\nGPU: " +gpu + "\nRAM: " + ram + "\nSSD/HDD: " +memory + "\nPower: " +power + "\nHeat Sink and Fans: " +heatSink + "\nCase: " +pcCase + "\nPrice:  " +price + "€");}
 
             else{
                 String sellerName;
@@ -84,7 +78,7 @@ public class CLIPostView {
                 memory= ((ResultLaptop) result).getMemory();
                 double tempPrice = ((ResultLaptop) result).getPrice();
                 price = Double.toString(tempPrice);
-                System.out.println(sellerName + " " + sellerSurname + " " + email + " " + brand + " "+ model + " " + screenSize + " " + cpu + " " + gpu + " " + ram + " " + memory + " " +price + "\n");}
+                System.out.println("\nName: " + sellerName + "\nSurname: " + sellerSurname + "\nEmail: " + email + "\nBrand: " + brand + "\nModel: "+ model + "\nScreen Size: " + screenSize + "\nCPU: " + cpu + "\nGPU: " + gpu + "\nRAM: " + ram + "\nSSD/HDD: " + memory + "\nPrice: " +price + "€");}
 
             requireAction();
 
