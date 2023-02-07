@@ -1,4 +1,4 @@
-package post_sale_ad.model;
+package post_sale_ad.model.factory_config_info;
 
 public class GeneralPostInfo {
     private int price;

@@ -4,13 +4,18 @@ import post_sale_ad.bean.LaptopInfoBean;
 import post_sale_ad.bean.PCInfoBean;
 
 public class LaptopInfo implements ConfigInfo{
-    String brand;
-    String model;
-    String screenSize;
-    String cpu;
-    String gpu;
-    String ram;
-    String memory;
+    public GeneralPostInfo getGeneralPostInfo() {
+        return generalPostInfo;
+    }
+
+    private GeneralPostInfo generalPostInfo;
+    private String brand;
+    private String model;
+    private String screenSize;
+    private String cpu;
+    private String gpu;
+    private String ram;
+    private String memory;
     @Override
     public void setInfo(PCInfoBean bean) {
         LaptopInfoBean inputBean=(LaptopInfoBean)bean;
@@ -21,5 +26,8 @@ public class LaptopInfo implements ConfigInfo{
         this.gpu=inputBean.getGpu();
         this.ram=inputBean.getRam();
         this.memory=inputBean.getMemory();
+    }
+    public LaptopInfo (GeneralPostInfo generalPostInfo){
+        this.generalPostInfo=generalPostInfo;
     }
 }

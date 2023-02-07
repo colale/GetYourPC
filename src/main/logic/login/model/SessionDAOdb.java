@@ -9,7 +9,7 @@ import login.bean.CredentialsInput;
 
 public class SessionDAOdb {
     private Connection connection;
-    public SessionDAOdb() throws SQLException, ConnectionDBException {//gestire caso in cui salta la connessione
+    public SessionDAOdb() throws SQLException, ConnectionDBException {
         DBConnection db = DBConnection.getInstance();
         this.connection = db.getConnection();
     }
