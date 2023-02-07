@@ -32,10 +32,10 @@ public class PostSaleAdController {
     public void createPost(PCInfoBean pcInfoBean) {
         PostInfoDAOFactory postInfoFactoryDAO = new PostInfoDAOFactory();
         PostInfoFactory postInfoFactory = new PostInfoFactory();
-        this.setUserPost();
         try {
             this.configInfo = postInfoFactory.create(pcInfoBean);
             this.configInfoDAO = postInfoFactoryDAO.createDAO(pcInfoBean);
+            this.setUserPost();
         } catch (FactoryException ex) {
             System.err.println(ex.getMessage());
             Home.quit();
