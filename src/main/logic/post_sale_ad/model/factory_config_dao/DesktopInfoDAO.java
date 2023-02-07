@@ -3,7 +3,7 @@ package post_sale_ad.model.factory_config_dao;
 import exception.ConnectionDBException;
 import login.model.DBConnection;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
-import post_sale_ad.model.factory_config_info.LaptopInfo;
+import post_sale_ad.model.factory_config_info.DesktopInfo;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
@@ -20,7 +20,7 @@ public class DesktopInfoDAO implements ConfigInfoDAO {
 
     public void storePost(ConfigInfo configInfo) throws SQLException, FileNotFoundException, ConnectionDBException {
         this.getConnection();
-        String query = "INSERT INTO LaptopPost (id_user, photo1, photo2, photo3, price, complete_address, latitude, longitude, brand, model, screen_size, cpu, gpu, ram, memory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO LaptopPost (id_user, photo1, photo2, photo3, price, complete_address, latitude, longitude, cpu, motherboard, gpu, ram, memory, power, cpu_heat,pc_case) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, configInfo.getGeneralPostInfo().getSellerId());
         String imagePath1 = configInfo.getGeneralPostInfo().getImg1();
@@ -33,13 +33,14 @@ public class DesktopInfoDAO implements ConfigInfoDAO {
         preparedStatement.setString(6, configInfo.getGeneralPostInfo().getFullAddress());
         preparedStatement.setDouble(7, configInfo.getGeneralPostInfo().getLatitude());
         preparedStatement.setDouble(8, configInfo.getGeneralPostInfo().getLongitude());
-        preparedStatement.setString(9, ((LaptopInfo) configInfo).getBrand());
-        preparedStatement.setString(10, ((LaptopInfo) configInfo).getModel());
-        preparedStatement.setDouble(11, ((LaptopInfo) configInfo).getScreenSize());
-        preparedStatement.setString(12, ((LaptopInfo) configInfo).getCpu());
-        preparedStatement.setString(13, ((LaptopInfo) configInfo).getGpu());
-        preparedStatement.setString(14, ((LaptopInfo) configInfo).getRam());
-        preparedStatement.setString(15, ((LaptopInfo) configInfo).getMemory());
+        preparedStatement.setString(9, ((DesktopInfo) configInfo).getCpu());
+        preparedStatement.setString(10, ((DesktopInfo) configInfo).getMotherboard());
+        preparedStatement.setString(11, ((DesktopInfo) configInfo).getGpu());
+        preparedStatement.setString(12, ((DesktopInfo) configInfo).getRam());
+        preparedStatement.setString(13, ((DesktopInfo) configInfo).getMemory());
+        preparedStatement.setString(14, ((DesktopInfo) configInfo).getPower());
+        preparedStatement.setString(15, ((DesktopInfo) configInfo).getHeatSink());
+        preparedStatement.setString(16, ((DesktopInfo) configInfo).getPcCase());
         preparedStatement.executeUpdate();
     }
 }
