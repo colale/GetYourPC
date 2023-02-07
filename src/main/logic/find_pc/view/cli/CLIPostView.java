@@ -23,7 +23,7 @@ public class CLIPostView {
     int index;
     public void execute() {
         try {
-            Result result =this.results.get(index);
+            Result result =this.results.get(index-1);
             if (this.results.get(index) instanceof ResultDesktop) {
                 String sellerName;
                 String sellerSurname;
@@ -124,7 +124,7 @@ public void requireAction(){
                 break;
 
             default:
-                System.out.println("Invalid number.Retry");
+                System.out.println("Invalid number.Retry\n");
                 scanner.nextLine();
         }
     }

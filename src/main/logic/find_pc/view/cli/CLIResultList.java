@@ -30,6 +30,7 @@ public class CLIResultList {
                 String price;
                 System.out.println("Desktop results:");
                 for (Result result : this.results) {
+                    i=i+1;
                     sellerName = ((ResultDesktop) result).getSellerName();
                     sellerSurname = ((ResultDesktop) result).getSellerSurname();
                     cpu = ((ResultDesktop) result).getCpu();
@@ -38,7 +39,6 @@ public class CLIResultList {
                     double tempPrice = ((ResultDesktop) result).getPrice();
                     price = Double.toString(tempPrice);
                     System.out.println("Number: " + i + "\nName: " + sellerName + "\nSurname: " + sellerSurname + "\nCPU: " + cpu + "\nGPU " + gpu + "\nRAM " + ram + "\nPrice: " + price+"€"+"\n");
-                    i++;
                 }
             } else {
                 String sellerName;
