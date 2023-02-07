@@ -24,6 +24,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class InsertPositionGrController {
+    public final static String MESSAGE = "System error, please try again later";
     UserGeoResponseBean userGeoResponseBean;
     PostSaleAdController controller;
     @FXML
@@ -93,13 +94,12 @@ public class InsertPositionGrController {
             btnConfirm.setDisable(true);
             btnCheckPosition.setDisable(true);
             this.finalizate(stage);
-        } catch (IOException ioEx) {advice.setText("System error, please try again later");
+        } catch (IOException ioEx) {advice.setText(MESSAGE);
             System.err.println(ioEx.getMessage());}
         catch(SQLException sqlEx){System.err.println(sqlEx.getMessage());
-        advice.setText("System error, please try again later");}
-        catch(ConnectionDBException connEx){{advice.setText("System error, please try again later");
+        advice.setText(MESSAGE);}
+        catch(ConnectionDBException connEx){advice.setText(MESSAGE);
             System.err.println(connEx.getMessage());}}
-    }
 
         @FXML
         void imgHomeClick (MouseEvent event) throws IOException {
