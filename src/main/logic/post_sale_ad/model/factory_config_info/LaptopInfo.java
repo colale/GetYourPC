@@ -21,7 +21,7 @@ public class LaptopInfo implements ConfigInfo{
         this.brand=inputBean.getBrand();
         this.cpu=inputBean.getCpu();
         this.model=inputBean.getModel();
-        this.screenSize=inputBean.getScreenSize();
+        this.screenSize= Double.parseDouble(inputBean.getScreenSize());
         this.gpu=inputBean.getGpu();
         this.ram=inputBean.getRam();
         this.memory=inputBean.getMemory();

@@ -58,7 +58,7 @@ public class InsertInfoLaptopGrController {
             bean.setMemory(fieldMemory.getText());
             bean.setBrand(fieldBrand.getText());
             bean.setModel(fieldModel.getText());
-            bean.setScreenSize(Double.parseDouble(fieldDisplay.getText()));
+            bean.setScreenSize(fieldDisplay.getText());
             bean.setRam(fieldRam.getText());
             priceBean.setPrice(fieldPrice.getText());}
         catch (SyntaxBeanException ex) {
@@ -78,7 +78,7 @@ public class InsertInfoLaptopGrController {
             Scene scene = new Scene(root.load(), 1280, 720);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-            InsertPositionGrController nextGraphicController = root.getController();
+            InsertPhotosGrController nextGraphicController = root.getController();
             nextGraphicController.setController(controller);
             stage.show();
         } else {advice.setText("Error filling in the field 'price', please insert price again");

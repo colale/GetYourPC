@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class LaptopInfoBean extends PCInfoBean implements Serializable {
     private String brand;
     private String model;
-    private double screenSize;
+    private String screenSize;
     private String cpu;
     private String gpu;
     private String ram;
@@ -28,11 +28,12 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
         this.model = model;
     }
 
-    public double getScreenSize() {
+    public String getScreenSize() {
         return screenSize;
     }
 
-    public void setScreenSize(double screenSize) {
+    public void setScreenSize(String screenSize) throws SyntaxBeanException {
+        syntaxDisplayCheck(screenSize);
         this.screenSize = screenSize;
     }
 
@@ -75,5 +76,12 @@ private void syntaxCheck(String s) throws SyntaxBeanException {
         if(s.length()==0 || s.length()>50){
             throw new SyntaxBeanException();
         }
-}
+    }
+    private void syntaxDisplayCheck(String s) throws SyntaxBeanException {
+        try {
+            Double.parseDouble(s);
+        } catch (NumberFormatException e) {
+            throw new SyntaxBeanException();
+        }
+        }
 }

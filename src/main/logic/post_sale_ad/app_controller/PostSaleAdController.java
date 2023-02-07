@@ -61,7 +61,6 @@ public void setSellerId(){
     public void setPrice(PriceBean bean) {
         int price = Integer.parseInt(bean.getPrice());
         configInfo.getGeneralPostInfo().setPrice(price);
-
     }
 
     public void setConfigInfo(PCInfoBean bean) {
