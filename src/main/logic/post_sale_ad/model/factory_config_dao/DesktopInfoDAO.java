@@ -20,7 +20,7 @@ public class DesktopInfoDAO implements ConfigInfoDAO {
 
     public void storePost(ConfigInfo configInfo) throws SQLException, FileNotFoundException, ConnectionDBException {
         this.getConnection();
-        String query = "INSERT INTO LaptopPost (id_user, photo1, photo2, photo3, price, complete_address, latitude, longitude, cpu, motherboard, gpu, ram, memory, power, cpu_heat,pc_case) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+        String query = "INSERT INTO DesktopPost (id_user, photo1, photo2, photo3, price, complete_address, latitude, longitude, cpu, motherboard, gpu, ram, memory, power, cpu_heat,pc_case) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, configInfo.getGeneralPostInfo().getSellerId());
         String imagePath1 = configInfo.getGeneralPostInfo().getImg1();
