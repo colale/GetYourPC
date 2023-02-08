@@ -64,6 +64,7 @@ public Result result;
             ResultDesktopGrController grController = root.getController();
             grController.setController(this.controller);
             grController.setInfo(this.result);
+            grController.setList(this.resultsList);
         }
         else {
             FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/ResultLaptop.fxml"));
@@ -72,6 +73,7 @@ public Result result;
             ResultLaptopGrController grController = root.getController();
             grController.setController(this.controller);
             grController.setInfo(this.result);
+            grController.setList(this.resultsList);
         }
         stage.show();
     }
@@ -99,7 +101,7 @@ public Result result;
             String fullname = ((ResultLaptop) result).getSellerName() + ((ResultLaptop) result).getSellerSurname();
             labelFullName.setText(fullname);
             String price = Double.toString(((ResultLaptop) result).getPrice());
-            labelPrice.setText(price);
+            labelPrice.setText(price+" €");
             Image image = new Image(new ByteArrayInputStream(((ResultLaptop) result).getImg1()));
             imgMain.setImage(image);
         } else {
@@ -109,7 +111,7 @@ public Result result;
             String fullname = ((ResultDesktop) result).getSellerName() + ((ResultDesktop) result).getSellerSurname();
             labelFullName.setText(fullname);
             String price = Double.toString(((ResultDesktop) result).getPrice());
-            labelPrice.setText(price);
+            labelPrice.setText(price+" €");
             Image image = new Image(new ByteArrayInputStream(((ResultDesktop) result).getImg1()));
             imgMain.setImage(image);
         }

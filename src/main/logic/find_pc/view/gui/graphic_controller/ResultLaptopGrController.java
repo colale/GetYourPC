@@ -133,7 +133,7 @@ public class ResultLaptopGrController {
 
     @FXML
     void btnQuestionMarkClick(MouseEvent event) {
-        advice.setText("For information, read the project documentation");
+        advice.setText("This option is not available now");
     }
 
     @FXML
@@ -166,7 +166,7 @@ public class ResultLaptopGrController {
             String fullName = ((ResultLaptop) result).getSellerName() + ((ResultLaptop) result).getSellerSurname();
             labelFullName.setText(fullName);
             String price = Double.toString(((ResultLaptop) result).getPrice());
-            labelPrice.setText(price);
+            labelPrice.setText(price+" €");
             labelEmail.setText(((ResultLaptop) result).getSellerEmail());
             labelGpu.setText(((ResultLaptop) result).getGpu());
             labelAddress.setText(((ResultLaptop) result).getFullAddress());
