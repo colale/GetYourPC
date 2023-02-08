@@ -23,7 +23,7 @@ import java.util.List;
 public class ResultDesktopGrController {
     List<Result> resultsList;
     FindPCController controller;
-    private Result result;
+    Result result;
 
     @FXML
     private Label advice;

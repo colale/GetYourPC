@@ -24,7 +24,7 @@ public class ResultLaptopGrController {
     List<Result> resultsList;
     FindPCController controller;
 
-    public Result result;
+    Result result;
 
     @FXML
     private Label advice;
