@@ -1,6 +1,6 @@
 package find_pc.model;
 
-public class ResultDesktop extends Result {
+public class ResultDesktop implements Result {
     private String cpu;
     private String sellerName;
     private String sellerSurname;

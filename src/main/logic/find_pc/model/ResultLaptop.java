@@ -1,6 +1,6 @@
 package find_pc.model;
 
-public class ResultLaptop extends Result{
+public class ResultLaptop implements Result{
         private String brand;
         private int postId;
         private String sellerName;

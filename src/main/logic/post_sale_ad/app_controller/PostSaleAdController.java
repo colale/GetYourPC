@@ -59,6 +59,7 @@ public void setSellerId(){
         } catch (NumberFormatException e) {
             return false;
         }
+        catch (NullPointerException ex){return false;}
     }
 
     public void setPrice(PriceBean bean) {
