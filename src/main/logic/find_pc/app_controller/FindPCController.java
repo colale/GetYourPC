@@ -41,7 +41,7 @@ public class FindPCController {
 public List<Result> searchResults() throws ConnectionDBException, SQLException {
         String choice=this.userRequest.getConfigChoice();
 
-        if (choice=="desktop"){
+        if (choice.equals("desktop")){
             ResultDesktopDAO desktopDao= new ResultDesktopDAO();
             return desktopDao.fetchResults(this.userRequest);}
 
