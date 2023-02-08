@@ -1,4 +1,6 @@
 package find_pc.view.gui.graphic_controller;
+        import find_pc.app_controller.FindPCController;
+        import find_pc.model.Result;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Cursor;
@@ -12,8 +14,10 @@ package find_pc.view.gui.graphic_controller;
         import javafx.scene.layout.*;
         import javafx.stage.Stage;
         import java.io.IOException;
+        import java.util.List;
 
 public class ResultsListGrController {
+    FindPCController controller;
 
     public void init() throws IOException { //Attenzione, questa parte dell'implementazione presenta deficit prestazionali causati dal fatto che è necessario caricare sull'heap un'istanza di controller grafico per ogni risultato
         //per ottenere una soluzione molto più efficiente sarebbe stato necessario implementare la view come codice Java puro senza file FXML oppure scrivere del codice che gestisca manualmente la copia completa di un nodo (hbox)
@@ -27,6 +31,8 @@ public class ResultsListGrController {
             vbox.getChildren().add(newResult);
         }
     }
+
+    private List<Result> results;
     @FXML
     private Label advice;
 
@@ -99,6 +105,13 @@ Label asd;
     @FXML
     void btnQuestionMarkClick(MouseEvent event) {
         advice.setText("For information, read the project documentation");
+    }
+
+    public void setController(FindPCController controller)
+    {this.controller=controller;}
+
+    public void setResults (List<Result> results){
+        this.results=results;
     }
 
 

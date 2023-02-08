@@ -1,5 +1,7 @@
 package home;
 
+import find_pc.app_controller.FindPCController;
+import find_pc.view.gui.graphic_controller.RequireConfigGrController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -49,8 +51,17 @@ public class HomeGraphicController {
     }
 
     @FXML
-    void btnSearchPCClick(MouseEvent event){
-        advice.setText(MESSAGE);
+    void btnSearchPCClick(MouseEvent event) throws IOException {
+        FindPCController controller = new FindPCController();
+        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequireConfig.fxml"));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        if (root.getController() instanceof SelectConfigGrController){
+            RequireConfigGrController nextGraphicController=root.getController();
+            nextGraphicController.setController(controller);
+        }
+        stage.show();
     }
 
 

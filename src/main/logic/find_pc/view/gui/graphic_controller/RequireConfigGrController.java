@@ -1,6 +1,7 @@
 package find_pc.view.gui.graphic_controller;
 
 import find_pc.app_controller.FindPCController;
+import find_pc.bean.UserChoiceBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -45,13 +46,31 @@ public class RequireConfigGrController {
     private ImageView imgHome;
 
     @FXML
-    void btnDesktopClick(MouseEvent event) {
-
+    void btnDesktopClick(MouseEvent event) throws IOException {
+        UserChoiceBean bean = new UserChoiceBean();
+        bean.setChoice("desktop");
+        this.controller.createRequest(bean);
+        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequireBudget.fxml"));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        RequireBudgetGrController grController = root.getController();
+        grController.setController(this.controller);
+        stage.show();
     }
 
     @FXML
-    void btnLaptopClick(MouseEvent event) {
-
+    void btnLaptopClick(MouseEvent event) throws IOException {
+        UserChoiceBean bean = new UserChoiceBean();
+        bean.setChoice("laptop");
+        this.controller.createRequest(bean);
+        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequireBudget.fxml"));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        RequireBudgetGrController grController = root.getController();
+        grController.setController(this.controller);
+        stage.show();
     }
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {

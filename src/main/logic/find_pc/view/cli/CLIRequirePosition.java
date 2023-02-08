@@ -7,6 +7,8 @@ import find_pc.app_controller.FindPCController;
 import find_pc.bean.UserDistanceBean;
 import find_pc.bean.UserGeoRequestBean;
 import find_pc.bean.UserGeoResponseBean;
+import javafx.fxml.FXML;
+import post_sale_ad.app_controller.PostSaleAdController;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -35,7 +37,7 @@ public class CLIRequirePosition {
             this.userGeoResponseBean = response;
             System.out.println("Position: " + response.getFullAddress());
             if (confirmRequest()) {
-                controller.setGeoData(userDistanceBean);//gestire con try catch!!!!!!!!!!!!!
+                controller.setGeoData(userDistanceBean);
                 (new CLIResultList(this.controller,controller.searchResults())).execute();}
             else {
                 this.execute();

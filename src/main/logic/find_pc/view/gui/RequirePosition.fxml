@@ -116,7 +116,7 @@
             <Font name="Avenir Next Bold" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="btnSearcg" alignment="CENTER" contentDisplay="CENTER" layoutX="725.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#btnDesktopClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="290.0" style="-fx-background-color: transparent;" text="Search" textFill="WHITE">
+      <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" layoutX="725.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#btnSearchClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="290.0" style="-fx-background-color: transparent;" text="Search" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
@@ -124,7 +124,7 @@
             <SepiaTone />
          </effect>
       </Button>
-      <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" layoutX="686.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#btnLaptopClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="375.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE">
+      <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" layoutX="686.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#btnConfirmClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="375.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
@@ -140,7 +140,7 @@
       </Label>
       <TextField fx:id="fieldCountry" layoutX="133.0" layoutY="296.0" prefHeight="41.0" prefWidth="317.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
       <TextField fx:id="fieldCity" layoutX="131.0" layoutY="408.0" prefHeight="41.0" prefWidth="317.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
-      <TextField fx:id="fieldAddress" layoutX="130.0" layoutY="514.0" prefHeight="41.0" prefWidth="323.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
+      <TextField fx:id="fieldDistance" layoutX="130.0" layoutY="514.0" prefHeight="41.0" prefWidth="323.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
       <Label alignment="TOP_LEFT" layoutX="130.0" layoutY="250.0" prefHeight="39.0" prefWidth="290.0" text="Country" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
