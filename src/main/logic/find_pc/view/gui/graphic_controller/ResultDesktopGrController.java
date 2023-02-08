@@ -111,7 +111,7 @@ public class ResultDesktopGrController {
 
     @FXML
     void btnReportClick(MouseEvent event) {
-        advice.setText("For information, read the project documentation");
+        advice.setText("This option is not available now");
     }
 
     @FXML
@@ -137,7 +137,7 @@ public class ResultDesktopGrController {
 
     @FXML
     void btnQuestionMarkClick(MouseEvent event) {
-        advice.setText("This option is not available now");
+        advice.setText("For information, read the project documentation");
     }
 
     @FXML
