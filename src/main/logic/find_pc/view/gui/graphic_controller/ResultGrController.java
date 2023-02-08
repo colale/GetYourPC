@@ -25,8 +25,7 @@ public class ResultGrController {
 
     public FindPCController controller;
 public Result result;
-    public HBox copyHBox(int i) {
-        this.labelPrice.setText("" + i);
+    public HBox copyHBox() {
         return this.hbox;
     }
 

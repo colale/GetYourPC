@@ -109,7 +109,8 @@ public class ResultsListGrController {
             ResultGrController resultController = root.getController();
             resultController.setController(this.controller);
             resultController.setInfo(results.get(i));
-            HBox newResult = resultController.copyHBox(i);
+            resultController.setList(this.results);
+            HBox newResult = resultController.copyHBox();
             vbox.getChildren().add(newResult);
         }
     }
