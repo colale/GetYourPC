@@ -19,27 +19,14 @@ package find_pc.view.gui.graphic_controller;
 public class ResultsListGrController {
     FindPCController controller;
 
-    public void init() throws IOException { //Attenzione, questa parte dell'implementazione presenta deficit prestazionali causati dal fatto che è necessario caricare sull'heap un'istanza di controller grafico per ogni risultato
-        //per ottenere una soluzione molto più efficiente sarebbe stato necessario implementare la view come codice Java puro senza file FXML oppure scrivere del codice che gestisca manualmente la copia completa di un nodo (hbox)
-        for (int i = 0; i < 50; i++) {
-            FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/Result.fxml"));
-            Scene scene = new Scene(root.load(), 1280, 720);
-            Stage stage=new Stage();
-            stage.setScene(scene);
-            ResultGrController resultController = root.getController();
-            HBox newResult=resultController.copyHBox(i);
-            vbox.getChildren().add(newResult);
-        }
-    }
-
     private List<Result> results;
     @FXML
     private Label advice;
 
     @FXML
     private Button btnDetails;
-@FXML
-Label asd;
+    @FXML
+    Label asd;
     @FXML
     private Button btnPersonalArea;
 
@@ -81,6 +68,7 @@ Label asd;
 
     @FXML
     private VBox vbox;
+
     @FXML
     void imgHomeClick(MouseEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));
@@ -107,12 +95,22 @@ Label asd;
         advice.setText("For information, read the project documentation");
     }
 
-    public void setController(FindPCController controller)
-    {this.controller=controller;}
-
-    public void setResults (List<Result> results){
-        this.results=results;
+    public void setController(FindPCController controller) {
+        this.controller = controller;
     }
 
-
+    public void setResults(List<Result> results) throws IOException {
+        this.results = results;
+        for (int i = 0; i < results.size(); i++) {
+            FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/Result.fxml"));
+            Scene scene = new Scene(root.load(), 1280, 720);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            ResultGrController resultController = root.getController();
+            resultController.setController(this.controller);
+            resultController.setInfo(results.get(i));
+            HBox newResult = resultController.copyHBox(i);
+            vbox.getChildren().add(newResult);
+        }
+    }
 }

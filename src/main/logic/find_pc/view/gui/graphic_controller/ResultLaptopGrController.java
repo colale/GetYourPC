@@ -1,5 +1,7 @@
 package find_pc.view.gui.graphic_controller;
 
+import find_pc.app_controller.FindPCController;
+import find_pc.model.Result;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -14,6 +16,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ResultLaptopGrController {
+    FindPCController controller;
+
+    public Result result;
 
     @FXML
     private Label advice;
@@ -129,5 +134,11 @@ public class ResultLaptopGrController {
         if (!(button.isDisable())) {
             button.setOpacity(1);
         }
+    }
+    public void setController(FindPCController controller){
+        this.controller=controller;
+    }
+    public void setInfo(Result result){
+        this.result=result;
     }
 }

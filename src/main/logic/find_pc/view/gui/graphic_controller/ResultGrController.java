@@ -1,4 +1,8 @@
 package find_pc.view.gui.graphic_controller;
+import find_pc.app_controller.FindPCController;
+import find_pc.model.Result;
+import find_pc.model.ResultDesktop;
+import find_pc.model.ResultLaptop;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,13 +13,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import post_sale_ad.model.factory_config_info.LaptopInfo;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ResultGrController {
 
+    public FindPCController controller;
+public Result result;
     public HBox copyHBox(int i) {
-        this.labelPrice.setText(""+i);
+        this.labelPrice.setText("" + i);
         return this.hbox;
     }
 
@@ -29,7 +37,7 @@ public class ResultGrController {
     private ImageView imgMain;
 
     @FXML
-    private Label labelFirstFIeld;
+    private Label labelFirstField;
 
     @FXML
     private Label labelFullName;
@@ -45,10 +53,23 @@ public class ResultGrController {
 
     @FXML
     void btnDetailsClick(MouseEvent event) throws IOException {
-        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequireBudget.fxml"));
-        Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+        if(this.result instanceof ResultDesktop) {
+            FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/ResultDesktop.fxml"));
+            Scene scene = new Scene(root.load(), 1280, 720);
+            stage.setScene(scene);
+            ResultDesktopGrController grController = root.getController();
+            grController.setController(this.controller);
+            grController.setInfo(this.result);
+        }
+        else {
+            FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/ResultLaptop.fxml"));
+            Scene scene = new Scene(root.load(), 1280, 720);
+            stage.setScene(scene);
+            ResultLaptopGrController grController = root.getController();
+            grController.setController(this.controller);
+            grController.setInfo(this.result);
+        }
         stage.show();
     }
 
@@ -64,5 +85,32 @@ public class ResultGrController {
         if (!(button.isDisable())) {
             button.setOpacity(1);
         }
+    }
+
+    public void setInfo(Result result) {
+        this.result=result;
+        if (result instanceof ResultLaptop) {
+            labelFirstField.setText(((ResultLaptop) result).getBrand());
+            labelSecondField.setText(((ResultLaptop) result).getModel());
+            labelThirdField.setText(((ResultLaptop) result).getCpu());
+            String fullname = ((ResultLaptop) result).getSellerName() + ((ResultLaptop) result).getSellerSurname();
+            labelFullName.setText(fullname);
+            String price = Double.toString(((ResultLaptop) result).getPrice());
+            labelPrice.setText(price);
+            //immagine
+        } else {
+            labelFirstField.setText(((ResultDesktop) result).getCpu());
+            labelSecondField.setText(((ResultDesktop) result).getGpu());
+            labelThirdField.setText(((ResultDesktop) result).getRam());
+            String fullname = ((ResultDesktop) result).getSellerName() + ((ResultDesktop) result).getSellerSurname();
+            labelFullName.setText(fullname);
+            String price = Double.toString(((ResultDesktop) result).getPrice());
+            labelPrice.setText(price);
+            //immagine
+        }
+    }
+
+    public void setController(FindPCController controller){
+        this.controller=controller;
     }
 }
