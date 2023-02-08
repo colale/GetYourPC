@@ -86,9 +86,9 @@ public class ResultDesktopDAO {
             ((ResultDesktop)post).setSellerName(rs.getString("name"));
             ((ResultDesktop)post).setSellerSurname(rs.getString("surname"));
             ((ResultDesktop)post).setSellerEmail(rs.getString("email"));
-            ((ResultLaptop) post).setImg1(rs.getBytes("photo1"));
-            ((ResultLaptop) post).setImg2(rs.getBytes("photo2"));
-            ((ResultLaptop) post).setImg3(rs.getBytes("photo3"));
+            ((ResultDesktop) post).setImg1(rs.getBytes("photo1"));
+            ((ResultDesktop) post).setImg2(rs.getBytes("photo2"));
+            ((ResultDesktop) post).setImg3(rs.getBytes("photo3"));
             desktopPostList.add(post);
         }
         return desktopPostList;
