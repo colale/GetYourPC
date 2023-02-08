@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class RequireBudgetGrController {
-    public static final String NEXTPATH="/find_pc/view/gui/RequirePosition.fxml";
 FindPCController controller;
     @FXML
     private Label advice;
@@ -57,56 +56,32 @@ FindPCController controller;
     void btnFirstRangeClick(MouseEvent event) throws IOException {
         UserBudgetBean bean = new UserBudgetBean();
         bean.setRange(1);
-        this.controller.setBudget(bean);
-        FXMLLoader root = new FXMLLoader(getClass().getResource(NEXTPATH));
-        Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        RequirePositionGrController grController = root.getController();
-        grController.setController(this.controller);
-        stage.show();
+        saveBudget(stage, bean);
     }
 
     @FXML
     void btnFourthRangeClick(MouseEvent event) throws IOException {
         UserBudgetBean bean = new UserBudgetBean();
         bean.setRange(4);
-        this.controller.setBudget(bean);
-        FXMLLoader root = new FXMLLoader(getClass().getResource(NEXTPATH));
-        Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        RequirePositionGrController grController = root.getController();
-        grController.setController(this.controller);
-        stage.show();
+        saveBudget(stage, bean);
     }
 
     @FXML
     void btnSecondRangeClick(MouseEvent event) throws IOException {
         UserBudgetBean bean = new UserBudgetBean();
         bean.setRange(2);
-        this.controller.setBudget(bean);
-        FXMLLoader root = new FXMLLoader(getClass().getResource(NEXTPATH));
-        Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        RequirePositionGrController grController = root.getController();
-        grController.setController(this.controller);
-        stage.show();
+        saveBudget(stage, bean);
     }
 
     @FXML
     void btnThirdRangeClick(MouseEvent event) throws IOException {
         UserBudgetBean bean = new UserBudgetBean();
         bean.setRange(3);
-        this.controller.setBudget(bean);
-        FXMLLoader root = new FXMLLoader(getClass().getResource(NEXTPATH));
-        Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        RequirePositionGrController grController = root.getController();
-        grController.setController(this.controller);
-        stage.show();
+        saveBudget(stage, bean);
     }
 
     @FXML
@@ -150,4 +125,15 @@ FindPCController controller;
     }
     public void setController(FindPCController controller)
     {this.controller=controller;}
+
+    public void saveBudget(Stage stage,UserBudgetBean bean) throws IOException {
+        this.controller.setBudget(bean);
+        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequirePosition.fxml"));
+        Scene scene = new Scene(root.load(), 1280, 720);
+        stage.setScene(scene);
+        RequirePositionGrController grController = root.getController();
+        grController.setController(this.controller);
+        stage.show();
+    }
+
 }
