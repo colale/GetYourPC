@@ -24,7 +24,7 @@ public class ResultGrController {
     List<Result> resultsList;
 
      FindPCController controller;
-public Result result;
+ Result result;
     public HBox copyHBox() {
         return this.hbox;
     }
