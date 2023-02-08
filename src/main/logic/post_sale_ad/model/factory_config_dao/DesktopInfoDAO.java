@@ -54,8 +54,7 @@ public class DesktopInfoDAO implements ConfigInfoDAO {
             inputStream.close();
             return imageData;
         } catch (IOException ex) {
-            ConnectionDBException connectionDBException = new ConnectionDBException("Error in the full path of the image, the system cannot save it in the database");
-            throw connectionDBException;
+            throw  new ConnectionDBException("Error in the full path of the image, the system cannot save it in the database");
         }
     }
 }
