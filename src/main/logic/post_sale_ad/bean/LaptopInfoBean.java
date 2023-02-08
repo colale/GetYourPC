@@ -79,7 +79,8 @@ private void syntaxCheck(String s) throws SyntaxBeanException {
     }
     private void syntaxDisplayCheck(String s) throws SyntaxBeanException {
         try {
-            Double.parseDouble(s);
+            Double num=Double.parseDouble(s);
+            if (num>27){throw new SyntaxBeanException();}
         } catch (NumberFormatException e) {
             throw new SyntaxBeanException();
         }
