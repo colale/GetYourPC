@@ -29,7 +29,8 @@ public class InsertPositionGrController {
     PostSaleAdController controller;
     @FXML
     private Label advice;
-
+    @FXML
+    ImageView imgHome;
     @FXML
     private Button btnCheckPosition;
 
@@ -93,7 +94,7 @@ public class InsertPositionGrController {
             controller.publishPost();
             btnConfirm.setDisable(true);
             btnCheckPosition.setDisable(true);
-            this.finalizate(stage);
+            this.finalize(stage);
         } catch (IOException ioEx) {advice.setText(MESSAGE);
             System.err.println(ioEx.getMessage());}
         catch(SQLException sqlEx){System.err.println(sqlEx.getMessage());
@@ -144,8 +145,11 @@ public class InsertPositionGrController {
             this.controller = controller;
         }
 
-        public void finalizate (Stage stage){
+        public void finalize(Stage stage){
             advice.setText("Your post has been published! You will return to Home in 5 seconds...");
+            imgHome.setDisable(true);
+            btnConfirm.setDisable(true);
+            btnCheckPosition.setDisable(true);
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
