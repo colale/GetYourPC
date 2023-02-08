@@ -18,7 +18,7 @@ import java.io.IOException;
 public class RequireConfigGrController {
     public void setController(FindPCController controller)
     {this.controller=controller;}
-    public FindPCController controller;
+    FindPCController controller;
     @FXML
     private Label advice;
     @FXML

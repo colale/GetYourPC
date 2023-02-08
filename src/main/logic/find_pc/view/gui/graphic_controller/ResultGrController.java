@@ -23,7 +23,7 @@ import java.util.List;
 public class ResultGrController {
     List<Result> resultsList;
 
-    public FindPCController controller;
+     FindPCController controller;
 public Result result;
     public HBox copyHBox() {
         return this.hbox;
