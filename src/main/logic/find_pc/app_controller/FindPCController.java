@@ -6,7 +6,7 @@ import find_pc.bean.*;
 import find_pc.model.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class FindPCController {
     UserRequest userRequest;
@@ -38,20 +38,16 @@ public class FindPCController {
         userRequest.setDistance(bean.getDistance());
     }
 
-public ArrayList<Result> searchResults() throws ConnectionDBException, SQLException {
-        ArrayList<Result> list = new ArrayList<>();
+public List<Result> searchResults() throws ConnectionDBException, SQLException {
         String choice=this.userRequest.getConfigChoice();
 
-        switch (choice){
+        if (choice=="desktop"){
+            ResultDesktopDAO desktopDao= new ResultDesktopDAO();
+            return desktopDao.fetchResults(this.userRequest);}
 
-            case "desktop":
-                ResultDesktopDAO desktopDao= new ResultDesktopDAO();
-                return desktopDao.fetchResults(this.userRequest);
-
-            case "laptop":
-                ResultLaptopDAO laptopDao= new ResultLaptopDAO();
-                return laptopDao.fetchResults(this.userRequest);
+        else{
+            ResultLaptopDAO laptopDao= new ResultLaptopDAO();
+            return laptopDao.fetchResults(this.userRequest);
         }
-    throw new ConnectionDBException("Error in PC selection");
     }
     }

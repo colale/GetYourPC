@@ -6,20 +6,19 @@ import find_pc.model.ResultDesktop;
 import find_pc.model.ResultLaptop;
 import home.CLIHome;
 import home.Home;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class CLIPostView {
-    public CLIPostView(FindPCController controller, ArrayList<Result> results,int index) {
+    public CLIPostView(FindPCController controller, List<Result> results, int index) {
         this.controller = controller;
         this.results=results;
         this.index=index;
     }
     FindPCController controller;
-    ArrayList<Result> results;
+    List<Result> results;
     int index;
     public void execute() {
         try {

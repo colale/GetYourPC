@@ -4,19 +4,18 @@ import find_pc.app_controller.FindPCController;
 import find_pc.model.Result;
 import find_pc.model.ResultDesktop;
 import find_pc.model.ResultLaptop;
-
-import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class CLIResultList {
-    public CLIResultList(FindPCController controller, ArrayList<Result> results) {
+    public CLIResultList(FindPCController controller, List<Result> results) {
         this.controller = controller;
         this.results = results;
     }
 
     FindPCController controller;
-    ArrayList<Result> results;
+    List<Result> results;
 
     public void execute() {
         int i = 0;

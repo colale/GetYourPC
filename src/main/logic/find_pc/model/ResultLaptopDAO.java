@@ -2,12 +2,12 @@ package find_pc.model;
 
 import exception.ConnectionDBException;
 import login.model.DBConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ResultLaptopDAO {
     private Connection connection;
@@ -17,14 +17,13 @@ public class ResultLaptopDAO {
         this.connection = db.getConnection();
     }
 
-    public ArrayList<Result> fetchResults(UserRequest request) throws ConnectionDBException, SQLException {
-        double input_latitude = request.getLatRequest();
-        double input_longitude = request.getLongRequest();
+    public List<Result> fetchResults(UserRequest request) throws ConnectionDBException, SQLException {
+        double inputLatitude = request.getLatRequest();
+        double inputLongitude = request.getLongRequest();
         String distance = request.getDistance();
         int rangeCode = request.getBudgetRange();
         int[] budgetRange = calculateRange(rangeCode);
-        double input_distance = Double.parseDouble(distance);
-        ArrayList<Result> list = new ArrayList<Result>();
+        double inputDistance = Double.parseDouble(distance);
         getConnection();
         String query = "SELECT LaptopPost.*, Users.email, Users.name, Users.surname "
                 + "FROM LaptopPost "
@@ -35,10 +34,10 @@ public class ResultLaptopDAO {
                 + "AND price BETWEEN ? AND ?;";
 
         PreparedStatement preparedStmt = this.connection.prepareStatement(query);
-        preparedStmt.setDouble(1, input_latitude);
-        preparedStmt.setDouble(2, input_longitude);
-        preparedStmt.setDouble(3, input_latitude);
-        preparedStmt.setDouble(4, input_distance);
+        preparedStmt.setDouble(1, inputLatitude);
+        preparedStmt.setDouble(2, inputLongitude);
+        preparedStmt.setDouble(3, inputLatitude);
+        preparedStmt.setDouble(4, inputDistance);
         preparedStmt.setInt(5, budgetRange[0]);
         preparedStmt.setInt(6, budgetRange[1]);
         ResultSet rs = preparedStmt.executeQuery();
@@ -66,8 +65,8 @@ public class ResultLaptopDAO {
         throw new IllegalArgumentException("Invalid code: " + code);
     }
 
-    public ArrayList<Result> setResults(ResultSet rs) throws SQLException {
-        ArrayList<Result> laptopPostList = new ArrayList<>();
+    public List<Result> setResults(ResultSet rs) throws SQLException {
+        List<Result> laptopPostList = new ArrayList<>();
         while (rs.next()) {
             Result post = new ResultLaptop();
             ((ResultLaptop)post).setPostId(rs.getInt("id_post"));
