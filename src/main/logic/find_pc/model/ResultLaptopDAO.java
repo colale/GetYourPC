@@ -61,8 +61,9 @@ public class ResultLaptopDAO {
                 int[] range4 = {1000, Integer.MAX_VALUE};
                 return range4;
 
+            default:
+                throw new IllegalArgumentException("Invalid code: " + code);
         }
-        throw new IllegalArgumentException("Invalid code: " + code);
     }
 
     public List<Result> setResults(ResultSet rs) throws SQLException {

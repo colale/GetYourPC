@@ -62,9 +62,8 @@ public class ResultDesktopDAO {
                 int[] range4 = {1000, Integer.MAX_VALUE};
                 return range4;
 
-        }
-        throw new IllegalArgumentException("Invalid code: " + code);
-    }
+        default: throw new IllegalArgumentException("Invalid code: " + code);
+    }}
 
     public List<Result> setResults(ResultSet rs) throws SQLException {
         List<Result> desktopPostList = new ArrayList<>();
