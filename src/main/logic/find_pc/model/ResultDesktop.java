@@ -1,6 +1,6 @@
 package find_pc.model;
 
-public class ResultDesktop extends Result{
+public class ResultDesktop extends Result {
     private String cpu;
     private String sellerName;
     private String sellerSurname;
@@ -153,35 +153,34 @@ public class ResultDesktop extends Result{
     public void setSellerId(int sellerId) {
         this.sellerId = sellerId;
     }
-
-    public String getImg1() {
-        return img1;
-    }
-
-    public void setImg1(String img1) {
-        this.img1 = img1;
-    }
-
-    public String getImg2() {
-        return img2;
-    }
-
-    public void setImg2(String img2) {
-        this.img2 = img2;
-    }
-
-    public String getImg3() {
-        return img3;
-    }
-
-    public void setImg3(String img3) {
-        this.img3 = img3;
-    }
-
     private double longitude;
     private String fullAddress;
     private int sellerId;
-    private String img1;
-    private String img2;
-    private String img3;
+
+    public void setImg1(byte[] img1) {
+        this.img1 = img1;
+    }
+
+    public byte[] getImg2() {
+        return img2;
+    }
+
+    public void setImg2(byte[] img2) {
+        this.img2 = img2;
+    }
+
+    public byte[] getImg1() {
+        return img1;
+    }
+
+    public byte[] getImg3() {
+        return img3;
+    }
+
+    public void setImg3(byte[] img3) {
+        this.img3 = img3;
+    }
+    private byte[] img1;
+    private byte[] img2;
+    private byte[] img3;
 }

@@ -4,8 +4,9 @@ import exception.ConnectionDBException;
 import login.model.DBConnection;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
 import post_sale_ad.model.factory_config_info.DesktopInfo;
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ public class DesktopInfoDAO implements ConfigInfoDAO {
         this.connection = db.getConnection();
     }
 
-    public void storePost(ConfigInfo configInfo) throws SQLException, FileNotFoundException, ConnectionDBException {
+    public void storePost(ConfigInfo configInfo) throws SQLException, ConnectionDBException {
         this.getConnection();
         String query = "INSERT INTO DesktopPost (id_user, photo1, photo2, photo3, price, complete_address, latitude, longitude, cpu, motherboard, gpu, ram, memory, power, cpu_heat,pc_case) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -26,9 +27,9 @@ public class DesktopInfoDAO implements ConfigInfoDAO {
         String imagePath1 = configInfo.getGeneralPostInfo().getImg1();
         String imagePath2 = configInfo.getGeneralPostInfo().getImg2();
         String imagePath3 = configInfo.getGeneralPostInfo().getImg3();
-        preparedStatement.setBinaryStream(2, new FileInputStream(imagePath1));
-        preparedStatement.setBinaryStream(3, new FileInputStream(imagePath2));
-        preparedStatement.setBinaryStream(4, new FileInputStream(imagePath3));
+        preparedStatement.setBytes(2, convertInBytes(imagePath1));
+        preparedStatement.setBytes(3, convertInBytes(imagePath2));
+        preparedStatement.setBytes(4, convertInBytes(imagePath3));
         preparedStatement.setInt(5, configInfo.getGeneralPostInfo().getPrice());
         preparedStatement.setString(6, configInfo.getGeneralPostInfo().getFullAddress());
         preparedStatement.setDouble(7, configInfo.getGeneralPostInfo().getLatitude());
@@ -42,5 +43,19 @@ public class DesktopInfoDAO implements ConfigInfoDAO {
         preparedStatement.setString(15, ((DesktopInfo) configInfo).getHeatSink());
         preparedStatement.setString(16, ((DesktopInfo) configInfo).getPcCase());
         preparedStatement.executeUpdate();
+    }
+
+    public byte[] convertInBytes(String fullPath) throws ConnectionDBException {
+        try {
+            File imageFile = new File(fullPath);
+            byte[] imageData = new byte[(int) imageFile.length()];
+            FileInputStream inputStream = new FileInputStream(imageFile);
+            inputStream.read(imageData);
+            inputStream.close();
+            return imageData;
+        } catch (IOException ex) {
+            ConnectionDBException connectionDBException = new ConnectionDBException("Error in the full path of the image, the system cannot save it in the database");
+            throw connectionDBException;
+        }
     }
 }

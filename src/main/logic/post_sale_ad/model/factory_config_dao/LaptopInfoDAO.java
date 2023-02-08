@@ -4,8 +4,11 @@ import exception.ConnectionDBException;
 import login.model.DBConnection;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
 import post_sale_ad.model.factory_config_info.LaptopInfo;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -26,9 +29,9 @@ public class LaptopInfoDAO implements ConfigInfoDAO {
         String imagePath1 = configInfo.getGeneralPostInfo().getImg1();
         String imagePath2 = configInfo.getGeneralPostInfo().getImg2();
         String imagePath3 = configInfo.getGeneralPostInfo().getImg3();
-        preparedStatement.setBinaryStream(2, new FileInputStream(imagePath1));
-        preparedStatement.setBinaryStream(3, new FileInputStream(imagePath2));
-        preparedStatement.setBinaryStream(4, new FileInputStream(imagePath3));
+        preparedStatement.setBytes(2, convertInBytes(imagePath1));
+        preparedStatement.setBytes(3, convertInBytes(imagePath2));
+        preparedStatement.setBytes(4, convertInBytes(imagePath3));
         preparedStatement.setInt(5, configInfo.getGeneralPostInfo().getPrice());
         preparedStatement.setString(6, configInfo.getGeneralPostInfo().getFullAddress());
         preparedStatement.setDouble(7, configInfo.getGeneralPostInfo().getLatitude());
@@ -41,5 +44,20 @@ public class LaptopInfoDAO implements ConfigInfoDAO {
         preparedStatement.setString(14, ((LaptopInfo) configInfo).getRam());
         preparedStatement.setString(15, ((LaptopInfo) configInfo).getMemory());
         preparedStatement.executeUpdate();
+    }
+
+
+    public byte[] convertInBytes(String fullPath) throws ConnectionDBException {
+        try {
+            File imageFile = new File(fullPath);
+            byte[] imageData = new byte[(int) imageFile.length()];
+            FileInputStream inputStream = new FileInputStream(imageFile);
+            inputStream.read(imageData);
+            inputStream.close();
+            return imageData;
+        } catch (IOException ex) {
+            ConnectionDBException connectionDBException = new ConnectionDBException("Error in the full path of the image, the system cannot save it in the database");
+            throw connectionDBException;
+        }
     }
 }

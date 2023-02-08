@@ -9,12 +9,14 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import post_sale_ad.model.factory_config_info.LaptopInfo;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -97,7 +99,8 @@ public Result result;
             labelFullName.setText(fullname);
             String price = Double.toString(((ResultLaptop) result).getPrice());
             labelPrice.setText(price);
-            //immagine
+            Image image = new Image(new ByteArrayInputStream(((ResultLaptop) result).getImg1()));
+            imgMain.setImage(image);
         } else {
             labelFirstField.setText(((ResultDesktop) result).getCpu());
             labelSecondField.setText(((ResultDesktop) result).getGpu());
@@ -106,7 +109,8 @@ public Result result;
             labelFullName.setText(fullname);
             String price = Double.toString(((ResultDesktop) result).getPrice());
             labelPrice.setText(price);
-            //immagine
+            Image image = new Image(new ByteArrayInputStream(((ResultDesktop) result).getImg1()));
+            imgMain.setImage(image);
         }
     }
 

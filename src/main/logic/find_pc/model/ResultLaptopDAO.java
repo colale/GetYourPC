@@ -86,6 +86,9 @@ public class ResultLaptopDAO {
             ((ResultLaptop)post).setSellerName(rs.getString("name"));
             ((ResultLaptop)post).setSellerSurname(rs.getString("surname"));
             ((ResultLaptop) post).setSellerEmail(rs.getString("email"));
+            ((ResultLaptop) post).setImg1(rs.getBytes("photo1"));
+            ((ResultLaptop) post).setImg2(rs.getBytes("photo2"));
+            ((ResultLaptop) post).setImg3(rs.getBytes("photo3"));
             laptopPostList.add(post);
         }
         return laptopPostList;
