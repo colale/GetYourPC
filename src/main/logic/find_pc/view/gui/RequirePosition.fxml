@@ -132,15 +132,15 @@
             <SepiaTone />
          </effect>
       </Button>
-      <TextField fx:id="fieldSearch" layoutX="652.0" layoutY="354.0" prefHeight="41.0" prefWidth="464.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
+      <TextField fx:id="fieldSearch" layoutX="652.0" layoutY="354.0" prefHeight="41.0" prefWidth="464.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" />
       <Label fx:id="labelIsItCorrect" alignment="TOP_LEFT" layoutX="813.0" layoutY="443.0" prefHeight="39.0" prefWidth="143.0" text="Is it correct?" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="fieldCountry" layoutX="133.0" layoutY="296.0" prefHeight="41.0" prefWidth="317.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
-      <TextField fx:id="fieldCity" layoutX="131.0" layoutY="408.0" prefHeight="41.0" prefWidth="317.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
-      <TextField fx:id="fieldDistance" layoutX="130.0" layoutY="514.0" prefHeight="41.0" prefWidth="323.0" style="-fx-background-color: transpaent; -fx-border-color: white; -fx-text-inner-color: white;" />
+      <TextField fx:id="fieldCountry" layoutX="133.0" layoutY="296.0" prefHeight="41.0" prefWidth="317.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" />
+      <TextField fx:id="fieldCity" layoutX="131.0" layoutY="408.0" prefHeight="41.0" prefWidth="317.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" />
+      <TextField fx:id="fieldDistance" layoutX="130.0" layoutY="514.0" prefHeight="41.0" prefWidth="323.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" />
       <Label alignment="TOP_LEFT" layoutX="130.0" layoutY="250.0" prefHeight="39.0" prefWidth="290.0" text="Country" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />

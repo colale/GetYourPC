@@ -57,10 +57,8 @@ public class HomeGraphicController {
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        if (root.getController() instanceof SelectConfigGrController){
-            RequireConfigGrController nextGraphicController=root.getController();
-            nextGraphicController.setController(controller);
-        }
+        RequireConfigGrController nextGraphicController=root.getController();
+        nextGraphicController.setController(controller);
         stage.show();
     }
 

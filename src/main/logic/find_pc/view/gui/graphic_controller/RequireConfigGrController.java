@@ -16,11 +16,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class RequireConfigGrController {
-    private FindPCController controller;
-
+    public void setController(FindPCController controller)
+    {this.controller=controller;}
+    public FindPCController controller;
     @FXML
     private Label advice;
-
     @FXML
     private Button btnDesktop;
 
@@ -111,6 +111,4 @@ public class RequireConfigGrController {
             button.setOpacity(1);
         }
     }
-    public void setController(FindPCController controller)
-    {this.controller=controller;}
 }
