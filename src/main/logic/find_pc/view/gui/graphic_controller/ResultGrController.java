@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class ResultGrController {
+    List<Result> resultsList;
 
     public FindPCController controller;
 public Result result;
@@ -116,5 +117,9 @@ public Result result;
 
     public void setController(FindPCController controller){
         this.controller=controller;
+    }
+
+    public void setList(List<Result> list) {
+        this.resultsList = list;
     }
 }
