@@ -4,11 +4,10 @@ import exception.ConnectionDBException;
 import login.model.DBConnection;
 import post_sale_ad.model.factory_config_info.ConfigInfo;
 import post_sale_ad.model.factory_config_info.LaptopInfo;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -46,17 +45,11 @@ public class LaptopInfoDAO implements ConfigInfoDAO {
         preparedStatement.executeUpdate();
     }
 
-
     public byte[] convertInBytes(String fullPath) throws ConnectionDBException {
         try {
-            File imageFile = new File(fullPath);
-            byte[] imageData = new byte[(int) imageFile.length()];
-            FileInputStream inputStream = new FileInputStream(imageFile);
-            inputStream.read(imageData);
-            inputStream.close();
-            return imageData;
+            return Files.readAllBytes(Paths.get(fullPath));
         } catch (IOException ex) {
-            throw  new ConnectionDBException("Error in the full path of the image, the system cannot save it in the database");
+            throw new ConnectionDBException("Error reading image file: " + ex.getMessage());
         }
     }
 }
