@@ -12,10 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class RequireBudgetGrController {
+    public static final String NEXTPATH="/find_pc/view/gui/RequirePosition.fxml";
 FindPCController controller;
     @FXML
     private Label advice;
@@ -58,7 +58,7 @@ FindPCController controller;
         UserBudgetBean bean = new UserBudgetBean();
         bean.setRange(1);
         this.controller.setBudget(bean);
-        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequirePosition.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource(NEXTPATH));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -72,7 +72,7 @@ FindPCController controller;
         UserBudgetBean bean = new UserBudgetBean();
         bean.setRange(4);
         this.controller.setBudget(bean);
-        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequirePosition.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource(NEXTPATH));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -86,7 +86,7 @@ FindPCController controller;
         UserBudgetBean bean = new UserBudgetBean();
         bean.setRange(2);
         this.controller.setBudget(bean);
-        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequirePosition.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource(NEXTPATH));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -100,7 +100,7 @@ FindPCController controller;
         UserBudgetBean bean = new UserBudgetBean();
         bean.setRange(3);
         this.controller.setBudget(bean);
-        FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequirePosition.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource(NEXTPATH));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

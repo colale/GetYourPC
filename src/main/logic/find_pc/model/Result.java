@@ -1,4 +1,4 @@
 package find_pc.model;
 
-public class Result {
+public abstract class Result {
 }
