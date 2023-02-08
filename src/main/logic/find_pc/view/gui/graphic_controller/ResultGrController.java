@@ -97,7 +97,7 @@ public class ResultGrController {
             labelFirstField.setText(((ResultLaptop) result).getBrand());
             labelSecondField.setText(((ResultLaptop) result).getModel());
             labelThirdField.setText(((ResultLaptop) result).getCpu());
-            String fullname = ((ResultLaptop) result).getSellerName() + ((ResultLaptop) result).getSellerSurname();
+            String fullname = ((ResultLaptop) result).getSellerName() +" " + ((ResultLaptop) result).getSellerSurname();
             labelFullName.setText(fullname);
             String price = Double.toString(((ResultLaptop) result).getPrice());
             labelPrice.setText(price+" €");
@@ -107,7 +107,7 @@ public class ResultGrController {
             labelFirstField.setText(((ResultDesktop) result).getCpu());
             labelSecondField.setText(((ResultDesktop) result).getGpu());
             labelThirdField.setText(((ResultDesktop) result).getRam());
-            String fullname = ((ResultDesktop) result).getSellerName() + ((ResultDesktop) result).getSellerSurname();
+            String fullname = ((ResultDesktop) result).getSellerName() + " " + ((ResultDesktop) result).getSellerSurname();
             labelFullName.setText(fullname);
             String price = Double.toString(((ResultDesktop) result).getPrice());
             labelPrice.setText(price+" €");

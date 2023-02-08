@@ -167,7 +167,7 @@ public class ResultDesktopGrController {
             labelMoba.setText(((ResultDesktop) result).getMotherboard());
             labelCpuHeat.setText(((ResultDesktop) result).getHeatSink());
             labelCpu.setText(((ResultDesktop) result).getCpu());
-            String fullName = ((ResultDesktop) result).getSellerName() + ((ResultDesktop) result).getSellerSurname();
+            String fullName = ((ResultDesktop) result).getSellerName() + " " + ((ResultDesktop) result).getSellerSurname();
             labelFullName.setText(fullName);
             String price = Double.toString(((ResultDesktop) result).getPrice());
             labelPrice.setText(price+" €");

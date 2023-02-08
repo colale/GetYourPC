@@ -163,7 +163,7 @@ public class ResultLaptopGrController {
             labelBrand.setText(((ResultLaptop) result).getBrand());
             labelModel.setText(((ResultLaptop) result).getModel());
             labelCpu.setText(((ResultLaptop) result).getCpu());
-            String fullName = ((ResultLaptop) result).getSellerName() + ((ResultLaptop) result).getSellerSurname();
+            String fullName = ((ResultLaptop) result).getSellerName() + " " + ((ResultLaptop) result).getSellerSurname();
             labelFullName.setText(fullName);
             String price = Double.toString(((ResultLaptop) result).getPrice());
             labelPrice.setText(price+" €");
