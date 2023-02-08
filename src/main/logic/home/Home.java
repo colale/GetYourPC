@@ -64,6 +64,7 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         exit(0);}
 
     public static void main(String[] args) throws IOException {
+        System.out.println("aaa");
         //*Insert code here if you want insert new user, for information read file README
             Home program = new Home();
             program.chooseConfiguration();
