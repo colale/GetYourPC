@@ -52,12 +52,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label fx:id="labelFullName" text="Full name" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label fx:id="labelFullName" prefHeight="31.0" prefWidth="166.0" text="Full name" textFill="WHITE" GridPane.rowIndex="1">
                            <font>
                               <Font name="Avenir Next Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelPrice" text="Price" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label fx:id="labelPrice" prefHeight="31.0" prefWidth="177.0" text="Price" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="Avenir Next Bold" size="21.0" />
                            </font>
@@ -66,8 +66,7 @@
                   </GridPane>
                   <GridPane GridPane.columnIndex="1">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="273.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -77,17 +76,17 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label fx:id="labelFirstField" text="First field" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label fx:id="labelFirstField" prefHeight="31.0" prefWidth="283.0" text="First field" textFill="WHITE" GridPane.rowIndex="1">
                            <font>
                               <Font name="Avenir Next Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelThirdField" text="Third Field" textFill="WHITE" GridPane.rowIndex="3">
+                        <Label fx:id="labelThirdField" prefHeight="31.0" prefWidth="298.0" text="Third Field" textFill="WHITE" GridPane.rowIndex="3">
                            <font>
                               <Font name="Avenir Next Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelSecondField" text="Second Field" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label fx:id="labelSecondField" prefHeight="31.0" prefWidth="275.0" text="Second Field" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="Avenir Next Bold" size="21.0" />
                            </font>
