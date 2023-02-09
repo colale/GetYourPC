@@ -1,7 +1,9 @@
 package find_pc.bean;
 
-public class UserBudgetBean {
+import java.io.Serializable;
 
+public class UserBudgetBean implements Serializable {
+    private int range;
     public int getRange() {
         return range;
     }
@@ -9,6 +11,4 @@ public class UserBudgetBean {
     public void setRange(int range) {
         this.range = range;
     }
-
-    private int range;
 }

@@ -2,7 +2,9 @@ package find_pc.bean;
 
 import exception.SyntaxBeanException;
 
-public class UserDistanceBean {
+import java.io.Serializable;
+
+public class UserDistanceBean implements Serializable {
     private String distance;
     public String getDistance() {
         return distance;

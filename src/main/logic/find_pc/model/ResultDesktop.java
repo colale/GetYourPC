@@ -5,6 +5,22 @@ public class ResultDesktop implements Result {
     private String sellerName;
     private String sellerSurname;
     private String sellerEmail;
+    private byte[] img1;
+    private byte[] img2;
+    private byte[] img3;
+    private int postId;
+    private String motherboard;
+    private String gpu;
+    private String ram;
+    private String memory;
+    private String power;
+    private String heatSink;
+    private String pcCase;
+    private int price;
+    private double latitude;
+    private double longitude;
+    private String fullAddress;
+    private int sellerId;
 
     public String getSellerName() {
         return sellerName;
@@ -38,17 +54,6 @@ public class ResultDesktop implements Result {
         this.postId = postId;
     }
 
-    private int postId;
-    private String motherboard;
-    private String gpu;
-    private String ram;
-    private String memory;
-    private String power;
-    private String heatSink;
-    private String pcCase;
-
-    private int price;
-    private double latitude;
 
     public String getCpu() {
         return cpu;
@@ -153,9 +158,7 @@ public class ResultDesktop implements Result {
     public void setSellerId(int sellerId) {
         this.sellerId = sellerId;
     }
-    private double longitude;
-    private String fullAddress;
-    private int sellerId;
+
 
     public void setImg1(byte[] img1) {
         this.img1 = img1;
@@ -180,7 +183,4 @@ public class ResultDesktop implements Result {
     public void setImg3(byte[] img3) {
         this.img3 = img3;
     }
-    private byte[] img1;
-    private byte[] img2;
-    private byte[] img3;
 }

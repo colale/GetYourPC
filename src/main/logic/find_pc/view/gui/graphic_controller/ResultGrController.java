@@ -21,16 +21,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class ResultGrController {
-    List<Result> resultsList;
+    private List<Result> resultsList;
 
-     FindPCController controller;
- Result result;
+    private FindPCController controller;
+    private Result result;
     public HBox copyHBox() {
         return this.hbox;
     }
-
-    @FXML
-    private Button btnDetails;
 
     @FXML
     private HBox hbox;

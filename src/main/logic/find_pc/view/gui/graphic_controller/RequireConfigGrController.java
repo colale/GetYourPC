@@ -12,40 +12,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class RequireConfigGrController {
+    private FindPCController controller;
     public void setController(FindPCController controller)
     {this.controller=controller;}
-    FindPCController controller;
     @FXML
-    private Label advice;
-    @FXML
-    private Button btnDesktop;
-
-    @FXML
-    private Button btnLaptop;
-
-    @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearchPC;
-
-    @FXML
-    private ImageView imgHome;
-
-    @FXML
+    private Label advice;@FXML
     void btnDesktopClick(MouseEvent event) throws IOException {
         UserChoiceBean bean = new UserChoiceBean();
         bean.setChoice("desktop");

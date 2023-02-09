@@ -24,36 +24,17 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class RequirePositionGrController {
-    FindPCController controller;
-    UserGeoRequestBean userGeoRequestBean;
-    find_pc.bean.UserGeoResponseBean userGeoResponseBean;
-    UserDistanceBean userDistanceBean;
+    private FindPCController controller;
+    private UserGeoRequestBean userGeoRequestBean;
+    private find_pc.bean.UserGeoResponseBean userGeoResponseBean;
+    private UserDistanceBean userDistanceBean;
     @FXML
     private Label labelIsItCorrect;
-
     @FXML
     private Label advice;
 
     @FXML
     private Button btnConfirm;
-
-    @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearch;
-
-    @FXML
-    private Button btnSearchPC;
 
     @FXML
     private TextField fieldDistance;
@@ -66,9 +47,6 @@ public class RequirePositionGrController {
 
     @FXML
     private TextField fieldSearch;
-
-    @FXML
-    private ImageView imgHome;
 
     @FXML
     void btnSearchClick(MouseEvent event) {

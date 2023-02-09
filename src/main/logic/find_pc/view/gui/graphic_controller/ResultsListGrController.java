@@ -17,55 +17,10 @@ package find_pc.view.gui.graphic_controller;
         import java.util.List;
 
 public class ResultsListGrController {
-    FindPCController controller;
-
+    private FindPCController controller;
     private List<Result> results;
     @FXML
     private Label advice;
-
-    @FXML
-    private Button btnDetails;
-    @FXML
-    Label asd;
-    @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearchPC;
-
-    @FXML
-    private HBox hbox;
-
-    @FXML
-    private ImageView imgHome;
-
-    @FXML
-    private Label labelFirstFIeld;
-
-    @FXML
-    private Label labelFullName;
-
-    @FXML
-    private Label labelPrice;
-
-    @FXML
-    private Label labelSecondField;
-
-    @FXML
-    private Label labelThirdField;
-
-    @FXML
-    private ScrollPane scrollPane;
-
     @FXML
     private VBox vbox;
 

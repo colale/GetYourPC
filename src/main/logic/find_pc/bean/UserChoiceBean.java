@@ -1,6 +1,8 @@
 package find_pc.bean;
 
-public class UserChoiceBean {
+import java.io.Serializable;
+
+public class UserChoiceBean implements Serializable {
     private String choice;
     public String getChoice() {
         return choice;

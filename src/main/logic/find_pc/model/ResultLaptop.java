@@ -1,14 +1,22 @@
 package find_pc.model;
 
 public class ResultLaptop implements Result{
-        private String brand;
-        private int postId;
-        private String sellerName;
-        private String model;
-
-        private String sellerSurname;
-
-        private String sellerEmail;
+    private String brand;
+    private int postId;
+    private String sellerName;
+    private String model;
+    private String sellerSurname;
+    private String sellerEmail;
+    private double screenSize;
+    private String cpu;
+    private String gpu;
+    private String ram;
+    private String memory;
+    private int price;
+    private double latitude;
+    private double longitude;
+    private String fullAddress;
+    private int sellerId;
 
     public int getPostId() {
         return postId;
@@ -46,69 +54,57 @@ public class ResultLaptop implements Result{
             return brand;
         }
 
-        public void setBrand(String brand) {
+    public void setBrand(String brand) {
             this.brand = brand;
         }
 
-        public String getModel() {
+    public String getModel() {
             return model;
         }
 
-        public void setModel(String model) {
+    public void setModel(String model) {
             this.model = model;
         }
 
-        public double getScreenSize() {
+    public double getScreenSize() {
             return screenSize;
         }
 
-        public void setScreenSize(double screenSize) {
+    public void setScreenSize(double screenSize) {
             this.screenSize = screenSize;
         }
 
-        public String getCpu() {
+    public String getCpu() {
             return cpu;
         }
 
-        public void setCpu(String cpu) {
+    public void setCpu(String cpu) {
             this.cpu = cpu;
         }
 
-        public String getGpu() {
+    public String getGpu() {
             return gpu;
         }
 
-        public void setGpu(String gpu) {
+    public void setGpu(String gpu) {
             this.gpu = gpu;
         }
 
-        public String getRam() {
+    public String getRam() {
             return ram;
         }
 
-        public void setRam(String ram) {
+    public void setRam(String ram) {
             this.ram = ram;
         }
 
-        public String getMemory() {
+    public String getMemory() {
             return memory;
         }
 
-        public void setMemory(String memory) {
+    public void setMemory(String memory) {
             this.memory = memory;
         }
-
-        private double screenSize;
-        private String cpu;
-        private String gpu;
-        private String ram;
-        private String memory;
-
-        private int price;
-        private double latitude;
-        private double longitude;
-        private String fullAddress;
-        private int sellerId;
 
     public void setImg1(byte[] img1) {
         this.img1 = img1;
@@ -166,7 +162,6 @@ public class ResultLaptop implements Result{
         public int getPrice() {
             return price;
         }
-
         public void setPrice(int price) {
             this.price = price;
         }

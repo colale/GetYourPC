@@ -21,35 +21,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class ResultDesktopGrController {
-    List<Result> resultsList;
-    FindPCController controller;
-    Result result;
+    private List<Result> resultsList;
+    private FindPCController controller;
+    private Result result;
 
     @FXML
     private Label advice;
-
-    @FXML
-    private Button btnBack;
-
-    @FXML
-    private Button btnPersonalArea;
-
-    @FXML
-    private Button btnPostSaleAd;
-
-    @FXML
-    private Button btnQuestionMark;
-
-    @FXML
-    private Button btnReport;
-
-    @FXML
-    private Button btnReviewerArea;
-
-    @FXML
-    private Button btnSearchPC;
-
-    @FXML
+  @FXML
     private ImageView img1;
 
     @FXML
@@ -57,9 +35,6 @@ public class ResultDesktopGrController {
 
     @FXML
     private ImageView img3;
-
-    @FXML
-    private ImageView imgHome;
 
     @FXML
     private Label labelAddress;
