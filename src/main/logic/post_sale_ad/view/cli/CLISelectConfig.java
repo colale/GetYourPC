@@ -24,8 +24,7 @@ public class CLISelectConfig {
             if (!scanner.hasNextInt()) {
                 System.out.println("It's a string. Retry");
                 scanner.nextLine();
-                continue;
-            }
+                continue;}
             int num = scanner.nextInt();
             switch (num) {
                 case 1, 2://Warning: modify implementation if configuration added
@@ -37,7 +36,7 @@ public class CLISelectConfig {
                     if(num==1){
                         CLIInsertInfoDesktop cli = new CLIInsertInfoDesktop(controller);
                         cli.execute();}
-                    else{ CLIInsertInfoLaptop cli = new CLIInsertInfoLaptop(controller);
+                    else{CLIInsertInfoLaptop cli = new CLIInsertInfoLaptop(controller);
                         cli.execute();}
                     break;
                 case 3:

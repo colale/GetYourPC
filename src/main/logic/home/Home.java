@@ -60,7 +60,7 @@ public void randomConfigGenerate(Properties prop) throws IOException {//generate
         catch (SQLException | ConnectionDBException e){exit(0);System.out.println("ciao");}
         exit(0);}
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException{
             //*Insert code here if you want insert new user, for information read file README
             Home program = new Home();
             program.chooseConfiguration();//choose user interface and account persistence

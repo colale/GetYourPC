@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class FindPCController {
-    UserRequest userRequest;
-    GeoResponseBean geoResponseBean;
+    private UserRequest userRequest;
+    private GeoResponseBean geoResponseBean;
 
     public void createRequest(UserChoiceBean bean) {
         this.userRequest = new UserRequest();
@@ -38,7 +38,7 @@ public class FindPCController {
         userRequest.setDistance(bean.getDistance());
     }
 
-public List<Result> searchResults() throws ConnectionDBException, SQLException {
+    public List<Result> searchResults() throws ConnectionDBException, SQLException {
         String choice=this.userRequest.getConfigChoice();
 
         if (choice.equals("desktop")){
@@ -50,4 +50,4 @@ public List<Result> searchResults() throws ConnectionDBException, SQLException {
             return laptopDao.fetchResults(this.userRequest);
         }
     }
-    }
+}

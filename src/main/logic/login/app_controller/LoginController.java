@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class LoginController {
-    Account userData;
+    private Account userData;
 
     public boolean checkIsAuthenticated() {
         return !((Session.getInstance().getEmail()).equals(""));

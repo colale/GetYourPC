@@ -24,10 +24,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PostSaleAdController {
-    ConfigInfo configInfo;
-    ConfigInfoDAO configInfoDAO;
-    GeoResponseBean geoResponseBean;
-    LoginController loginController;
+    private ConfigInfo configInfo;
+    private ConfigInfoDAO configInfoDAO;
+    private GeoResponseBean geoResponseBean;
+    private LoginController loginController;
 
     public boolean checkAuthentication() {
         this.loginController=new LoginController();
@@ -37,25 +37,25 @@ public class PostSaleAdController {
     public void createPost(PCInfoBean pcInfoBean) {
         PostInfoDAOFactory postInfoFactoryDAO = new PostInfoDAOFactory();
         PostInfoFactory postInfoFactory = new PostInfoFactory();
-        try {
+        try {//factory method
             this.configInfo = postInfoFactory.create(pcInfoBean);
             this.configInfoDAO = postInfoFactoryDAO.createDAO(pcInfoBean);
             this.setSellerId();
-        } catch (FactoryException ex) {
+        } catch (FactoryException ex) {//Abnormal case in which an unrecognized string is passed to the factory
             System.err.println(ex.getMessage());
             Home.quit();
         }
     }
-public void setSellerId(){
+    public void setSellerId(){
         int id =this.loginController.getUserId();
         configInfo.getGeneralPostInfo().setSellerId(id);
-}
+    }
 
     public boolean checkPrice(PriceBean bean) {
         try {
             String price = bean.getPrice();
             double parsedPrice = Double.parseDouble(price);
-            return parsedPrice > 0 && parsedPrice < 1000000;
+            return parsedPrice > 0 && parsedPrice < 1000000; //Assume that the price is less than 1000000
         } catch (NumberFormatException e) {
             return false;
         }
@@ -78,17 +78,12 @@ public void setSellerId(){
         imagesPath.add(bean.getImgPath3());
         for (String s : imagesPath) {
             try {
-                // Carica l'immagine dal percorso specificato
                 BufferedImage image = ImageIO.read(new File(s));
-
-                // Verifica che l'immagine esista e che la sua dimensione non superi la capacità del long blob
+                // Verify that the image exists and that its size does not exceed the capacity of the long blob
                 if (image == null || (long) (image.getHeight() * image.getWidth() * 3) > Integer.MAX_VALUE) {
-                    return false;
-                }
-            } catch (IOException e) {
-                return false;
-            }
-
+                    return false;}}
+            catch (IOException e) {
+                return false;}
         }
         return true;
     }
@@ -101,7 +96,7 @@ public void setSellerId(){
 
     public UserGeoResponseBean searchPosition(UserGeoRequestBean userGeoData) throws GeocodingException {
         GeoRequestBean geoRequestBean = new GeoRequestBean();
-        String input = userGeoData.getAddress() + " " + userGeoData.getCity() + " " + userGeoData.getCountry();
+        String input = userGeoData.getAddress() + " " + userGeoData.getCity() + " " + userGeoData.getCountry();//prepare bean for adapter
         geoRequestBean.setGeoRequest(input);
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(new Geoapify());
         UserGeoResponseBean responseToUser = new UserGeoResponseBean();
@@ -120,6 +115,6 @@ public void setSellerId(){
     }
 
     public void storePost() throws SQLException, FileNotFoundException, ConnectionDBException {
-        configInfoDAO.storePost(configInfo);
+        configInfoDAO.storePost(configInfo);//in persistance
     }
 }

@@ -4,12 +4,11 @@ import exception.SyntaxBeanException;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.DesktopInfoBean;
 import post_sale_ad.bean.PriceBean;
-
 import java.util.Scanner;
 
 public class CLIInsertInfoDesktop {
     PostSaleAdController controller;
-public CLIInsertInfoDesktop(PostSaleAdController controller){
+    public CLIInsertInfoDesktop(PostSaleAdController controller){
     this.controller=controller;
 }
     public void execute() {
@@ -37,7 +36,7 @@ public CLIInsertInfoDesktop(PostSaleAdController controller){
             priceBean.setPrice(scanner.nextLine());
             priceInsertion(scanner, priceBean);
         } catch (SyntaxBeanException ex) {
-            System.out.println("Error filling in the fields, please try again");
+            System.out.println("Error in the fields, please try again");
             this.execute();
         }
         controller.setConfigInfo(bean);
