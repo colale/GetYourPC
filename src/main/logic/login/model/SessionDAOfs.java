@@ -55,8 +55,7 @@ public class SessionDAOfs {
         try (FileOutputStream fileOut = new FileOutputStream(ACCOUNTSPATH);
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(accounts);}
-        catch (IOException e) {
-            e.printStackTrace();}
+        catch (IOException e) {System.err.println(e.getMessage());}
     }
 
 }
