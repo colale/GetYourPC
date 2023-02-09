@@ -16,8 +16,14 @@ public class SessionDAOfs {
             if (account.getEmail().equals(credentialsInputBean.getEmail()) && account.getPassword().equals(credentialsInputBean.getPassword())) {
                 return account;}}
             throw new IOException();
-        }
-        public void insertAccount(Account account) throws IOException, ClassNotFoundException {
+    }
+
+
+//This code is for account registration (not implemented)
+//Serialize an Account and insert it in a deserialized List<Account>, then re-serialize the list
+//The file to deserialize must already exist otherwise an exception is raised
+
+    public void insertAccount(Account account) throws IOException, ClassNotFoundException {
                     FileInputStream fis = new FileInputStream(ACCOUNTSPATH);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     List<Account> accounts = (List<Account>) ois.readObject();
@@ -42,4 +48,15 @@ public class SessionDAOfs {
                     oos.close();
                     fos.close();
                 }
-            }
+
+//This code is for accounts registration (not implemented)
+//Serialize a List<Account> in a file
+    public void serializeAccountList(List<Account> accounts) {
+        try (FileOutputStream fileOut = new FileOutputStream(ACCOUNTSPATH);
+             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(accounts);}
+        catch (IOException e) {
+            e.printStackTrace();}
+    }
+
+}

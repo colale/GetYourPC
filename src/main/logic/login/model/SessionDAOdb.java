@@ -1,9 +1,9 @@
 package login.model;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import exception.ConnectionDBException;
 import login.bean.CredentialsInputBean;
 
@@ -15,7 +15,7 @@ public class SessionDAOdb {
     }
 
     public Account fetchUser(CredentialsInputBean input) throws SQLException {
-        Account user = null;
+            Account user = null;
             String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, input.getEmail());
@@ -27,13 +27,17 @@ public class SessionDAOdb {
                 user.setName(rs.getString("name"));
                 user.setSurname(rs.getString("surname"));
                 user.setRole(rs.getString("role"));
+                user.setStatus(rs.getString("status"));
+                user.setPassword(rs.getString("password"));
                 int id = Integer.parseInt(rs.getString("id_user"));
-                user.setUserID(id);
-            }
+                user.setUserID(id);}
             rs.close();
             stmt.close();
-        return user;
+            return user;
     }
+
+
+    //This code is for account registration (not implemented)
     public void insertAccount(Account account) throws SQLException {
         String sql = "INSERT INTO Users (name, surname, role, email, password)VALUES (?,?,?,?,?)";
         PreparedStatement stmt = connection.prepareStatement(sql);

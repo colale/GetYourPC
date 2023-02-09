@@ -1,31 +1,27 @@
 package login.model;
-public class Session {
+
+public class Session {//Singleton
     private String name="";
     private String surname="";
     private String email="";
-    private String role=""; //indica se è reviewer
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    private String role="";
     private int id;
-    private static volatile Session instance;
-
+    private static Session instance;
     private Session() {}
 
     public static Session getInstance() {
         if (instance == null) {
             synchronized (Session.class) {
                 if (instance == null)
-                    instance = new Session();
-            }
-        }
+                    instance = new Session();}}
         return instance;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -59,4 +55,5 @@ public class Session {
     public void setRole(String role) {
         this.role = role;
     }
+
 }

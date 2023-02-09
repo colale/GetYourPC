@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.security.SecureRandom;
 import static java.lang.System.exit;
-
 public class Home extends Application {
     private SecureRandom random = new SecureRandom();
     private static final String TRUE = "true";
@@ -61,7 +60,7 @@ public void randomConfigGenerate(Properties prop) throws IOException {//generate
         catch (SQLException | ConnectionDBException e){exit(0);System.out.println("ciao");}
         exit(0);}
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
             //*Insert code here if you want insert new user, for information read file README
             Home program = new Home();
             program.chooseConfiguration();//choose user interface and account persistence

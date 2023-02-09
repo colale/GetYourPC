@@ -1,11 +1,12 @@
 package login.bean;
+
 import java.io.Serializable;
 
-public class UserDataBean implements Serializable {
-    String name;
-    String surname;
-    String email;
-    String role;
+public class UserDataBean implements Serializable {//data to be shown to the user when logout is requested
+    private String name;
+    private String surname;
+    private String email;
+    private int id;
 
     public int getId() {
         return id;
@@ -13,15 +14,6 @@ public class UserDataBean implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    int id;
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String getName() {
@@ -44,5 +36,4 @@ public class UserDataBean implements Serializable {
         return email;
     }
 
-    public void setEmail(String email){
-            this.email = email;}}
+    public void setEmail(String email){this.email = email;}}

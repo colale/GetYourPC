@@ -13,7 +13,6 @@ import static java.lang.Boolean.TRUE;
 public class CLILogin {
 
     public void execute() {
-        CredentialsInputBean credentialsInputBean = new CredentialsInputBean();
         System.out.println("Login:\n\n1)Login with email and password\n2)Login with Gmail\n3)Sign up\n4)Home\n5)Help\n6)Quit)");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = FALSE;
@@ -28,8 +27,8 @@ public class CLILogin {
             switch (num) {
                 case 1://user requires login with email and password
                     validInput = TRUE;
-                    credentialsInputBean=new CredentialsInputBean();
-                    requireLogin(credentialsInputBean);
+                    CredentialsInputBean bean= new CredentialsInputBean();
+                    requireLogin(bean);
                     break;
                 case 2:
                     validInput = FALSE;
@@ -66,7 +65,8 @@ public class CLILogin {
         while (true) {
             try{
                 credentialsInputBean=requireData(credentialsInputBean);
-                passed = controller.authenticate(credentialsInputBean);}//if successful, a session will be created
+                passed = controller.authenticate(credentialsInputBean);//if successful, a session will be created
+                }
             catch (IOException ex){
                 System.out.println("System error,please try again later");
                 System.err.println(ex.getMessage());
@@ -98,5 +98,3 @@ public class CLILogin {
         return credentialsInputBean;
     }
 }
-
-

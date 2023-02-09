@@ -2,17 +2,16 @@ package login.model;
 
 import java.io.Serializable;
 
-//This class can be used only to add users in db or fs.
 //User registration has not been implemented but users can be added by following the directions in the README file.
 
 public class Account implements Serializable {
-    private int userID=0;
-    private String name="";
-    private String surname="";
-    private String role="";
-    private String email="";
-    private String password="";
-    private String status="";
+    private int userID;
+    private String name;
+    private String surname;
+    private String role;
+    private String email;
+    private String password;
+    private String status;
     public int getUserID() {
         return userID;
     }
@@ -53,19 +52,19 @@ public class Account implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
+    public String getPassword() {//to be used in registration (not implemented)
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) {//to be used in registration (not implemented)
         this.password = password;
     }
 
-    public String getStatus() {
+    public String getStatus() { ////to be used in content reviewer use cases
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(String status) {//to be used in other use cases
         this.status = status;
     }
 }

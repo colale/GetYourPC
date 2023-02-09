@@ -1,4 +1,5 @@
 package login.app_controller;
+
 import exception.ConnectionDBException;
 import login.bean.CredentialsInputBean;
 import login.bean.UserDataBean;
@@ -16,18 +17,17 @@ public class LoginController {
 
     public boolean checkIsAuthenticated() {
         return !((Session.getInstance().getEmail()).equals(""));
-
     }
 
-    public boolean authenticate(CredentialsInputBean credentials) throws IOException {//db oppure fs
+    public boolean authenticate(CredentialsInputBean credentials) throws IOException {//fa richieste alla persistenza, sfruttando Account come entity, infine aggiorna la sessione.
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
         String property = prop.getProperty("daoOnFileSystem");
-        boolean persistanceOnFS = (property.equals("true"));
+        boolean persistenceOnFS = (property.equals("true"));
         propsInput.close();
         boolean success;
-        if(persistanceOnFS){success=this.usingFS(credentials);}
+        if(persistenceOnFS){success=this.usingFS(credentials);}
         else{success=this.usingDB(credentials);}
         if (success){return this.updateSession();}
         return false;
@@ -40,17 +40,17 @@ public class LoginController {
         Session.getInstance().setSurname("");
     }
 
-    public UserDataBean getUserDataBean() {
-        UserDataBean b = new UserDataBean();
-        b.setName(Session.getInstance().getName());
-        b.setSurname(Session.getInstance().getSurname());
-        b.setEmail(Session.getInstance().getEmail());
-        return b;
+    public UserDataBean getUserDataBean() {//fetch authenticated user data to show when logout is requested
+        UserDataBean bean = new UserDataBean();
+        bean.setName(Session.getInstance().getName());
+        bean.setSurname(Session.getInstance().getSurname());
+        bean.setEmail(Session.getInstance().getEmail());
+        return bean;
     }
 
-public int getUserId(){
+    public int getUserId(){
         return Session.getInstance().getId();
-}
+    }
 
     public boolean updateSession() {
         try {
@@ -65,23 +65,26 @@ public int getUserId(){
         return true;
     }
 
-            public boolean usingDB(CredentialsInputBean credentials){
-            try {
-        SessionDAOdb s = new SessionDAOdb(); //istanzia il dao
-        this.userData = s.fetchUser(credentials); //chiede al dao di dargli i dati, se ci sono problemi si lancia una eccezione
-                return true;
-    } catch (SQLException exSQL) {
-        return false;}
+    public boolean usingDB(CredentialsInputBean credentials){
+        try {
+            SessionDAOdb s = new SessionDAOdb();
+            this.userData = s.fetchUser(credentials); //fetch user data from database
+            return true;}
+        catch (SQLException exSQL) {
+            return false;}
         catch (ConnectionDBException ex){
                 String error=ex.getMessage();
                 System.err.println(error);
-                return false;}}
+                return false;}
+    }
+
     public boolean usingFS(CredentialsInputBean credentials){
         SessionDAOfs s = new SessionDAOfs();
         try{
             this.userData=s.fetchUser(credentials);
             return true;}
-        catch(Exception ex){return false;}
+        catch(Exception ex){
+            return false;}
         }
     }
 
