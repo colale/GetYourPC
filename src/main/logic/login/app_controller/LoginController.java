@@ -1,6 +1,6 @@
 package login.app_controller;
 import exception.ConnectionDBException;
-import login.bean.CredentialsInput;
+import login.bean.CredentialsInputBean;
 import login.bean.UserDataBean;
 import login.model.Account;
 import login.model.Session;
@@ -19,7 +19,7 @@ public class LoginController {
 
     }
 
-    public boolean authenticate(CredentialsInput credentials) throws IOException {//db oppure fs
+    public boolean authenticate(CredentialsInputBean credentials) throws IOException {//db oppure fs
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
@@ -65,7 +65,7 @@ public int getUserId(){
         return true;
     }
 
-            public boolean usingDB(CredentialsInput credentials){
+            public boolean usingDB(CredentialsInputBean credentials){
             try {
         SessionDAOdb s = new SessionDAOdb(); //istanzia il dao
         this.userData = s.fetchUser(credentials); //chiede al dao di dargli i dati, se ci sono problemi si lancia una eccezione
@@ -76,7 +76,7 @@ public int getUserId(){
                 String error=ex.getMessage();
                 System.err.println(error);
                 return false;}}
-    public boolean usingFS(CredentialsInput credentials){
+    public boolean usingFS(CredentialsInputBean credentials){
         SessionDAOfs s = new SessionDAOfs();
         try{
             this.userData=s.fetchUser(credentials);

@@ -27,10 +27,10 @@ public class HomeGraphicController {
     @FXML
     void btnPersonalAreaClick() {
         advice.setText(MESSAGE);
-    }
+    }//user requires personal area
 
     @FXML
-    void btnPostSaleAdClick(MouseEvent event) throws IOException {
+    void btnPostSaleAdClick(MouseEvent event) throws IOException {//user requires to post pc sale ad
         String path;
         PostSaleAdController controller = new PostSaleAdController();
         path = controller.checkAuthentication() ? "/post_sale_ad/view/gui/SelectConfig.fxml" : "/login/view/gui/Login.fxml";
@@ -48,10 +48,10 @@ public class HomeGraphicController {
     @FXML
     void btnReviewerAreaClick() {
         advice.setText(MESSAGE);
-    }
+    }//user requires reviewer area
 
     @FXML
-    void btnSearchPCClick(MouseEvent event) throws IOException {
+    void btnSearchPCClick(MouseEvent event) throws IOException { //user requires to search pc
         FindPCController controller = new FindPCController();
         FXMLLoader root = new FXMLLoader(getClass().getResource("/find_pc/view/gui/RequireConfig.fxml"));
         Scene scene = new Scene(root.load(), 1280, 720);
@@ -64,15 +64,15 @@ public class HomeGraphicController {
 
 
     @FXML
-    void imgHomeClick() {
+    void imgHomeClick() {//user requires home
         advice.setText("This is Home");
     }
 
     @FXML
-    void imgLoginClick(MouseEvent event) throws IOException {
+    void imgLoginClick(MouseEvent event) throws IOException {//user requires login/logout
         String path;
         LoginController loginController=new LoginController();
-        path = loginController.checkIsAuthenticated() ? "/login/view/gui/Logout.fxml" : "/login/view/gui/Login.fxml";
+        path = loginController.checkIsAuthenticated() ? "/login/view/gui/Logout.fxml" : "/login/view/gui/Login.fxml";//select login or logout
         FXMLLoader root = new FXMLLoader(getClass().getResource(path));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -89,7 +89,7 @@ public class HomeGraphicController {
         i.setCursor(Cursor.HAND);
     }
     @FXML
-    void btnQuestionMarkClick() {
+    void btnQuestionMarkClick() {//user requires help
         advice.setText("For information, read the project documentation");
     }
     @FXML

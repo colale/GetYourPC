@@ -9,17 +9,11 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class CLILogout {
-    private String name;
-    private String surname;
-    private String email;
-
-    LoginController c = new LoginController();
-
-    public void execute(){
-        this.init();
-        System.out.println("Name: " + this.name + " Surname: " + this.surname + " Email: " + this.email + "\n\n1)Logout\n2)Home\n3)Help\n4)Quit");
+    public void execute() {
+        this.initialize();//show user data
+        LoginController controller = new LoginController();
         Scanner scanner = new Scanner(System.in);
-        boolean validInput=FALSE;
+        boolean validInput = FALSE;
         while (!validInput) {
             System.out.println("Insert number:");
             if (!scanner.hasNextInt()) {
@@ -29,25 +23,25 @@ public class CLILogout {
             }
             int num = scanner.nextInt();
             switch (num) {
-                case 1:
-                    validInput=TRUE;
+                case 1://user confirms logout
+                    validInput = TRUE;
                     validInput = true;
-                    c.logout();
+                    controller.logout();
                     System.out.println("Logout completed\n");
                     new CLIHome().execute();
                     break;
-                case 2:
-                    validInput=TRUE;
+                case 2://user requires Home
+                    validInput = TRUE;
                     validInput = true;
                     new CLIHome().execute();
                     break;
-                case 3:
-                    validInput=FALSE;
+                case 3://user requires Help
+                    validInput = FALSE;
                     System.out.println("For information, read the project documentation");
                     break;
 
-                case 4:
-                    validInput=TRUE;
+                case 4://quit
+                    validInput = TRUE;
                     Home.quit();
                     break;
                 default:
@@ -58,11 +52,15 @@ public class CLILogout {
         scanner.close();
     }
 
-    void init(){
-        UserDataBean bean = c.getUserDataBean();
-        this.name=bean.getName();
-        this.surname=bean.getSurname();
-        this.email=bean.getEmail();
+    public void initialize() {
+        LoginController controller = new LoginController();
+        UserDataBean userDataBean = new UserDataBean();
+        userDataBean.setName(controller.getUserDataBean().getName());
+        userDataBean.setSurname(controller.getUserDataBean().getSurname());
+        userDataBean.setEmail(controller.getUserDataBean().getEmail());
+        String name = userDataBean.getName();
+        String surname = userDataBean.getSurname();
+        String email = userDataBean.getEmail();
+        System.out.println("Name: " + name + " Surname: " + surname + " Email: " + email + "\n\n1)Logout\n2)Home\n3)Help\n4)Quit");
     }
-
 }

@@ -1,6 +1,6 @@
 package login.model;
-import exception.ConnectionDBException;
 
+import exception.ConnectionDBException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;

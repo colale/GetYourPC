@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import exception.ConnectionDBException;
-import login.bean.CredentialsInput;
+import login.bean.CredentialsInputBean;
 
 public class SessionDAOdb {
     private Connection connection;
@@ -14,7 +14,7 @@ public class SessionDAOdb {
         this.connection = db.getConnection();
     }
 
-    public Account fetchUser(CredentialsInput input) throws SQLException {
+    public Account fetchUser(CredentialsInputBean input) throws SQLException {
         Account user = null;
             String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);

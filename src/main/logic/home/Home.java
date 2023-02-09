@@ -28,31 +28,29 @@ public class Home extends Application {
         stage.setOnCloseRequest(new GraphicCloseHandler());
         stage.show();}
 
-
-
         public void chooseConfiguration() throws IOException {
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
         this.randomConfigGenerate(prop); //If you don't want random generation of configuration, comment this line and set it manually
-        String cliUI = prop.getProperty("cliUI");
+        String cliUI = prop.getProperty("cliUI");//fetch UI property
         if (cliUI.equals(FALSE)){
             propsInput.close();
-            launch();}
+            launch();}//start in GUI mode
         else{
             propsInput.close();
             CLIHome c=new CLIHome();
-            c.execute();}
+            c.execute();}//start in CLI mode
         }
 
-public void randomConfigGenerate(Properties prop) throws IOException {
-        FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
-        String value;
-        value=(random.nextInt(2)==1)?TRUE:FALSE;
-        prop.setProperty("cliUI",value);
-        value=(random.nextInt(2)==1)?TRUE:FALSE;
-        prop.setProperty("daoOnFileSystem",value);
-        prop.store(propsOutput, null);
+public void randomConfigGenerate(Properties prop) throws IOException {//generate random configuration
+    FileOutputStream propsOutput = new FileOutputStream("src/main/logic/resources/config.properties");
+        String randomBoolean;
+        randomBoolean=(random.nextInt(2)==1)?TRUE:FALSE;//value is 0 or 1
+        prop.setProperty("cliUI",randomBoolean); //setting UI
+        randomBoolean=(random.nextInt(2)==1)?TRUE:FALSE;//value is 0 or 1
+        prop.setProperty("daoOnFileSystem",randomBoolean);//setting user persistence
+        prop.store(propsOutput, null);//saves properties
         propsOutput.close();
 }
     public static void quit(){
@@ -64,8 +62,8 @@ public void randomConfigGenerate(Properties prop) throws IOException {
         exit(0);}
 
     public static void main(String[] args) throws IOException {
-        //*Insert code here if you want insert new user, for information read file README
+            //*Insert code here if you want insert new user, for information read file README
             Home program = new Home();
-            program.chooseConfiguration();
+            program.chooseConfiguration();//choose user interface and account persistence
     }
 }

@@ -1,15 +1,18 @@
 package login.model;
 
 import java.io.Serializable;
-//Questa classe viene utilizzata solamente per inserire utenti, leggere file README per informazioni
+
+//This class can be used only to add users in db or fs.
+//User registration has not been implemented but users can be added by following the directions in the README file.
+
 public class Account implements Serializable {
-    int userID=0;
-    String name="";
-    String surname="";
-    String role="";
-    String email="";
-    String password="";
-    String status="";
+    private int userID=0;
+    private String name="";
+    private String surname="";
+    private String role="";
+    private String email="";
+    private String password="";
+    private String status="";
     public int getUserID() {
         return userID;
     }

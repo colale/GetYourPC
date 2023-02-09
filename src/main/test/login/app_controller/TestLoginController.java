@@ -1,7 +1,7 @@
 package login.app_controller;
 
 import exception.SyntaxBeanException;
-import login.bean.CredentialsInput;
+import login.bean.CredentialsInputBean;
 import login.model.Session;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
@@ -24,19 +24,19 @@ public class TestLoginController {
     @Test
     public void TestAuthenticateCaseTrue() throws SyntaxBeanException, IOException {
         LoginController loginController=new LoginController();
-        CredentialsInput credentialsInput=new CredentialsInput();
-        credentialsInput.setEmail("mario.rossi@gmail.com)");
-        credentialsInput.setPassword("password1");
-        assert(loginController.authenticate(credentialsInput));
+        CredentialsInputBean credentialsInputBean =new CredentialsInputBean();
+        credentialsInputBean.setEmail("mario.rossi@gmail.com)");
+        credentialsInputBean.setPassword("password1");
+        assert(loginController.authenticate(credentialsInputBean));
     }
     @Test
     public void TestAuthenticateCaseFalse() throws SyntaxBeanException, IOException {
         LoginController loginController=new LoginController();
-        CredentialsInput credentialsInput=new CredentialsInput();
+        CredentialsInputBean credentialsInputBean =new CredentialsInputBean();
         loginController=new LoginController();
-        credentialsInput.setEmail("mario.rossi@gmail.com)");
-        credentialsInput.setPassword("wrongPassword");//nel assumiamo che una mail possa avere una e una sola password
-        assert(!loginController.authenticate(credentialsInput));
+        credentialsInputBean.setEmail("mario.rossi@gmail.com)");
+        credentialsInputBean.setPassword("wrongPassword");//nel assumiamo che una mail possa avere una e una sola password
+        assert(!loginController.authenticate(credentialsInputBean));
     }
     @Test
     public void TestLogout(){

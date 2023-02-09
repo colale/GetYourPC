@@ -13,10 +13,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import login.app_controller.LoginController;
-import login.bean.CredentialsInput;
+import login.bean.CredentialsInputBean;
 import exception.SyntaxBeanException;
 public class LoginGraphicController {
-    CredentialsInput credentialsInput = new CredentialsInput();
+    CredentialsInputBean credentialsInputBean = new CredentialsInputBean();
     LoginController c = new LoginController();
     @FXML
     private Label advice;
@@ -37,9 +37,9 @@ public class LoginGraphicController {
     void btnConfirmClick() {
         boolean passed;
         try {
-            credentialsInput.setEmail(fieldEmail.getText());
-            credentialsInput.setPassword(fieldPassword.getText());
-            passed = c.authenticate(credentialsInput);
+            credentialsInputBean.setEmail(fieldEmail.getText());
+            credentialsInputBean.setPassword(fieldPassword.getText());
+            passed = c.authenticate(credentialsInputBean);
         } catch (SyntaxBeanException e) {
             passed = false;
         }

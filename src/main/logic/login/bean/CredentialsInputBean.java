@@ -5,7 +5,7 @@ package login.bean;
         import javax.mail.internet.InternetAddress;
         import java.io.Serializable;
 
-public class CredentialsInput implements Serializable {
+public class CredentialsInputBean implements Serializable {
     String email;
     String password;
 

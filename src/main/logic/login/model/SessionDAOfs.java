@@ -1,19 +1,19 @@
 package login.model;
-import login.bean.CredentialsInput;
+import login.bean.CredentialsInputBean;
 import java.io.*;
 import java.util.List;
 import java.util.Properties;
 public class SessionDAOfs {
     static final String ACCOUNTSPATH="src/main/logic/resources/accountOnFS.dat";
 
-    public Account fetchUser(CredentialsInput credentialsInput) throws IOException, ClassNotFoundException {
+    public Account fetchUser(CredentialsInputBean credentialsInputBean) throws IOException, ClassNotFoundException {
         FileInputStream fileInput = new FileInputStream(ACCOUNTSPATH);
         ObjectInputStream inputStream = new ObjectInputStream(fileInput);
         List<Account>accounts = (List<Account>) inputStream.readObject();
         inputStream.close();
         fileInput.close();
         for (Account account : accounts) {
-            if (account.getEmail().equals(credentialsInput.getEmail()) && account.getPassword().equals(credentialsInput.getPassword())) {
+            if (account.getEmail().equals(credentialsInputBean.getEmail()) && account.getPassword().equals(credentialsInputBean.getPassword())) {
                 return account;}}
             throw new IOException();
         }
