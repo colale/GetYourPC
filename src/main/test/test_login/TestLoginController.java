@@ -11,18 +11,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestLoginController {
+    private static final String EMAIL = "mario.rossi@gmail.com";
     @Test
     public void testCheckIsAuthenticated(){
         LoginController loginController=new LoginController();
         Session session=Session.getInstance();
-        session.setEmail("mario.rossi@gmail.com");
+        session.setEmail(EMAIL);
         assert(loginController.checkIsAuthenticated());
     }
     @Test
     public void testAuthenticate() throws SyntaxBeanException, IOException {
         LoginController loginController=new LoginController();
         CredentialsInputBean credentialsInputBean =new CredentialsInputBean();
-        credentialsInputBean.setEmail("mario.rossi@gmail.com");
+        credentialsInputBean.setEmail(EMAIL);
         credentialsInputBean.setPassword("password1");
         assert(loginController.authenticate(credentialsInputBean));
     }
@@ -30,7 +31,7 @@ public class TestLoginController {
     public void testAuthenticateWrongPassword() throws SyntaxBeanException, IOException {
         CredentialsInputBean credentialsInputBean =new CredentialsInputBean();
         LoginController loginController=new LoginController();
-        credentialsInputBean.setEmail("mario.rossi@gmail.com");
+        credentialsInputBean.setEmail(EMAIL);
         credentialsInputBean.setPassword("wrongPassword");
         assertEquals(false,loginController.authenticate(credentialsInputBean));
     }
@@ -38,7 +39,7 @@ public class TestLoginController {
     public void testLogoutFromByUserLoggedIn(){
         LoginController loginController=new LoginController();
         Session session=Session.getInstance();
-        session.setEmail("mario.rossi@gmail.com");
+        session.setEmail(EMAIL);
         session.setName("Mario");
         session.setSurname("Rossi");
         session.setRole("user");
