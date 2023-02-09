@@ -1,19 +1,24 @@
 package login.model;
 
 public class Session {//Singleton
-    private String name="";
-    private String surname="";
-    private String email="";
-    private String role="";
+    private String name;
+    private String surname;
+    private String email;
+    private String role;
     private int id;
     private static Session instance;
-    private Session() {}
+    private Session() {
+        this.name="";
+        this.surname="";
+        this.email="";
+        this.role="";
+        this.id=0;
+    }
 
-    public static Session getInstance() {
+    public static synchronized Session getInstance() {
         if (instance == null) {
-            synchronized (Session.class) {
-                if (instance == null)
-                    instance = new Session();}}
+            instance = new Session();
+        }
         return instance;
     }
 
