@@ -65,7 +65,7 @@ public class CLILogin {
         boolean passed=false;
         while (true) {
             try{
-                this.requireData(credentialsInputBean);
+                credentialsInputBean=requireData(credentialsInputBean);
                 passed = controller.authenticate(credentialsInputBean);}//if successful, a session will be created
             catch (IOException ex){
                 System.out.println("System error,please try again later");
@@ -81,7 +81,7 @@ public class CLILogin {
     }
 
 
-    public void requireData(CredentialsInputBean credentialsInputBean) {
+    public CredentialsInputBean requireData(CredentialsInputBean credentialsInputBean) {
         try {
             System.out.println("Insert Email");
             Scanner scanner = new Scanner(System.in);
@@ -89,11 +89,13 @@ public class CLILogin {
             credentialsInputBean.setEmail(input);
             System.out.println("Insert Password");
             input = scanner.nextLine();
-            credentialsInputBean.setPassword(input);}
+            credentialsInputBean.setPassword(input);
+            }
         catch (SyntaxBeanException ex){
             System.out.println("Error in the format of data entered, please try again");
             requireData(credentialsInputBean);
         }
+        return credentialsInputBean;
     }
 }
 
