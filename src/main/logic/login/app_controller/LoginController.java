@@ -19,7 +19,7 @@ public class LoginController {
         return !((Session.getInstance().getEmail()).equals(""));
     }
 
-    public boolean authenticate(CredentialsInputBean credentials) throws IOException {//fa richieste alla persistenza, sfruttando Account come entity, infine aggiorna la sessione.
+    public boolean authenticate(CredentialsInputBean credentials) throws IOException {
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
@@ -81,7 +81,7 @@ public class LoginController {
     public boolean usingFS(CredentialsInputBean credentials){
         SessionDAOfs s = new SessionDAOfs();
         try{
-            this.userData=s.fetchUser(credentials);
+            this.userData=s.fetchUser(credentials);//fetch user data from FileSystem
             return true;}
         catch(Exception ex){
             return false;}

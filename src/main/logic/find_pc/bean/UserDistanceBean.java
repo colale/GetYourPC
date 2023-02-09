@@ -16,7 +16,7 @@ public class UserDistanceBean {
         try {
             Double.parseDouble(s);
         } catch (NumberFormatException e) {
-            throw new SyntaxBeanException();
+            throw new SyntaxBeanException("Syntax error in distance entered");
         }
     }
 }

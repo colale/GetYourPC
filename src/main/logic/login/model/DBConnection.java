@@ -22,6 +22,13 @@ public class DBConnection {//Singleton
             catch(SQLException ex){
                 throw new ConnectionDBException("DB Connection Error");}
             }
+    public static DBConnection getInstance() throws SQLException, ConnectionDBException {
+        if (instance == null) {
+            instance = new DBConnection();}
+        if (instance.getConnection().isClosed()){
+            instance = new DBConnection();}
+        return instance;
+    }
 
     public Connection getConnection() {
         return connection;
@@ -40,11 +47,4 @@ public class DBConnection {//Singleton
             throw new SQLException();}
     }
 
-    public static DBConnection getInstance() throws SQLException, ConnectionDBException {
-        if (instance == null) {
-            instance = new DBConnection();}
-        if (instance.getConnection().isClosed()){
-            instance = new DBConnection();}
-        return instance;
-    }
 }

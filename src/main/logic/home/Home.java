@@ -49,7 +49,7 @@ public void randomConfigGenerate(Properties prop) throws IOException {//generate
         prop.setProperty("cliUI",randomBoolean); //setting UI
         randomBoolean=(random.nextInt(2)==1)?TRUE:FALSE;//value is 0 or 1
         prop.setProperty("daoOnFileSystem",randomBoolean);//setting user persistence
-        prop.store(propsOutput, null);//saves properties
+        prop.store(propsOutput, null);
         propsOutput.close();
 }
     public static void quit(){

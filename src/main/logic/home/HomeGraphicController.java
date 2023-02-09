@@ -72,7 +72,7 @@ public class HomeGraphicController {
     void imgLoginClick(MouseEvent event) throws IOException {//user requires login/logout
         String path;
         LoginController loginController=new LoginController();
-        path = loginController.checkIsAuthenticated() ? "/login/view/gui/Logout.fxml" : "/login/view/gui/Login.fxml";//select login or logout
+        path = loginController.checkIsAuthenticated() ? "/login/view/gui/Logout.fxml" : "/login/view/gui/Login.fxml";
         FXMLLoader root = new FXMLLoader(getClass().getResource(path));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
