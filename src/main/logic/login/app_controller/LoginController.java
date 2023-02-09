@@ -40,7 +40,7 @@ public class LoginController {
         Session.getInstance().setSurname("");
     }
 
-    public UserDataBean getUserDataBean() {//fetch authenticated user data to show when logout is requested
+    public UserDataBean getUserDataBean() {//fetch authenticated user data from Session to show when logout is requested
         UserDataBean bean = new UserDataBean();
         bean.setName(Session.getInstance().getName());
         bean.setSurname(Session.getInstance().getSurname());
@@ -72,7 +72,7 @@ public class LoginController {
             return true;}
         catch (SQLException exSQL) {
             return false;}
-        catch (ConnectionDBException ex){
+        catch (ConnectionDBException ex){//it is launched in case of failed connection to the DB
                 String error=ex.getMessage();
                 System.err.println(error);
                 return false;}

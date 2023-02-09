@@ -41,11 +41,11 @@ public class GeocodingAdapter implements Geocoding {
         catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
             System.err.println(ex.getMessage());
-            throw new GeocodingException();}
+            throw new GeocodingException("Decoding error");}
         catch (IOException ioEx){
             System.err.println(ioEx.getMessage());
-            throw new GeocodingException();}
+            throw new GeocodingException("IOException in API");}
         catch(JSONException jEx){
-            throw new GeocodingException();}
+            throw new GeocodingException("JSON error");}
         }
     }

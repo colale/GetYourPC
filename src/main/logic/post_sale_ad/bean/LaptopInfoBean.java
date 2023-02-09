@@ -80,9 +80,9 @@ private void syntaxCheck(String s) throws SyntaxBeanException {
     private void syntaxDisplayCheck(String s) throws SyntaxBeanException {
         try {
             Double num=Double.parseDouble(s);
-            if (num>27){throw new SyntaxBeanException();}
+            if (num>27){throw new SyntaxBeanException("Syntax error in ScreenSize, number too big");}
         } catch (NumberFormatException e) {
-            throw new SyntaxBeanException();
+            throw new SyntaxBeanException("Syntax error in ScreenSize");
         }
         }
 }

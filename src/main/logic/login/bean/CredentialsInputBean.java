@@ -38,6 +38,6 @@ public class CredentialsInputBean implements Serializable {
 
     private void syntaxCheckPassword(String s) throws SyntaxBeanException {
         if (s.length() < 8 || s.length() > 15) {//the password must have between 8 and 15 characters
-            throw new SyntaxBeanException();}
+            throw new SyntaxBeanException("Syntax error in password");}
     }
 }
