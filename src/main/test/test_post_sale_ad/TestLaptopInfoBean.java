@@ -10,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestLaptopInfoBean {
 
 @Test
-    public void TestSetScreenSizeCorrect(){
+    public void testSetScreenSizeCorrect(){
     LaptopInfoBean bean=new LaptopInfoBean();
     try{
         bean.setScreenSize("14.4");//requires dot, not comma
         assert(true);
     } catch(SyntaxBeanException ex){assert false;}}
     @Test
-    public void TestSetScreenSizeTooBigExceptionMessage(){
+    public void testSetScreenSizeTooBigExceptionMessage(){
         LaptopInfoBean bean=new LaptopInfoBean();
         try{
             bean.setScreenSize("30");
@@ -26,7 +26,7 @@ public class TestLaptopInfoBean {
         assertEquals("Syntax error in ScreenSize, number too big",ex.getMessage());}}
 
     @Test
-    public void TestSetScreenSizeWrongInputExMessage(){
+    public void testSetScreenSizeWrongInputExMessage(){
         LaptopInfoBean bean=new LaptopInfoBean();
         try{
             bean.setScreenSize("14a");
@@ -34,7 +34,7 @@ public class TestLaptopInfoBean {
         } catch(SyntaxBeanException ex){assertEquals("Syntax error in ScreenSize",ex.getMessage());}
 }
     @Test
-    public void TestSetCpu(){
+    public void testSetCpu(){
         LaptopInfoBean bean=new LaptopInfoBean();
         try{
             bean.setCpu("Ryzen 5 1600x");
@@ -42,7 +42,7 @@ public class TestLaptopInfoBean {
         } catch(SyntaxBeanException ex){
             assert(false);}}
     @Test
-    public void TestSetCpuTooLongInputExMessage(){
+    public void testSetCpuTooLongInputExMessage(){
         LaptopInfoBean bean=new LaptopInfoBean();
         try{
             bean.setCpu("Ryzen 5---------- 1600 ------x -----------------");
@@ -50,7 +50,7 @@ public class TestLaptopInfoBean {
         } catch(SyntaxBeanException ex){
             assertEquals("Syntax error in PC configuration field",ex.getMessage());}}
     @Test
-    public void TestSetCpuEmptyInputExMessage(){
+    public void testSetCpuEmptyInputExMessage(){
         LaptopInfoBean bean=new LaptopInfoBean();
         try{
             bean.setCpu("");

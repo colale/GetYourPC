@@ -17,7 +17,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
+            geocodingAdapter.findResult(request);
             assert (false);
         } catch (GeocodingException geoEx) {
         }
@@ -31,7 +31,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
+            geocodingAdapter.findResult(request);
             assert (false);
         } catch (GeocodingException geoEx) {
         }
@@ -45,7 +45,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
+            geocodingAdapter.findResult(request);
             assert (false);
         } catch (GeocodingException geoEx) {
         }
@@ -59,7 +59,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
+            geocodingAdapter.findResult(request);
             assert (false);
         } catch (GeocodingException geoEx) {
         }
@@ -73,7 +73,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
+            geocodingAdapter.findResult(request);
             assert (false);
         } catch (GeocodingException geoEx) {
             assert (true);
@@ -87,7 +87,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
+            geocodingAdapter.findResult(request);
             assert (false);
         } catch (GeocodingException geoEx) {
             assert (true);
