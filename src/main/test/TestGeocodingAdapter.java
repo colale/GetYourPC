@@ -4,7 +4,8 @@ import boundary.Geoapify;
 import boundary.GeocodingAdapter;
 import exception.GeocodingException;
 import org.junit.jupiter.api.Test;
-import static junit.framework.TestCase.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestGeocodingAdapter {
     @Test
