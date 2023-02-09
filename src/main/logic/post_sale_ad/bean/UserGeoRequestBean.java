@@ -38,7 +38,7 @@ public class UserGeoRequestBean implements Serializable {
     }
 
     private void syntaxCheck(String s) throws SyntaxBeanException {
-        if (s.length() ==0 || s.length() > 50) {
+        if (s.length() ==0 || s.length() > 25) {
             throw new SyntaxBeanException("Syntax error in the geographic location data entered");
         }
     }

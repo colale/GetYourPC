@@ -6,11 +6,14 @@ module it.getyourpc.getyourpc {
     requires java.desktop;
     requires java.net.http;
     requires org.json;
-
     opens home to javafx.fxml;
     exports home;
+    exports login.bean;
+    exports boundary;
+    exports exception;
+    exports login.app_controller;
     exports login.view.gui.graphic_controller;
-
+    exports post_sale_ad.bean;
     opens login.view.gui.graphic_controller to javafx.fxml;
     exports login.model;
     opens login.model to javafx.fxml;

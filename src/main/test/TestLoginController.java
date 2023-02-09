@@ -32,13 +32,24 @@ public class TestLoginController {
         assertEquals(false,loginController.authenticate(credentialsInputBean));
     }
     @Test
-    public void testLogout(){
+    public void testLogoutFromByUserLoggedIn(){
         LoginController loginController=new LoginController();
         Session session=Session.getInstance();
         session.setEmail("mario.rossi@gmail.com");
         session.setName("Mario");
         session.setSurname("Rossi");
         session.setRole("user");
+        loginController.logout();
+        String s=session.getName()+session.getSurname()+session.getEmail()+session.getRole();
+        assert(s.equals("")); }
+    @Test
+    public void testLogoutFromByUserNotLoggedIn(){
+        LoginController loginController=new LoginController();
+        Session session=Session.getInstance();
+        session.setEmail("");
+        session.setName("");
+        session.setSurname("");
+        session.setRole("");
         loginController.logout();
         String s=session.getName()+session.getSurname()+session.getEmail()+session.getRole();
         assert(s.equals("")); }
