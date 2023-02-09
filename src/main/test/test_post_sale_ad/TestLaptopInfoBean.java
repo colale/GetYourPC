@@ -1,3 +1,4 @@
+package test_post_sale_ad;
 
 import exception.SyntaxBeanException;
 import org.junit.jupiter.api.Test;

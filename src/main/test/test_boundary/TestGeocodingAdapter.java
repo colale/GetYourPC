@@ -1,3 +1,5 @@
+package test_boundary;
+
 import boundary.GeoRequestBean;
 import boundary.GeoResponseBean;
 import boundary.Geoapify;

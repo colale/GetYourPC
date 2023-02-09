@@ -1,3 +1,5 @@
+package test_login;
+
 import exception.SyntaxBeanException;
 import login.app_controller.LoginController;
 import login.bean.CredentialsInputBean;
