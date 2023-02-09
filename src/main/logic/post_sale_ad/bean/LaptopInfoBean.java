@@ -74,7 +74,7 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
     }
 private void syntaxCheck(String s) throws SyntaxBeanException {
         if(s.length()==0 || s.length()>50){
-            throw new SyntaxBeanException();
+            throw new SyntaxBeanException("Syntax error in PC configuration field");
         }
     }
     private void syntaxDisplayCheck(String s) throws SyntaxBeanException {

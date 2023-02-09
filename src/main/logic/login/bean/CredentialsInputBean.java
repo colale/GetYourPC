@@ -18,7 +18,7 @@ public class CredentialsInputBean implements Serializable {
             syntaxCheckEmail(email);
             this.email = email;}
         catch (AddressException e) {
-            throw new SyntaxBeanException();
+            throw new SyntaxBeanException("The format of the email entered is not valid");
         }
     }
 
