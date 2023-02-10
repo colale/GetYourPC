@@ -5,7 +5,6 @@ import home.Home;
 import login.app_controller.LoginController;
 import login.bean.CredentialsInputBean;
 import exception.SyntaxBeanException;
-import java.io.IOException;
 import java.util.Scanner;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;

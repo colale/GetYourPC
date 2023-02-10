@@ -29,8 +29,7 @@ public class LoginController {
         propsInput.close();
             if (persistenceOnFS){account = usingFS(credentials);}
             else {account = usingDB(credentials);}
-            if(!this.updateSession(account)){return false;}
-            return true;}
+            return this.updateSession(account);}
         catch (ConnectionDBException ex) {//it is launched in case of failed connection to the DB
             System.err.println(ex.getMessage());
             return false;}
@@ -70,15 +69,14 @@ public class LoginController {
         return true;
     }
 
-    Account usingDB(CredentialsInputBean credentials) throws ConnectionDBException, SQLException {
+    Account usingDB(CredentialsInputBean credentials) throws ConnectionDBException, SQLException { //fetch user data from database
             AccountDAOdb s = new AccountDAOdb();
-            Account account = s.fetchUser(credentials); //fetch user data from database
-            return account;}
+            return s.fetchUser(credentials);
+}
 
     Account usingFS(CredentialsInputBean credentials) throws IOException, ClassNotFoundException {
         AccountDAOfs s = new AccountDAOfs();
-            Account account = s.fetchUser(credentials);//fetch user data from FileSystem
-            return account;
+            return s.fetchUser(credentials);//fetch user data from FileSystem
         }
     }
 

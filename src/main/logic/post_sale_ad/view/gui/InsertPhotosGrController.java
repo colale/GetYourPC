@@ -32,6 +32,7 @@ public class InsertPhotosGrController {
 
     @FXML
     private ImageView image3;
+
     public void setController(PostSaleAdController controller){
         this.controller=controller;}
 
