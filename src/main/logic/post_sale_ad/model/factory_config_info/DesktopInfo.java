@@ -17,12 +17,12 @@ public class DesktopInfo implements PcInfo {
    public void setInfo(PcInfoBean bean){
       DesktopInfoBean inputBean=(DesktopInfoBean) bean;
       setCpu(inputBean.getCpu());
-      setGpu(gpu=inputBean.getGpu());
+      setGpu(inputBean.getGpu());
       setRam(inputBean.getRam());
       setMotherboard(inputBean.getMotherboard());
       setMemory(inputBean.getMemory());
       setPower(inputBean.getPower());
-      setHeatSink(heatSink=inputBean.getHeatSink());
+      setHeatSink(inputBean.getHeatSink());
       setPcCase(inputBean.getPcCase());
    }
 
