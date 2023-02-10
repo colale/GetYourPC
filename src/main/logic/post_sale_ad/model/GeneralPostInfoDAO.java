@@ -32,7 +32,7 @@ public class GeneralPostInfoDAO {
         stmt.executeUpdate();
         ResultSet rs = stmt.getGeneratedKeys();
         if (rs.next()) {
-        post.setPost_id(rs.getInt(1));}
+        post.setPostId(rs.getInt(1));}
         else throw new SQLException();}
 
         public byte[] convertInBytes(String fullPath) throws ConnectionDBException {

@@ -16,7 +16,7 @@ public class TestGeocodingAdapter {
     */
 
     @Test
-    public void testFindResultEmptyInputThrowsException() {//
+    public void testFindResultEmptyInputThrowsException() {
         GeoRequestBean request = new GeoRequestBean();
         request.setGeoRequest("");
         Geoapify geoapify = new Geoapify();

@@ -119,7 +119,7 @@ public class PostSaleAdController {
         GeneralPostInfoDAO generalPostInfoDAO=new GeneralPostInfoDAO();
         generalPostInfoDAO.storeGeneralPostInfo(this.post);//set general info in db and write its id in the post
         PcInfoDAO pcInfoDAO = postInfoFactoryDAO.createDAO(this.post.getPcInfo().getPcType());
-        pcInfoDAO.storePcInfo(this.post.getPost_id(),this.post.getPcInfo());}//set config info in db and write its id in the post
+        pcInfoDAO.storePcInfo(this.post.getPostId(),this.post.getPcInfo());}//set config info in db and write its id in the post
         catch (FactoryException ex){//Abnormal error in Factory
             System.err.println("ex.getMessage()");
             Home.quit();
