@@ -2,7 +2,6 @@ package post_sale_ad.model.factory_config_info_dao;
 
 import exception.ConnectionDBException;
 import post_sale_ad.model.factory_config_info.PcInfo;
-
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 

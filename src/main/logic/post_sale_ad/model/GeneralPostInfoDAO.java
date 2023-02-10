@@ -2,13 +2,10 @@ package post_sale_ad.model;
 
 import exception.ConnectionDBException;
 import login.model.DBConnection;
-import post_sale_ad.model.factory_config_info.PcInfo;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class GeneralPostInfoDAO {
     private Connection connection;
@@ -17,24 +14,28 @@ public class GeneralPostInfoDAO {
         this.connection = db.getConnection();
     }
 
-    public void storeGeneralPostInfo(Post post) {//scrive le general info sul db e setta l'id del post
-//query ecc
+    public void storeGeneralPostInfo(Post post) throws ConnectionDBException, SQLException {//scrive le general info sul db e setta l'id del post
+        this.getConnection();
+        String query="INSERT INTO PostGeneralInfo (id_user, photo1, photo2, photo3, price, complete_address, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        stmt.setInt(1, post.getGeneralPostInfo().getSellerId());
+        String imagePath1 = post.getGeneralPostInfo().getImg1();
+        String imagePath2 = post.getGeneralPostInfo().getImg2();
+        String imagePath3 = post.getGeneralPostInfo().getImg3();
+        stmt.setBytes(2, convertInBytes(imagePath1));
+        stmt.setBytes(3, convertInBytes(imagePath2));
+        stmt.setBytes(4, convertInBytes(imagePath3));
+        stmt.setInt(5, post.getGeneralPostInfo().getPrice());
+        stmt.setString(6, post.getGeneralPostInfo().getFullAddress());
+        stmt.setDouble(7, post.getGeneralPostInfo().getLatitude());
+        stmt.setDouble(8, post.getGeneralPostInfo().getLongitude());
+        stmt.executeUpdate();
+        ResultSet rs = stmt.getGeneratedKeys();
+        if (rs.next()) {
+        post.setPost_id(rs.getInt(1));}
+        else throw new SQLException();}
 
-        preparedStatement.setInt(1, pcInfo.getGeneralPostInfo().getSellerId());
-        String imagePath1 = pcInfo.getGeneralPostInfo().getImg1();
-        String imagePath2 = pcInfo.getGeneralPostInfo().getImg2();
-        String imagePath3 = pcInfo.getGeneralPostInfo().getImg3();
-        preparedStatement.setBytes(2, convertInBytes(imagePath1));
-        preparedStatement.setBytes(3, convertInBytes(imagePath2));
-        preparedStatement.setBytes(4, convertInBytes(imagePath3));
-        preparedStatement.setInt(5, pcInfo.getGeneralPostInfo().getPrice());
-        preparedStatement.setString(6, pcInfo.getGeneralPostInfo().getFullAddress());
-        preparedStatement.setDouble(7, pcInfo.getGeneralPostInfo().getLatitude());
-        preparedStatement.setDouble(8, pcInfo.getGeneralPostInfo().getLongitude());
-        //prende il post id e lo setta a
-    }
-
-    public byte[] convertInBytes(String fullPath) throws ConnectionDBException {
+        public byte[] convertInBytes(String fullPath) throws ConnectionDBException {
         try {//fetch img from path and converts it in bytes
             return Files.readAllBytes(Paths.get(fullPath));
         } catch (IOException ex) {

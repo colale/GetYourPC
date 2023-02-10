@@ -1,8 +1,6 @@
 package post_sale_ad.model.factory_config_info;
-
 import post_sale_ad.bean.DesktopInfoBean;
 import post_sale_ad.bean.PcInfoBean;
-import post_sale_ad.model.GeneralPostInfo;
 
 public class DesktopInfo implements PcInfo {
    private String cpu;
@@ -14,19 +12,18 @@ public class DesktopInfo implements PcInfo {
    private String heatSink;
    private String pcCase;
    private String pcType;
-   private GeneralPostInfo generalPostInfo;
 
    @Override
    public void setInfo(PcInfoBean bean){
       DesktopInfoBean inputBean=(DesktopInfoBean) bean;
-      this.cpu=inputBean.getCpu();
-      this.gpu=inputBean.getGpu();
-      this.ram=inputBean.getRam();
-      this.motherboard=inputBean.getMotherboard();
-      this.memory=inputBean.getMemory();
-      this.power=inputBean.getPower();
-      this.heatSink=inputBean.getHeatSink();
-      this.pcCase=inputBean.getPcCase();
+      setCpu(inputBean.getCpu());
+      setGpu(gpu=inputBean.getGpu());
+      setRam(inputBean.getRam());
+      setMotherboard(inputBean.getMotherboard());
+      setMemory(inputBean.getMemory());
+      setPower(inputBean.getPower());
+      setHeatSink(heatSink=inputBean.getHeatSink());
+      setPcCase(inputBean.getPcCase());
    }
 
    @Override
@@ -34,21 +31,12 @@ public class DesktopInfo implements PcInfo {
       return this.pcType;}
    public DesktopInfo(String type){
       this.pcType=type;
-      this.generalPostInfo=new GeneralPostInfo();
-   }
-
-
-   public GeneralPostInfo getGeneralPostInfo() {
-      return generalPostInfo;
    }
 
    public String getCpu() {
       return cpu;
    }
 
-   public void setGeneralPostInfo(GeneralPostInfo generalPostInfo) {
-      this.generalPostInfo = generalPostInfo;
-   }
 
    public String getMotherboard() {
       return motherboard;

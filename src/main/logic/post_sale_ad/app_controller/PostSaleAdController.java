@@ -33,7 +33,7 @@ public class PostSaleAdController {
     }
 
     public void createPost(PcInfoBean pcInfoBean) {
-        Post post = new Post();
+        this.post=new Post();
         GeneralPostInfo generalPostInfo=new GeneralPostInfo();
         post.setGeneralPostInfo(generalPostInfo);
         PcInfoFactory pcInfoFactory = new PcInfoFactory();

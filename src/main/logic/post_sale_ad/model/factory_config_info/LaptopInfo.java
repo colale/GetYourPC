@@ -1,14 +1,8 @@
 package post_sale_ad.model.factory_config_info;
-
 import post_sale_ad.bean.LaptopInfoBean;
 import post_sale_ad.bean.PcInfoBean;
-import post_sale_ad.model.GeneralPostInfo;
 
 public class LaptopInfo implements PcInfo{
-    public GeneralPostInfo getGeneralPostInfo() {
-        return generalPostInfo;
-    }
-    private GeneralPostInfo generalPostInfo;
     private String brand;
     private String pcType;
     private String model;
@@ -17,17 +11,46 @@ public class LaptopInfo implements PcInfo{
     private String gpu;
     private String ram;
     private String memory;
-
     @Override
     public void setInfo(PcInfoBean bean) {
         LaptopInfoBean inputBean=(LaptopInfoBean)bean;
-        this.brand=inputBean.getBrand();
-        this.cpu=inputBean.getCpu();
-        this.model=inputBean.getModel();
-        this.screenSize= Double.parseDouble(inputBean.getScreenSize());
-        this.gpu=inputBean.getGpu();
-        this.ram=inputBean.getRam();
-        this.memory=inputBean.getMemory();
+        setBrand(inputBean.getBrand());
+        setCpu(inputBean.getCpu());
+        setModel(inputBean.getModel());
+        setScreenSize(Double.parseDouble(inputBean.getScreenSize()));
+        setGpu(inputBean.getGpu());
+        setRam(inputBean.getRam());
+        setMemory(inputBean.getMemory());
+    }
+    public LaptopInfo(String type){
+        this.pcType=type;
+    }
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setScreenSize(double screenSize) {
+        this.screenSize = screenSize;
+    }
+
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
+    }
+
+    public void setGpu(String gpu) {
+        this.gpu = gpu;
+    }
+
+    public void setRam(String ram) {
+        this.ram = ram;
+    }
+
+    public void setMemory(String memory) {
+        this.memory = memory;
     }
 
     public String getBrand() {
@@ -59,8 +82,4 @@ public class LaptopInfo implements PcInfo{
     }
     public String getPcType(){
         return this.pcType;}
-    public LaptopInfo(String type){
-        this.pcType=type;
-        this.generalPostInfo=new GeneralPostInfo();
     }
-}
