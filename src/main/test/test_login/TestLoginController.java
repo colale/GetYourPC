@@ -5,7 +5,6 @@ import login.app_controller.LoginController;
 import login.bean.CredentialsInputBean;
 import login.model.Session;
 import org.junit.jupiter.api.Test;
-import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestLoginController {
