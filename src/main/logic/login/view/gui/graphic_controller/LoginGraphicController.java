@@ -16,8 +16,8 @@ import login.app_controller.LoginController;
 import login.bean.CredentialsInputBean;
 import exception.SyntaxBeanException;
 public class LoginGraphicController {
-    CredentialsInputBean credentialsInputBean = new CredentialsInputBean();
-    LoginController c = new LoginController();
+    private CredentialsInputBean credentialsInputBean = new CredentialsInputBean();
+    private LoginController controller = new LoginController();
     @FXML
     private Label advice;
     @FXML
@@ -39,7 +39,7 @@ public class LoginGraphicController {
         try {
             credentialsInputBean.setEmail(fieldEmail.getText());
             credentialsInputBean.setPassword(fieldPassword.getText());
-            passed = c.authenticate(credentialsInputBean);
+            passed = controller.authenticate(credentialsInputBean);
         } catch (SyntaxBeanException e) {
             passed = false;}
         if (passed) {

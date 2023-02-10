@@ -13,7 +13,6 @@ public class CLIResultList {
         this.controller = controller;
         this.results = results;
     }
-
     FindPCController controller;
     List<Result> results;
 

@@ -13,9 +13,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class CLIInsertPosition {
-    PostSaleAdController controller;
-    UserGeoRequestBean userGeoRequestBean;
-    UserGeoResponseBean userGeoResponseBean;
+    private PostSaleAdController controller;
+    private UserGeoRequestBean userGeoRequestBean;
+    private UserGeoResponseBean userGeoResponseBean;
 
     public CLIInsertPosition(PostSaleAdController controller) {
         this.controller = controller;
@@ -50,11 +50,11 @@ public class CLIInsertPosition {
             this.execute();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-      }catch(IOException ioEx){}
+      }catch(IOException ioEx){System.out.println("System error, please try again later");}
         catch (SQLException sqlEx){System.err.println(sqlEx.getMessage());
         this.execute();}
         catch(ConnectionDBException connEx)
-        {System.err.println("System error, please try again later");
+        {System.out.println("System error, please try again later");
             this.execute();}
     }
 

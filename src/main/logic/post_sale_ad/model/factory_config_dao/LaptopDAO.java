@@ -46,7 +46,7 @@ public class LaptopDAO implements PostDAO {
     }
 
     public byte[] convertInBytes(String fullPath) throws ConnectionDBException {
-        try {
+        try {//fetch img from path and converts it in bytes
             return Files.readAllBytes(Paths.get(fullPath));
         } catch (IOException ex) {
             throw new ConnectionDBException("Error reading image file: " + ex.getMessage());

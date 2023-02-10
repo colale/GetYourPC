@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class PostSaleAdController {
     private Post post;
-    private GeoResponseBean geoResponseBean;
+    private GeoResponseBean geoResponseBean;//facilitates information exchange with the user
     public boolean checkAuthentication() {
         LoginController loginController=new LoginController();
         return (loginController.checkIsAuthenticated());
@@ -49,7 +49,7 @@ public class PostSaleAdController {
         try {
             String price = bean.getPrice();
             double parsedPrice = Double.parseDouble(price);
-            return parsedPrice > 0 && parsedPrice < 1000000; //Assume that the price is less than 1000000
+            return parsedPrice > 0 && parsedPrice < 100000000; //Assume that the price is less than 10^8
         } catch (NumberFormatException e) {
             return false;
         }

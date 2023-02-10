@@ -9,7 +9,7 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class CLISelectConfig {
-    PostSaleAdController controller;
+    private PostSaleAdController controller;
 
     public CLISelectConfig(PostSaleAdController controller){
         this.controller=controller;

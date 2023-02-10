@@ -16,6 +16,7 @@ public class Laptop implements Post {
     private String gpu;
     private String ram;
     private String memory;
+
     @Override
     public void setInfo(PcInfoBean bean) {
         LaptopInfoBean inputBean=(LaptopInfoBean)bean;

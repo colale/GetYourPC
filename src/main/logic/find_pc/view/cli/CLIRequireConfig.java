@@ -35,16 +35,16 @@ public class CLIRequireConfig {
                     this.controller.createRequest(bean);
                     (new CLIRequireBudget(this.controller)).execute();
                     break;
-                case 3:
+                case 3://require home
                     validInput = TRUE;
                     (new CLIHome()).execute();
                     break;
-                case 4:
+                case 4://require help
                     validInput=FALSE;
                     System.out.println("For information, read the project documentation");
                     break;
 
-                case 5:
+                case 5://quit
                     validInput=TRUE;
                     Home.quit();
                     break;

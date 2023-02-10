@@ -32,7 +32,7 @@ public class FindPCController {
         responseToUser.setFullAddress(output);
         return responseToUser;
     }
-    public void setGeoData(UserDistanceBean bean){//geo info for request
+    public void setGeoData(UserDistanceBean bean){//save geo info for request to db
         userRequest.setLatRequest(this.geoResponseBean.getLatitude());
         userRequest.setLongRequest(this.geoResponseBean.getLongitude());
         userRequest.setDistance(bean.getDistance());

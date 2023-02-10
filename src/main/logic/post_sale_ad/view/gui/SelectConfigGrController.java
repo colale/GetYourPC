@@ -16,10 +16,8 @@ import java.io.IOException;
 
 public class SelectConfigGrController {
     private PostSaleAdController controller;
-
     @FXML
     private Label advice;
-
     @FXML
     void btnDesktopClick(MouseEvent event) throws IOException {
         PcInfoBean choice=new PcInfoBean();

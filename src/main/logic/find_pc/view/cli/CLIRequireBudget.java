@@ -40,12 +40,12 @@ public class CLIRequireBudget{
                     new CLIHome().execute();
                     break;
 
-                case 6://user requires help
+                case 6://user requires Help
                     validInput=FALSE;
                     System.out.println("For information, read the project documentation");
                     break;
 
-                case 7:
+                case 7://Quit
                     validInput=TRUE;
                     Home.quit();
                     break;

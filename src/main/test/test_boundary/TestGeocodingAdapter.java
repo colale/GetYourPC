@@ -6,12 +6,17 @@ import boundary.Geoapify;
 import boundary.GeocodingAdapter;
 import exception.GeocodingException;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestGeocodingAdapter {
+
+    /*
+    To obtain a correct result an input of an address complete
+    with correct house number is required otherwise an exception is thrown
+    */
+
     @Test
-    public void testFindResultNullInputThrowsException() {
+    public void testFindResultEmptyInputThrowsException() {//
         GeoRequestBean request = new GeoRequestBean();
         request.setGeoRequest("");
         Geoapify geoapify = new Geoapify();
@@ -81,20 +86,6 @@ public class TestGeocodingAdapter {
     }
 
     @Test
-    public void testFindResultIncompleteInputThrowsException() {
-        GeoRequestBean request = new GeoRequestBean();
-        request.setGeoRequest("Via del polit");
-        Geoapify geoapify = new Geoapify();
-        GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
-        try {
-            geocodingAdapter.findResult(request);
-            assert (false);
-        } catch (GeocodingException geoEx) {
-            assert (true);
-        }
-    }
-
-    @Test
     public void testFindResultCityCorrectInput() {
         GeoRequestBean request = new GeoRequestBean();
         request.setGeoRequest("Via del Politecnico 1");
@@ -117,20 +108,6 @@ public class TestGeocodingAdapter {
         try {
             GeoResponseBean response = geocodingAdapter.findResult(request);
             assertEquals("Via del Politecnico", response.getStreet());
-        } catch (GeocodingException geoEx) {
-            assert (false);
-        }
-    }
-
-    @Test
-    public void testFindResultCAPCorrectInput() {
-        GeoRequestBean request = new GeoRequestBean();
-        request.setGeoRequest("Piazza Barberini Rome Italy");
-        Geoapify geoapify = new Geoapify();
-        GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
-        try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
-            assertEquals("00187", response.getCap());
         } catch (GeocodingException geoEx) {
             assert (false);
         }

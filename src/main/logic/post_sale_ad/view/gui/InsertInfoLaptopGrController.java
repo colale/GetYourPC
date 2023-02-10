@@ -19,7 +19,7 @@ import post_sale_ad.bean.PriceBean;
 import java.io.IOException;
 
 public class InsertInfoLaptopGrController {
-    PostSaleAdController controller;
+    private PostSaleAdController controller;
 
     public void setAppController(PostSaleAdController appController) {
         this.controller = appController;

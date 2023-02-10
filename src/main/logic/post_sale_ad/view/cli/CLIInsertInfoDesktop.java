@@ -7,7 +7,7 @@ import post_sale_ad.bean.PriceBean;
 import java.util.Scanner;
 
 public class CLIInsertInfoDesktop {
-    PostSaleAdController controller;
+    private PostSaleAdController controller;
     public CLIInsertInfoDesktop(PostSaleAdController controller){
     this.controller=controller;
 }

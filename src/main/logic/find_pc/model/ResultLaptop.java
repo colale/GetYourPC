@@ -2,7 +2,6 @@ package find_pc.model;
 
 public class ResultLaptop implements Result{
     private String brand;
-    private int postId;
     private String sellerName;
     private String model;
     private String sellerSurname;
@@ -13,18 +12,7 @@ public class ResultLaptop implements Result{
     private String ram;
     private String memory;
     private int price;
-    private double latitude;
-    private double longitude;
     private String fullAddress;
-    private int sellerId;
-
-    public int getPostId() {
-        return postId;
-    }
-
-    public void setPostId(int postId) {
-        this.postId = postId;
-    }
 
     public String getSellerName() {
         return sellerName;
@@ -129,46 +117,24 @@ public class ResultLaptop implements Result{
     }
 
     private byte[] img2;
-        private byte[] img3;
+    private byte[] img3;
 
-        public double getLatitude() {
-            return latitude;
-        }
-
-        public void setLatitude(double latitude) {
-            this.latitude = latitude;
-        }
-
-        public double getLongitude() {
-            return longitude;
-        }
-
-        public void setLongitude(double longitude) {
-            this.longitude = longitude;
-        }
-
-        public String getFullAddress() {
+    public String getFullAddress() {
             return fullAddress;
         }
 
-        public void setFullAddress(String fullAddress) {
+    public void setFullAddress(String fullAddress) {
             this.fullAddress = fullAddress;
         }
 
-        public byte[] getImg1() {
+    public byte[] getImg1() {
             return img1;
         }
 
-        public int getPrice() {
+    public int getPrice() {
             return price;
         }
-        public void setPrice(int price) {
+    public void setPrice(int price) {
             this.price = price;
-        }
-        public int getSellerId() {
-            return sellerId;
-        }
-        public void setSellerId(int sellerId) {
-            this.sellerId = sellerId;
         }
 }

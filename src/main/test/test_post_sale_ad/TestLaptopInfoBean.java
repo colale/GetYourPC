@@ -3,9 +3,7 @@ package test_post_sale_ad;
 import exception.SyntaxBeanException;
 import org.junit.jupiter.api.Test;
 import post_sale_ad.bean.LaptopInfoBean;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class TestLaptopInfoBean {
 
@@ -34,7 +32,7 @@ public class TestLaptopInfoBean {
         } catch(SyntaxBeanException ex){assertEquals("Syntax error in ScreenSize",ex.getMessage());}
 }
     @Test
-    public void testSetCpu(){
+    public void testSetCpuCorrectInput(){
         LaptopInfoBean bean=new LaptopInfoBean();
         try{
             bean.setCpu("Ryzen 5 1600x");

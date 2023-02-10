@@ -19,11 +19,8 @@ import post_sale_ad.bean.PhotoBean;
 import java.io.*;
 
 public class InsertPhotosGrController {
-    PhotoBean bean;
-    PostSaleAdController controller;
-    public void setController(PostSaleAdController controller){
-        this.controller=controller;}
-
+    private PhotoBean bean;
+    private PostSaleAdController controller;
     @FXML
     private Label advice;
 
@@ -35,6 +32,9 @@ public class InsertPhotosGrController {
 
     @FXML
     private ImageView image3;
+    public void setController(PostSaleAdController controller){
+        this.controller=controller;}
+
 
     @FXML
     void btnConfirmClick(MouseEvent event){

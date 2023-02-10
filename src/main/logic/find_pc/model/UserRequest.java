@@ -1,6 +1,11 @@
 package find_pc.model;
 
 public class UserRequest {
+    private String distance;
+    private String configChoice;
+    private int budgetRange;
+    private double latRequest;
+    private double longRequest;
     public String getDistance() {
         return distance;
     }
@@ -8,11 +13,6 @@ public class UserRequest {
         this.distance = distance;
     }
 
-    private String distance;
-    private String configChoice;
-    private int budgetRange;
-    private double latRequest;
-    private double longRequest;
     public String getConfigChoice() {
         return configChoice;
     }

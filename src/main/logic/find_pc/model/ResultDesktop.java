@@ -8,7 +8,6 @@ public class ResultDesktop implements Result {
     private byte[] img1;
     private byte[] img2;
     private byte[] img3;
-    private int postId;
     private String motherboard;
     private String gpu;
     private String ram;
@@ -17,10 +16,7 @@ public class ResultDesktop implements Result {
     private String heatSink;
     private String pcCase;
     private int price;
-    private double latitude;
-    private double longitude;
     private String fullAddress;
-    private int sellerId;
 
     public String getSellerName() {
         return sellerName;
@@ -45,16 +41,6 @@ public class ResultDesktop implements Result {
     public void setSellerEmail(String sellerEmail) {
         this.sellerEmail = sellerEmail;
     }
-
-    public int getPostId() {
-        return postId;
-    }
-
-    public void setPostId(int postId) {
-        this.postId = postId;
-    }
-
-
     public String getCpu() {
         return cpu;
     }
@@ -127,22 +113,6 @@ public class ResultDesktop implements Result {
         this.price = price;
     }
 
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
     public String getFullAddress() {
         return fullAddress;
     }
@@ -150,15 +120,6 @@ public class ResultDesktop implements Result {
     public void setFullAddress(String fullAddress) {
         this.fullAddress = fullAddress;
     }
-
-    public int getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(int sellerId) {
-        this.sellerId = sellerId;
-    }
-
 
     public void setImg1(byte[] img1) {
         this.img1 = img1;

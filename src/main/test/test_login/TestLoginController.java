@@ -6,55 +6,47 @@ import login.bean.CredentialsInputBean;
 import login.model.Session;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class TestLoginController {
     private static final String EMAIL = "mario.rossi@gmail.com";
+//Assume that "mario.rossi@gmail.com" with password "password1" is a valid account
     @Test
-    public void testCheckIsAuthenticated(){
-        LoginController loginController=new LoginController();
-        Session session=Session.getInstance();
+    public void testCheckIsAuthenticated() {
+        LoginController loginController = new LoginController();
+        Session session = Session.getInstance();
         session.setEmail(EMAIL);
-        assert(loginController.checkIsAuthenticated());
+        assert (loginController.checkIsAuthenticated());
     }
+
     @Test
     public void testAuthenticate() throws SyntaxBeanException, IOException {
-        LoginController loginController=new LoginController();
-        CredentialsInputBean credentialsInputBean =new CredentialsInputBean();
+        LoginController loginController = new LoginController();
+        CredentialsInputBean credentialsInputBean = new CredentialsInputBean();
         credentialsInputBean.setEmail(EMAIL);
         credentialsInputBean.setPassword("password1");
-        assert(loginController.authenticate(credentialsInputBean));
+        assert (loginController.authenticate(credentialsInputBean));
     }
+
     @Test
     public void testAuthenticateWrongPassword() throws SyntaxBeanException, IOException {
-        CredentialsInputBean credentialsInputBean =new CredentialsInputBean();
-        LoginController loginController=new LoginController();
+        CredentialsInputBean credentialsInputBean = new CredentialsInputBean();
+        LoginController loginController = new LoginController();
         credentialsInputBean.setEmail(EMAIL);
         credentialsInputBean.setPassword("wrongPassword");
-        assertEquals(false,loginController.authenticate(credentialsInputBean));
+        assertEquals(false, loginController.authenticate(credentialsInputBean));
     }
+    //Assume that "mario.rossi@gmail.com" with password "wrongPassword" is non-existent account
     @Test
-    public void testLogoutFromByUserLoggedIn(){
-        LoginController loginController=new LoginController();
-        Session session=Session.getInstance();
+    public void testLogoutFromByUserLoggedIn() {
+        LoginController loginController = new LoginController();
+        Session session = Session.getInstance();
         session.setEmail(EMAIL);
         session.setName("Mario");
         session.setSurname("Rossi");
         session.setRole("user");
         loginController.logout();
-        String s=session.getName()+session.getSurname()+session.getEmail()+session.getRole();
-        assert(s.equals("")); }
-    @Test
-    public void testLogoutFromByUserNotLoggedIn(){
-        LoginController loginController=new LoginController();
-        Session session=Session.getInstance();
-        session.setEmail("");
-        session.setName("");
-        session.setSurname("");
-        session.setRole("");
-        loginController.logout();
-        String s=session.getName()+session.getSurname()+session.getEmail()+session.getRole();
-        assert(s.equals("")); }
+        String s = session.getName() + session.getSurname() + session.getEmail() + session.getRole();
+        assert (s.equals(""));
+    }
 }

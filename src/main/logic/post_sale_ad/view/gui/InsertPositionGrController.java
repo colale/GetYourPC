@@ -24,13 +24,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class InsertPositionGrController {
-    public static final String MESSAGE = "System error, please try again later";
-    UserGeoResponseBean userGeoResponseBean;
-    PostSaleAdController controller;
+    private static final String MESSAGE = "System error, please try again later";
+    private UserGeoResponseBean userGeoResponseBean;
+    private PostSaleAdController controller;
     @FXML
     private Label advice;
     @FXML
-    ImageView imgHome;
+    private ImageView imgHome;
     @FXML
     private Button btnCheckPosition;
 

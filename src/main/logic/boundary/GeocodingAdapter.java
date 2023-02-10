@@ -3,10 +3,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import exception.GeocodingException;
-
 import java.io.IOException;
 import java.net.http.HttpResponse;
 
+//For use case "Post sale ad"
 public class GeocodingAdapter implements Geocoding {
     Geoapify api;
     public GeocodingAdapter(Geoapify api) {

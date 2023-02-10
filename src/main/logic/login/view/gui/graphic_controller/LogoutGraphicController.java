@@ -15,7 +15,7 @@ import login.bean.UserDataBean;
 import java.io.IOException;
 
 public class LogoutGraphicController {
-    private LoginController c = new LoginController();
+    private LoginController controller = new LoginController();
     @FXML
     private Label advice;
     @FXML
@@ -30,7 +30,7 @@ public class LogoutGraphicController {
     private Label labelSurname;
     @FXML
     public void init(){
-        UserDataBean bean = c.getUserDataBean();
+        UserDataBean bean = controller.getUserDataBean();
         labelName.setText(bean.getName());
         labelSurname.setText(bean.getSurname());
         labelEmail.setText(bean.getEmail());}
@@ -66,7 +66,7 @@ public class LogoutGraphicController {
     }
     @FXML
     void btnLogoutClick(MouseEvent event) {
-        c.logout();
+        controller.logout();
         btnLogout.setVisible(false);
         btnLogout.setDisable(true);
         label.setText("Logout completed");

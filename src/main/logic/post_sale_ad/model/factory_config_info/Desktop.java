@@ -15,6 +15,28 @@ public class Desktop implements Post {
    private String pcType;
    private GeneralPostInfo generalPostInfo;
 
+   @Override
+   public void setInfo(PcInfoBean bean){
+      DesktopInfoBean inputBean=(DesktopInfoBean) bean;
+      this.cpu=inputBean.getCpu();
+      this.gpu=inputBean.getGpu();
+      this.ram=inputBean.getRam();
+      this.motherboard=inputBean.getMotherboard();
+      this.memory=inputBean.getMemory();
+      this.power=inputBean.getPower();
+      this.heatSink=inputBean.getHeatSink();
+      this.pcCase=inputBean.getPcCase();
+   }
+
+   @Override
+   public String getPcType(){
+      return this.pcType;}
+   public Desktop(String type){
+      this.pcType=type;
+      this.generalPostInfo=new GeneralPostInfo();
+   }
+
+
    public GeneralPostInfo getGeneralPostInfo() {
       return generalPostInfo;
    }
@@ -87,23 +109,4 @@ public class Desktop implements Post {
       this.cpu = cpu;
    }
 
-   @Override
-   public void setInfo(PcInfoBean bean){
-      DesktopInfoBean inputBean=(DesktopInfoBean) bean;
-      this.cpu=inputBean.getCpu();
-      this.gpu=inputBean.getGpu();
-      this.ram=inputBean.getRam();
-      this.motherboard=inputBean.getMotherboard();
-      this.memory=inputBean.getMemory();
-      this.power=inputBean.getPower();
-      this.heatSink=inputBean.getHeatSink();
-      this.pcCase=inputBean.getPcCase();
-   }
-   @Override
-   public String getPcType(){
-   return this.pcType;}
-   public Desktop(String type){
-      this.pcType=type;
-      this.generalPostInfo=new GeneralPostInfo();
-   }
 }

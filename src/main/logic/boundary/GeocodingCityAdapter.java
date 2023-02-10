@@ -4,10 +4,10 @@ import exception.GeocodingException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.net.http.HttpResponse;
 
+//For use case "find PC"
 public class GeocodingCityAdapter implements Geocoding {
     Geoapify api;
     public GeocodingCityAdapter(Geoapify api) {

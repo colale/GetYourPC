@@ -69,12 +69,8 @@ public class ResultDesktopDAO {
         List<Result> desktopPostList = new ArrayList<>();
         while (rs.next()) {
             Result post = new ResultDesktop();
-            ((ResultDesktop)post).setPostId(rs.getInt("id_post"));
-            ((ResultDesktop)post).setSellerId(rs.getInt("id_user"));
             ((ResultDesktop)post).setPrice(rs.getInt("price"));
             ((ResultDesktop)post).setFullAddress(rs.getString("complete_address"));
-            ((ResultDesktop)post).setLatitude(rs.getDouble("latitude"));
-            ((ResultDesktop)post).setLongitude(rs.getDouble("longitude"));
             ((ResultDesktop)post).setPower(rs.getString("power"));
             ((ResultDesktop)post).setHeatSink(rs.getString("cpu_heat"));
             ((ResultDesktop)post).setPcCase(rs.getString("pc_case"));

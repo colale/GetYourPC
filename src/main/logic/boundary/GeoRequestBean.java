@@ -3,7 +3,7 @@ package boundary;
 import java.io.Serializable;
 
 public class GeoRequestBean implements Serializable {
-    private String  geoRequest;
+    private String geoRequest;
     public String getGeoRequest() {
         return geoRequest;
     }

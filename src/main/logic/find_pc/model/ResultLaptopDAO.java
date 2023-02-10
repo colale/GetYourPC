@@ -70,12 +70,8 @@ public class ResultLaptopDAO {
         List<Result> laptopPostList = new ArrayList<>();
         while (rs.next()) {
             Result post = new ResultLaptop();
-            ((ResultLaptop)post).setPostId(rs.getInt("id_post"));
-            ((ResultLaptop) post).setSellerId(rs.getInt("id_user"));
             ((ResultLaptop) post).setPrice(rs.getInt("price"));
             ((ResultLaptop) post).setFullAddress(rs.getString("complete_address"));
-            ((ResultLaptop)post).setLatitude(rs.getDouble("latitude"));
-            ((ResultLaptop)post).setLongitude(rs.getDouble("longitude"));
             ((ResultLaptop)post).setBrand(rs.getString("brand"));
             ((ResultLaptop) post).setModel(rs.getString("model"));
             ((ResultLaptop)post).setScreenSize(rs.getDouble("screen_size"));

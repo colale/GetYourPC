@@ -6,7 +6,7 @@ import post_sale_ad.bean.PhotoBean;
 import java.util.Scanner;
 
 public class CLIInsertPhotos {
-    PostSaleAdController controller;
+    private PostSaleAdController controller;
     PhotoBean bean;
     public CLIInsertPhotos(PostSaleAdController controller){
         this.controller=controller;
