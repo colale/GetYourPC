@@ -20,7 +20,7 @@ public class TestLoginController {
     }
 
     @Test
-    public void testAuthenticate() throws SyntaxBeanException, IOException {
+    public void testAuthenticate() throws SyntaxBeanException{
         LoginController loginController = new LoginController();
         CredentialsInputBean credentialsInputBean = new CredentialsInputBean();
         credentialsInputBean.setEmail(EMAIL);
@@ -29,7 +29,7 @@ public class TestLoginController {
     }
 
     @Test
-    public void testAuthenticateWrongPassword() throws SyntaxBeanException, IOException {
+    public void testAuthenticateWrongPassword() throws SyntaxBeanException{
         CredentialsInputBean credentialsInputBean = new CredentialsInputBean();
         LoginController loginController = new LoginController();
         credentialsInputBean.setEmail(EMAIL);
