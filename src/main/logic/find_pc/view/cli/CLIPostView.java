@@ -17,12 +17,13 @@ public class CLIPostView {
         this.results=results;
         this.index=index;
     }
-    FindPCController controller;
-    List<Result> results;
-    int index;
+    private FindPCController controller;
+    private List<Result> results;
+    private int index;
     public void execute() {
         try {
-            Result result =this.results.get(index-1);
+            --this.index;
+            Result result =this.results.get(this.index);
             if (this.results.get(index) instanceof ResultDesktop) {
                 String sellerName;
                 String sellerSurname;
@@ -49,7 +50,7 @@ public class CLIPostView {
                 motherboard = ((ResultDesktop) result).getMemory();
                 heatSink = ((ResultDesktop) result).getHeatSink();
                 power = ((ResultDesktop) result).getPower();
-                System.out.println("Name: " + sellerName + "\nSurname: " + sellerSurname + "\nEmail: " + email + "\nCPU: " + cpu + "\nMotherboard: "+ motherboard + "\nGPU: " +gpu + "\nRAM: " + ram + "\nSSD/HDD: " +memory + "\nPower: " +power + "\nHeat Sink and Fans: " +heatSink + "\nCase: " +pcCase + "\nPrice:  " +price + "€");}
+                System.out.println("Name: " + sellerName + "\nSurname: " + sellerSurname + "\nEmail: " + email + "\nCPU: " + cpu + "\nMotherboard: "+ motherboard + "\nGPU: " +gpu + "\nRAM: " + ram + "\nSSD/HDD: " +memory + "\nPower: " +power + "\nHeat Sink and Fans: " +heatSink + "\nCase: " +pcCase + "\nPrice:  " +price + "€\n");}
 
             else{
                 String sellerName;
