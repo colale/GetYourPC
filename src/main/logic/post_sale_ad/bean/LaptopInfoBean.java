@@ -3,7 +3,7 @@ package post_sale_ad.bean;
 import exception.SyntaxBeanException;
 import java.io.Serializable;
 
-public class LaptopInfoBean extends PCInfoBean implements Serializable {
+public class LaptopInfoBean extends PcInfoBean implements Serializable {
     private String brand;
     private String model;
     private String screenSize;
@@ -72,7 +72,7 @@ public class LaptopInfoBean extends PCInfoBean implements Serializable {
         syntaxCheck(memory);
         this.memory = memory;
     }
-private void syntaxCheck(String s) throws SyntaxBeanException {
+    private void syntaxCheck(String s) throws SyntaxBeanException {
         if(s.length()==0 || s.length()>25){
             throw new SyntaxBeanException("Syntax error in PC configuration field");
         }

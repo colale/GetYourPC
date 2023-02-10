@@ -61,16 +61,10 @@ public class CLILogin {
 
     public void requireLogin(CredentialsInputBean credentialsInputBean) {
         LoginController controller = new LoginController();
-        boolean passed=false;
+        boolean passed;
         while (true) {
-            try{
                 credentialsInputBean=requireData(credentialsInputBean);
                 passed = controller.authenticate(credentialsInputBean);//if successful, a session will be created
-                }
-            catch (IOException ex){
-                System.out.println("System error,please try again later");
-                System.err.println(ex.getMessage());
-                Home.quit();}
             if (passed) {
                 System.out.println("You are logged in now\n");
                 (new CLIHome()).execute();}

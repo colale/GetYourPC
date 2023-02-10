@@ -1,8 +1,8 @@
 package post_sale_ad.app_controller;
+
 import java.io.File;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-
 import boundary.GeoRequestBean;
 import boundary.GeoResponseBean;
 import exception.ConnectionDBException;
@@ -13,42 +13,36 @@ import login.app_controller.LoginController;
 import post_sale_ad.bean.*;
 import boundary.Geoapify;
 import boundary.GeocodingAdapter;
-import post_sale_ad.model.factory_config_dao.ConfigInfoDAO;
-import post_sale_ad.model.factory_config_dao.PostInfoDAOFactory;
-import post_sale_ad.model.factory_config_info.ConfigInfo;
-import post_sale_ad.model.factory_config_info.PostInfoFactory;
-
+import post_sale_ad.model.factory_config_dao.PostDAO;
+import post_sale_ad.model.factory_config_dao.PostFactoryDAO;
+import post_sale_ad.model.factory_config_info.Post;
+import post_sale_ad.model.factory_config_info.PostFactory;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PostSaleAdController {
-    private ConfigInfo configInfo;
-    private ConfigInfoDAO configInfoDAO;
+    private Post post;
     private GeoResponseBean geoResponseBean;
-    private LoginController loginController;
-
     public boolean checkAuthentication() {
-        this.loginController=new LoginController();
-        return (this.loginController.checkIsAuthenticated());
+        LoginController loginController=new LoginController();
+        return (loginController.checkIsAuthenticated());
     }
 
-    public void createPost(PCInfoBean pcInfoBean) {
-        PostInfoDAOFactory postInfoFactoryDAO = new PostInfoDAOFactory();
-        PostInfoFactory postInfoFactory = new PostInfoFactory();
+    public void createPost(PcInfoBean pcInfoBean) {
+        PostFactory postFactory = new PostFactory();
         try {//factory method
-            this.configInfo = postInfoFactory.create(pcInfoBean);
-            this.configInfoDAO = postInfoFactoryDAO.createDAO(pcInfoBean);
-            this.setSellerId();
-        } catch (FactoryException ex) {//Abnormal case in which an unrecognized string is passed to the factory
+            this.post = postFactory.create(pcInfoBean);
+            this.setSellerId();}
+        catch (FactoryException ex) {//Abnormal case in which an unrecognized string is passed to the factory
             System.err.println(ex.getMessage());
-            Home.quit();
-        }
+            Home.quit();}
     }
     public void setSellerId(){
-        int id =this.loginController.getUserId();
-        configInfo.getGeneralPostInfo().setSellerId(id);
+        LoginController loginController=new LoginController();
+        int id =loginController.getUserId();
+        post.getGeneralPostInfo().setSellerId(id);
     }
 
     public boolean checkPrice(PriceBean bean) {
@@ -64,12 +58,12 @@ public class PostSaleAdController {
 
     public void setPrice(PriceBean bean) {
         int price = Integer.parseInt(bean.getPrice());
-        configInfo.getGeneralPostInfo().setPrice(price);
+        post.getGeneralPostInfo().setPrice(price);
     }
 
-    public void setConfigInfo(PCInfoBean bean) {
-        this.configInfo.setInfo(bean);
-    }
+    public void setConfigInfo(PcInfoBean bean) {
+        this.post.setInfo(bean);
+    }//sets the information related to the specific pc configuration
 
     public boolean checkPhotos(PhotoBean bean) {
         ArrayList<String> imagesPath = new ArrayList<String>();
@@ -89,9 +83,9 @@ public class PostSaleAdController {
     }
 
     public void setPhotos(PhotoBean bean) {
-        configInfo.getGeneralPostInfo().setImg1(bean.getImgPath1());
-        configInfo.getGeneralPostInfo().setImg2(bean.getImgPath2());
-        configInfo.getGeneralPostInfo().setImg3(bean.getImgPath3());
+        post.getGeneralPostInfo().setImg1(bean.getImgPath1());
+        post.getGeneralPostInfo().setImg2(bean.getImgPath2());
+        post.getGeneralPostInfo().setImg3(bean.getImgPath3());
     }
 
     public UserGeoResponseBean searchPosition(UserGeoRequestBean userGeoData) throws GeocodingException {
@@ -106,15 +100,21 @@ public class PostSaleAdController {
         return responseToUser;
     }
 
-    public void publishPost() throws SQLException, FileNotFoundException, ConnectionDBException {
+    public void setPosition() throws SQLException, FileNotFoundException, ConnectionDBException {
         String fullAddress = this.geoResponseBean.getStreet() + " " + this.geoResponseBean.getHouseNumber() + " " + this.geoResponseBean.getCap() + " " + this.geoResponseBean.getCity() + " " + this.geoResponseBean.getCountry();
-        configInfo.getGeneralPostInfo().setFullAddress(fullAddress);
-        configInfo.getGeneralPostInfo().setLatitude(this.geoResponseBean.getLatitude());
-        configInfo.getGeneralPostInfo().setLongitude(this.geoResponseBean.getLongitude());
+        post.getGeneralPostInfo().setFullAddress(fullAddress);
+        post.getGeneralPostInfo().setLatitude(this.geoResponseBean.getLatitude());
+        post.getGeneralPostInfo().setLongitude(this.geoResponseBean.getLongitude());
         this.storePost();
     }
 
     public void storePost() throws SQLException, FileNotFoundException, ConnectionDBException {
-        configInfoDAO.storePost(configInfo);//in persistance
-    }
+        try{//In persistence
+        PostFactoryDAO postInfoFactoryDAO = new PostFactoryDAO();
+        PostDAO postDAO = postInfoFactoryDAO.createDAO(this.post.getPcType());
+        postDAO.storePost(post);}
+        catch (FactoryException ex){//Abnormal error in Factory
+            System.err.println("ex.getMessage()");
+            Home.quit();
+        }}
 }

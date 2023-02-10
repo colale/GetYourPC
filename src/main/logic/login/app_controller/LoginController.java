@@ -5,34 +5,43 @@ import login.bean.CredentialsInputBean;
 import login.bean.UserDataBean;
 import login.model.Account;
 import login.model.Session;
-import login.model.SessionDAOdb;
-import login.model.SessionDAOfs;
+import login.model.AccountDAOdb;
+import login.model.AccountDAOfs;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 
 public class LoginController {
-    private Account userData;
 
     public boolean checkIsAuthenticated() {
         return !((Session.getInstance().getEmail()).equals(""));
     }
 
-    public boolean authenticate(CredentialsInputBean credentials) throws IOException {
+    public boolean authenticate(CredentialsInputBean credentials){
+        try {
+        Account account;
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);
         String property = prop.getProperty("daoOnFileSystem");
         boolean persistenceOnFS = (property.equals("true"));
         propsInput.close();
-        boolean success;
-        if(persistenceOnFS){success=this.usingFS(credentials);}
-        else{success=this.usingDB(credentials);}
-        if (success){return this.updateSession();}
-        return false;
+            if (persistenceOnFS){account = usingFS(credentials);}
+            else {account = usingDB(credentials);}
+            if(!this.updateSession(account)){return false;}
+            return true;}
+        catch (ConnectionDBException ex) {//it is launched in case of failed connection to the DB
+            System.err.println(ex.getMessage());
+            return false;}
+        catch (SQLException ex) {//it is launched in case of db query fail
+            return false;}
+        catch (ClassNotFoundException e) {//it is launched in case of fs query fail
+            System.err.println(e.getMessage());
+            return false;}
+        catch (IOException ioException) {//it is launched in case of fs query fail
+            return false;}
     }
-
     public void logout() {
         Session.getInstance().setEmail("");
         Session.getInstance().setName("");
@@ -47,44 +56,29 @@ public class LoginController {
         bean.setEmail(Session.getInstance().getEmail());
         return bean;
     }
-
     public int getUserId(){
         return Session.getInstance().getId();
     }
-
-    public boolean updateSession() {
-        try {
-            Session.getInstance().setName(userData.getName());
-            Session.getInstance().setSurname(userData.getSurname());
-            Session.getInstance().setEmail(userData.getEmail());
-            Session.getInstance().setRole(userData.getRole());
-            Session.getInstance().setId(userData.getUserID());
-        } catch (Exception ex) {
-            return false;
-        }
+    public boolean updateSession(Account account) {
+        try{
+            Session.getInstance().setName(account.getName());
+            Session.getInstance().setSurname(account.getSurname());
+            Session.getInstance().setEmail(account.getEmail());
+            Session.getInstance().setRole(account.getRole());
+            Session.getInstance().setId(account.getUserID());}
+        catch (Exception ex){return false;}
         return true;
     }
 
-    public boolean usingDB(CredentialsInputBean credentials){
-        try {
-            SessionDAOdb s = new SessionDAOdb();
-            this.userData = s.fetchUser(credentials); //fetch user data from database
-            return true;}
-        catch (SQLException exSQL) {
-            return false;}
-        catch (ConnectionDBException ex){//it is launched in case of failed connection to the DB
-                String error=ex.getMessage();
-                System.err.println(error);
-                return false;}
-    }
+    Account usingDB(CredentialsInputBean credentials) throws ConnectionDBException, SQLException {
+            AccountDAOdb s = new AccountDAOdb();
+            Account account = s.fetchUser(credentials); //fetch user data from database
+            return account;}
 
-    public boolean usingFS(CredentialsInputBean credentials){
-        SessionDAOfs s = new SessionDAOfs();
-        try{
-            this.userData=s.fetchUser(credentials);//fetch user data from FileSystem
-            return true;}
-        catch(Exception ex){
-            return false;}
+    Account usingFS(CredentialsInputBean credentials) throws IOException, ClassNotFoundException {
+        AccountDAOfs s = new AccountDAOfs();
+            Account account = s.fetchUser(credentials);//fetch user data from FileSystem
+            return account;
         }
     }
 

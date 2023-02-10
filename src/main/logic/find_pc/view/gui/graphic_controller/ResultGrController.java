@@ -14,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import post_sale_ad.model.factory_config_info.LaptopInfo;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

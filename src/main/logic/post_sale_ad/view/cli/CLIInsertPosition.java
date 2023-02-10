@@ -35,7 +35,7 @@ public class CLIInsertPosition {
             this.userGeoResponseBean = response;
             System.out.println("Position: " + response.getFullAddress());
             if (confirmRequest()) {
-                controller.publishPost();
+                controller.setPosition();
                 System.out.println("Your post has been published! You will return to Home in 5 seconds...");
                 Thread.sleep(5000);
                 (new CLIHome()).execute();}

@@ -7,7 +7,7 @@ CASO 1:PERSISTENZA SU DB
 1)Aggiungere
 
 		import login.model.Account;
-		import login.model.SessionDAOdb;
+		import login.model.AccountDAOdb;
 
 2)Inserire nel metodo main dove presente l'asterisco il seguente codice: 
 		Account account=new Account();
@@ -30,7 +30,7 @@ CASO 2:PERSISTENZA SU FS
 1)Aggiungere
 
 		import login.model.Account;
-		import login.model.SessionDAOfs;
+		import login.model.AccountDAOfs;
 
 2)Inserire nel metodo main dove presente l'asterisco il seguente codice: 
 		Account account=new Account();

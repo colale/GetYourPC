@@ -91,7 +91,7 @@ public class InsertPositionGrController {
     void btnConfirmClick(MouseEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
-            controller.publishPost();
+            controller.setPosition();
             btnConfirm.setDisable(true);
             btnCheckPosition.setDisable(true);
             this.finalizeUseCase(stage);

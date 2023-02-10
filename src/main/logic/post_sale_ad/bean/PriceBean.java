@@ -5,6 +5,7 @@ import exception.SyntaxBeanException;
 import java.io.Serializable;
 
 public class PriceBean implements Serializable {
+    private String price;
     public String getPrice() {
         return price;
     }
@@ -13,8 +14,6 @@ public class PriceBean implements Serializable {
         syntaxCheck(price);
         this.price = price;
     }
-
-    private String price;
 
     private void syntaxCheck(String s) throws SyntaxBeanException {
         if (s.length() ==0 || s.length() > 10) {

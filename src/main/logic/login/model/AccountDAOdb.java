@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import exception.ConnectionDBException;
 import login.bean.CredentialsInputBean;
 
-public class SessionDAOdb {
+public class AccountDAOdb {
     private Connection connection;
-    public SessionDAOdb() throws SQLException, ConnectionDBException {
+    public AccountDAOdb() throws SQLException, ConnectionDBException {
         DBConnection db = DBConnection.getInstance();
         this.connection = db.getConnection();
     }

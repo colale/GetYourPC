@@ -41,9 +41,7 @@ public class LoginGraphicController {
             credentialsInputBean.setPassword(fieldPassword.getText());
             passed = c.authenticate(credentialsInputBean);
         } catch (SyntaxBeanException e) {
-            passed = false;
-        }
-        catch(IOException ex){passed=false;}
+            passed = false;}
         if (passed) {
             btnConfirm.setDisable(true);
             btnConfirm.setOpacity(0.5);

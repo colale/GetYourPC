@@ -3,7 +3,7 @@ package post_sale_ad.view.cli;
 import home.CLIHome;
 import home.Home;
 import post_sale_ad.app_controller.PostSaleAdController;
-import post_sale_ad.bean.PCInfoBean;
+import post_sale_ad.bean.PcInfoBean;
 import java.util.Scanner;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -29,10 +29,10 @@ public class CLISelectConfig {
             switch (num) {
                 case 1, 2://Warning: modify implementation if configuration added
                     validInput = TRUE;
-                    PCInfoBean choiceBean = new PCInfoBean();
+                    PcInfoBean typePcBean = new PcInfoBean();
                     String tempChoice = (num==1)?"desktop":"laptop";
-                    choiceBean.setChoice(tempChoice);
-                    this.controller.createPost(choiceBean);
+                    typePcBean.setChoice(tempChoice);
+                    this.controller.createPost(typePcBean);
                     if(num==1){
                         CLIInsertInfoDesktop cli = new CLIInsertInfoDesktop(controller);
                         cli.execute();}

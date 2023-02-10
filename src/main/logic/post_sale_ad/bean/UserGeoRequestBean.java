@@ -1,7 +1,6 @@
 package post_sale_ad.bean;
 
 import exception.SyntaxBeanException;
-
 import java.io.Serializable;
 
 public class UserGeoRequestBean implements Serializable {

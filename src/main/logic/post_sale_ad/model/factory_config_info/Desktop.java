@@ -1,9 +1,9 @@
 package post_sale_ad.model.factory_config_info;
 
 import post_sale_ad.bean.DesktopInfoBean;
-import post_sale_ad.bean.PCInfoBean;
+import post_sale_ad.bean.PcInfoBean;
 
-public class DesktopInfo implements ConfigInfo{
+public class Desktop implements Post {
    private String cpu;
    private String motherboard;
    private String gpu;
@@ -12,7 +12,9 @@ public class DesktopInfo implements ConfigInfo{
    private String power;
    private String heatSink;
    private String pcCase;
+   private String pcType;
    private GeneralPostInfo generalPostInfo;
+
    public GeneralPostInfo getGeneralPostInfo() {
       return generalPostInfo;
    }
@@ -86,7 +88,7 @@ public class DesktopInfo implements ConfigInfo{
    }
 
    @Override
-   public void setInfo(PCInfoBean bean){
+   public void setInfo(PcInfoBean bean){
       DesktopInfoBean inputBean=(DesktopInfoBean) bean;
       this.cpu=inputBean.getCpu();
       this.gpu=inputBean.getGpu();
@@ -97,7 +99,11 @@ public class DesktopInfo implements ConfigInfo{
       this.heatSink=inputBean.getHeatSink();
       this.pcCase=inputBean.getPcCase();
    }
-   public DesktopInfo(GeneralPostInfo generalPostInfo){
-      this.generalPostInfo=generalPostInfo;
+   @Override
+   public String getPcType(){
+   return this.pcType;}
+   public Desktop(String type){
+      this.pcType=type;
+      this.generalPostInfo=new GeneralPostInfo();
    }
 }

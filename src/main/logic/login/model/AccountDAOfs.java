@@ -3,7 +3,7 @@ import login.bean.CredentialsInputBean;
 import java.io.*;
 import java.util.List;
 import java.util.Properties;
-public class SessionDAOfs {
+public class AccountDAOfs {
     static final String ACCOUNTSPATH="src/main/logic/resources/accountOnFS.dat";
 
     public Account fetchUser(CredentialsInputBean credentialsInputBean) throws IOException, ClassNotFoundException {

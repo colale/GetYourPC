@@ -3,13 +3,13 @@ package post_sale_ad.bean;
 import exception.SyntaxBeanException;
 import java.io.Serializable;
 
-public class DesktopInfoBean extends PCInfoBean implements Serializable {
+public class DesktopInfoBean extends PcInfoBean implements Serializable {
     private String cpu;
     private String motherboard;
     private String gpu;
     private String ram;
     private String memory;
-   private String power;
+    private String power;
     private String heatSink;
     private String pcCase;
     public String getCpu() {

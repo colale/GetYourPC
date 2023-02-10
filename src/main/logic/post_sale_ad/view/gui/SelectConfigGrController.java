@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import post_sale_ad.app_controller.PostSaleAdController;
-import post_sale_ad.bean.PCInfoBean;
+import post_sale_ad.bean.PcInfoBean;
 import java.io.IOException;
 
 public class SelectConfigGrController {
@@ -22,7 +22,7 @@ public class SelectConfigGrController {
 
     @FXML
     void btnDesktopClick(MouseEvent event) throws IOException {
-        PCInfoBean choice=new PCInfoBean();
+        PcInfoBean choice=new PcInfoBean();
         choice.setChoice("desktop");
         this.controller.createPost(choice);
         FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/gui/InsertInfoDesktop.fxml"));
@@ -39,7 +39,7 @@ public class SelectConfigGrController {
 
     @FXML
     void btnLaptopClick(MouseEvent event) throws IOException {
-        PCInfoBean choice=new PCInfoBean();
+        PcInfoBean choice=new PcInfoBean();
         choice.setChoice("laptop");
         this.controller.createPost(choice);
         FXMLLoader root = new FXMLLoader(getClass().getResource("/post_sale_ad/view/gui/InsertInfoLaptop.fxml"));
