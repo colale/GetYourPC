@@ -1,6 +1,6 @@
-package post_sale_ad.model.factory_config_info;
+package post_sale_ad.model;
 
-public class GeneralPostInfo {
+public class GeneralPostInfo{
     private int price;
     private double latitude;
     private double longitude;

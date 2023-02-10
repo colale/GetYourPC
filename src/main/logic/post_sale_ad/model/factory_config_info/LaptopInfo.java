@@ -2,8 +2,9 @@ package post_sale_ad.model.factory_config_info;
 
 import post_sale_ad.bean.LaptopInfoBean;
 import post_sale_ad.bean.PcInfoBean;
+import post_sale_ad.model.GeneralPostInfo;
 
-public class Laptop implements Post {
+public class LaptopInfo implements PcInfo{
     public GeneralPostInfo getGeneralPostInfo() {
         return generalPostInfo;
     }
@@ -58,7 +59,7 @@ public class Laptop implements Post {
     }
     public String getPcType(){
         return this.pcType;}
-    public Laptop(String type){
+    public LaptopInfo(String type){
         this.pcType=type;
         this.generalPostInfo=new GeneralPostInfo();
     }

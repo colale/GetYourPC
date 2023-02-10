@@ -1,9 +1,9 @@
-package post_sale_ad.model.factory_config_dao;
+package post_sale_ad.model.factory_config_info_dao;
 
 import exception.FactoryException;
 
 public class PostFactoryDAO {
-    public PostDAO createDAO (String choice) throws FactoryException {
+    public PcInfoDAO createDAO (String choice) throws FactoryException {
         switch (choice){
             case "desktop": return new DesktopDAO();
             case "laptop": return new LaptopDAO();

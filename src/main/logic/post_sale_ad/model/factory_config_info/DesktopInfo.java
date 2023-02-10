@@ -2,8 +2,9 @@ package post_sale_ad.model.factory_config_info;
 
 import post_sale_ad.bean.DesktopInfoBean;
 import post_sale_ad.bean.PcInfoBean;
+import post_sale_ad.model.GeneralPostInfo;
 
-public class Desktop implements Post {
+public class DesktopInfo implements PcInfo {
    private String cpu;
    private String motherboard;
    private String gpu;
@@ -31,7 +32,7 @@ public class Desktop implements Post {
    @Override
    public String getPcType(){
       return this.pcType;}
-   public Desktop(String type){
+   public DesktopInfo(String type){
       this.pcType=type;
       this.generalPostInfo=new GeneralPostInfo();
    }
