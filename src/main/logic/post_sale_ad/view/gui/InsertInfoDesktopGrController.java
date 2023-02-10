@@ -55,6 +55,7 @@ public class InsertInfoDesktopGrController {
 
     @FXML
     void btnConfirmClick(MouseEvent event) throws IOException {
+        advice.setText("");
         DesktopInfoBean bean = new DesktopInfoBean();
         PriceBean priceBean = new PriceBean();
         try {
@@ -89,7 +90,7 @@ public class InsertInfoDesktopGrController {
             InsertPhotosGrController nextGraphicController = root.getController();
             nextGraphicController.setController(controller);
             stage.show();
-        } else {advice.setText("Error filling in the field 'price', please insert price again");
+        } else {advice.setText("Error filling in the fields, please try again");
             fieldPrice.setText("");}
     }
 

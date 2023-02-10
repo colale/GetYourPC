@@ -50,6 +50,7 @@ public class InsertInfoLaptopGrController {
     private TextField fieldMemory;
     @FXML
     void btnConfirmClick(MouseEvent event) throws IOException {
+        advice.setText("");
         LaptopInfoBean bean = new LaptopInfoBean();
         PriceBean priceBean = new PriceBean();
         try {
@@ -81,7 +82,7 @@ public class InsertInfoLaptopGrController {
             InsertPhotosGrController nextGraphicController = root.getController();
             nextGraphicController.setController(controller);
             stage.show();
-        } else {advice.setText("Error filling in the field 'price', please insert price again");
+        } else {advice.setText("Error filling in the fields, please try again");
             fieldPrice.setText("");}
     }
     @FXML

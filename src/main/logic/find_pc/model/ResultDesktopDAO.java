@@ -26,14 +26,13 @@ public class ResultDesktopDAO {
         int[] budgetRange = calculateRange(rangeCode);
         double inputDistance = Double.parseDouble(distance);
         getConnection();
-        String query = "SELECT Desktop.*, Users.email, Users.name, Users.surname "
-                + "FROM Desktop "
-                + "JOIN Users ON Desktop.id_user = Users.id_user "
-                + "WHERE Desktop.status = 'active' "
-                + "AND Users.status = 'active' "
-                + "AND (3959 * acos (cos ( radians(?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin ( radians(?) ) * sin( radians( latitude ) ))) < ? "
-                + "AND price BETWEEN ? AND ?;";
-
+        String query = "SELECT Desktop.*, Users.email, Users.name, Users.surname, PostGeneralInfo.* \n" +
+                "FROM PostGeneralInfo \n" +
+                "JOIN Users ON Users.id_user = PostGeneralInfo.id_user \n" +
+                "JOIN Desktop ON Desktop.id_post = PostGeneralInfo.id_post \n" +
+                "WHERE Users.status = 'active' \n" +
+                "AND (3959 * acos (cos ( radians(?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin ( radians(?) ) * sin( radians( latitude ) ))) < ? \n" +
+                "AND price BETWEEN ? AND ?;\n";
         PreparedStatement preparedStmt = this.connection.prepareStatement(query);
         preparedStmt.setDouble(1, inputLatitude);
         preparedStmt.setDouble(2, inputLongitude);
