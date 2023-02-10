@@ -25,10 +25,10 @@ public class ResultLaptopDAO {
         int[] budgetRange = calculateRange(rangeCode);
         double inputDistance = Double.parseDouble(distance);
         getConnection();
-        String query = "SELECT LaptopPost.*, Users.email, Users.name, Users.surname "
-                + "FROM LaptopPost "
-                + "JOIN Users ON LaptopPost.id_user = Users.id_user "
-                + "WHERE LaptopPost.status = 'active' "
+        String query = "SELECT Laptop.*, Users.email, Users.name, Users.surname "
+                + "FROM Laptop "
+                + "JOIN Users ON Laptop.id_user = Users.id_user "
+                + "WHERE Laptop.status = 'active' "
                 + "AND Users.status = 'active' "
                 + "AND (3959 * acos (cos ( radians(?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin ( radians(?) ) * sin( radians( latitude ) ))) < ? "
                 + "AND price BETWEEN ? AND ?;";
