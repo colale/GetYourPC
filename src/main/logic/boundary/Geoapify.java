@@ -10,7 +10,7 @@ import java.util.Properties;
 
 
 public class Geoapify {
-    public HttpResponse<String> findResult(GeoRequestBean request) throws IOException, InterruptedException {
+    public HttpResponse<String> findGeoapifyPosition(GeoRequestBean request) throws IOException, InterruptedException {
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
         prop.load(propsInput);

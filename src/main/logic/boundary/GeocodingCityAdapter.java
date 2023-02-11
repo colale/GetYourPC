@@ -15,10 +15,10 @@ public class GeocodingCityAdapter implements Geocoding {
     }
 
     @Override
-    public GeoResponseBean findResult(GeoRequestBean request) throws GeocodingException{
+    public GeoResponseBean findPosition(GeoRequestBean request) throws GeocodingException{
         GeoResponseBean responseBean=new GeoResponseBean();
         try {
-            HttpResponse<String> response = this.api.findResult(request);
+            HttpResponse<String> response = this.api.findGeoapifyPosition(request);
             JSONObject json = new JSONObject(response.body());
             JSONObject feature = json.getJSONArray("features").getJSONObject(0);
             JSONObject properties = feature.getJSONObject("properties");

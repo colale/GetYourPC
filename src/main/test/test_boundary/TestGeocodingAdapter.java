@@ -22,7 +22,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            geocodingAdapter.findResult(request);
+            geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
         }
@@ -36,7 +36,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            geocodingAdapter.findResult(request);
+            geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
         }
@@ -50,7 +50,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            geocodingAdapter.findResult(request);
+            geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
         }
@@ -64,7 +64,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            geocodingAdapter.findResult(request);
+            geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
         }
@@ -78,7 +78,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            geocodingAdapter.findResult(request);
+            geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
             assert (true);
@@ -92,7 +92,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
+            GeoResponseBean response = geocodingAdapter.findPosition(request);
             assertEquals("Rome", response.getCity());
         } catch (GeocodingException geoEx) {
             assert (false);
@@ -106,7 +106,7 @@ public class TestGeocodingAdapter {
         Geoapify geoapify = new Geoapify();
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(geoapify);
         try {
-            GeoResponseBean response = geocodingAdapter.findResult(request);
+            GeoResponseBean response = geocodingAdapter.findPosition(request);
             assertEquals("Via del Politecnico", response.getStreet());
         } catch (GeocodingException geoEx) {
             assert (false);

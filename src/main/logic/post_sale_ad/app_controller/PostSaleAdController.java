@@ -99,7 +99,7 @@ public class PostSaleAdController {
         geoRequestBean.setGeoRequest(input);
         GeocodingAdapter geocodingAdapter = new GeocodingAdapter(new Geoapify());
         UserGeoResponseBean responseToUser = new UserGeoResponseBean();
-        this.geoResponseBean = geocodingAdapter.findResult(geoRequestBean);
+        this.geoResponseBean = geocodingAdapter.findPosition(geoRequestBean);
         String output = this.geoResponseBean.getStreet() + " " + this.geoResponseBean.getHouseNumber() + " " + this.geoResponseBean.getCap() + " " + this.geoResponseBean.getCity() + " " + this.geoResponseBean.getCountry();
         responseToUser.setFullAddress(output);
         return responseToUser;

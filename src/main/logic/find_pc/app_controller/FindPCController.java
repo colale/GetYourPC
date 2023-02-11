@@ -27,7 +27,7 @@ public class FindPCController {
         geoRequestBean.setGeoRequest(input);
         GeocodingCityAdapter geocodingAdapter = new GeocodingCityAdapter(new Geoapify());
         UserGeoResponseBean responseToUser = new UserGeoResponseBean();
-        this.geoResponseBean = geocodingAdapter.findResult(geoRequestBean);
+        this.geoResponseBean = geocodingAdapter.findPosition(geoRequestBean);
         String output = this.geoResponseBean.getCity() + " " + this.geoResponseBean.getCountry();
         responseToUser.setFullAddress(output);
         return responseToUser;
