@@ -32,7 +32,7 @@ public class CLIHome {
                 case 2://user requires posting sale ad
                     validInput=TRUE;
                     PostSaleAdController postSaleAdController = new PostSaleAdController();
-                    if(!postSaleAdController.checkAuthentication()) {//check user is logged in
+                    if(!postSaleAdController.verifyAuthentication()) {//check user is logged in
                         validInput=FALSE;
                         (new CLILogin()).execute();
                         break;}

@@ -33,7 +33,7 @@ public class HomeGraphicController {
     void btnPostSaleAdClick(MouseEvent event) throws IOException {//user requires to post pc sale ad
         String path;
         PostSaleAdController controller = new PostSaleAdController();
-        path = controller.checkAuthentication() ? "/post_sale_ad/view/gui/SelectConfig.fxml" : "/login/view/gui/Login.fxml";
+        path = controller.verifyAuthentication() ? "/post_sale_ad/view/gui/SelectConfig.fxml" : "/login/view/gui/Login.fxml";
         FXMLLoader root = new FXMLLoader(getClass().getResource(path));
         Scene scene = new Scene(root.load(), 1280, 720);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class PostSaleAdController {
     private Post post;
     private GeoResponseBean geoResponseBean;//facilitates information exchange with the user
-    public boolean checkAuthentication() {
+    public boolean verifyAuthentication() {
         LoginController loginController=new LoginController();
         return (loginController.checkIsAuthenticated());
     }
