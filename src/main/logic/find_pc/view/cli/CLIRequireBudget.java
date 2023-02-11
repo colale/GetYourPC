@@ -15,7 +15,7 @@ public class CLIRequireBudget{
     }
     FindPCController controller;
     public void execute() {
-        System.out.println("Select budget range:\n1)0-400€\n2)400-600€\n3)600-1000€\n4)>10000-400€\n5)Home\n6)Help\n7)Quit");
+        System.out.println("Select budget range:\n1)0-400€\n2)400-600€\n3)600-1000€\n4)>1000€\n5)Home\n6)Help\n7)Quit");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = FALSE;
         while (!validInput) {
