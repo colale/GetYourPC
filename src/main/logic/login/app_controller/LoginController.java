@@ -53,6 +53,7 @@ public class LoginController {
         bean.setName(Session.getInstance().getName());
         bean.setSurname(Session.getInstance().getSurname());
         bean.setEmail(Session.getInstance().getEmail());
+        bean.setRole(Session.getInstance().getRole());
         return bean;
     }
     public int getUserId(){

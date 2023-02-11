@@ -7,6 +7,7 @@ public class UserDataBean implements Serializable {//data to be shown to the use
     private String surname;
     private String email;
     private int id;
+    private String role;
 
     public int getId() {
         return id;
@@ -35,5 +36,12 @@ public class UserDataBean implements Serializable {//data to be shown to the use
     public String getEmail() {
         return email;
     }
+    public String getRole() {//Also useful for use case associated with content reviewer (unimplemented)
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 
     public void setEmail(String email){this.email = email;}}
