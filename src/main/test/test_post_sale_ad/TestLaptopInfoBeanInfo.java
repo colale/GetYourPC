@@ -43,7 +43,7 @@ public class TestLaptopInfoBeanInfo {
     public void testSetCpuTooLongInputExMessage(){
         LaptopInfoBean bean=new LaptopInfoBean();
         try{
-            bean.setCpu("Ryzen 5---------- 1600 ------x -----------------");
+            bean.setCpu("Ryzen 5---------- 1600 ------x ---------------------------------");
             assert(false);
         } catch(SyntaxBeanException ex){
             assertEquals("Syntax error in PC configuration field",ex.getMessage());}}

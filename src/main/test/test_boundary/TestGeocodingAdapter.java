@@ -25,8 +25,9 @@ public class TestGeocodingAdapter {
             geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
+            assert (true);
         }
-        assert (true);
+
     }
 
     @Test
@@ -39,8 +40,9 @@ public class TestGeocodingAdapter {
             geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
+            assert (true);
         }
-        assert (true);
+
     }
 
     @Test
@@ -53,8 +55,8 @@ public class TestGeocodingAdapter {
             geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
+            assert (true);
         }
-        assert (true);
     }
 
     @Test
@@ -67,8 +69,8 @@ public class TestGeocodingAdapter {
             geocodingAdapter.findPosition(request);
             assert (false);
         } catch (GeocodingException geoEx) {
+            assert (true);
         }
-        assert (true);
     }
 
     @Test
