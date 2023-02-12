@@ -154,7 +154,7 @@
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="labelPrice" layoutX="250.0" layoutY="214.0" prefHeight="39.0" prefWidth="85.0" text="Price" textFill="WHITE">
+      <Label fx:id="labelPrice" alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="214.0" prefHeight="39.0" prefWidth="363.0" text="Price" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
