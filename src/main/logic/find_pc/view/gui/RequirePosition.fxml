@@ -151,7 +151,7 @@
             <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" layoutX="130.0" layoutY="468.0" prefHeight="39.0" prefWidth="290.0" text="Distance range from city " textFill="WHITE">
+      <Label alignment="TOP_LEFT" layoutX="130.0" layoutY="468.0" prefHeight="39.0" prefWidth="331.0" text="Distance range from city (km)" textFill="WHITE">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>

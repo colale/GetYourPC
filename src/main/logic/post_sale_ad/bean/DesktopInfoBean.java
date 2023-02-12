@@ -85,7 +85,7 @@ public class DesktopInfoBean extends PcInfoBean implements Serializable {
     }
 
     private void syntaxCheck(String s) throws SyntaxBeanException {
-        if((s.length()==0)||(s.length()>25)){
+        if((s.length()==0)||(s.length()>50)){
             throw new SyntaxBeanException("Syntax Error in PC configuration field");
         }
 }}
