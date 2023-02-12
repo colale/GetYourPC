@@ -4,6 +4,7 @@ import exception.ConnectionDBException;
 import exception.GeocodingException;
 import exception.SyntaxBeanException;
 import home.CLIHome;
+import home.Home;
 import post_sale_ad.app_controller.PostSaleAdController;
 import post_sale_ad.bean.UserGeoRequestBean;
 import post_sale_ad.bean.UserGeoResponseBean;
@@ -50,8 +51,10 @@ public class CLIInsertPosition {
             this.execute();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-      }catch(IOException ioEx){System.out.println("System error, please try again later");}
-        catch (SQLException sqlEx){System.err.println(sqlEx.getMessage());
+      }catch(IOException ioEx){System.out.println(ioEx.getMessage());
+            Home.quit();
+        }//Critical Error
+        catch (SQLException sqlEx){System.out.println("Error, please try again");
         this.execute();}
         catch(ConnectionDBException connEx)
         {System.out.println("System error, please try again later");

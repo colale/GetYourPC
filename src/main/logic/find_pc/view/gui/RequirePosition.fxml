@@ -124,7 +124,7 @@
             <SepiaTone />
          </effect>
       </Button>
-      <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" layoutX="686.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#btnConfirmClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="375.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE">
+      <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="686.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#btnConfirmClick" onMouseEntered="#btnMouseEntered" onMouseExited="#btnMouseExited" prefWidth="375.0" style="-fx-background-color: transparent;" text="Confirm" textFill="WHITE" visible="false">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
@@ -133,7 +133,7 @@
          </effect>
       </Button>
       <TextField fx:id="fieldSearch" layoutX="652.0" layoutY="354.0" prefHeight="41.0" prefWidth="464.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-text-inner-color: white;" />
-      <Label fx:id="labelIsItCorrect" alignment="TOP_LEFT" layoutX="813.0" layoutY="443.0" prefHeight="39.0" prefWidth="143.0" text="Is it correct?" textFill="WHITE">
+      <Label fx:id="labelIsItCorrect" alignment="TOP_LEFT" layoutX="813.0" layoutY="443.0" prefHeight="39.0" prefWidth="143.0" text="Is it correct?" textFill="WHITE" visible="false">
          <font>
             <Font name="Avenir Next Bold" size="21.0" />
          </font>

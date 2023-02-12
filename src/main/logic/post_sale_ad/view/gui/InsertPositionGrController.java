@@ -33,7 +33,6 @@ public class InsertPositionGrController {
     private ImageView imgHome;
     @FXML
     private Button btnCheckPosition;
-
     @FXML
     private Button btnConfirm;
     @FXML
@@ -95,13 +94,15 @@ public class InsertPositionGrController {
             btnConfirm.setDisable(true);
             btnCheckPosition.setDisable(true);
             this.finalizeUseCase(stage);
-        } catch (IOException ioEx) {advice.setText(MESSAGE);
-            System.err.println(ioEx.getMessage());}
-        catch(SQLException sqlEx){System.err.println(sqlEx.getMessage());
-        advice.setText(MESSAGE);}
-        catch(ConnectionDBException connEx){advice.setText(MESSAGE);
-            System.err.println(connEx.getMessage());}}
-
+        } catch (IOException ioEx) {
+            advice.setText(MESSAGE);
+            System.err.println(ioEx.getMessage());
+        } catch (SQLException sqlEx) {
+            advice.setText(MESSAGE);
+        } catch (ConnectionDBException connEx) {
+            advice.setText(MESSAGE);
+        }
+    }
         @FXML
         void imgHomeClick (MouseEvent event) throws IOException {
             FXMLLoader root = new FXMLLoader(getClass().getResource("/home/Home.fxml"));

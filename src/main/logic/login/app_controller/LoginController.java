@@ -31,12 +31,10 @@ public class LoginController {
             else {account = usingDB(credentials);}
             return this.updateSession(account);}
         catch (ConnectionDBException ex) {//it is launched in case of failed connection to the DB
-            System.err.println(ex.getMessage());
             return false;}
         catch (SQLException ex) {//it is launched in case of db query fail
             return false;}
         catch (ClassNotFoundException e) {//it is launched in case of fs query fail
-            System.err.println(e.getMessage());
             return false;}
         catch (IOException ioException) {//it is launched in case of fs query fail
             return false;}
