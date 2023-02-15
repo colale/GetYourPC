@@ -20,6 +20,7 @@ public class LoginController {
 
     public boolean authenticate(CredentialsInputBean credentials){
         try {
+            int a;
         Account account;
         FileInputStream propsInput = new FileInputStream("src/main/logic/resources/config.properties");
         Properties prop = new Properties();
